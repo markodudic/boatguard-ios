@@ -1,10 +1,3 @@
-//
-//  json.swift
-//  json
-//
-//  Created by Dan Kogai on 7/15/14.
-//  Copyright (c) 2014 Dan Kogai. All rights reserved.
-//
 import Foundation
 /// init
 public class JSON {
