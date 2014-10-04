@@ -80,31 +80,64 @@ class FirstViewController: UIViewController, UITextFieldDelegate, NSURLConnectio
         let obusettingsJSON  = JSON.fromURL(obusettingsURL)
         states.setObusettings(obusettingsJSON)
         
+        //obudata
+        let obudataURL        = "http://93.103.12.155:8080/boatguard/getdata?obuid="+String(obuid)
+        let obudataJSON       = JSON.fromURL(obudataURL)
+        states.setObudata(obudataJSON)
+        
         //obucomponents
         let obucomponentsURL  = "http://93.103.12.155:8080/boatguard/getobucomponents?obuid="+String(obuid)
         let obucomponentsJSON = JSON.fromURL(obucomponentsURL)
         states.setObucomponents(obucomponentsJSON)
         
-        //obudata
-        let obudataURL        = "http://93.103.12.155:8080/boatguard/getdata?obuid="+String(obuid)
-        let obudataJSON       = JSON.fromURL(obudataURL)
-        states.setObudata(obudataJSON)
+        self.handleComponents()
         self.tabBarController?.selectedIndex = 1
         self.handleAlarms()
 
         //refresh thread
         Async.background {
             while(true) {
-                sleep(300)
+                sleep(60)
                 states.setObudata(JSON.fromURL(obudataURL))
                 self.handleAlarms()
             }
         }
     }
+
+    func handleComponents() {
+        var idx = 0
+        for (i, v) in states.getObucomponents() {
+            if (v["show"].asInt == 1) {
+                self.handelComponent(idx)
+            }
+            idx++
+        }
+    }
     
+    func handelComponent(idx: Int) {
+        var json = states.getObucomponent(idx)
+        
+        var cell: UITableViewCell!
+        
+        if (json["type"].asString == "PUMP") {
+            cell = components.renderCellPump(json)
+        } else if (json["type"].asString == "ANCHOR") {
+            cell = components.renderCellAnchor(json)
+        } else if (json["type"].asString == "GEO") {
+            cell = components.renderCellGeo(json)
+        } else if (json["type"].asString == "ACCU") {
+            cell = components.renderCellAccu(json)
+        } else {
+            cell = components.renderCellUnknown(json)
+        }
+        components.addComponent(json["id_component"].asInt!, alarm: false, cell: cell)
+    }
+    
+    //ALARMS
     func handleAlarms() {
         var json = states.getObudata()
         for (i, v) in json["alarms"] {
+            components.setAlarm(v["id_alarm"].asInt!)
             self.displayAlarm(v["title"].asString!, message: v["message"].asString!)
         }
     }

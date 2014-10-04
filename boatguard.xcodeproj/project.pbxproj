@@ -12,6 +12,7 @@
 		9424502619D0AFB6004A496C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9424502519D0AFB6004A496C /* MapKit.framework */; };
 		9424502819D0B09F004A496C /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9424502719D0B09F004A496C /* ThirdViewController.swift */; };
 		9424502C19D3FA9C004A496C /* Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9424502B19D3FA9C004A496C /* Async.swift */; };
+		9459CD6A19E00EFF00B7FF4E /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9459CD6919E00EFF00B7FF4E /* Components.swift */; };
 		948DDF0B19C073F3006F5CBD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948DDF0A19C073F3006F5CBD /* AppDelegate.swift */; };
 		948DDF0D19C073F3006F5CBD /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948DDF0C19C073F3006F5CBD /* FirstViewController.swift */; };
 		948DDF0F19C073F3006F5CBD /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948DDF0E19C073F3006F5CBD /* SecondViewController.swift */; };
@@ -48,6 +49,7 @@
 		9424502519D0AFB6004A496C /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		9424502719D0B09F004A496C /* ThirdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
 		9424502B19D3FA9C004A496C /* Async.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Async.swift; sourceTree = SOURCE_ROOT; };
+		9459CD6919E00EFF00B7FF4E /* Components.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Components.swift; sourceTree = "<group>"; };
 		948DDF0519C073F3006F5CBD /* boatguard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = boatguard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		948DDF0919C073F3006F5CBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		948DDF0A19C073F3006F5CBD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 				9424502B19D3FA9C004A496C /* Async.swift */,
 				9424502119CF38DD004A496C /* Json.swift */,
 				9424502319D09E94004A496C /* States.swift */,
+				9459CD6919E00EFF00B7FF4E /* Components.swift */,
 				948DDF0A19C073F3006F5CBD /* AppDelegate.swift */,
 				948DDF0C19C073F3006F5CBD /* FirstViewController.swift */,
 				948DDF0E19C073F3006F5CBD /* SecondViewController.swift */,
@@ -213,6 +216,7 @@
 				TargetAttributes = {
 					948DDF0419C073F3006F5CBD = {
 						CreatedOnToolsVersion = 6.0;
+						DevelopmentTeam = YXW7B79GC8;
 					};
 					948DDF1819C073F3006F5CBD = {
 						CreatedOnToolsVersion = 6.0;
@@ -276,6 +280,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				948DDF0F19C073F3006F5CBD /* SecondViewController.swift in Sources */,
+				9459CD6A19E00EFF00B7FF4E /* Components.swift in Sources */,
 				9424502219CF38DD004A496C /* Json.swift in Sources */,
 				9424502819D0B09F004A496C /* ThirdViewController.swift in Sources */,
 				9424502C19D3FA9C004A496C /* Async.swift in Sources */,
@@ -399,9 +404,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = boatguard/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -410,9 +419,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = boatguard/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

@@ -60,20 +60,10 @@ class States: NSObject {
     func getObucomponents() -> JSON {
         return obucomponents
     }
-    func countVisibleObucomponents() -> Int {
-        var visible = 0
-        for (i, v) in obucomponents {
-            if (v["show"].asInt == 1) {
-                visible++
-            }
-        }
-        return visible
-    }
     func getObucomponent(i: Int) -> JSON {
         return obucomponents[i]
     }
-    
-    
+
     func setObudata(data: JSON) {
         //update refresh time
         obudatadateTime = NSDate()
