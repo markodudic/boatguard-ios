@@ -170,6 +170,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="settings" id="acW-dT-cKf"/>
                     <connections>
+                        <outlet property="imgLogo" destination="cAf-6P-N84" id="YNV-3z-C6Q"/>
                         <outlet property="tblObusettings" destination="rCp-y0-ix9" id="P0z-D6-zJH"/>
                         <outlet property="txtObuid" destination="krR-Wp-fHj" id="EYZ-Vg-VyI"/>
                         <outlet property="txtPass" destination="dyP-MF-fpL" id="zDx-XQ-z4M"/>
@@ -221,6 +222,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="home" id="cPa-gy-q4n"/>
                     <connections>
+                        <outlet property="imgLogo" destination="WSD-MK-Ycv" id="EHZ-pq-K9B"/>
                         <outlet property="lblRefresh" destination="4Pj-aP-Rjd" id="ACt-gc-Skg"/>
                         <outlet property="tblDashboard" destination="in3-ey-KxE" id="pS5-ra-a1G"/>
                     </connections>
@@ -258,6 +260,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="location" id="Jik-c8-SM5"/>
                     <connections>
+                        <outlet property="imgLogo" destination="aR5-Ek-5rs" id="78J-Xl-ZWs"/>
                         <outlet property="theMapView" destination="94O-RO-MiB" id="aYd-bY-zib"/>
                     </connections>
                 </viewController>

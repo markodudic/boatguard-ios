@@ -12,23 +12,21 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     @IBOutlet var tblDashboard: UITableView!
     @IBOutlet var lblRefresh: UILabel!
+    @IBOutlet var imgLogo: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         self.lblRefresh.text = "LAST UPDATE: "+states.getObudatadateTime()
-
-        //anim thread
-        /*
-        Async.background {
-            while(true) {
-                sleep(5)
-                self.spawnCellAnimation()
-                dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                    self.tblDashboard.reloadData()
-                })
-            }
+        
+        if (states.isAlarm) {
+            imgLogo.image = UIImage(named: "logo_alarm")
+        } else {
+            imgLogo.image = UIImage(named: "logo")
         }
-        */
     }
     
     func onCellAnimation(cell: UITableViewCell) {

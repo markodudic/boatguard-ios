@@ -13,6 +13,7 @@ var states: States = States()
 class States: NSObject {
   
     var isBackground = false
+    var isAlarm      = false
     
     var login:JSON!
     var appsettings:JSON!
@@ -27,6 +28,13 @@ class States: NSObject {
     }
     func getIsBackground() -> Bool {
         return isBackground
+    }
+
+    func setIsAlarm(data: Bool) {
+        isAlarm = data
+    }
+    func getIsAlarm() -> Bool {
+        return isAlarm
     }
     
     func setLogin(data: JSON) {

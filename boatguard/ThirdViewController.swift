@@ -12,6 +12,7 @@ import MapKit
 class ThirdViewController: UIViewController, MKMapViewDelegate {
     
     @IBOutlet var theMapView: MKMapView!
+    @IBOutlet var imgLogo: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,6 +49,16 @@ class ThirdViewController: UIViewController, MKMapViewDelegate {
         var loginJSON = states.getLogin()
         theBoatLocation.title = loginJSON["obu"]["name"].asString!
         theMapView.addAnnotation(theBoatLocation)
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if (states.isAlarm) {
+            imgLogo.image = UIImage(named: "logo_alarm")
+        } else {
+            imgLogo.image = UIImage(named: "logo")
+        }
     }
     
     override func didReceiveMemoryWarning() {

@@ -18,6 +18,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate, NSURLConnectio
     @IBOutlet var viewDashboard: UIView!
     
     @IBOutlet var tblObusettings: UITableView!
+    @IBOutlet var imgLogo: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +34,11 @@ class FirstViewController: UIViewController, UITextFieldDelegate, NSURLConnectio
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        if (states.isAlarm) {
+            imgLogo.image = UIImage(named: "logo_alarm")
+        } else {
+            imgLogo.image = UIImage(named: "logo")
+        }
     }
 
     //Events
@@ -91,9 +97,9 @@ class FirstViewController: UIViewController, UITextFieldDelegate, NSURLConnectio
         states.setObucomponents(obucomponentsJSON)
         
         self.handleComponents()
-        self.tabBarController?.selectedIndex = 1
         self.handleAlarms()
-
+        self.tabBarController?.selectedIndex = 1
+        
         //refresh thread
         Async.background {
             while(true) {
@@ -135,8 +141,10 @@ class FirstViewController: UIViewController, UITextFieldDelegate, NSURLConnectio
     
     //ALARMS
     func handleAlarms() {
+        states.setIsAlarm(false)
         var json = states.getObudata()
         for (i, v) in json["alarms"] {
+            states.setIsAlarm(true)
             components.setAlarm(v["id_alarm"].asInt!)
             self.displayAlarm(v["title"].asString!, message: v["message"].asString!)
         }
