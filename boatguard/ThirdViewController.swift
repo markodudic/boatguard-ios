@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import Darwin
 
 class ThirdViewController: UIViewController, MKMapViewDelegate {
     
@@ -33,6 +34,18 @@ class ThirdViewController: UIViewController, MKMapViewDelegate {
         
         var lat:CLLocationDegrees = Double((sLat as NSString).doubleValue)/100 //45.506
         var lon:CLLocationDegrees = Double((sLon as NSString).doubleValue)/100 //13.596
+        
+        var lat_f = floor(lat)
+        var lon_f = floor(lon)
+        
+        var lat_left = lat-lat_f
+        var lon_left = lon-lon_f
+        
+        lat_left = lat_left*100/60
+        lon_left = lon_left*100/60
+        
+        lat = lat_f + lat_left
+        lon = lon_f + lon_left
         
         var latDelta:CLLocationDegrees = 0.5
         var lonDelta:CLLocationDegrees = 0.5

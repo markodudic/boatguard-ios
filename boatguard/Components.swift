@@ -51,7 +51,7 @@ class Components: NSObject {
     func renderCellUnknown(json: JSON) ->UITableViewCell {
         let cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "test")
         
-        cell.textLabel?.text = json["name"].asString
+        cell.textLabel.text = json["name"].asString
         cell.detailTextLabel?.text = json["value"].asString
         cell.backgroundColor = UIColor(red: CGFloat(0.886), green: CGFloat(0.888), blue: CGFloat(0.886), alpha: CGFloat(1))
         
@@ -60,11 +60,11 @@ class Components: NSObject {
     
     func renderCellPump(json: JSON) ->UITableViewCell {
         let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "test")
-        cell.textLabel?.text = json["name"].asString
+        cell.textLabel.text = json["name"].asString
         
         let data: JSON = states.getObudataBystate(json["id_component"].asInt!)
         cell.detailTextLabel?.text = data["value"].asString
-        cell.imageView?.image = UIImage(named: "ic_pump")
+        cell.imageView.image = UIImage(named: "ic_pump")
         cell.backgroundColor = UIColor(red: CGFloat(0.886), green: CGFloat(0.888), blue: CGFloat(0.886), alpha: CGFloat(1))
         
         return cell
@@ -72,34 +72,34 @@ class Components: NSObject {
     
     func renderCellAnchor(json: JSON) ->UITableViewCell {
         let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "test")
-        cell.textLabel?.text = json["name"].asString
+        cell.textLabel.text = json["name"].asString
         
         let data: JSON = states.getObudataBystate(json["id_component"].asInt!)
         println(data)
         cell.detailTextLabel?.text = data["value"].asString
-        cell.imageView?.image = UIImage(named: "ic_anchor")
+        cell.imageView.image = UIImage(named: "ic_anchor")
         cell.backgroundColor = UIColor(red: CGFloat(0.886), green: CGFloat(0.888), blue: CGFloat(0.886), alpha: CGFloat(1))
         return cell
     }
     
     func renderCellGeo(json: JSON) ->UITableViewCell {
         let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "test")
-        cell.textLabel?.text = json["name"].asString
+        cell.textLabel.text = json["name"].asString
         
         let data: JSON = states.getObudataBystate(json["id_component"].asInt!)
         cell.detailTextLabel?.text = data["value"].asString
-        cell.imageView?.image = UIImage(named: "ic_geo")
+        cell.imageView.image = UIImage(named: "ic_geo")
         cell.backgroundColor = UIColor(red: CGFloat(0.886), green: CGFloat(0.888), blue: CGFloat(0.886), alpha: CGFloat(1))
         return cell
     }
     
     func renderCellAccu(json: JSON) ->UITableViewCell {
         let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "test")
-        cell.textLabel?.text = json["name"].asString
+        cell.textLabel.text = json["name"].asString
         
         let data: JSON = states.getObudataBystate(json["id_component"].asInt!)
         cell.detailTextLabel?.text = data["value"].asString
-        cell.imageView?.image = UIImage(named: "ic_accu")
+        cell.imageView.image = UIImage(named: "ic_accu")
         cell.backgroundColor = UIColor(red: CGFloat(0.886), green: CGFloat(0.888), blue: CGFloat(0.886), alpha: CGFloat(1))
         return cell
     }
