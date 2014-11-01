@@ -43,7 +43,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate, NSURLConnectio
 
     //Events
     @IBAction func btnRegister_click(sender: UIButton) {
-        var urlPath: String = "http://93.103.12.155:8080/boatguard/login?type=register&username="+txtUser.text+"&password="+txtPass.text+"&obu_sn="+txtObuid.text+"&app_version=1"
+        var urlPath: String = settings.registerUri+"&username="+txtUser.text+"&password="+txtPass.text+"&obu_sn="+txtObuid.text+"&app_version=1"
         let json = JSON.fromURL(urlPath)
 
         if (json["error"].isDictionary){
@@ -57,7 +57,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate, NSURLConnectio
     }
 
     @IBAction func btnLogin_click(sender: UIButton) {
-        var urlPath: String = "http://93.103.12.155:8080/boatguard/login?type=login&username="+txtUser.text+"&password="+txtPass.text+"&obu_sn="+txtObuid.text+"&app_version=1"
+        var urlPath: String = settings.loginUri+"&username="+txtUser.text+"&password="+txtPass.text+"&obu_sn="+txtObuid.text+"&app_version=1"
         
         let json = JSON.fromURL(urlPath)
        
@@ -67,7 +67,8 @@ class FirstViewController: UIViewController, UITextFieldDelegate, NSURLConnectio
             self.presentViewController(alert, animated: true, completion: nil)
         } else {
             states.setLogin(json)
-            getobusettings(json["obu"]["uid"].asInt!)
+            states.setObuid(json["obu"]["uid"].asInt!)
+            getobusettings(states.getObuid())
         }
     }
     
@@ -77,24 +78,23 @@ class FirstViewController: UIViewController, UITextFieldDelegate, NSURLConnectio
         viewLogin.hidden = true
         
         //appsettings
-        let appsettingsURL   = "http://93.103.12.155:8080/boatguard/getsettings"
-        let appsettingsJSON  = JSON.fromURL(appsettingsURL)
+        let appsettingsJSON  = JSON.fromURL(settings.settingsUri)
         states.setAppsettings(appsettingsJSON)
         
         //obusettings
-        let obusettingsURL   = "http://93.103.12.155:8080/boatguard/getobusettings?format=json&obuid="+String(obuid)
+        let obusettingsURL   = settings.obusettingsUri+"?format=json&obuid="+String(obuid)
         let obusettingsJSON  = JSON.fromURL(obusettingsURL)
         states.setObusettings(obusettingsJSON)
         
-        //obudata
-        let obudataURL        = "http://93.103.12.155:8080/boatguard/getdata?obuid="+String(obuid)
-        let obudataJSON       = JSON.fromURL(obudataURL)
-        states.setObudata(obudataJSON)
-        
         //obucomponents
-        let obucomponentsURL  = "http://93.103.12.155:8080/boatguard/getobucomponents?obuid="+String(obuid)
+        let obucomponentsURL  = settings.obucomponentsUri+"?obuid="+String(obuid)
         let obucomponentsJSON = JSON.fromURL(obucomponentsURL)
         states.setObucomponents(obucomponentsJSON)
+        
+        //obudata
+        let obudataURL        = settings.obudataUri+"?obuid="+String(obuid)
+        let obudataJSON       = JSON.fromURL(obudataURL)
+        states.setObudata(obudataJSON)
         
         self.handleComponents()
         self.handleAlarms()
@@ -104,7 +104,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate, NSURLConnectio
         Async.background {
             while(true) {
                 sleep(60)
-                states.setObudata(JSON.fromURL(obudataURL))
+                states.setObudata(JSON.fromURL(settings.obudataUri+"?obuid="+String(obuid)))
                 self.handleAlarms()
             }
         }

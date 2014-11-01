@@ -14,8 +14,21 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet var lblRefresh: UILabel!
     @IBOutlet var imgLogo: UIImageView!
     
+    var refreshControl:UIRefreshControl!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.refreshControl = UIRefreshControl()
+        self.refreshControl.attributedTitle = NSAttributedString(string: "refreshing data")
+        self.refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
+        self.tblDashboard.addSubview(refreshControl)
+    }
+    
+    func refresh(sender:AnyObject) {
+        states.setObudata(JSON.fromURL(settings.obudataUri+"?obuid="+String(states.getObuid())))
+        self.lblRefresh.text = "LAST UPDATE: "+states.getObudatadateTime()
+        self.refreshControl.endRefreshing()
     }
     
     override func viewWillAppear(animated: Bool) {
