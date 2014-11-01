@@ -86,17 +86,37 @@ class States: NSObject {
         obudatadateTime = NSDate()
         obudata = data
     }
+    
     func getObudata() -> JSON {
         return obudata
     }
+    
     func getObudataBystate(id_state: Int) -> JSON {
         for (i, v) in obudata["states"] {
             if (v["id_state"].asInt == id_state) {
                 return v
             }
         }
-        //this shouldn happen
         return JSON([])
+    }
+
+    func getAlarmSettingsByState(id_state: Int) -> JSON {
+        for (i, v) in appsettings["alarms"] {
+            if (v["active"].asInt == 1 && v["id_state"].asInt == id_state) {
+                return v
+            }
+        }
+        return JSON([])
+    }
+    
+    func getComponentStates(id_component: Int) -> [JSON] {
+        var comp = [JSON]()
+        for (i, v) in appsettings["states"] {
+            if (v["id_component"].asInt == id_component) {
+                comp.append(v)
+            }
+        }
+        return comp
     }
     
     func getObudatadateTime() -> String {

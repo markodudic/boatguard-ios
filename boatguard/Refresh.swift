@@ -23,36 +23,7 @@ class Refresh: NSObject {
         self.handleAlarms()
         self.handleComponents()
     }
-    
-    func handleComponents() {
-        var idx = 0
-        for (i, v) in states.getObucomponents() {
-            if (v["show"].asInt == 1) {
-                self.handelComponent(idx)
-            }
-            idx++
-        }
-    }
-    
-    func handelComponent(idx: Int) {
-        var json = states.getObucomponent(idx)
-        
-        var cell: UITableViewCell!
-        
-        if (json["type"].asString == "PUMP") {
-            cell = components.renderCellPump(json)
-        } else if (json["type"].asString == "ANCHOR") {
-            cell = components.renderCellAnchor(json)
-        } else if (json["type"].asString == "GEO") {
-            cell = components.renderCellGeo(json)
-        } else if (json["type"].asString == "ACCU") {
-            cell = components.renderCellAccu(json)
-        } else {
-            cell = components.renderCellUnknown(json)
-        }
-        components.addComponent(json["id_component"].asInt!, alarm: false, cell: cell)
-    }
-    
+
     //ALARMS
     func handleAlarms() {
         states.setIsAlarm(false)
@@ -81,5 +52,35 @@ class Refresh: NSObject {
                 self.view.presentViewController(alert, animated: true, completion: nil)
             });
         }
+    }
+    
+    //COMPONENTS
+    func handleComponents() {
+        var idx = 0
+        for (i, v) in states.getObucomponents() {
+            if (v["show"].asInt == 1) {
+                self.handelComponent(idx)
+            }
+            idx++
+        }
+    }
+    
+    func handelComponent(idx: Int) {
+        var json = states.getObucomponent(idx)
+        
+        var cell: UITableViewCell!
+        
+        if (json["type"].asString == "PUMP") {
+            cell = components.renderCellPump(json)
+        } else if (json["type"].asString == "ANCHOR") {
+            cell = components.renderCellAnchor(json)
+        } else if (json["type"].asString == "GEO") {
+            cell = components.renderCellGeo(json)
+        } else if (json["type"].asString == "ACCU") {
+            cell = components.renderCellAccu(json)
+        } else {
+            cell = components.renderCellUnknown(json)
+        }
+        components.addComponent(json["id_component"].asInt!, alarm: false, cell: cell)
     }
 }

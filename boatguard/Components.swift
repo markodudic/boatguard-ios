@@ -49,58 +49,111 @@ class Components: NSObject {
     }
   
     func renderCellUnknown(json: JSON) ->UITableViewCell {
-        let cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "test")
-        
+        let cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "unknown")
         cell.textLabel.text = json["name"].asString
         cell.detailTextLabel?.text = json["value"].asString
         cell.backgroundColor = UIColor(red: CGFloat(0.886), green: CGFloat(0.888), blue: CGFloat(0.886), alpha: CGFloat(1))
-        
         return cell
     }
     
     func renderCellPump(json: JSON) ->UITableViewCell {
-        let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "test")
-        cell.textLabel.text = json["name"].asString
+        println("pump")
+        let component_states: [JSON] = states.getComponentStates(json["id_component"].asInt!)
+        var alarm: Bool = false
+        for component_state in component_states {
+            let component_data: JSON = states.getObudataBystate(component_state["id"].asInt!)
+            let component_alarm: JSON  = states.getAlarmSettingsByState(component_state["id"].asInt!)
+            if (calculate_alarm(component_state, data: component_data, alarm: component_alarm)) {
+                alarm = true
+            }
+            if (alarm) {
+                break
+            }
+        }
         
-        let data: JSON = states.getObudataBystate(json["id_component"].asInt!)
-        cell.detailTextLabel?.text = data["value"].asString
+        let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "pump")
+        cell.textLabel.text = json["name"].asString
+        //cell.detailTextLabel?.text =
         cell.imageView.image = UIImage(named: "ic_pump")
         cell.backgroundColor = UIColor(red: CGFloat(0.886), green: CGFloat(0.888), blue: CGFloat(0.886), alpha: CGFloat(1))
-        
         return cell
     }
     
     func renderCellAnchor(json: JSON) ->UITableViewCell {
-        let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "test")
-        cell.textLabel.text = json["name"].asString
+        println("anchor")
+        let component_states: [JSON] = states.getComponentStates(json["id_component"].asInt!)
+        var alarm: Bool = false
+        for component_state in component_states {
+            let component_data: JSON = states.getObudataBystate(component_state["id"].asInt!)
+            let component_alarm: JSON  = states.getAlarmSettingsByState(component_state["id"].asInt!)
+            if (calculate_alarm(component_state, data: component_data, alarm: component_alarm)) {
+                alarm = true
+            }
+            if (alarm) {
+                break
+            }
+        }
         
-        let data: JSON = states.getObudataBystate(json["id_component"].asInt!)
-        println(data)
-        cell.detailTextLabel?.text = data["value"].asString
+        let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "anchor")
+        cell.textLabel.text = json["name"].asString
+        //cell.detailTextLabel?.text =
         cell.imageView.image = UIImage(named: "ic_anchor")
         cell.backgroundColor = UIColor(red: CGFloat(0.886), green: CGFloat(0.888), blue: CGFloat(0.886), alpha: CGFloat(1))
         return cell
     }
     
     func renderCellGeo(json: JSON) ->UITableViewCell {
-        let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "test")
-        cell.textLabel.text = json["name"].asString
+        println("geo")
+        let component_states: [JSON] = states.getComponentStates(json["id_component"].asInt!)
+        var alarm: Bool = false
+        for component_state in component_states {
+            let component_data: JSON = states.getObudataBystate(component_state["id"].asInt!)
+            let component_alarm: JSON  = states.getAlarmSettingsByState(component_state["id"].asInt!)
+            if (calculate_alarm(component_state, data: component_data, alarm: component_alarm)) {
+                alarm = true
+            }
+            if (alarm) {
+                break
+            }
+        }
         
-        let data: JSON = states.getObudataBystate(json["id_component"].asInt!)
-        cell.detailTextLabel?.text = data["value"].asString
+        let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "geo")
+        cell.textLabel.text = json["name"].asString
+        //cell.detailTextLabel?.text =
         cell.imageView.image = UIImage(named: "ic_geo")
         cell.backgroundColor = UIColor(red: CGFloat(0.886), green: CGFloat(0.888), blue: CGFloat(0.886), alpha: CGFloat(1))
         return cell
     }
     
     func renderCellAccu(json: JSON) ->UITableViewCell {
-        let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "test")
+        println("accu")
+        let component_states: [JSON] = states.getComponentStates(json["id_component"].asInt!)
+        var alarm: Bool = false
+        for component_state in component_states {
+            let component_data: JSON = states.getObudataBystate(component_state["id"].asInt!)
+            let component_alarm: JSON  = states.getAlarmSettingsByState(component_state["id"].asInt!)
+            if (calculate_alarm(component_state, data: component_data, alarm: component_alarm)) {
+                alarm = true
+            }
+            if (alarm) {
+                break
+            }
+        }
+
+        let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "accu")
         cell.textLabel.text = json["name"].asString
-        
-        let data: JSON = states.getObudataBystate(json["id_component"].asInt!)
-        cell.detailTextLabel?.text = data["value"].asString
+        //cell.detailTextLabel?.text =
         cell.imageView.image = UIImage(named: "ic_accu")
         cell.backgroundColor = UIColor(red: CGFloat(0.886), green: CGFloat(0.888), blue: CGFloat(0.886), alpha: CGFloat(1))
         return cell
+    }
+    
+    func calculate_alarm(jcomp: JSON, data jdata: JSON, alarm jalarm:JSON) ->Bool {
+        println("---")
+        println(jcomp)
+        println(jdata)
+        println(jalarm)
+        
+        return true
     }
 }
