@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 bl4z. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 var settings: Settings = Settings()
 

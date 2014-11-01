@@ -96,8 +96,8 @@ class FirstViewController: UIViewController, UITextFieldDelegate, NSURLConnectio
         let obudataJSON       = JSON.fromURL(obudataURL)
         states.setObudata(obudataJSON)
         
-        self.handleComponents()
-        self.handleAlarms()
+        refresh.setView(self) //send view to refresh
+        refresh.process()
         self.tabBarController?.selectedIndex = 1
         
         //refresh thread
@@ -105,70 +105,11 @@ class FirstViewController: UIViewController, UITextFieldDelegate, NSURLConnectio
             while(true) {
                 sleep(60)
                 states.setObudata(JSON.fromURL(settings.obudataUri+"?obuid="+String(obuid)))
-                self.handleAlarms()
+                refresh.process()
             }
         }
     }
-
-    func handleComponents() {
-        var idx = 0
-        for (i, v) in states.getObucomponents() {
-            if (v["show"].asInt == 1) {
-                self.handelComponent(idx)
-            }
-            idx++
-        }
-    }
-    
-    func handelComponent(idx: Int) {
-        var json = states.getObucomponent(idx)
-        
-        var cell: UITableViewCell!
-        
-        if (json["type"].asString == "PUMP") {
-            cell = components.renderCellPump(json)
-        } else if (json["type"].asString == "ANCHOR") {
-            cell = components.renderCellAnchor(json)
-        } else if (json["type"].asString == "GEO") {
-            cell = components.renderCellGeo(json)
-        } else if (json["type"].asString == "ACCU") {
-            cell = components.renderCellAccu(json)
-        } else {
-            cell = components.renderCellUnknown(json)
-        }
-        components.addComponent(json["id_component"].asInt!, alarm: false, cell: cell)
-    }
-    
-    //ALARMS
-    func handleAlarms() {
-        states.setIsAlarm(false)
-        var json = states.getObudata()
-        for (i, v) in json["alarms"] {
-            states.setIsAlarm(true)
-            components.setAlarm(v["id_alarm"].asInt!)
-            self.displayAlarm(v["title"].asString!, message: v["message"].asString!)
-        }
-    }
-    
-    func displayAlarm(title: String, message: String) {
-        if (states.getIsBackground()) {
-            let notification: UILocalNotification = UILocalNotification()
-            notification.timeZone = NSTimeZone.defaultTimeZone()
-            
-            let dateTime = NSDate()
-            notification.fireDate    = dateTime
-            notification.alertBody   = title
-            notification.alertAction = message
-            UIApplication.sharedApplication().scheduleLocalNotification(notification)
-        } else {
-            dispatch_async(dispatch_get_main_queue(), {
-                var alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
-                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-                self.presentViewController(alert, animated: true, completion: nil)
-            });
-        }
-    }
-    
+  
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var json = states.getObusettings()
         return json.length
