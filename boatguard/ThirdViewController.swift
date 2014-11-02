@@ -23,8 +23,6 @@ class ThirdViewController: UIViewController, MKMapViewDelegate {
         var sLon:String = ""
         
         for (i, v) in json["states"] {
-            
-            println(v)
             if (v["id_state"].asInt == 11) {
                 sLon = v["value"].asString!
             } else if (v["id_state"].asInt == 12) {

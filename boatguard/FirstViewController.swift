@@ -97,13 +97,14 @@ class FirstViewController: UIViewController, UITextFieldDelegate, NSURLConnectio
         states.setObudata(obudataJSON)
         
         refresh.setView(self) //send view to refresh
+        refresh.addComponents() //add components to view
         refresh.process()
         self.tabBarController?.selectedIndex = 1
         
         //refresh thread
         Async.background {
             while(true) {
-                sleep(60)
+                sleep(300)
                 states.setObudata(JSON.fromURL(settings.obudataUri+"?obuid="+String(obuid)))
                 refresh.process()
             }

@@ -29,13 +29,10 @@ class Refresh: NSObject {
         }
     }
 
-    //ALARMS
+    //ALARMS for notification
     func handleAlarms() {
-        states.setIsAlarm(false)
         var json = states.getObudata()
         for (i, v) in json["alarms"] {
-            states.setIsAlarm(true)
-            components.setAlarm(v["id_alarm"].asInt!)
             self.displayAlarm(v["title"].asString!, message: v["message"].asString!)
         }
     }
@@ -59,13 +56,24 @@ class Refresh: NSObject {
         }
     }
     
-    //COMPONENTS
-    func handleComponents() {
+    //COMPONENTS for display
+    func addComponents() {
         var idx = 0
         components.removeAllComponents()
         for (i, v) in states.getObucomponents() {
             if (v["show"].asInt == 1) {
                 self.handelComponent(idx)
+                self.handleComponentAlarms(idx)
+            }
+            idx++
+        }
+    }
+    
+    func handleComponents() {
+        var idx = 0
+        for (i, v) in states.getObucomponents() {
+            if (v["show"].asInt == 1) {
+                self.handleComponentAlarms(idx)
             }
             idx++
         }
@@ -87,5 +95,21 @@ class Refresh: NSObject {
             cell = components.renderCellUnknown(json)
         }
         components.addComponent(json["id_component"].asInt!, alarm: false, cell: cell)
+    }
+    
+    func handleComponentAlarms(idx: Int) {
+        var json = states.getObucomponent(idx)
+        
+        if (json["type"].asString == "PUMP") {
+            components.alarmCellPump(json)
+        } else if (json["type"].asString == "ANCHOR") {
+            components.alarmCellAnchor(json)
+        } else if (json["type"].asString == "GEO") {
+            components.alarmCellGeo(json)
+        } else if (json["type"].asString == "ACCU") {
+            components.alarmCellAccu(json)
+        } else {
+            components.alarmCellUnknown(json)
+        }
     }
 }

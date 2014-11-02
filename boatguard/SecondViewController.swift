@@ -19,19 +19,27 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //trigger data refresh
         self.refreshControl = UIRefreshControl()
         self.refreshControl.attributedTitle = NSAttributedString(string: "refreshing data")
         self.refreshControl.addTarget(self, action: "refreshData:", forControlEvents: UIControlEvents.ValueChanged)
         self.tblDashboard.addSubview(refreshControl)
     }
     
+    //refresh via pull
     func refreshData(sender:AnyObject) {
         states.setObudata(JSON.fromURL(settings.obudataUri+"?obuid="+String(states.getObuid())))
         self.lblRefresh.text = "LAST UPDATE: "+states.getObudatadateTime()
-        self.refreshControl.endRefreshing()
         refresh.process()
+        if (states.isAlarm) {
+            imgLogo.image = UIImage(named: "logo_alarm")
+        } else {
+            imgLogo.image = UIImage(named: "logo")
+        }
+        self.refreshControl.endRefreshing()
     }
-    
+
+    //first time & on tab open
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.lblRefresh.text = "LAST UPDATE: "+states.getObudatadateTime()

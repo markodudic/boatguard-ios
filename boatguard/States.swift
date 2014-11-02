@@ -14,7 +14,6 @@ class States: NSObject {
   
     var isBackground = false
     var isAlarm      = false
-    
     var obuid        = 0
     
     var login:JSON!
@@ -32,9 +31,14 @@ class States: NSObject {
         return isBackground
     }
 
-    func setIsAlarm(data: Bool) {
-        isAlarm = data
+    func setIsAlarmOn() {
+        isAlarm = true
     }
+
+    func setIsAlarmOff() {
+        isAlarm = false
+    }
+    
     func getIsAlarm() -> Bool {
         return isAlarm
     }
@@ -100,9 +104,9 @@ class States: NSObject {
         return JSON([])
     }
 
-    func getAlarmSettingsByState(id_state: Int) -> JSON {
+    func getAlarmSettingsById(id: Int) -> JSON {
         for (i, v) in appsettings["alarms"] {
-            if (v["active"].asInt == 1 && v["id_state"].asInt == id_state) {
+            if (v["active"].asInt == 1 && v["id"].asInt == id) {
                 return v
             }
         }
