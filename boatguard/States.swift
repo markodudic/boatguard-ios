@@ -120,6 +120,8 @@ class States: NSObject {
     }
     
     func getObudatadateTime() -> String {
-        return obudatadateTime.description
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "dd.MM.yyyy hh:mm:ss"
+        return dateFormatter.stringFromDate(obudatadateTime)
     }
 }

@@ -28,6 +28,10 @@ class Components: NSObject {
         comps.append(c);
     }
     
+    func removeAllComponents() -> Void {
+        comps = []
+    }
+    
     func getComponents() -> [comp] {
         return comps
     }

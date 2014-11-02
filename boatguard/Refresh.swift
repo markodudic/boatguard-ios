@@ -14,14 +14,19 @@ var refresh: Refresh = Refresh()
 class Refresh: NSObject {
     
     var view: UIViewController!
+    var refreshSemaphoreGo: Bool = true
     
     func setView(v: UIViewController) -> Void {
         view = v
     }
     
     func process() -> Void {
-        self.handleAlarms()
-        self.handleComponents()
+        if (refreshSemaphoreGo) {
+            refreshSemaphoreGo = false
+            self.handleAlarms()
+            self.handleComponents()
+            refreshSemaphoreGo = true
+        }
     }
 
     //ALARMS
@@ -57,6 +62,7 @@ class Refresh: NSObject {
     //COMPONENTS
     func handleComponents() {
         var idx = 0
+        components.removeAllComponents()
         for (i, v) in states.getObucomponents() {
             if (v["show"].asInt == 1) {
                 self.handelComponent(idx)
@@ -67,7 +73,6 @@ class Refresh: NSObject {
     
     func handelComponent(idx: Int) {
         var json = states.getObucomponent(idx)
-        
         var cell: UITableViewCell!
         
         if (json["type"].asString == "PUMP") {
