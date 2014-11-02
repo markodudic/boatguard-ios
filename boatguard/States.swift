@@ -31,12 +31,8 @@ class States: NSObject {
         return isBackground
     }
 
-    func setIsAlarmOn() {
-        isAlarm = true
-    }
-
-    func setIsAlarmOff() {
-        isAlarm = false
+    func setIsAlarm(data: Bool) {
+        isAlarm = data
     }
     
     func getIsAlarm() -> Bool {
@@ -46,6 +42,7 @@ class States: NSObject {
     func setObuid(data: Int) {
         obuid = data
     }
+    
     func getObuid() -> Int {
         return obuid
     }
@@ -53,6 +50,7 @@ class States: NSObject {
     func setLogin(data: JSON) {
         login = data
     }
+    
     func getLogin() -> JSON {
         return login
     }
@@ -60,6 +58,7 @@ class States: NSObject {
     func setAppsettings(data: JSON) {
         appsettings = data
     }
+    
     func getAppsettings() -> JSON {
         return appsettings
     }
@@ -67,6 +66,7 @@ class States: NSObject {
     func setObusettings(data: JSON) {
         obusettings = data
     }
+    
     func getObusettings() -> JSON {
         if (obusettings == nil) {
             return JSON([])
@@ -78,9 +78,11 @@ class States: NSObject {
     func setObucomponents(data: JSON) {
         obucomponents = data
     }
+    
     func getObucomponents() -> JSON {
         return obucomponents
     }
+    
     func getObucomponent(i: Int) -> JSON {
         return obucomponents[i]
     }
@@ -95,7 +97,7 @@ class States: NSObject {
         return obudata
     }
     
-    func getObudataBystate(id_state: Int) -> JSON {
+    func getObudataByIdState(id_state: Int) -> JSON {
         for (i, v) in obudata["states"] {
             if (v["id_state"].asInt == id_state) {
                 return v
@@ -104,9 +106,9 @@ class States: NSObject {
         return JSON([])
     }
 
-    func getAlarmSettingsById(id: Int) -> JSON {
+    func getAlarmSettingsByIdState(id_state: Int) -> JSON {
         for (i, v) in appsettings["alarms"] {
-            if (v["active"].asInt == 1 && v["id"].asInt == id) {
+            if (v["active"].asInt == 1 && v["id_state"].asInt == id_state) {
                 return v
             }
         }

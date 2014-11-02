@@ -29,7 +29,7 @@ class Components: NSObject {
     }
     
     func removeAllComponents() -> Void {
-        states.setIsAlarmOff()
+        states.setIsAlarm(false)
         comps = []
     }
     
@@ -48,8 +48,7 @@ class Components: NSObject {
     func setAlarm(id: Int) {
         println("#########################################################alarm for component:")
         println(id)
-        states.setIsAlarmOn()
-        //not erxists ATM
+        states.setIsAlarm(true)
         for c in comps {
             if (c.id == id) {
                 c.alarm = true
@@ -83,8 +82,8 @@ class Components: NSObject {
         println(json["id_component"].asInt)
         let component_states: [JSON] = states.getComponentStates(json["id_component"].asInt!)
         for component_state in component_states {
-            let component_data: JSON = states.getObudataBystate(component_state["id"].asInt!)
-            let component_alarm: JSON  = states.getAlarmSettingsById(component_state["id"].asInt!)
+            let component_data: JSON = states.getObudataByIdState(component_state["id"].asInt!)
+            let component_alarm: JSON  = states.getAlarmSettingsByIdState(component_state["id"].asInt!)
             if (calculate_alarm(component_state, data: component_data, alarm: component_alarm) == true) {
                 setAlarm(json["id_component"].asInt!)
                 return true
@@ -107,8 +106,8 @@ class Components: NSObject {
         println(json["id_component"].asInt)
         let component_states: [JSON] = states.getComponentStates(json["id_component"].asInt!)
         for component_state in component_states {
-            let component_data: JSON = states.getObudataBystate(component_state["id"].asInt!)
-            let component_alarm: JSON  = states.getAlarmSettingsById(component_state["id"].asInt!)
+            let component_data: JSON = states.getObudataByIdState(component_state["id"].asInt!)
+            let component_alarm: JSON  = states.getAlarmSettingsByIdState(component_state["id"].asInt!)
             if (calculate_alarm(component_state, data: component_data, alarm: component_alarm) == true) {
                 setAlarm(json["id_component"].asInt!)
                 return true
@@ -131,8 +130,8 @@ class Components: NSObject {
         println(json["id_component"].asInt)
         let component_states: [JSON] = states.getComponentStates(json["id_component"].asInt!)
         for component_state in component_states {
-            let component_data: JSON = states.getObudataBystate(component_state["id"].asInt!)
-            let component_alarm: JSON  = states.getAlarmSettingsById(component_state["id"].asInt!)
+            let component_data: JSON = states.getObudataByIdState(component_state["id"].asInt!)
+            let component_alarm: JSON  = states.getAlarmSettingsByIdState(component_state["id"].asInt!)
             if (calculate_alarm(component_state, data: component_data, alarm: component_alarm) == true) {
                 setAlarm(json["id_component"].asInt!)
                 return true
@@ -155,8 +154,8 @@ class Components: NSObject {
         println(json["id_component"].asInt)
         let component_states: [JSON] = states.getComponentStates(json["id_component"].asInt!)
         for component_state in component_states {
-            let component_data: JSON = states.getObudataBystate(component_state["id"].asInt!)
-            let component_alarm: JSON  = states.getAlarmSettingsById(component_state["id"].asInt!)
+            let component_data: JSON = states.getObudataByIdState(component_state["id"].asInt!)
+            let component_alarm: JSON  = states.getAlarmSettingsByIdState(component_state["id"].asInt!)
             if (calculate_alarm(component_state, data: component_data, alarm: component_alarm) == true) {
                 println("+++alarm ACCU")
                 setAlarm(json["id_component"].asInt!)

@@ -19,12 +19,43 @@ class Refresh: NSObject {
     func setView(v: UIViewController) -> Void {
         view = v
     }
+
+    //COMPONENTS for display
+    func addComponents() {
+        var idx = 0
+        components.removeAllComponents()
+        for (i, v) in states.getObucomponents() {
+            if (v["show"].asInt == 1) {
+                handelComponent(idx)
+            }
+            idx++
+        }
+    }
     
+    func handelComponent(idx: Int) {
+        var json = states.getObucomponent(idx)
+        var cell: UITableViewCell!
+        
+        if (json["type"].asString == "PUMP") {
+            cell = components.renderCellPump(json)
+        } else if (json["type"].asString == "ANCHOR") {
+            cell = components.renderCellAnchor(json)
+        } else if (json["type"].asString == "GEO") {
+            cell = components.renderCellGeo(json)
+        } else if (json["type"].asString == "ACCU") {
+            cell = components.renderCellAccu(json)
+        } else {
+            cell = components.renderCellUnknown(json)
+        }
+        components.addComponent(json["id_component"].asInt!, alarm: false, cell: cell)
+    }
+    
+    //proces recived JSON
     func process() -> Void {
         if (refreshSemaphoreGo) {
             refreshSemaphoreGo = false
-            self.handleAlarms()
-            self.handleComponents()
+            handleAlarms()
+            handleComponents()
             refreshSemaphoreGo = true
         }
     }
@@ -56,45 +87,15 @@ class Refresh: NSObject {
         }
     }
     
-    //COMPONENTS for display
-    func addComponents() {
-        var idx = 0
-        components.removeAllComponents()
-        for (i, v) in states.getObucomponents() {
-            if (v["show"].asInt == 1) {
-                self.handelComponent(idx)
-                self.handleComponentAlarms(idx)
-            }
-            idx++
-        }
-    }
-    
+    //COMPONENTS for alarms
     func handleComponents() {
         var idx = 0
         for (i, v) in states.getObucomponents() {
             if (v["show"].asInt == 1) {
-                self.handleComponentAlarms(idx)
+                handleComponentAlarms(idx)
             }
             idx++
         }
-    }
-    
-    func handelComponent(idx: Int) {
-        var json = states.getObucomponent(idx)
-        var cell: UITableViewCell!
-        
-        if (json["type"].asString == "PUMP") {
-            cell = components.renderCellPump(json)
-        } else if (json["type"].asString == "ANCHOR") {
-            cell = components.renderCellAnchor(json)
-        } else if (json["type"].asString == "GEO") {
-            cell = components.renderCellGeo(json)
-        } else if (json["type"].asString == "ACCU") {
-            cell = components.renderCellAccu(json)
-        } else {
-            cell = components.renderCellUnknown(json)
-        }
-        components.addComponent(json["id_component"].asInt!, alarm: false, cell: cell)
     }
     
     func handleComponentAlarms(idx: Int) {
