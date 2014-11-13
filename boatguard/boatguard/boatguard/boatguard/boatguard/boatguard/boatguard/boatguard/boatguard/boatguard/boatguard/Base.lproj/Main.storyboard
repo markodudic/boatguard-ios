@@ -156,7 +156,6 @@
                                         <fontDescription key="fontDescription" name="Dosis-SemiBold" family="Dosis" pointSize="24"/>
                                         <color key="textColor" red="0.20000000000000001" green="0.24313725490196078" blue="0.28235294117647058" alpha="1" colorSpace="deviceRGB"/>
                                         <nil key="highlightedColor"/>
-                                        <size key="shadowOffset" width="0.0" height="0.0"/>
                                     </label>
                                 </subviews>
                             </view>

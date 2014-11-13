@@ -29,16 +29,16 @@ class FirstViewController: UIViewController, UITextFieldDelegate, NSURLConnectio
         //dedolt login
         txtUser.text = "marko"
         txtPass.text = "dudic"
-        txtObuid.text = "123456"
+        txtObuid.text = "12345"
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        if (states.isAlarm) {
+        /*if (states.isAlarm) {
             imgLogo.image = UIImage(named: "logo_alarm")
         } else {
             imgLogo.image = UIImage(named: "logo")
-        }
+        }*/
     }
 
     //Events
