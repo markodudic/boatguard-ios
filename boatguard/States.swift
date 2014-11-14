@@ -127,7 +127,24 @@ class States: NSObject {
     
     func getObudatadateTime() -> String {
         let dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "dd.MM.yyyy hh:mm:ss"
-        return dateFormatter.stringFromDate(obudatadateTime)
+        dateFormatter.dateFormat = "MMM/dd/yyyy hh:mm"
+        var d:String!
+        var v = obudata["states"]
+        for (i, v) in obudata["states"] {
+            if (v["id_state"].asInt == 1) {
+                println(v["dateState"])
+                d = v["dateState"].asString!
+            }
+        }
+        return dateFormatter.stringFromDate(Date.parse(d)).uppercaseString
+    }
+}
+
+class Date {
+    class func parse(dateStr:String, format:String="MMM d, yyyy hh:mm:ss aaa") -> NSDate {
+        var dateFmt = NSDateFormatter()
+        dateFmt.timeZone = NSTimeZone.defaultTimeZone()
+        dateFmt.dateFormat = format
+        return dateFmt.dateFromString(dateStr)!
     }
 }

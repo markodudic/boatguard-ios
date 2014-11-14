@@ -17,7 +17,6 @@ class ThirdViewController: UIViewController, MKMapViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         var json = states.getObudata()
         var sLat:String = ""
         var sLon:String = ""
@@ -65,11 +64,11 @@ class ThirdViewController: UIViewController, MKMapViewDelegate {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        if (states.isAlarm) {
+        /*if (states.isAlarm) {
             imgLogo.image = UIImage(named: "logo_alarm")
         } else {
             imgLogo.image = UIImage(named: "logo")
-        }
+        }*/
     }
     
     override func didReceiveMemoryWarning() {
