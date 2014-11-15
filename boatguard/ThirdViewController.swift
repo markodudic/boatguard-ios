@@ -15,6 +15,11 @@ class ThirdViewController: UIViewController, MKMapViewDelegate {
     @IBOutlet var theMapView: MKMapView!
     @IBOutlet var imgLogo: UIImageView!
     
+    //Events
+    @IBAction func btnBack_click(sender: UIButton) {
+        self.tabBarController?.selectedIndex = 1
+    }
+            
     override func viewDidLoad() {
         super.viewDidLoad()
         var json = states.getObudata()
