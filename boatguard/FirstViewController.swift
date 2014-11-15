@@ -25,8 +25,11 @@ class FirstViewController: UIViewController, UITextFieldDelegate, NSURLConnectio
         // Do any additional setup after loading the view, typically from a nib.
         self.tabBarController?.tabBar.hidden = true
         viewDashboard.hidden = true
+
+        //set toolbar highlighting color
+        self.tabBarController?.tabBar.tintColor = UIColor(red: CGFloat(0.607843), green: CGFloat(0.607843), blue: CGFloat(0.607843), alpha: CGFloat(1))
         
-        //dedolt login
+        //test login
         txtUser.text = "marko"
         txtPass.text = "dudic"
         txtObuid.text = "12345"
