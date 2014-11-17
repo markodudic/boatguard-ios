@@ -71,7 +71,6 @@ class Components: NSObject {
     func renderCellPump(json: JSON) ->UITableViewCell {
         let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "pump")
         cell.textLabel.text = json["name"].asString
-        //cell.detailTextLabel?.text =
         cell.imageView.image = UIImage(named: "ic_pump")
         cell.backgroundColor = UIColor(red: CGFloat(0.886), green: CGFloat(0.888), blue: CGFloat(0.886), alpha: CGFloat(1))
         return cell
@@ -95,7 +94,6 @@ class Components: NSObject {
     func renderCellAnchor(json: JSON) ->UITableViewCell {
         let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "anchor")
         cell.textLabel.text = json["name"].asString
-        //cell.detailTextLabel?.text =
         cell.imageView.image = UIImage(named: "ic_anchor")
         cell.backgroundColor = UIColor(red: CGFloat(0.886), green: CGFloat(0.888), blue: CGFloat(0.886), alpha: CGFloat(1))
         return cell
@@ -119,7 +117,6 @@ class Components: NSObject {
     func renderCellGeo(json: JSON) ->UITableViewCell {
         let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "geo")
         cell.textLabel.text = json["name"].asString
-        //cell.detailTextLabel?.text =
         cell.imageView.image = UIImage(named: "ic_geo")
         cell.backgroundColor = UIColor(red: CGFloat(0.886), green: CGFloat(0.888), blue: CGFloat(0.886), alpha: CGFloat(1))
         return cell
@@ -143,7 +140,6 @@ class Components: NSObject {
     func renderCellAccu(json: JSON) ->UITableViewCell {
         let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "accu")
         cell.textLabel.text = json["name"].asString
-        //cell.detailTextLabel?.text =
         cell.imageView.image = UIImage(named: "ic_accu")
         cell.backgroundColor = UIColor(red: CGFloat(0.886), green: CGFloat(0.888), blue: CGFloat(0.886), alpha: CGFloat(1))
         return cell

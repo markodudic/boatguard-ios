@@ -18,6 +18,9 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        //show toolbar
+        self.tabBarController?.tabBar.hidden = false
         
         //trigger data refresh
         self.refreshControl = UIRefreshControl()
@@ -42,6 +45,9 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     //first time & on tab open
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        
+        //show toolbar
+        self.tabBarController?.tabBar.hidden = false
         self.lblRefresh.text = "LAST UPDATE: "+states.getObudatadateTime()
         
         if (states.isAlarm) {
@@ -80,9 +86,10 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let comp = components.getComponent(indexPath.row)
+        var cell = comp.cell;
         if (comp.alarm) {
-            self.onCellAnimation(comp.cell)
+            self.onCellAnimation(cell)
         }
-        return comp.cell
+        return cell
     }
 }

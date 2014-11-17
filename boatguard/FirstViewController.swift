@@ -14,17 +14,27 @@ class FirstViewController: UIViewController, UITextFieldDelegate, NSURLConnectio
     @IBOutlet var txtPass: UITextField!
     @IBOutlet var txtObuid: UITextField!
     
+    @IBOutlet var viewLoginTitle: UIView!
+    @IBOutlet var viewDashboardTitle: UIView!
     @IBOutlet var viewLogin: UIView!
     @IBOutlet var viewDashboard: UIView!
     
     @IBOutlet var tblObusettings: UITableView!
     @IBOutlet var imgLogo: UIImageView!
     
+    
+    //Events
+    @IBAction func btnBack_click(sender: UIButton) {
+        self.tabBarController?.selectedIndex = 1
+        self.tabBarController?.tabBar.hidden = false
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+
         // Do any additional setup after loading the view, typically from a nib.
-        self.tabBarController?.tabBar.hidden = true
         viewDashboard.hidden = true
+        viewDashboardTitle.hidden = true
 
         //set toolbar highlighting color
         self.tabBarController?.tabBar.tintColor = UIColor(red: CGFloat(0.607843), green: CGFloat(0.607843), blue: CGFloat(0.607843), alpha: CGFloat(1))
@@ -37,6 +47,8 @@ class FirstViewController: UIViewController, UITextFieldDelegate, NSURLConnectio
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.hidden = true
+        
         /*if (states.isAlarm) {
             imgLogo.image = UIImage(named: "logo_alarm")
         } else {
@@ -77,7 +89,10 @@ class FirstViewController: UIViewController, UITextFieldDelegate, NSURLConnectio
     
     func getobusettings(obuid: Int) {
         self.tabBarController?.tabBar.hidden = false
+        viewDashboardTitle.hidden = false
         viewDashboard.hidden = false
+
+        viewLoginTitle.hidden = true
         viewLogin.hidden = true
         
         //appsettings

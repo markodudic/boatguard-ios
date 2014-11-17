@@ -18,10 +18,12 @@ class ThirdViewController: UIViewController, MKMapViewDelegate {
     //Events
     @IBAction func btnBack_click(sender: UIButton) {
         self.tabBarController?.selectedIndex = 1
+        self.tabBarController?.tabBar.hidden = false
     }
             
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         var json = states.getObudata()
         var sLat:String = ""
         var sLon:String = ""
@@ -68,6 +70,7 @@ class ThirdViewController: UIViewController, MKMapViewDelegate {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.hidden = true
         
         /*if (states.isAlarm) {
             imgLogo.image = UIImage(named: "logo_alarm")
