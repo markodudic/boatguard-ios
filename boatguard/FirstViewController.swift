@@ -31,7 +31,15 @@ class FirstViewController: UIViewController, UITextFieldDelegate, NSURLConnectio
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        //add gradients
+        viewDashboard.backgroundColor = UIColor(red: CGFloat(0.753), green: CGFloat(0.255), blue: CGFloat(0.106), alpha: CGFloat(1))
+        
+        var gl = CAGradientLayer()
+        gl.colors = [settings.gradientTop, settings.gradientBottom]
+        gl.locations = [0.0, 1.0]
+        gl.frame = CGRectMake(0,0,320,10)
+        viewLogin.layer.insertSublayer(gl, atIndex: 0)
+        
         // Do any additional setup after loading the view, typically from a nib.
         viewDashboard.hidden = true
         viewDashboardTitle.hidden = true
