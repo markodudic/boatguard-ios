@@ -15,6 +15,7 @@
 		943E1E6F1A04EBE9008FF404 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943E1E6E1A04EBE9008FF404 /* Settings.swift */; };
 		943E1E711A0500D4008FF404 /* Refresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943E1E701A0500D4008FF404 /* Refresh.swift */; };
 		9459CD6A19E00EFF00B7FF4E /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9459CD6919E00EFF00B7FF4E /* Components.swift */; };
+		946664561A1A68330073028A /* ComponentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946664551A1A68330073028A /* ComponentCell.swift */; };
 		948DDF0B19C073F3006F5CBD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948DDF0A19C073F3006F5CBD /* AppDelegate.swift */; };
 		948DDF0D19C073F3006F5CBD /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948DDF0C19C073F3006F5CBD /* FirstViewController.swift */; };
 		948DDF0F19C073F3006F5CBD /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948DDF0E19C073F3006F5CBD /* SecondViewController.swift */; };
@@ -54,6 +55,7 @@
 		943E1E6E1A04EBE9008FF404 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		943E1E701A0500D4008FF404 /* Refresh.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Refresh.swift; sourceTree = "<group>"; };
 		9459CD6919E00EFF00B7FF4E /* Components.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Components.swift; sourceTree = "<group>"; };
+		946664551A1A68330073028A /* ComponentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ComponentCell.swift; path = ../ComponentCell.swift; sourceTree = "<group>"; };
 		948DDF0519C073F3006F5CBD /* boatguard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = boatguard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		948DDF0919C073F3006F5CBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		948DDF0A19C073F3006F5CBD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 				943E1E6E1A04EBE9008FF404 /* Settings.swift */,
 				943E1E701A0500D4008FF404 /* Refresh.swift */,
 				9459CD6919E00EFF00B7FF4E /* Components.swift */,
+				946664551A1A68330073028A /* ComponentCell.swift */,
 				948DDF0A19C073F3006F5CBD /* AppDelegate.swift */,
 				948DDF0C19C073F3006F5CBD /* FirstViewController.swift */,
 				948DDF0E19C073F3006F5CBD /* SecondViewController.swift */,
@@ -294,6 +297,7 @@
 				943E1E6F1A04EBE9008FF404 /* Settings.swift in Sources */,
 				943E1E711A0500D4008FF404 /* Refresh.swift in Sources */,
 				948DDF0B19C073F3006F5CBD /* AppDelegate.swift in Sources */,
+				946664561A1A68330073028A /* ComponentCell.swift in Sources */,
 				948DDF0D19C073F3006F5CBD /* FirstViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

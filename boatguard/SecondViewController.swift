@@ -41,6 +41,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.refreshControl = UIRefreshControl()
         self.refreshControl.attributedTitle = NSAttributedString(string: "refreshing data")
         self.refreshControl.addTarget(self, action: "refreshData:", forControlEvents: UIControlEvents.ValueChanged)
+        
         self.tblDashboard.addSubview(refreshControl)
     }
     
@@ -71,25 +72,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
             imgLogo.image = UIImage(named: "logo")
         }
     }
-    
-    func onCellAnimation(cell: UITableViewCell) {
-        UIView.animateWithDuration(2, animations: {
-            cell.backgroundColor = UIColor(red: CGFloat(0.753), green: CGFloat(0.255), blue: CGFloat(0.106), alpha: CGFloat(1))
-            }, completion: {
-                (value: Bool) in
-                self.offCellAnimation(cell)
-        })
-    }
-    
-    func offCellAnimation(cell: UITableViewCell) {
-        UIView.animateWithDuration(2, animations: {
-            cell.backgroundColor = UIColor(red: CGFloat(0.886), green: CGFloat(0.886), blue: CGFloat(0.886), alpha: CGFloat(1))
-            }, completion: {
-                (value: Bool) in
-                self.onCellAnimation(cell)
-        })
-    }
-    
+   
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -100,11 +83,16 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let comp = components.getComponent(indexPath.row)
+        /*
+        let comp = components.getComponent(indexPath.row, tableView)
         var cell = comp.cell;
         if (comp.alarm) {
             self.onCellAnimation(cell)
         }
+        return cell
+        */
+        
+        let cell = components.getComponent(indexPath.row, tableView: tableView)
         return cell
     }
 }

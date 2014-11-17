@@ -37,8 +37,15 @@ class Components: NSObject {
         return comps
     }
     
-    func getComponent(idx: Int) -> comp {
-        return comps[idx]
+    func getComponent(idx: Int, tableView: UITableView) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier("ComponentCell") as ComponentCell
+        cell.lbl.text = "LABEL"
+        cell.img.image = UIImage(named: "ic_pump")
+        cell.onCellAnimation()
+        return cell
+        
+        //return comps[idx]
     }
     
     func getComponentsCount() -> Int {

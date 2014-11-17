@@ -24,6 +24,7 @@
             <string>Dosis-Regular</string>
             <string>Dosis-Regular</string>
             <string>Dosis-Regular</string>
+            <string>Dosis-Regular</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -244,6 +245,32 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.90980398650000005" green="0.90588241820000004" blue="0.90980398650000005" alpha="1" colorSpace="deviceRGB"/>
                                         <color key="sectionIndexBackgroundColor" red="0.90980398650000005" green="0.90588241820000004" blue="0.90980398650000005" alpha="1" colorSpace="deviceRGB"/>
+                                        <prototypes>
+                                            <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="0.0" shouldIndentWhileEditing="NO" reuseIdentifier="ComponentCell" id="pNE-HE-LZY" customClass="ComponentCell" customModule="boatguard" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pNE-HE-LZY" id="gJW-MY-uxp">
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Y1p-pz-zdr">
+                                                            <rect key="frame" x="19" y="33" width="212" height="21"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" name="Dosis-Regular" family="Dosis" pointSize="17"/>
+                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="aBW-wP-AVX">
+                                                            <rect key="frame" x="239" y="8" width="73" height="71"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        </imageView>
+                                                    </subviews>
+                                                </tableViewCellContentView>
+                                                <connections>
+                                                    <outlet property="img" destination="aBW-wP-AVX" id="gAf-Vs-9BR"/>
+                                                    <outlet property="lbl" destination="Y1p-pz-zdr" id="O0H-K2-X56"/>
+                                                </connections>
+                                            </tableViewCell>
+                                        </prototypes>
                                         <connections>
                                             <outlet property="dataSource" destination="8rJ-Kc-sve" id="xX0-wL-6xC"/>
                                             <outlet property="delegate" destination="8rJ-Kc-sve" id="u4w-5Y-hph"/>
