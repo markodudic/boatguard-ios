@@ -14,11 +14,26 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet var lblRefresh: UILabel!
     @IBOutlet var imgLogo: UIImageView!
     
+    @IBOutlet var viewComponents: UIView!
+    
     var refreshControl:UIRefreshControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        //add gradients
+        let gl_top = CAGradientLayer()
+        gl_top.colors = [settings.gradientTop, settings.gradientBottom]
+        gl_top.locations = [0.0, 1.0]
+        gl_top.frame = CGRectMake(0,0,320,10)
+        viewComponents.layer.insertSublayer(gl_top, atIndex: 0)
+
+        let gl_bottom = CAGradientLayer()
+        gl_bottom.colors = [settings.gradientBottom, settings.gradientTop]
+        gl_bottom.locations = [0.0, 1.0]
+        gl_bottom.frame = CGRectMake(0,viewComponents.layer.frame.height-10,320,10)
+        viewComponents.layer.insertSublayer(gl_bottom, atIndex: 0)
+        
         //show toolbar
         self.tabBarController?.tabBar.hidden = false
         
@@ -32,7 +47,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     //refresh via pull
     func refreshData(sender:AnyObject) {
         states.setObudata(JSON.fromURL(settings.obudataUri+"?obuid="+String(states.getObuid())))
-        self.lblRefresh.text = "L A S T   U P D A T E :  "+states.getObudatadateTime()
+        self.lblRefresh.text = "LAST UPDATE: "+states.getObudatadateTime()
         refresh.process()
         if (states.isAlarm) {
             imgLogo.image = UIImage(named: "logo_alarm")

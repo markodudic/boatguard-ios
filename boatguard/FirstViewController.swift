@@ -31,19 +31,20 @@ class FirstViewController: UIViewController, UITextFieldDelegate, NSURLConnectio
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //add gradients
-        viewDashboard.backgroundColor = UIColor(red: CGFloat(0.753), green: CGFloat(0.255), blue: CGFloat(0.106), alpha: CGFloat(1))
-        
-        var gl = CAGradientLayer()
-        gl.colors = [settings.gradientTop, settings.gradientBottom]
-        gl.locations = [0.0, 1.0]
-        gl.frame = CGRectMake(0,0,320,10)
-        viewLogin.layer.insertSublayer(gl, atIndex: 0)
-        
-        // Do any additional setup after loading the view, typically from a nib.
-        viewDashboard.hidden = true
-        viewDashboardTitle.hidden = true
 
+        //add gradients
+        let gl_login = CAGradientLayer()
+        gl_login.colors = [settings.gradientTop, settings.gradientBottom]
+        gl_login.locations = [0.0, 1.0]
+        gl_login.frame = CGRectMake(0,0,320,10)
+        viewLogin.layer.insertSublayer(gl_login, atIndex: 0)
+        
+        let gl_dash = CAGradientLayer()
+        gl_dash.colors = [settings.gradientTop, settings.gradientBottom]
+        gl_dash.locations = [0.0, 1.0]
+        gl_dash.frame = CGRectMake(0,0,320,10)
+        viewDashboard.layer.insertSublayer(gl_dash, atIndex: 0)
+        
         //set toolbar highlighting color
         self.tabBarController?.tabBar.tintColor = UIColor(red: CGFloat(0.607843), green: CGFloat(0.607843), blue: CGFloat(0.607843), alpha: CGFloat(1))
         

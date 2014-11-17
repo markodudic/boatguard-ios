@@ -15,6 +15,8 @@ class ThirdViewController: UIViewController, MKMapViewDelegate {
     @IBOutlet var theMapView: MKMapView!
     @IBOutlet var imgLogo: UIImageView!
     
+    @IBOutlet var viewMap: UIView!
+    
     //Events
     @IBAction func btnBack_click(sender: UIButton) {
         self.tabBarController?.selectedIndex = 1
@@ -23,6 +25,13 @@ class ThirdViewController: UIViewController, MKMapViewDelegate {
             
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //add gradients
+        let gl = CAGradientLayer()
+        gl.colors = [settings.gradientTop, settings.gradientBottom]
+        gl.locations = [0.0, 1.0]
+        gl.frame = CGRectMake(0,0,320,10)
+        viewMap.layer.insertSublayer(gl, atIndex: 999)
         
         var json = states.getObudata()
         var sLat:String = ""
