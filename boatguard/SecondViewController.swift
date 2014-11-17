@@ -32,7 +32,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     //refresh via pull
     func refreshData(sender:AnyObject) {
         states.setObudata(JSON.fromURL(settings.obudataUri+"?obuid="+String(states.getObuid())))
-        self.lblRefresh.text = "LAST UPDATE: "+states.getObudatadateTime()
+        self.lblRefresh.text = "L A S T   U P D A T E :  "+states.getObudatadateTime()
         refresh.process()
         if (states.isAlarm) {
             imgLogo.image = UIImage(named: "logo_alarm")
