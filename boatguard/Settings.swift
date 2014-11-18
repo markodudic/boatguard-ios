@@ -19,6 +19,9 @@ class Settings: NSObject {
     internal let obucomponentsUri  = "http://93.103.12.155:8080/boatguard/getobucomponents"
     internal let obudataUri        = "http://93.103.12.155:8080/boatguard/getdata"
     
-    internal let gradientTop    = UIColor(red: 172.0/255.0, green: 173.0/255.0, blue: 174.0/255.0, alpha: 1.0).CGColor
+    internal let gradientTop    = UIColor(red: 172.0/255.0, green: 173.0/255.0, blue: 174.0/255.0, alpha: 0.9).CGColor
     internal let gradientBottom = UIColor(red: 213.0/255.0, green: 214.0/255.0, blue: 215.0/255.0, alpha: 0.2).CGColor
+    
+    internal let cellNormal     = UIColor(red: 226.0/255.0, green: 225.0/255.0, blue: 226.0/255.0, alpha: 1).CGColor
+    internal let cellAlarm      = UIColor(red: 213.0/255.0, green: 14.0/255.0, blue: 15.0/255.0, alpha: 0.5).CGColor
 }

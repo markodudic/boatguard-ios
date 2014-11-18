@@ -13,18 +13,20 @@ var components: Components = Components()
 class comp {
     var id    = 0
     var alarm = false
-    var cell: UITableViewCell!
+    var type  = "unknown"
+    var json:JSON!
 }
 
 class Components: NSObject {
     
     var comps = [comp]()
     
-    func addComponent(id: Int, alarm: Bool, cell: UITableViewCell) {
+    func addComponent(id: Int, json: JSON, alarm: Bool, type: String) {
         var c = comp()
         c.id    = id
+        c.json  = json
         c.alarm = alarm
-        c.cell  = cell
+        c.type  = type
         comps.append(c);
     }
     
@@ -38,14 +40,18 @@ class Components: NSObject {
     }
     
     func getComponent(idx: Int, tableView: UITableView) -> UITableViewCell {
+        var c = comps[idx]
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("ComponentCell") as ComponentCell
-        cell.lbl.text = "LABEL"
-        cell.img.image = UIImage(named: "ic_pump")
-        cell.onCellAnimation()
-        return cell
-        
-        //return comps[idx]
+        if (c.type == "PUMP") {
+            return renderCellPump(idx, tableView: tableView)
+        } else if (c.type == "ANCHOR") {
+            return renderCellAnchor(idx, tableView: tableView)
+        } else if (c.type == "GEO") {
+            return renderCellGeo(idx, tableView: tableView)
+        } else if (c.type == "ACCU") {
+            return renderCellAccu(idx, tableView: tableView)
+        }
+        return renderCellUnknown(idx, tableView: tableView)
     }
     
     func getComponentsCount() -> Int {
@@ -63,11 +69,15 @@ class Components: NSObject {
         }
     }
   
-    func renderCellUnknown(json: JSON) ->UITableViewCell {
-        let cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "unknown")
-        cell.textLabel.text = json["name"].asString
-        cell.detailTextLabel?.text = json["value"].asString
-        cell.backgroundColor = UIColor(red: CGFloat(0.886), green: CGFloat(0.888), blue: CGFloat(0.886), alpha: CGFloat(1))
+    func renderCellUnknown(idx: Int, tableView: UITableView) ->UITableViewCell {
+        var c = comps[idx]
+        let cell = tableView.dequeueReusableCellWithIdentifier("ComponentCell") as ComponentCell
+        cell.lbl.text = "-"
+        if (c.alarm) {
+            cell.onCellAnimation()
+        } else {
+            cell.offCellAnimation()
+        }
         return cell
     }
     
@@ -75,11 +85,18 @@ class Components: NSObject {
         return false
     }
     
-    func renderCellPump(json: JSON) ->UITableViewCell {
-        let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "pump")
-        cell.textLabel.text = json["name"].asString
-        cell.imageView.image = UIImage(named: "ic_pump")
-        cell.backgroundColor = UIColor(red: CGFloat(0.886), green: CGFloat(0.888), blue: CGFloat(0.886), alpha: CGFloat(1))
+    func renderCellPump(idx: Int, tableView: UITableView) ->UITableViewCell {
+        var c = comps[idx]
+        var json = c.json
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier("ComponentCell") as ComponentCell
+        cell.lbl.text = json["name"].asString
+        cell.img.image = UIImage(named: "ic_pump")
+        if (c.alarm) {
+            cell.onCellAnimation()
+        } else {
+            cell.offCellAnimation()
+        }
         return cell
     }
     
@@ -98,11 +115,18 @@ class Components: NSObject {
         return false
     }
     
-    func renderCellAnchor(json: JSON) ->UITableViewCell {
-        let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "anchor")
-        cell.textLabel.text = json["name"].asString
-        cell.imageView.image = UIImage(named: "ic_anchor")
-        cell.backgroundColor = UIColor(red: CGFloat(0.886), green: CGFloat(0.888), blue: CGFloat(0.886), alpha: CGFloat(1))
+    func renderCellAnchor(idx: Int, tableView: UITableView) ->UITableViewCell {
+        var c = comps[idx]
+        var json = c.json
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier("ComponentCell") as ComponentCell
+        cell.lbl.text = json["name"].asString
+        cell.img.image = UIImage(named: "ic_anchor")
+        if (c.alarm) {
+            cell.onCellAnimation()
+        } else {
+            cell.offCellAnimation()
+        }
         return cell
     }
     
@@ -121,11 +145,18 @@ class Components: NSObject {
         return false
     }
     
-    func renderCellGeo(json: JSON) ->UITableViewCell {
-        let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "geo")
-        cell.textLabel.text = json["name"].asString
-        cell.imageView.image = UIImage(named: "ic_geo")
-        cell.backgroundColor = UIColor(red: CGFloat(0.886), green: CGFloat(0.888), blue: CGFloat(0.886), alpha: CGFloat(1))
+    func renderCellGeo(idx: Int, tableView: UITableView) ->UITableViewCell {
+        var c = comps[idx]
+        var json = c.json
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier("ComponentCell") as ComponentCell
+        cell.lbl.text = json["name"].asString
+        cell.img.image = UIImage(named: "ic_geo")
+        if (c.alarm) {
+            cell.onCellAnimation()
+        } else {
+            cell.offCellAnimation()
+        }
         return cell
     }
     
@@ -144,11 +175,18 @@ class Components: NSObject {
         return false
     }
     
-    func renderCellAccu(json: JSON) ->UITableViewCell {
-        let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "accu")
-        cell.textLabel.text = json["name"].asString
-        cell.imageView.image = UIImage(named: "ic_accu")
-        cell.backgroundColor = UIColor(red: CGFloat(0.886), green: CGFloat(0.888), blue: CGFloat(0.886), alpha: CGFloat(1))
+    func renderCellAccu(idx: Int, tableView: UITableView) ->UITableViewCell {
+        var c = comps[idx]
+        var json = c.json
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier("ComponentCell") as ComponentCell
+        cell.lbl.text = json["name"].asString
+        cell.img.image = UIImage(named: "ic_accu")
+        if (c.alarm) {
+            cell.onCellAnimation()
+        } else {
+            cell.offCellAnimation()
+        }
         return cell
     }
     

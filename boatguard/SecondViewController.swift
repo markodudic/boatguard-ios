@@ -91,7 +91,6 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
         return cell
         */
-        
         let cell = components.getComponent(indexPath.row, tableView: tableView)
         return cell
     }

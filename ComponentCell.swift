@@ -10,26 +10,24 @@ import UIKit
 
 class ComponentCell: UITableViewCell {
 
-
     @IBOutlet weak var lbl: UILabel!
     @IBOutlet weak var img: UIImageView!
- 
+    @IBOutlet weak var view: UIView!
     
     func onCellAnimation() {
-        UIView.animateWithDuration(2, animations: {
-            self.backgroundColor = UIColor(red: CGFloat(0.753), green: CGFloat(0.255), blue: CGFloat(0.106), alpha: CGFloat(1))
+        let options = (UIViewAnimationOptions.Autoreverse | UIViewAnimationOptions.Repeat)
+        UIView.animateWithDuration(2.0, delay: 0.0, options: options,
+            animations: {
+                self.view.layer.backgroundColor = settings.cellAlarm
+                self.view.layer.backgroundColor = settings.cellNormal
             }, completion: {
                 (value: Bool) in
-                self.offCellAnimation()
-        })
+            })
     }
     
     func offCellAnimation() {
-        UIView.animateWithDuration(2, animations: {
-            self.backgroundColor = UIColor(red: CGFloat(0.886), green: CGFloat(0.886), blue: CGFloat(0.886), alpha: CGFloat(1))
-            }, completion: {
-                (value: Bool) in
-                self.onCellAnimation()
-        })
+        view.layer.removeAllAnimations()
+        self.view.layer.backgroundColor = settings.cellNormal
     }
+    
 }

@@ -34,20 +34,18 @@ class Refresh: NSObject {
     
     func handelComponent(idx: Int) {
         var json = states.getObucomponent(idx)
-        var cell: UITableViewCell!
-        
+        var type = "unknown"
+
         if (json["type"].asString == "PUMP") {
-            cell = components.renderCellPump(json)
+            type = "PUMP"
         } else if (json["type"].asString == "ANCHOR") {
-            cell = components.renderCellAnchor(json)
+            type = "ANCHOR"
         } else if (json["type"].asString == "GEO") {
-            cell = components.renderCellGeo(json)
+            type = "GEO"
         } else if (json["type"].asString == "ACCU") {
-            cell = components.renderCellAccu(json)
-        } else {
-            cell = components.renderCellUnknown(json)
+            type = "ACCU"
         }
-        components.addComponent(json["id_component"].asInt!, alarm: false, cell: cell)
+        components.addComponent(json["id_component"].asInt!, json: json, alarm: false, type: type)
     }
     
     //proces recived JSON
