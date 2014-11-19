@@ -8,6 +8,8 @@
 
 import Foundation
 import UIKit
+import AudioToolbox
+import AVFoundation
 
 var refresh: Refresh = Refresh()
 
@@ -62,11 +64,24 @@ class Refresh: NSObject {
     func handleAlarms() {
         var json = states.getObudata()
         for (i, v) in json["alarms"] {
-            self.displayAlarm(v["title"].asString!, message: v["message"].asString!)
+            self.displayAlarm(v["title"].asString!, message: v["message"].asString!, id_alarm: v["id_alarm"].asInt!, vibrate: v["vibrate"].asInt!, sound: v["sound"].asInt!)
         }
     }
     
-    func displayAlarm(title: String, message: String) {
+    func displayAlarm(title: String, message: String, id_alarm: Int, vibrate: Int, sound: Int) {
+        
+        if (vibrate == 1) {
+            AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
+        }
+        
+        if (sound == 1) {
+            var alertSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("horn", ofType: "wav")!)
+            var audioPlayer = AVAudioPlayer()
+            audioPlayer = AVAudioPlayer(contentsOfURL: alertSound, error: nil)
+            audioPlayer.prepareToPlay()
+            audioPlayer.play()
+        }
+        
         if (states.getIsBackground()) {
             let notification: UILocalNotification = UILocalNotification()
             notification.timeZone = NSTimeZone.defaultTimeZone()
@@ -76,13 +91,23 @@ class Refresh: NSObject {
             notification.alertBody   = title
             notification.alertAction = message
             UIApplication.sharedApplication().scheduleLocalNotification(notification)
-        } else {
-            dispatch_async(dispatch_get_main_queue(), {
-                var alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
-                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-                self.view.presentViewController(alert, animated: true, completion: nil)
-            });
         }
+        
+        dispatch_async(dispatch_get_main_queue(), {
+            var alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "Confirm", style: UIAlertActionStyle.Cancel, handler: {(alert: UIAlertAction!) in self.confirmAlarm(id_alarm)}))
+            alert.addAction(UIAlertAction(title: "Pospone", style: UIAlertActionStyle.Destructive, handler: nil))
+            self.view.presentViewController(alert, animated: true, completion: nil)
+        });
+    }
+    
+    func confirmAlarm(id_alarm: Int) {
+        let obualarmURL = settings.obualarmUri+"?obuid="+String(states.obuid)+"&alarmid="+String(id_alarm)
+        let obualarmJSON = JSON.fromURL(obualarmURL)
+
+        //refresh ?
+        states.setObudata(JSON.fromURL(settings.obudataUri+"?obuid="+String(states.getObuid())))
+        refresh.process()
     }
     
     //COMPONENTS for alarms
