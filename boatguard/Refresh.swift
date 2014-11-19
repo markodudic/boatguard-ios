@@ -82,7 +82,7 @@ class Refresh: NSObject {
             audioPlayer.play()
         }
         
-        if (states.getIsBackground()) {
+        if (states.getIsBackground() && states.idAlarm != id_alarm) {
             let notification: UILocalNotification = UILocalNotification()
             notification.timeZone = NSTimeZone.defaultTimeZone()
             
@@ -91,6 +91,8 @@ class Refresh: NSObject {
             notification.alertBody   = title
             notification.alertAction = message
             UIApplication.sharedApplication().scheduleLocalNotification(notification)
+            
+            states.setIdAlarm(id_alarm)
         }
         
         dispatch_async(dispatch_get_main_queue(), {

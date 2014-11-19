@@ -14,6 +14,7 @@ class States: NSObject {
   
     var isBackground = false
     var isAlarm      = false
+    var idAlarm      = 0
     var obuid        = 0
     
     var login:JSON!
@@ -37,6 +38,14 @@ class States: NSObject {
     
     func getIsAlarm() -> Bool {
         return isAlarm
+    }
+
+    func setIdAlarm(data: Int) {
+        idAlarm = data
+    }
+    
+    func getIdAlarm() -> Int {
+        return idAlarm
     }
     
     func setObuid(data: Int) {
