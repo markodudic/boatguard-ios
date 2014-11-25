@@ -82,7 +82,7 @@ class Refresh: NSObject {
             audioPlayer.play()
         }
         
-        if (states.getIsBackground() && states.idAlarm != id_alarm) {
+        if (states.getIsBackground() && states.getIdAlarm() != id_alarm) {
             let notification: UILocalNotification = UILocalNotification()
             notification.timeZone = NSTimeZone.defaultTimeZone()
             
@@ -97,8 +97,8 @@ class Refresh: NSObject {
         
         dispatch_async(dispatch_get_main_queue(), {
             var alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
-            alert.addAction(UIAlertAction(title: "Confirm", style: UIAlertActionStyle.Cancel, handler: {(alert: UIAlertAction!) in self.confirmAlarm(id_alarm)}))
-            alert.addAction(UIAlertAction(title: "Pospone", style: UIAlertActionStyle.Destructive, handler: nil))
+            alert.addAction(UIAlertAction(title: "Confirm", style: UIAlertActionStyle.Default, handler: {(alert: UIAlertAction!) in self.confirmAlarm(id_alarm)}))
+            alert.addAction(UIAlertAction(title: "Pospone", style: UIAlertActionStyle.Cancel, handler: nil))
             self.view.presentViewController(alert, animated: true, completion: nil)
         });
     }

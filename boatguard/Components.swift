@@ -106,8 +106,9 @@ class Components: NSObject {
         let component_states: [JSON] = states.getComponentStates(json["id_component"].asInt!)
         for component_state in component_states {
             let component_data: JSON = states.getObudataByIdState(component_state["id"].asInt!)
-            let component_alarm: JSON  = states.getAlarmSettingsByIdState(component_state["id"].asInt!)
-            if (calculate_alarm(component_state, data: component_data, alarm: component_alarm) == true) {
+            let component_alarm: [JSON] = states.getAlarmSettingsByIdState(component_state["id"].asInt!)
+            //if (calculate_state(component_state, data: component_data, alarm: component_alarm) == true) {
+            if (calculate_alarms(component_state, data: component_data, alarm: component_alarm) == true) {
                 setAlarm(json["id_component"].asInt!)
                 return true
             }
@@ -136,8 +137,9 @@ class Components: NSObject {
         let component_states: [JSON] = states.getComponentStates(json["id_component"].asInt!)
         for component_state in component_states {
             let component_data: JSON = states.getObudataByIdState(component_state["id"].asInt!)
-            let component_alarm: JSON  = states.getAlarmSettingsByIdState(component_state["id"].asInt!)
-            if (calculate_alarm(component_state, data: component_data, alarm: component_alarm) == true) {
+            let component_alarm: [JSON] = states.getAlarmSettingsByIdState(component_state["id"].asInt!)
+            //if (calculate_state(component_state, data: component_data, alarm: component_alarm) == true) {
+            if (calculate_alarms(component_state, data: component_data, alarm: component_alarm) == true) {
                 setAlarm(json["id_component"].asInt!)
                 return true
             }
@@ -166,8 +168,9 @@ class Components: NSObject {
         let component_states: [JSON] = states.getComponentStates(json["id_component"].asInt!)
         for component_state in component_states {
             let component_data: JSON = states.getObudataByIdState(component_state["id"].asInt!)
-            let component_alarm: JSON  = states.getAlarmSettingsByIdState(component_state["id"].asInt!)
-            if (calculate_alarm(component_state, data: component_data, alarm: component_alarm) == true) {
+            let component_alarm: [JSON] = states.getAlarmSettingsByIdState(component_state["id"].asInt!)
+            //if (calculate_state(component_state, data: component_data, alarm: component_alarm) == true) {
+            if (calculate_alarms(component_state, data: component_data, alarm: component_alarm) == true) {
                 setAlarm(json["id_component"].asInt!)
                 return true
             }
@@ -196,8 +199,9 @@ class Components: NSObject {
         let component_states: [JSON] = states.getComponentStates(json["id_component"].asInt!)
         for component_state in component_states {
             let component_data: JSON = states.getObudataByIdState(component_state["id"].asInt!)
-            let component_alarm: JSON  = states.getAlarmSettingsByIdState(component_state["id"].asInt!)
-            if (calculate_alarm(component_state, data: component_data, alarm: component_alarm) == true) {
+            let component_alarm: [JSON] = states.getAlarmSettingsByIdState(component_state["id"].asInt!)
+            //if (calculate_state(component_state, data: component_data, alarm: component_alarm) == true) {
+            if (calculate_alarms(component_state, data: component_data, alarm: component_alarm) == true) {
                 println("+++alarm ACCU")
                 setAlarm(json["id_component"].asInt!)
                 return true
@@ -206,46 +210,61 @@ class Components: NSObject {
         return false
     }
     
+    func calculate_alarms(jcomp: JSON, data jdata: JSON, alarm jalarm:[JSON]) ->Bool {
+        var alarm = false;
+        for ja in jalarm {
+            alarm = calculate_alarm(jcomp, data: jdata, alarm: ja)
+            if (alarm) {
+                return alarm
+            }
+        }
+        return alarm
+    }
+    
     func calculate_alarm(jcomp: JSON, data jdata: JSON, alarm jalarm:JSON) ->Bool {
-        println("******************************is alarm?")
-        println("component settings")
-        println(jcomp)
-        println("alarm settings")
-        println(jalarm)
-        println("data")
-        println(jdata)
-        
-        if (jalarm["operand"].asError != nil) {
-            println("------------------------------no operand")
-            return false
-        }
-        
         if (jdata["value"].asError != nil) {
-            println("------------------------------no value")
             return false
         }
-      
+
+        if (jalarm["value"].asError != nil) {
+            return false
+        }
+
+        if (jalarm["operand"].asError != nil) {
+            return false
+        }
+        
+        if (jalarm["operand"].asString == ">") {
+            if (jdata["value"].asString?.toInt() > jalarm["value"].asString?.toInt()) {
+                return true
+            }
+        } else if (jalarm["operand"].asString == "<") {
+            if (jdata["value"].asString?.toInt() < jalarm["value"].asString?.toInt()) {
+                return true
+            }
+        } else {
+            if (jdata["value"].asString?.toInt() == jalarm["value"].asString?.toInt()) {
+                return true
+            }
+        }
+        return false
+    }
+
+    func calculate_state(jcomp: JSON, data jdata: JSON, alarm jalarm:JSON) ->Bool {
+        if (jdata["value"].asError != nil) {
+            return false
+        }
+        
+        if (jcomp["values"].asError != nil) {
+            return false
+        }
+        
         let values:String = jcomp["values"].asString!
         let valuesArr = split(values) {$0 == ","}
 
-        println("==============================test")
-        println(jcomp["values"].asString)
-        println(jalarm["operand"].asString)
-        println(jdata["value"].asString)
-        
         for value in valuesArr {
-            if (jalarm["operand"].asString == ">") {
-                if (jdata["value"].asInt > value.toInt()) {
-                    return true
-                }
-            } else if (jalarm["operand"].asString == "<") {
-                if (jdata["value"].asInt < value.toInt()) {
-                    return true
-                }
-            } else {
-                if (jdata["value"].asString == value) {
-                    return true
-                }
+            if (jdata["value"].asString?.toInt() == value.toInt()) {
+                return true
             }
         }
         return false

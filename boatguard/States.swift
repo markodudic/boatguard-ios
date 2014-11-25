@@ -115,13 +115,14 @@ class States: NSObject {
         return JSON([])
     }
 
-    func getAlarmSettingsByIdState(id_state: Int) -> JSON {
+    func getAlarmSettingsByIdState(id_state: Int) -> [JSON] {
+        var a = [JSON]()
         for (i, v) in appsettings["alarms"] {
             if (v["active"].asInt == 1 && v["id_state"].asInt == id_state) {
-                return v
+                a.append(v)
             }
         }
-        return JSON([])
+        return a
     }
     
     func getComponentStates(id_component: Int) -> [JSON] {
