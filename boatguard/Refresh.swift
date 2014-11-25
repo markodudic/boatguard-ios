@@ -69,38 +69,42 @@ class Refresh: NSObject {
     }
     
     func displayAlarm(title: String, message: String, id_alarm: Int, vibrate: Int, sound: Int) {
-        
-        if (vibrate == 1) {
-            AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
-        }
-        
-        if (sound == 1) {
-            var alertSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("horn", ofType: "wav")!)
-            var audioPlayer = AVAudioPlayer()
-            audioPlayer = AVAudioPlayer(contentsOfURL: alertSound, error: nil)
-            audioPlayer.prepareToPlay()
-            audioPlayer.play()
-        }
-        
-        if (states.getIsBackground() && states.getIdAlarm() != id_alarm) {
-            let notification: UILocalNotification = UILocalNotification()
-            notification.timeZone = NSTimeZone.defaultTimeZone()
+
+        //handle single alarm just once
+        if (states.getIdAlarm() != id_alarm) {
+            //push notification
+            if (states.getIsBackground()) {
+                let notification: UILocalNotification = UILocalNotification()
+                notification.timeZone = NSTimeZone.defaultTimeZone()
+                
+                let dateTime = NSDate()
+                notification.fireDate    = dateTime
+                notification.alertBody   = title
+                notification.alertAction = message
+                UIApplication.sharedApplication().scheduleLocalNotification(notification)
+            } else {
             
-            let dateTime = NSDate()
-            notification.fireDate    = dateTime
-            notification.alertBody   = title
-            notification.alertAction = message
-            UIApplication.sharedApplication().scheduleLocalNotification(notification)
+                if (vibrate == 1) {
+                    AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
+                }
             
+                if (sound == 1) {
+                    var alertSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("horn", ofType: "wav")!)
+                    var audioPlayer = AVAudioPlayer()
+                    audioPlayer = AVAudioPlayer(contentsOfURL: alertSound, error: nil)
+                    audioPlayer.prepareToPlay()
+                    audioPlayer.play()
+                }
+            
+                dispatch_async(dispatch_get_main_queue(), {
+                    var alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+                    alert.addAction(UIAlertAction(title: "Confirm", style: UIAlertActionStyle.Default, handler: {(alert: UIAlertAction!) in self.confirmAlarm(id_alarm)}))
+                    alert.addAction(UIAlertAction(title: "Pospone", style: UIAlertActionStyle.Cancel, handler: nil))
+                    self.view.presentViewController(alert, animated: true, completion: nil)
+                });
+            }
             states.setIdAlarm(id_alarm)
         }
-        
-        dispatch_async(dispatch_get_main_queue(), {
-            var alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
-            alert.addAction(UIAlertAction(title: "Confirm", style: UIAlertActionStyle.Default, handler: {(alert: UIAlertAction!) in self.confirmAlarm(id_alarm)}))
-            alert.addAction(UIAlertAction(title: "Pospone", style: UIAlertActionStyle.Cancel, handler: nil))
-            self.view.presentViewController(alert, animated: true, completion: nil)
-        });
     }
     
     func confirmAlarm(id_alarm: Int) {

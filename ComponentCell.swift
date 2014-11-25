@@ -29,5 +29,4 @@ class ComponentCell: UITableViewCell {
         view.layer.removeAllAnimations()
         self.view.layer.backgroundColor = settings.cellNormal
     }
-    
 }

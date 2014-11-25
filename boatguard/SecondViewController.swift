@@ -71,6 +71,11 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         } else {
             imgLogo.image = UIImage(named: "logo")
         }
+        
+        //refresh component alarms
+        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            self.tblDashboard.reloadData()
+        })
     }
    
     override func didReceiveMemoryWarning() {
@@ -83,14 +88,6 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        /*
-        let comp = components.getComponent(indexPath.row, tableView)
-        var cell = comp.cell;
-        if (comp.alarm) {
-            self.onCellAnimation(cell)
-        }
-        return cell
-        */
         let cell = components.getComponent(indexPath.row, tableView: tableView)
         return cell
     }

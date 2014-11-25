@@ -59,8 +59,6 @@ class Components: NSObject {
     }
     
     func setAlarm(id: Int) {
-        println("#########################################################alarm for component:")
-        println(id)
         states.setIsAlarm(true)
         for c in comps {
             if (c.id == id) {
@@ -101,8 +99,6 @@ class Components: NSObject {
     }
     
     func alarmCellPump(json: JSON) ->Bool {
-        println("---PUMP id component:")
-        println(json["id_component"].asInt)
         let component_states: [JSON] = states.getComponentStates(json["id_component"].asInt!)
         for component_state in component_states {
             let component_data: JSON = states.getObudataByIdState(component_state["id"].asInt!)
@@ -132,8 +128,6 @@ class Components: NSObject {
     }
     
     func alarmCellAnchor(json: JSON) ->Bool {
-        println("---ANCHOR id component:")
-        println(json["id_component"].asInt)
         let component_states: [JSON] = states.getComponentStates(json["id_component"].asInt!)
         for component_state in component_states {
             let component_data: JSON = states.getObudataByIdState(component_state["id"].asInt!)
@@ -163,8 +157,6 @@ class Components: NSObject {
     }
     
     func alarmCellGeo(json: JSON) ->Bool {
-        println("---GEO id component:")
-        println(json["id_component"].asInt)
         let component_states: [JSON] = states.getComponentStates(json["id_component"].asInt!)
         for component_state in component_states {
             let component_data: JSON = states.getObudataByIdState(component_state["id"].asInt!)
@@ -194,8 +186,6 @@ class Components: NSObject {
     }
     
     func alarmCellAccu(json: JSON) ->Bool {
-        println("---ACCU id component:")
-        println(json["id_component"].asInt)
         let component_states: [JSON] = states.getComponentStates(json["id_component"].asInt!)
         for component_state in component_states {
             let component_data: JSON = states.getObudataByIdState(component_state["id"].asInt!)

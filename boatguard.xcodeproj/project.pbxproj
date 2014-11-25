@@ -136,6 +136,7 @@
 		948DDF0719C073F3006F5CBD /* boatguard */ = {
 			isa = PBXGroup;
 			children = (
+				948DDF0A19C073F3006F5CBD /* AppDelegate.swift */,
 				9424502B19D3FA9C004A496C /* Async.swift */,
 				9424502119CF38DD004A496C /* Json.swift */,
 				9424502319D09E94004A496C /* States.swift */,
@@ -143,7 +144,6 @@
 				943E1E701A0500D4008FF404 /* Refresh.swift */,
 				9459CD6919E00EFF00B7FF4E /* Components.swift */,
 				946664551A1A68330073028A /* ComponentCell.swift */,
-				948DDF0A19C073F3006F5CBD /* AppDelegate.swift */,
 				948DDF0C19C073F3006F5CBD /* FirstViewController.swift */,
 				948DDF0E19C073F3006F5CBD /* SecondViewController.swift */,
 				9424502719D0B09F004A496C /* ThirdViewController.swift */,
