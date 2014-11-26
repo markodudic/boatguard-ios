@@ -148,6 +148,15 @@ class States: NSObject {
         }
         return dateFormatter.stringFromDate(Date.parse(d)).uppercaseString
     }
+    
+    func dblSpace(s: String) -> String {
+        let characters = Array(s)
+        var dbl:String = ""
+        for c in characters {
+            dbl += [c] + " "
+        }
+        return dbl
+    }
 }
 
 class Date {

@@ -88,7 +88,7 @@ class Components: NSObject {
         var json = c.json
         
         let cell = tableView.dequeueReusableCellWithIdentifier("ComponentCell") as ComponentCell
-        cell.lbl.text = json["name"].asString
+        cell.lbl.text = states.dblSpace(json["name"].asString!)
         cell.img.image = setImagePump(idx)
         if (c.alarm) {
             cell.onCellAnimation()
@@ -137,7 +137,7 @@ class Components: NSObject {
         var json = c.json
         
         let cell = tableView.dequeueReusableCellWithIdentifier("ComponentCell") as ComponentCell
-        cell.lbl.text = json["name"].asString
+        cell.lbl.text = states.dblSpace(json["name"].asString!)
         cell.img.image = UIImage(named: "ic_anchor")
         if (c.alarm) {
             cell.onCellAnimation()
@@ -165,7 +165,7 @@ class Components: NSObject {
         var json = c.json
         
         let cell = tableView.dequeueReusableCellWithIdentifier("ComponentCell") as ComponentCell
-        cell.lbl.text = json["name"].asString
+        cell.lbl.text = states.dblSpace(json["name"].asString!)
         cell.img.image = UIImage(named: "ic_geo")
         if (c.alarm) {
             cell.onCellAnimation()
@@ -193,7 +193,7 @@ class Components: NSObject {
         var json = c.json
         
         let cell = tableView.dequeueReusableCellWithIdentifier("ComponentCell") as ComponentCell
-        cell.lbl.text = json["name"].asString
+        cell.lbl.text = states.dblSpace(json["name"].asString!)
         cell.img.image = UIImage(named: "ic_accu")
         if (c.alarm) {
             cell.onCellAnimation()

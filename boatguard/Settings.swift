@@ -25,6 +25,4 @@ class Settings: NSObject {
     
     internal let cellNormal     = UIColor(red: 226.0/255.0, green: 225.0/255.0, blue: 226.0/255.0, alpha: 1)
     internal let cellAlarm      = UIColor(red: 213.0/255.0, green: 14.0/255.0, blue: 15.0/255.0, alpha: 0.5)
-    
-    
 }

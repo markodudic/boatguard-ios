@@ -48,7 +48,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     //refresh via pull
     func refreshData(sender:AnyObject) {
         states.setObudata(JSON.fromURL(settings.obudataUri+"?obuid="+String(states.getObuid())))
-        self.lblRefresh.text = "LAST UPDATE: "+states.getObudatadateTime()
+        self.lblRefresh.text = states.dblSpace("LAST UPDATE: "+states.getObudatadateTime())
         refresh.process()
         if (states.isAlarm) {
             imgLogo.image = UIImage(named: "logo_alarm")
@@ -64,7 +64,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         //show toolbar
         self.tabBarController?.tabBar.hidden = false
-        self.lblRefresh.text = "LAST UPDATE: "+states.getObudatadateTime()
+        self.lblRefresh.text = states.dblSpace("LAST UPDATE: "+states.getObudatadateTime())
         
         if (states.isAlarm) {
             imgLogo.image = UIImage(named: "logo_alarm")
