@@ -18,8 +18,8 @@ class ComponentCell: UITableViewCell {
         let options = (UIViewAnimationOptions.Autoreverse | UIViewAnimationOptions.Repeat)
         UIView.animateWithDuration(2.0, delay: 0.0, options: options,
             animations: {
-                self.view.layer.backgroundColor = settings.cellAlarm
-                self.view.layer.backgroundColor = settings.cellNormal
+                self.view.layer.backgroundColor = settings.cellAlarm.CGColor
+                self.view.layer.backgroundColor = settings.cellNormal.CGColor
             }, completion: {
                 (value: Bool) in
             })
@@ -27,6 +27,6 @@ class ComponentCell: UITableViewCell {
     
     func offCellAnimation() {
         view.layer.removeAllAnimations()
-        self.view.layer.backgroundColor = settings.cellNormal
+        self.view.layer.backgroundColor = settings.cellNormal.CGColor
     }
 }

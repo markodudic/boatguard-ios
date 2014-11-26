@@ -3,17 +3,17 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "ic_geofence.png"
+      "filename" : "ic_pumping_step_1.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "ic_geofence-1.png"
+      "filename" : "ic_pumping_step_1-1.png"
     },
     {
       "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "ic_geofence-2.png"
+      "filename" : "ic_pumping_step_1-2.png"
     }
   ],
   "info" : {

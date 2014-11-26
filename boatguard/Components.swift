@@ -89,7 +89,7 @@ class Components: NSObject {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("ComponentCell") as ComponentCell
         cell.lbl.text = json["name"].asString
-        cell.img.image = UIImage(named: "ic_pump")
+        cell.img.image = setImagePump(idx)
         if (c.alarm) {
             cell.onCellAnimation()
         } else {
@@ -98,12 +98,32 @@ class Components: NSObject {
         return cell
     }
     
+    func setImagePump(idx: Int) ->UIImage {
+        var c = comps[idx]
+        var json = c.json
+
+        let component_states: [JSON] = states.getComponentStates(json["id_component"].asInt!)
+        for component_state in component_states {
+            let component_data: JSON = states.getObudataByIdState(component_state["id"].asInt!)
+            let component_alarm: [JSON] = states.getAlarmSettingsByIdState(component_state["id"].asInt!)
+            let alarm_value: String = component_data["value"].asString!
+            
+            if (alarm_value == "1") {
+                return UIImage(named: "ic_pump_1_1")!
+            } else if (alarm_value == "2") {
+                return UIImage(named: "ic_pump_2")!
+            } else if (alarm_value == "3") {
+                return UIImage(named: "ic_pump_3")!
+            }
+        }
+        return UIImage(named: "ic_pump")!
+    }
+    
     func alarmCellPump(json: JSON) ->Bool {
         let component_states: [JSON] = states.getComponentStates(json["id_component"].asInt!)
         for component_state in component_states {
             let component_data: JSON = states.getObudataByIdState(component_state["id"].asInt!)
             let component_alarm: [JSON] = states.getAlarmSettingsByIdState(component_state["id"].asInt!)
-            //if (calculate_state(component_state, data: component_data, alarm: component_alarm) == true) {
             if (calculate_alarms(component_state, data: component_data, alarm: component_alarm) == true) {
                 setAlarm(json["id_component"].asInt!)
                 return true
@@ -132,7 +152,6 @@ class Components: NSObject {
         for component_state in component_states {
             let component_data: JSON = states.getObudataByIdState(component_state["id"].asInt!)
             let component_alarm: [JSON] = states.getAlarmSettingsByIdState(component_state["id"].asInt!)
-            //if (calculate_state(component_state, data: component_data, alarm: component_alarm) == true) {
             if (calculate_alarms(component_state, data: component_data, alarm: component_alarm) == true) {
                 setAlarm(json["id_component"].asInt!)
                 return true
@@ -161,7 +180,6 @@ class Components: NSObject {
         for component_state in component_states {
             let component_data: JSON = states.getObudataByIdState(component_state["id"].asInt!)
             let component_alarm: [JSON] = states.getAlarmSettingsByIdState(component_state["id"].asInt!)
-            //if (calculate_state(component_state, data: component_data, alarm: component_alarm) == true) {
             if (calculate_alarms(component_state, data: component_data, alarm: component_alarm) == true) {
                 setAlarm(json["id_component"].asInt!)
                 return true
@@ -190,7 +208,6 @@ class Components: NSObject {
         for component_state in component_states {
             let component_data: JSON = states.getObudataByIdState(component_state["id"].asInt!)
             let component_alarm: [JSON] = states.getAlarmSettingsByIdState(component_state["id"].asInt!)
-            //if (calculate_state(component_state, data: component_data, alarm: component_alarm) == true) {
             if (calculate_alarms(component_state, data: component_data, alarm: component_alarm) == true) {
                 println("+++alarm ACCU")
                 setAlarm(json["id_component"].asInt!)
@@ -239,7 +256,7 @@ class Components: NSObject {
         }
         return false
     }
-
+    
     func calculate_state(jcomp: JSON, data jdata: JSON, alarm jalarm:JSON) ->Bool {
         if (jdata["value"].asError != nil) {
             return false

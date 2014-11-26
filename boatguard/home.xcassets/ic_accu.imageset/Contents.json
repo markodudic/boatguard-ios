@@ -3,17 +3,17 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "ic_accu_disconnected.png"
+      "filename" : "ic_battery_step_1.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "ic_accu_disconnected-1.png"
+      "filename" : "ic_battery_step_1-1.png"
     },
     {
       "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "ic_accu_disconnected-2.png"
+      "filename" : "ic_battery_step_1-2.png"
     }
   ],
   "info" : {
