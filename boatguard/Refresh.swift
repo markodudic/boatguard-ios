@@ -53,14 +53,16 @@ class Refresh: NSObject {
     //proces recived JSON
     func process() -> Void {
         if (refreshSemaphoreGo) {
+            println("refresh start")
             refreshSemaphoreGo = false
             handleAlarms()
             handleComponents()
             refreshSemaphoreGo = true
+            println("end")
         }
     }
 
-    //ALARMS for notification
+    //notification alarms
     func handleAlarms() {
         var json = states.getObudata()
         for (i, v) in json["alarms"] {
@@ -108,16 +110,22 @@ class Refresh: NSObject {
     }
     
     func confirmAlarm(id_alarm: Int) {
+        //confirm
         let obualarmURL = settings.obualarmUri+"?obuid="+String(states.obuid)+"&alarmid="+String(id_alarm)
         let obualarmJSON = JSON.fromURL(obualarmURL)
 
-        //refresh ?
+        //refresh
         states.setObudata(JSON.fromURL(settings.obudataUri+"?obuid="+String(states.getObuid())))
-        refresh.process()
+        process()
     }
     
-    //COMPONENTS for alarms
+    //component states
     func handleComponents() {
+        
+        //unset b4 process
+        components.unsetAlarms()
+        
+        //iterate components
         var idx = 0
         for (i, v) in states.getObucomponents() {
             if (v["show"].asInt == 1) {

@@ -58,6 +58,13 @@ class Components: NSObject {
         return comps.count
     }
     
+    func unsetAlarms() -> Void {
+        states.setIsAlarm(false)
+        for c in comps {
+            c.alarm = false
+        }
+    }
+    
     func setAlarm(id: Int) {
         states.setIsAlarm(true)
         for c in comps {
@@ -138,13 +145,31 @@ class Components: NSObject {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("ComponentCell") as ComponentCell
         cell.lbl.text = states.dblSpace(json["name"].asString!)
-        cell.img.image = UIImage(named: "ic_anchor")
+        cell.img.image = setImageAnchor(idx)
         if (c.alarm) {
             cell.onCellAnimation()
         } else {
             cell.offCellAnimation()
         }
         return cell
+    }
+    
+    func setImageAnchor(idx: Int) ->UIImage {
+        var c = comps[idx]
+        var json = c.json
+        
+        let component_states: [JSON] = states.getComponentStates(json["id_component"].asInt!)
+        for component_state in component_states {
+            let component_data: JSON = states.getObudataByIdState(component_state["id"].asInt!)
+            let component_alarm: [JSON] = states.getAlarmSettingsByIdState(component_state["id"].asInt!)
+            let alarm_value: String = "0"
+            
+            //TODO
+            if (alarm_value == "1") {
+
+            }
+        }
+        return UIImage(named: "ic_anchor")!
     }
     
     func alarmCellAnchor(json: JSON) ->Bool {
@@ -166,13 +191,31 @@ class Components: NSObject {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("ComponentCell") as ComponentCell
         cell.lbl.text = states.dblSpace(json["name"].asString!)
-        cell.img.image = UIImage(named: "ic_geo")
+        cell.img.image = setImageGeo(idx)
         if (c.alarm) {
             cell.onCellAnimation()
         } else {
             cell.offCellAnimation()
         }
         return cell
+    }
+    
+    func setImageGeo(idx: Int) ->UIImage {
+        var c = comps[idx]
+        var json = c.json
+        
+        let component_states: [JSON] = states.getComponentStates(json["id_component"].asInt!)
+        for component_state in component_states {
+            let component_data: JSON = states.getObudataByIdState(component_state["id"].asInt!)
+            let component_alarm: [JSON] = states.getAlarmSettingsByIdState(component_state["id"].asInt!)
+            let alarm_value: String = "0"
+            
+            //TODO
+            if (alarm_value == "1") {
+                
+            }
+        }
+        return UIImage(named: "ic_geo")!
     }
     
     func alarmCellGeo(json: JSON) ->Bool {
@@ -194,7 +237,7 @@ class Components: NSObject {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("ComponentCell") as ComponentCell
         cell.lbl.text = states.dblSpace(json["name"].asString!)
-        cell.img.image = UIImage(named: "ic_accu")
+        cell.img.image = setImageAccu(idx)
         if (c.alarm) {
             cell.onCellAnimation()
         } else {
@@ -203,13 +246,30 @@ class Components: NSObject {
         return cell
     }
     
+    func setImageAccu(idx: Int) ->UIImage {
+        var c = comps[idx]
+        var json = c.json
+        
+        let component_states: [JSON] = states.getComponentStates(json["id_component"].asInt!)
+        for component_state in component_states {
+            let component_data: JSON = states.getObudataByIdState(component_state["id"].asInt!)
+            let component_alarm: [JSON] = states.getAlarmSettingsByIdState(component_state["id"].asInt!)
+            let alarm_value: String = "0"
+            
+            //TODO
+            if (alarm_value == "1") {
+                
+            }
+        }
+        return UIImage(named: "ic_accu")!
+    }
+    
     func alarmCellAccu(json: JSON) ->Bool {
         let component_states: [JSON] = states.getComponentStates(json["id_component"].asInt!)
         for component_state in component_states {
             let component_data: JSON = states.getObudataByIdState(component_state["id"].asInt!)
             let component_alarm: [JSON] = states.getAlarmSettingsByIdState(component_state["id"].asInt!)
             if (calculate_alarms(component_state, data: component_data, alarm: component_alarm) == true) {
-                println("+++alarm ACCU")
                 setAlarm(json["id_component"].asInt!)
                 return true
             }
