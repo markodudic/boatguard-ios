@@ -137,7 +137,7 @@ class States: NSObject {
     
     func getObudatadateTime() -> String {
         let dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "MMM/dd/yyyy hh:mm"
+        dateFormatter.dateFormat = "MMM/dd/yyyy HH:mm"
         var d:String!
         var v = obudata["states"]
         for (i, v) in obudata["states"] {
