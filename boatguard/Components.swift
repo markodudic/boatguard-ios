@@ -90,6 +90,9 @@ class Components: NSObject {
         return false
     }
     
+    /*
+    * PUMP
+    */
     func renderCellPump(idx: Int, tableView: UITableView) ->UITableViewCell {
         var c = comps[idx]
         var json = c.json
@@ -129,9 +132,8 @@ class Components: NSObject {
     func alarmCellPump(json: JSON) ->Bool {
         let component_states: [JSON] = states.getComponentStates(json["id_component"].asInt!)
         for component_state in component_states {
-            let component_data: JSON = states.getObudataByIdState(component_state["id"].asInt!)
-            let component_alarm: [JSON] = states.getAlarmSettingsByIdState(component_state["id"].asInt!)
-            if (calculate_alarms(component_state, data: component_data, alarm: component_alarm) == true) {
+            let component_data: JSON = states.getObudataByIdState(20)
+            if (component_data["value"].asString?.toInt() != 0) {
                 setAlarm(json["id_component"].asInt!)
                 return true
             }
@@ -139,6 +141,9 @@ class Components: NSObject {
         return false
     }
     
+    /**
+    * ANCHOR
+    */
     func renderCellAnchor(idx: Int, tableView: UITableView) ->UITableViewCell {
         var c = comps[idx]
         var json = c.json
@@ -175,9 +180,8 @@ class Components: NSObject {
     func alarmCellAnchor(json: JSON) ->Bool {
         let component_states: [JSON] = states.getComponentStates(json["id_component"].asInt!)
         for component_state in component_states {
-            let component_data: JSON = states.getObudataByIdState(component_state["id"].asInt!)
-            let component_alarm: [JSON] = states.getAlarmSettingsByIdState(component_state["id"].asInt!)
-            if (calculate_alarms(component_state, data: component_data, alarm: component_alarm) == true) {
+            let component_data: JSON = states.getObudataByIdState(41)
+            if (component_data["value"].asString?.toInt() == 1) {
                 setAlarm(json["id_component"].asInt!)
                 return true
             }
@@ -185,6 +189,9 @@ class Components: NSObject {
         return false
     }
     
+    /**
+    * GEO
+    */
     func renderCellGeo(idx: Int, tableView: UITableView) ->UITableViewCell {
         var c = comps[idx]
         var json = c.json
@@ -221,9 +228,8 @@ class Components: NSObject {
     func alarmCellGeo(json: JSON) ->Bool {
         let component_states: [JSON] = states.getComponentStates(json["id_component"].asInt!)
         for component_state in component_states {
-            let component_data: JSON = states.getObudataByIdState(component_state["id"].asInt!)
-            let component_alarm: [JSON] = states.getAlarmSettingsByIdState(component_state["id"].asInt!)
-            if (calculate_alarms(component_state, data: component_data, alarm: component_alarm) == true) {
+            let component_data: JSON = states.getObudataByIdState(10)
+            if (component_data["value"].asString?.toInt() == 2) {
                 setAlarm(json["id_component"].asInt!)
                 return true
             }
@@ -231,6 +237,9 @@ class Components: NSObject {
         return false
     }
     
+    /**
+    * ACCU
+    */
     func renderCellAccu(idx: Int, tableView: UITableView) ->UITableViewCell {
         var c = comps[idx]
         var json = c.json
@@ -267,56 +276,25 @@ class Components: NSObject {
     func alarmCellAccu(json: JSON) ->Bool {
         let component_states: [JSON] = states.getComponentStates(json["id_component"].asInt!)
         for component_state in component_states {
-            let component_data: JSON = states.getObudataByIdState(component_state["id"].asInt!)
-            let component_alarm: [JSON] = states.getAlarmSettingsByIdState(component_state["id"].asInt!)
-            if (calculate_alarms(component_state, data: component_data, alarm: component_alarm) == true) {
+            let component_data: JSON = states.getObudataByIdState(33)
+            if (component_data["value"].asString?.toInt() == 0) {
+                setAlarm(json["id_component"].asInt!)
+                return true
+            }
+        }
+        for component_state in component_states {
+            let component_data: JSON = states.getObudataByIdState(34)
+            if (component_data["value"].asString?.toInt() == 1) {
                 setAlarm(json["id_component"].asInt!)
                 return true
             }
         }
         return false
     }
-    
-    func calculate_alarms(jcomp: JSON, data jdata: JSON, alarm jalarm:[JSON]) ->Bool {
-        var alarm = false;
-        for ja in jalarm {
-            alarm = calculate_alarm(jcomp, data: jdata, alarm: ja)
-            if (alarm) {
-                return alarm
-            }
-        }
-        return alarm
-    }
-    
-    func calculate_alarm(jcomp: JSON, data jdata: JSON, alarm jalarm:JSON) ->Bool {
-        if (jdata["value"].asError != nil) {
-            return false
-        }
-
-        if (jalarm["value"].asError != nil) {
-            return false
-        }
-
-        if (jalarm["operand"].asError != nil) {
-            return false
-        }
-        
-        if (jalarm["operand"].asString == ">") {
-            if (jdata["value"].asString?.toInt() > jalarm["value"].asString?.toInt()) {
-                return true
-            }
-        } else if (jalarm["operand"].asString == "<") {
-            if (jdata["value"].asString?.toInt() < jalarm["value"].asString?.toInt()) {
-                return true
-            }
-        } else {
-            if (jdata["value"].asString?.toInt() == jalarm["value"].asString?.toInt()) {
-                return true
-            }
-        }
-        return false
-    }
-    
+   
+    /**
+    * common
+    */
     func calculate_state(jcomp: JSON, data jdata: JSON, alarm jalarm:JSON) ->Bool {
         if (jdata["value"].asError != nil) {
             return false
