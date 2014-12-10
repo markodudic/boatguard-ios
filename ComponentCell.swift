@@ -14,6 +14,24 @@ class ComponentCell: UITableViewCell {
     @IBOutlet weak var img: UIImageView!
     @IBOutlet weak var view: UIView!
     
+    var compImages: [UIImage] = []
+   
+    func imgAnimate(imgs: [UIImage]) {
+        compImages = imgs
+        img.image = compImages.last
+
+        let options = (UIViewAnimationOptions.Repeat)
+        UIView.animateWithDuration(1.0, delay: 0.0, options: options,
+            animations: {
+                for i in self.compImages {
+                    println(i)
+                    self.img.image = i
+                }
+            }, completion: {
+                (value: Bool) in
+        })
+    }
+    
     func onCellAnimation() {
         let options = (UIViewAnimationOptions.Autoreverse | UIViewAnimationOptions.Repeat)
         UIView.animateWithDuration(2.0, delay: 0.0, options: options,
@@ -23,6 +41,7 @@ class ComponentCell: UITableViewCell {
             }, completion: {
                 (value: Bool) in
             })
+   
     }
     
     func offCellAnimation() {

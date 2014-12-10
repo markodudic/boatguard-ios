@@ -99,7 +99,8 @@ class Components: NSObject {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("ComponentCell") as ComponentCell
         cell.lbl.text = states.dblSpace(json["name"].asString!)
-        cell.img.image = setImagePump(idx)
+        cell.imgAnimate(setImagePump(idx))
+        
         if (c.alarm) {
             cell.onCellAnimation()
         } else {
@@ -108,25 +109,45 @@ class Components: NSObject {
         return cell
     }
     
-    func setImagePump(idx: Int) ->UIImage {
+    func setImagePump(idx: Int) ->[UIImage] {
         var c = comps[idx]
         var json = c.json
 
         let component_states: [JSON] = states.getComponentStates(json["id_component"].asInt!)
+        var compImages: [UIImage] = []
         for component_state in component_states {
             let component_data: JSON = states.getObudataByIdState(component_state["id"].asInt!)
             let component_alarm: [JSON] = states.getAlarmSettingsByIdState(component_state["id"].asInt!)
             let alarm_value: String = component_data["value"].asString!
             
             if (alarm_value == "1") {
-                return UIImage(named: "ic_pump_1_1")!
+                compImages.append(UIImage(named: "ic_pump_1_1")!)
+                compImages.append(UIImage(named: "ic_pump_1_2")!)
+                compImages.append(UIImage(named: "ic_pump_1_3")!)
+                compImages.append(UIImage(named: "ic_pump_1_4")!)
+                compImages.append(UIImage(named: "ic_pump_1_5")!)
+                compImages.append(UIImage(named: "ic_pump_1_6")!)
+                compImages.append(UIImage(named: "ic_pump_1_7")!)
+                compImages.append(UIImage(named: "ic_pump_1_8")!)
+                compImages.append(UIImage(named: "ic_pump_1_9")!)
             } else if (alarm_value == "2") {
-                return UIImage(named: "ic_pump_2")!
+                compImages.append(UIImage(named: "ic_pump_2")!)
             } else if (alarm_value == "3") {
-                return UIImage(named: "ic_pump_3")!
+                compImages.append(UIImage(named: "ic_pump_2")!)
             }
         }
-        return UIImage(named: "ic_pump")!
+//        compImages.append(UIImage(named: "ic_pump")!)
+        compImages.append(UIImage(named: "ic_pump_1_1")!)
+        compImages.append(UIImage(named: "ic_pump_1_2")!)
+        compImages.append(UIImage(named: "ic_pump_1_3")!)
+        compImages.append(UIImage(named: "ic_pump_1_4")!)
+        compImages.append(UIImage(named: "ic_pump_1_5")!)
+        compImages.append(UIImage(named: "ic_pump_1_6")!)
+        compImages.append(UIImage(named: "ic_pump_1_7")!)
+        compImages.append(UIImage(named: "ic_pump_1_8")!)
+        compImages.append(UIImage(named: "ic_pump_1_9")!)
+
+        return compImages
     }
     
     func alarmCellPump(json: JSON) ->Bool {
@@ -150,7 +171,7 @@ class Components: NSObject {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("ComponentCell") as ComponentCell
         cell.lbl.text = states.dblSpace(json["name"].asString!)
-        cell.img.image = setImageAnchor(idx)
+        cell.imgAnimate(setImageAnchor(idx))
         if (c.alarm) {
             cell.onCellAnimation()
         } else {
@@ -159,11 +180,12 @@ class Components: NSObject {
         return cell
     }
     
-    func setImageAnchor(idx: Int) ->UIImage {
+    func setImageAnchor(idx: Int) ->[UIImage] {
         var c = comps[idx]
         var json = c.json
         
         let component_states: [JSON] = states.getComponentStates(json["id_component"].asInt!)
+        var compImages: [UIImage] = []
         for component_state in component_states {
             let component_data: JSON = states.getObudataByIdState(component_state["id"].asInt!)
             let component_alarm: [JSON] = states.getAlarmSettingsByIdState(component_state["id"].asInt!)
@@ -174,7 +196,8 @@ class Components: NSObject {
 
             }
         }
-        return UIImage(named: "ic_anchor")!
+        compImages.append(UIImage(named: "ic_anchor")!)
+        return compImages
     }
     
     func alarmCellAnchor(json: JSON) ->Bool {
@@ -198,7 +221,7 @@ class Components: NSObject {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("ComponentCell") as ComponentCell
         cell.lbl.text = states.dblSpace(json["name"].asString!)
-        cell.img.image = setImageGeo(idx)
+        cell.imgAnimate(setImageGeo(idx))
         if (c.alarm) {
             cell.onCellAnimation()
         } else {
@@ -207,11 +230,12 @@ class Components: NSObject {
         return cell
     }
     
-    func setImageGeo(idx: Int) ->UIImage {
+    func setImageGeo(idx: Int) ->[UIImage] {
         var c = comps[idx]
         var json = c.json
         
         let component_states: [JSON] = states.getComponentStates(json["id_component"].asInt!)
+        var compImages: [UIImage] = []
         for component_state in component_states {
             let component_data: JSON = states.getObudataByIdState(component_state["id"].asInt!)
             let component_alarm: [JSON] = states.getAlarmSettingsByIdState(component_state["id"].asInt!)
@@ -222,7 +246,8 @@ class Components: NSObject {
                 
             }
         }
-        return UIImage(named: "ic_geo")!
+        compImages.append(UIImage(named: "ic_geo")!)
+        return compImages
     }
     
     func alarmCellGeo(json: JSON) ->Bool {
@@ -246,7 +271,7 @@ class Components: NSObject {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("ComponentCell") as ComponentCell
         cell.lbl.text = states.dblSpace(json["name"].asString!)
-        cell.img.image = setImageAccu(idx)
+        cell.imgAnimate(setImageAccu(idx))
         if (c.alarm) {
             cell.onCellAnimation()
         } else {
@@ -255,11 +280,12 @@ class Components: NSObject {
         return cell
     }
     
-    func setImageAccu(idx: Int) ->UIImage {
+    func setImageAccu(idx: Int) ->[UIImage] {
         var c = comps[idx]
         var json = c.json
         
         let component_states: [JSON] = states.getComponentStates(json["id_component"].asInt!)
+        var compImages: [UIImage] = []
         for component_state in component_states {
             let component_data: JSON = states.getObudataByIdState(component_state["id"].asInt!)
             let component_alarm: [JSON] = states.getAlarmSettingsByIdState(component_state["id"].asInt!)
@@ -267,10 +293,10 @@ class Components: NSObject {
             
             //TODO
             if (alarm_value == "1") {
-                
             }
         }
-        return UIImage(named: "ic_accu")!
+        compImages.append(UIImage(named: "ic_accu")!)
+        return compImages
     }
     
     func alarmCellAccu(json: JSON) ->Bool {
