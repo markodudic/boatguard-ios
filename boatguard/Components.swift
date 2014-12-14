@@ -51,7 +51,7 @@ class Components: NSObject {
         } else if (c.type == "ACCU") {
             return renderCellAccu(idx, tableView: tableView)
         }
-        return renderCellUnknown(idx, tableView: tableView)
+        return renderCellUnknown(idx, tableView: tableView, name: c.json["type"].asString!)
     }
     
     func getComponentsCount() -> Int {
@@ -74,20 +74,14 @@ class Components: NSObject {
         }
     }
   
-    func renderCellUnknown(idx: Int, tableView: UITableView) ->UITableViewCell {
+    func renderCellUnknown(idx: Int, tableView: UITableView, name: String) ->UITableViewCell {
         var c = comps[idx]
         let cell = tableView.dequeueReusableCellWithIdentifier("ComponentCell") as ComponentCell
-        cell.lbl.text = "-"
-        if (c.alarm) {
-            cell.onCellAnimation()
-        } else {
-            cell.offCellAnimation()
-        }
+        cell.lbl.text = name
+        var compImages: [UIImage] = []
+        compImages.append(UIImage(named: "ic_pump")!) //fake img
+        cell.imgAnimate(compImages)
         return cell
-    }
-    
-    func alarmCellUnknown(json: JSON) ->Bool {
-        return false
     }
     
     /*

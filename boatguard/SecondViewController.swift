@@ -47,6 +47,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     //refresh via pull
     func refreshData(sender:AnyObject) {
+        //fetch json
         states.setObudata(JSON.fromURL(settings.obudataUri+"?obuid="+String(states.getObuid())))
         self.lblRefresh.text = states.dblSpace("LAST UPDATE: "+states.getObudatadateTime())
         refresh.process()
@@ -55,13 +56,14 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         } else {
             imgLogo.image = UIImage(named: "logo")
         }
+        tblDashboard.reloadData() //force refresh
         self.refreshControl.endRefreshing()
     }
 
     //first time & on tab open
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
+       
         //show toolbar
         self.tabBarController?.tabBar.hidden = false
         self.lblRefresh.text = states.dblSpace("LAST UPDATE: "+states.getObudatadateTime())
@@ -71,10 +73,10 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         } else {
             imgLogo.image = UIImage(named: "logo")
         }
-        
+
         //refresh component alarms
         dispatch_async(dispatch_get_main_queue(), { () -> Void in
-            self.tblDashboard.reloadData()
+            self.tblDashboard.reloadData() //force refresh even if not in focus
         })
     }
    

@@ -98,8 +98,8 @@ class States: NSObject {
 
     func setObudata(data: JSON) {
         //update refresh time
-        obudatadateTime = NSDate()
         obudata = data
+        obudatadateTime = NSDate()
     }
     
     func getObudata() -> JSON {
@@ -135,6 +135,9 @@ class States: NSObject {
         return comp
     }
     
+    /*
+    * device data timestapm
+    */
     func getObudatadateTime() -> String {
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "MMM/dd/yyyy HH:mm"
@@ -142,7 +145,6 @@ class States: NSObject {
         var v = obudata["states"]
         for (i, v) in obudata["states"] {
             if (v["id_state"].asInt == 1) {
-                println(v["dateState"])
                 d = v["dateState"].asString!
             }
         }

@@ -146,8 +146,6 @@ class Refresh: NSObject {
             components.alarmCellGeo(json)
         } else if (json["type"].asString == "ACCU") {
             components.alarmCellAccu(json)
-        } else {
-            components.alarmCellUnknown(json)
         }
     }
 }
