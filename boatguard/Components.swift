@@ -119,9 +119,8 @@ class Components: NSObject {
             let component_data: JSON = states.getObudataByIdState(component_state["id"].asInt!)
             let component_alarm: [JSON] = states.getAlarmSettingsByIdState(component_state["id"].asInt!)
             let alarm_value: String = component_data["value"].asString!
-            
+/*
             if (alarm_value == "1") {
-                compImages.append(UIImage(named: "ic_pump_1_1")!)
                 compImages.append(UIImage(named: "ic_pump_1_2")!)
                 compImages.append(UIImage(named: "ic_pump_1_3")!)
                 compImages.append(UIImage(named: "ic_pump_1_4")!)
@@ -135,9 +134,9 @@ class Components: NSObject {
             } else if (alarm_value == "3") {
                 compImages.append(UIImage(named: "ic_pump_2")!)
             }
+*/
         }
-//        compImages.append(UIImage(named: "ic_pump")!)
-        compImages.append(UIImage(named: "ic_pump_1_1")!)
+
         compImages.append(UIImage(named: "ic_pump_1_2")!)
         compImages.append(UIImage(named: "ic_pump_1_3")!)
         compImages.append(UIImage(named: "ic_pump_1_4")!)

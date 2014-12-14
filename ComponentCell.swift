@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SpriteKit
 
 class ComponentCell: UITableViewCell {
 
@@ -18,18 +19,16 @@ class ComponentCell: UITableViewCell {
    
     func imgAnimate(imgs: [UIImage]) {
         compImages = imgs
-        img.image = compImages.last
-
-        let options = (UIViewAnimationOptions.Repeat)
-        UIView.animateWithDuration(1.0, delay: 0.0, options: options,
-            animations: {
-                for i in self.compImages {
-                    println(i)
-                    self.img.image = i
-                }
-            }, completion: {
-                (value: Bool) in
-        })
+        
+        if (compImages.count > 1) {
+            let anim = UIImageView(image: compImages.first)
+            anim.animationImages = compImages
+            anim.animationDuration = 2
+            anim.startAnimating()
+            img.addSubview(anim)
+        } else {
+            img.image = compImages.first
+        }
     }
     
     func onCellAnimation() {

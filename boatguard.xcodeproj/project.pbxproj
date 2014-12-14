@@ -35,7 +35,6 @@
 		948DDF5919C99A23006F5CBD /* Dosis-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 948DDF4D19C99A23006F5CBD /* Dosis-Regular.otf */; };
 		948DDF5A19C99A23006F5CBD /* Dosis-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 948DDF4E19C99A23006F5CBD /* Dosis-SemiBold.otf */; };
 		94C825AC1A1C97050066B6FC /* horn.wav in Resources */ = {isa = PBXBuildFile; fileRef = 94C825AB1A1C97050066B6FC /* horn.wav */; };
-		94D0A4A91A38CB3D008CF408 /* ajax-loader.gif in Resources */ = {isa = PBXBuildFile; fileRef = 94D0A4A81A38CB3D008CF408 /* ajax-loader.gif */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,7 +80,6 @@
 		948DDF4D19C99A23006F5CBD /* Dosis-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dosis-Regular.otf"; sourceTree = "<group>"; };
 		948DDF4E19C99A23006F5CBD /* Dosis-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dosis-SemiBold.otf"; sourceTree = "<group>"; };
 		94C825AB1A1C97050066B6FC /* horn.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = horn.wav; sourceTree = "<group>"; };
-		94D0A4A81A38CB3D008CF408 /* ajax-loader.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "ajax-loader.gif"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,7 +121,6 @@
 				948DDF4D19C99A23006F5CBD /* Dosis-Regular.otf */,
 				948DDF4E19C99A23006F5CBD /* Dosis-SemiBold.otf */,
 				94C825AB1A1C97050066B6FC /* horn.wav */,
-				94D0A4A81A38CB3D008CF408 /* ajax-loader.gif */,
 			);
 			sourceTree = "<group>";
 		};
@@ -274,7 +271,6 @@
 				948DDF5A19C99A23006F5CBD /* Dosis-SemiBold.otf in Resources */,
 				948DDF5819C99A23006F5CBD /* Dosis-Medium.otf in Resources */,
 				948DDF5219C99A23006F5CBD /* DINPro-Medium.otf in Resources */,
-				94D0A4A91A38CB3D008CF408 /* ajax-loader.gif in Resources */,
 				948DDF5419C99A23006F5CBD /* Dosis-Bold.otf in Resources */,
 				948DDF5919C99A23006F5CBD /* Dosis-Regular.otf in Resources */,
 				948DDF5319C99A23006F5CBD /* DINPro-Regular.otf in Resources */,
