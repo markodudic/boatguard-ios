@@ -44,6 +44,6 @@ class ComponentCell: UITableViewCell {
     
     func offCellAnimation() {
         view.layer.removeAllAnimations()
-        self.view.layer.backgroundColor = settings.cellNormal.CGColor
+        view.layer.backgroundColor = settings.cellNormal.CGColor
     }
 }

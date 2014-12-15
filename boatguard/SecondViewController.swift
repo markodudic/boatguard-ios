@@ -15,6 +15,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet var imgLogo: UIImageView!
     
     @IBOutlet var viewComponents: UIView!
+    @IBOutlet var viewLogo: UIView!
     
     var refreshControl:UIRefreshControl!
     
@@ -22,6 +23,8 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         super.viewDidLoad()
 
         //add gradients
+        tblDashboard.backgroundColor = UIColor.clearColor()
+
         let gl_top = CAGradientLayer()
         gl_top.colors = [settings.gradientTop, settings.gradientBottom]
         gl_top.locations = [0.0, 1.0]
@@ -33,6 +36,12 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         gl_bottom.locations = [0.0, 1.0]
         gl_bottom.frame = CGRectMake(0,viewComponents.layer.frame.height-10,320,10)
         viewComponents.layer.insertSublayer(gl_bottom, atIndex: 0)
+
+        let gll_bottom = CAGradientLayer()
+        gll_bottom.colors = [settings.gradientBottom, settings.gradientTop]
+        gll_bottom.locations = [0.0, 1.0]
+        gll_bottom.frame = CGRectMake(0,viewLogo.layer.frame.height-10,320,10)
+        viewLogo.layer.insertSublayer(gll_bottom, atIndex: 0)
         
         //show toolbar
         self.tabBarController?.tabBar.hidden = false
