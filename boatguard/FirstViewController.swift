@@ -147,7 +147,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate, NSURLConnectio
         let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "test")
         
         var json = states.getObusettings()
-        cell.textLabel?.text = states.dblSpace(json[indexPath.row]["code"].asString!)
+        cell.textLabel.text = states.dblSpace(json[indexPath.row]["code"].asString!)
         cell.detailTextLabel?.text = states.dblSpace(json[indexPath.row]["value"].asString!)
         cell.backgroundColor = UIColor(red: CGFloat(0.886), green: CGFloat(0.888), blue: CGFloat(0.886), alpha: CGFloat(1))
         
