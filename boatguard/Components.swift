@@ -79,7 +79,7 @@ class Components: NSObject {
         let cell = tableView.dequeueReusableCellWithIdentifier("ComponentCell") as ComponentCell
         cell.lbl.text = name
         var compImages: [UIImage] = []
-        compImages.append(UIImage(named: "ic_pump")!) //fake img
+        compImages.append(UIImage(named: "ic_unknown")!)
         cell.imgAnimate(compImages)
         return cell
     }
@@ -104,42 +104,28 @@ class Components: NSObject {
     }
     
     func setImagePump(idx: Int) ->[UIImage] {
-        var c = comps[idx]
-        var json = c.json
-
-        let component_states: [JSON] = states.getComponentStates(json["id_component"].asInt!)
         var compImages: [UIImage] = []
-        for component_state in component_states {
-            let component_data: JSON = states.getObudataByIdState(component_state["id"].asInt!)
-            let component_alarm: [JSON] = states.getAlarmSettingsByIdState(component_state["id"].asInt!)
-            let alarm_value: String = component_data["value"].asString!
-/*
-            if (alarm_value == "1") {
-                compImages.append(UIImage(named: "ic_pump_1_2")!)
-                compImages.append(UIImage(named: "ic_pump_1_3")!)
-                compImages.append(UIImage(named: "ic_pump_1_4")!)
-                compImages.append(UIImage(named: "ic_pump_1_5")!)
-                compImages.append(UIImage(named: "ic_pump_1_6")!)
-                compImages.append(UIImage(named: "ic_pump_1_7")!)
-                compImages.append(UIImage(named: "ic_pump_1_8")!)
-                compImages.append(UIImage(named: "ic_pump_1_9")!)
-            } else if (alarm_value == "2") {
-                compImages.append(UIImage(named: "ic_pump_2")!)
-            } else if (alarm_value == "3") {
-                compImages.append(UIImage(named: "ic_pump_2")!)
-            }
-*/
+        let component_data: JSON = states.getObudataByIdState(20)
+        let component_value: String = component_data["value"].asString!
+
+        if (component_value == "0") {
+            compImages.append(UIImage(named: "ic_ok")!)
+        } else if (component_value == "1") {
+            compImages.append(UIImage(named: "ic_pump_1_2")!)
+            compImages.append(UIImage(named: "ic_pump_1_3")!)
+            compImages.append(UIImage(named: "ic_pump_1_4")!)
+            compImages.append(UIImage(named: "ic_pump_1_5")!)
+            compImages.append(UIImage(named: "ic_pump_1_6")!)
+            compImages.append(UIImage(named: "ic_pump_1_7")!)
+            compImages.append(UIImage(named: "ic_pump_1_8")!)
+            compImages.append(UIImage(named: "ic_pump_1_9")!)
+        } else if (component_value == "2") {
+            compImages.append(UIImage(named: "ic_pump_2")!)
+        } else if (component_value == "3") {
+            compImages.append(UIImage(named: "ic_pump_3")!)
+        } else {
+            compImages.append(UIImage(named: "ic_ok")!)
         }
-
-        compImages.append(UIImage(named: "ic_pump_1_2")!)
-        compImages.append(UIImage(named: "ic_pump_1_3")!)
-        compImages.append(UIImage(named: "ic_pump_1_4")!)
-        compImages.append(UIImage(named: "ic_pump_1_5")!)
-        compImages.append(UIImage(named: "ic_pump_1_6")!)
-        compImages.append(UIImage(named: "ic_pump_1_7")!)
-        compImages.append(UIImage(named: "ic_pump_1_8")!)
-        compImages.append(UIImage(named: "ic_pump_1_9")!)
-
         return compImages
     }
     
@@ -174,22 +160,21 @@ class Components: NSObject {
     }
     
     func setImageAnchor(idx: Int) ->[UIImage] {
-        var c = comps[idx]
-        var json = c.json
-        
-        let component_states: [JSON] = states.getComponentStates(json["id_component"].asInt!)
         var compImages: [UIImage] = []
-        for component_state in component_states {
-            let component_data: JSON = states.getObudataByIdState(component_state["id"].asInt!)
-            let component_alarm: [JSON] = states.getAlarmSettingsByIdState(component_state["id"].asInt!)
-            let alarm_value: String = "0"
-            
-            //TODO
-            if (alarm_value == "1") {
-
-            }
+        let component_data40: JSON = states.getObudataByIdState(40)
+        let component_value40: String = component_data40["value"].asString!
+        let component_data41: JSON = states.getObudataByIdState(41)
+        let component_value41: String = component_data41["value"].asString!
+        
+        if (component_value40 == "0") {
+            compImages.append(UIImage(named: "ic_anchor_grey")!)
+        } else if (component_value40 == "1" && component_value41 == "0") {
+            compImages.append(UIImage(named: "ic_anchor_green")!)
+        } else if (component_value41 == "1") {
+            compImages.append(UIImage(named: "ic_anchor_red")!)
+        } else {
+            compImages.append(UIImage(named: "ic_ok")!)
         }
-        compImages.append(UIImage(named: "ic_anchor")!)
         return compImages
     }
     
@@ -224,22 +209,19 @@ class Components: NSObject {
     }
     
     func setImageGeo(idx: Int) ->[UIImage] {
-        var c = comps[idx]
-        var json = c.json
-        
-        let component_states: [JSON] = states.getComponentStates(json["id_component"].asInt!)
         var compImages: [UIImage] = []
-        for component_state in component_states {
-            let component_data: JSON = states.getObudataByIdState(component_state["id"].asInt!)
-            let component_alarm: [JSON] = states.getAlarmSettingsByIdState(component_state["id"].asInt!)
-            let alarm_value: String = "0"
-            
-            //TODO
-            if (alarm_value == "1") {
-                
-            }
+        let component_data: JSON = states.getObudataByIdState(10)
+        let component_value: String = component_data["value"].asString!
+        
+        if (component_value == "0") {
+            compImages.append(UIImage(named: "ic_geo_grey")!)
+        } else if (component_value == "1") {
+            compImages.append(UIImage(named: "ic_geo_green")!)
+        } else if (component_value == "2") {
+            compImages.append(UIImage(named: "ic_geo_red")!)
+        } else {
+            compImages.append(UIImage(named: "ic_ok")!)
         }
-        compImages.append(UIImage(named: "ic_geo")!)
         return compImages
     }
     
@@ -274,21 +256,27 @@ class Components: NSObject {
     }
     
     func setImageAccu(idx: Int) ->[UIImage] {
-        var c = comps[idx]
-        var json = c.json
-        
-        let component_states: [JSON] = states.getComponentStates(json["id_component"].asInt!)
         var compImages: [UIImage] = []
-        for component_state in component_states {
-            let component_data: JSON = states.getObudataByIdState(component_state["id"].asInt!)
-            let component_alarm: [JSON] = states.getAlarmSettingsByIdState(component_state["id"].asInt!)
-            let alarm_value: String = "0"
-            
-            //TODO
-            if (alarm_value == "1") {
-            }
+        let component_data33: JSON = states.getObudataByIdState(33)
+        let component_value33: String = component_data33["value"].asString!
+        let component_data30: JSON = states.getObudataByIdState(30)
+        let component_value30: String = component_data30["value"].asString!
+        let component_data31: JSON = states.getObudataByIdState(31)
+        let component_value31: String = component_data31["value"].asString!
+        let component_data32: JSON = states.getObudataByIdState(32)
+        let component_value32: String = component_data32["value"].asString!
+        
+        if (component_value33 == "0") {
+            compImages.append(UIImage(named: "ic_accu_disconnected")!)
+        } else if (component_value30 == "1") {
+            compImages.append(UIImage(named: "ic_acu_30")!)
+        } else if (component_value31 == "1") {
+            compImages.append(UIImage(named: "ic_acu_31")!)
+        } else if (component_value32 == "1") {
+            compImages.append(UIImage(named: "ic_acu_32")!)
+        } else {
+            compImages.append(UIImage(named: "ic_ok")!)
         }
-        compImages.append(UIImage(named: "ic_accu")!)
         return compImages
     }
     
