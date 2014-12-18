@@ -92,6 +92,7 @@ class Components: NSObject {
         var json = c.json
         
         let cell = tableView.dequeueReusableCellWithIdentifier("ComponentCell") as ComponentCell
+        cell.setName("PUMP")
         cell.lbl.text = states.dblSpace(json["name"].asString!)
         cell.imgAnimate(setImagePump(idx))
         
@@ -126,8 +127,6 @@ class Components: NSObject {
         } else {
             compImages.append(UIImage(named: "ic_ok")!)
         }
-        
-        println(compImages.count)
         return compImages
     }
     
@@ -151,6 +150,7 @@ class Components: NSObject {
         var json = c.json
         
         let cell = tableView.dequeueReusableCellWithIdentifier("ComponentCell") as ComponentCell
+        cell.setName("ANCHOR")
         cell.lbl.text = states.dblSpace(json["name"].asString!)
         cell.imgAnimate(setImageAnchor(idx))
         if (c.alarm) {
@@ -200,6 +200,7 @@ class Components: NSObject {
         var json = c.json
         
         let cell = tableView.dequeueReusableCellWithIdentifier("ComponentCell") as ComponentCell
+        cell.setName("GEO")
         cell.lbl.text = states.dblSpace(json["name"].asString!)
         cell.imgAnimate(setImageGeo(idx))
         if (c.alarm) {
@@ -247,6 +248,7 @@ class Components: NSObject {
         var json = c.json
         
         let cell = tableView.dequeueReusableCellWithIdentifier("ComponentCell") as ComponentCell
+        cell.setName("ACCU")
         cell.lbl.text = states.dblSpace(json["name"].asString!)
         cell.imgAnimate(setImageAccu(idx))
         if (c.alarm) {

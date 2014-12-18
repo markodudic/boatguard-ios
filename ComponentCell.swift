@@ -15,7 +15,12 @@ class ComponentCell: UITableViewCell {
     @IBOutlet weak var view: UIView!
     
     var compImages: [UIImage] = []
-   
+    var name: String = "UNKNOWN"
+
+    func setName(n: String) {
+        name = n
+    }
+    
     func imgAnimate(imgs: [UIImage]) {
         //remove existing subviews
         for view in img.subviews {
@@ -28,6 +33,15 @@ class ComponentCell: UITableViewCell {
         anim.animationDuration = 2
         anim.startAnimating()
         img.addSubview(anim)
+        
+        //event
+        let recognizer = UITapGestureRecognizer(target: self, action:Selector("handleTap:"))
+        self.userInteractionEnabled = true
+        self.addGestureRecognizer(recognizer)
+    }
+    
+    func handleTap(recognizer: UITapGestureRecognizer) {
+        println(name)
     }
     
     func onCellAnimation() {
@@ -38,8 +52,8 @@ class ComponentCell: UITableViewCell {
                 self.view.layer.backgroundColor = settings.cellNormal.CGColor
             }, completion: {
                 (value: Bool) in
-            })
-   
+            }
+        )
     }
     
     func offCellAnimation() {
