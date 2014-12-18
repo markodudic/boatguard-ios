@@ -251,6 +251,7 @@ class Components: NSObject {
         cell.setName("ACCU")
         cell.lbl.text = states.dblSpace(json["name"].asString!)
         cell.imgAnimate(setImageAccu(idx))
+        cell.imgBanner(setBannerAccu(idx))
         if (c.alarm) {
             cell.onCellAnimation()
         } else {
@@ -259,25 +260,30 @@ class Components: NSObject {
         return cell
     }
     
+    func setBannerAccu(idx: Int) ->[String] {
+        var bannerImages: [String] = []
+        
+        let component_data: JSON = states.getObudataByIdState(33)
+        let component_value: String = component_data["value"].asString!
+
+        if (component_value == "1") {
+            let component_data30: JSON = states.getObudataByIdState(30)
+            let component_data31: JSON = states.getObudataByIdState(31)
+            let component_data32: JSON = states.getObudataByIdState(32)
+            bannerImages.append(states.toDecimal(component_data30["value"].asString!, decimals: 0)+"%")
+            bannerImages.append(states.toDecimal(component_data31["value"].asString!, decimals: 2)+"Ah")
+            bannerImages.append(states.toDecimal(component_data32["value"].asString!, decimals: 2)+"A")
+        }
+        return bannerImages
+    }
+    
     func setImageAccu(idx: Int) ->[UIImage] {
         var compImages: [UIImage] = []
-        let component_data33: JSON = states.getObudataByIdState(33)
-        let component_value33: String = component_data33["value"].asString!
-        let component_data30: JSON = states.getObudataByIdState(30)
-        let component_value30: String = component_data30["value"].asString!
-        let component_data31: JSON = states.getObudataByIdState(31)
-        let component_value31: String = component_data31["value"].asString!
-        let component_data32: JSON = states.getObudataByIdState(32)
-        let component_value32: String = component_data32["value"].asString!
+        let component_data: JSON = states.getObudataByIdState(33)
+        let component_value: String = component_data["value"].asString!
         
-        if (component_value33 == "0") {
+        if (component_value == "0") {
             compImages.append(UIImage(named: "ic_accu_disconnected")!)
-        } else if (component_value30 == "1") {
-            compImages.append(UIImage(named: "ic_acu_30")!)
-        } else if (component_value31 == "1") {
-            compImages.append(UIImage(named: "ic_acu_31")!)
-        } else if (component_value32 == "1") {
-            compImages.append(UIImage(named: "ic_acu_32")!)
         } else {
             compImages.append(UIImage(named: "ic_ok")!)
         }

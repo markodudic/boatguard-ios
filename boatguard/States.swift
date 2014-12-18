@@ -159,6 +159,14 @@ class States: NSObject {
         }
         return dbl
     }
+    
+    func toDecimal(s: String, decimals: Int)-> String {
+        let numberFormatter = NSNumberFormatter()
+        let number = numberFormatter.numberFromString(s)
+        let numberFloatValue = number?.floatValue
+        
+        return dblSpace(String(format: "%."+String(decimals)+"f", numberFloatValue!))
+    }
 }
 
 class Date {
