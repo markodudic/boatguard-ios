@@ -17,17 +17,17 @@ class ComponentCell: UITableViewCell {
     var compImages: [UIImage] = []
    
     func imgAnimate(imgs: [UIImage]) {
+        //remove existing subviews
+        for view in img.subviews {
+            view.removeFromSuperview()
+        }
         compImages = imgs
         
-        if (compImages.count > 1) {
-            let anim = UIImageView(image: compImages.first)
-            anim.animationImages = compImages
-            anim.animationDuration = 2
-            anim.startAnimating()
-            img.addSubview(anim)
-        } else {
-            img.image = compImages.first
-        }
+        let anim = UIImageView(image: compImages.first)
+        anim.animationImages = compImages
+        anim.animationDuration = 2
+        anim.startAnimating()
+        img.addSubview(anim)
     }
     
     func onCellAnimation() {

@@ -126,6 +126,8 @@ class Components: NSObject {
         } else {
             compImages.append(UIImage(named: "ic_ok")!)
         }
+        
+        println(compImages.count)
         return compImages
     }
     
