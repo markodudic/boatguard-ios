@@ -61,10 +61,10 @@ class ComponentCell: UITableViewCell {
         
         //showbanner
         if (name == "ACCU") {
-            componentAccuIdx = 0
+            //componentAccuIdx = 0
             componentAccuBanner = banner
+            handleComponentAccuBanner()
         }
-        handleComponentBanner()
     }
 
     func handleTap(recognizer: UITapGestureRecognizer) {
@@ -74,8 +74,8 @@ class ComponentCell: UITableViewCell {
             if (componentAccuIdx > 2) {
                 componentAccuIdx = 0
             }
+            handleComponentAccuBanner()
         }
-        handleComponentBanner()
     }
     
     func onCellAnimation() {
@@ -101,7 +101,7 @@ class ComponentCell: UITableViewCell {
 
         UIView.animateWithDuration(2.0, delay: 0.0, options: options,
             animations: {
-                self.subviewbottom.alpha = 0.4
+                self.subviewbottom.alpha = 0.2
                 self.subviewbottom.alpha = 0.0
             }, completion: {
                 (value: Bool) in
@@ -110,7 +110,7 @@ class ComponentCell: UITableViewCell {
 
         UIView.animateWithDuration(2.0, delay: 0.0, options: options,
             animations: {
-                self.subviewtop.alpha = 0.4
+                self.subviewtop.alpha = 0.2
                 self.subviewtop.alpha = 0.0
             }, completion: {
                 (value: Bool) in
@@ -138,25 +138,23 @@ class ComponentCell: UITableViewCell {
         view.layer.backgroundColor = settings.cellNormal.CGColor
     }
     
-    func handleComponentBanner() {
+    func handleComponentAccuBanner() {
         //remove existing subviews
         for view in img.subviews {
             view.removeFromSuperview()
         }
 
-        if (name == "ACCU") {
-            let anim = UIImageView(image: UIImage(named: "ic_bnr_"+String(componentAccuIdx)))
-            img.addSubview(anim)
-            bnr.text = componentAccuBanner[componentAccuIdx]
-            bnr.textColor = settings.lblGreen
+        let anim = UIImageView(image: UIImage(named: "ic_bnr_"+String(componentAccuIdx)))
+        img.addSubview(anim)
+        bnr.text = componentAccuBanner[componentAccuIdx]
+        bnr.textColor = settings.lblGreen
             
-            if (componentAccuIdx == 0) {
-                let component_data: JSON = states.getObudataByIdState(34)
-                let component_value: String = component_data["value"].asString!
+        if (componentAccuIdx == 0) {
+            let component_data: JSON = states.getObudataByIdState(34)
+            let component_value: String = component_data["value"].asString!
                 
-                if (component_value == "1") {
-                    bnr.textColor = settings.lblRed
-                }
+            if (component_value == "1") {
+                bnr.textColor = settings.lblRed
             }
         }
     }

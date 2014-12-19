@@ -102,6 +102,7 @@ class Components: NSObject {
         cell.setName("PUMP")
         cell.lbl.text = states.dblSpace(json["name"].asString!)
         cell.imgAnimate(setImagePump(idx))
+        cell.imgBanner([])
         
         if (c.alarm) {
             cell.onCellAnimation()
@@ -160,6 +161,8 @@ class Components: NSObject {
         cell.setName("ANCHOR")
         cell.lbl.text = states.dblSpace(json["name"].asString!)
         cell.imgAnimate(setImageAnchor(idx))
+        cell.imgBanner([])
+        
         if (c.alarm) {
             cell.onCellAnimation()
         } else {
@@ -210,6 +213,8 @@ class Components: NSObject {
         cell.setName("GEO")
         cell.lbl.text = states.dblSpace(json["name"].asString!)
         cell.imgAnimate(setImageGeo(idx))
+        cell.imgBanner([])
+        
         if (c.alarm) {
             cell.onCellAnimation()
         } else {
@@ -259,6 +264,7 @@ class Components: NSObject {
         cell.lbl.text = states.dblSpace(json["name"].asString!)
         cell.imgAnimate(setImageAccu(idx))
         cell.imgBanner(setBannerAccu(idx))
+        
         if (c.alarm) {
             cell.onCellAnimation()
         } else {
@@ -327,6 +333,8 @@ class Components: NSObject {
         cell.setName("LIGHT")
         cell.lbl.text = states.dblSpace(json["name"].asString!)
         cell.imgAnimate(setImageLight(idx))
+        cell.imgBanner([])
+        
         if (c.alarm) {
             cell.onCellAnimation()
         } else {
@@ -365,6 +373,8 @@ class Components: NSObject {
         cell.setName("FAN")
         cell.lbl.text = states.dblSpace(json["name"].asString!)
         cell.imgAnimate(setImageFan(idx))
+        cell.imgBanner([])
+        
         if (c.alarm) {
             cell.onCellAnimation()
         } else {
@@ -403,6 +413,8 @@ class Components: NSObject {
         cell.setName("DOOR")
         cell.lbl.text = states.dblSpace(json["name"].asString!)
         cell.imgAnimate(setImageDoor(idx))
+        cell.imgBanner([])
+        
         if (c.alarm) {
             cell.onCellAnimation()
         } else {
