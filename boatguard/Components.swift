@@ -81,6 +81,7 @@ class Components: NSObject {
         var compImages: [UIImage] = []
         compImages.append(UIImage(named: "ic_unknown")!)
         cell.imgAnimate(compImages)
+        cell.offCellAnimation()
         return cell
     }
     

@@ -14,6 +14,8 @@ class ComponentCell: UITableViewCell {
     @IBOutlet weak var bnr: UILabel!
     @IBOutlet weak var img: UIImageView!
     @IBOutlet weak var view: UIView!
+    @IBOutlet weak var subviewtop: UIView!
+    @IBOutlet weak var subviewbottom: UIView!
     
     var compImages: [UIImage] = []
     var name: String = "UNKNOWN"
@@ -77,6 +79,24 @@ class ComponentCell: UITableViewCell {
     }
     
     func onCellAnimation() {
+        //show gradiente
+        subviewtop.hidden = false
+        subviewbottom.hidden = false
+        subviewtop.backgroundColor = UIColor.clearColor()
+        subviewbottom.backgroundColor = UIColor.clearColor()
+
+        let gl_top = CAGradientLayer()
+        gl_top.colors = [settings.gradientTop, settings.gradientBottom]
+        gl_top.locations = [0.0, 1.0]
+        gl_top.frame = CGRectMake(0,0,320,10)
+        subviewtop.layer.insertSublayer(gl_top, atIndex: 0)
+        
+        let gl_bottom = CAGradientLayer()
+        gl_bottom.colors = [settings.gradientBottom, settings.gradientTop]
+        gl_bottom.locations = [0.0, 1.0]
+        gl_bottom.frame = CGRectMake(0,0,320,10)
+        subviewbottom.layer.insertSublayer(gl_bottom, atIndex: 0)
+        
         let options = (UIViewAnimationOptions.Autoreverse | UIViewAnimationOptions.Repeat)
         UIView.animateWithDuration(2.0, delay: 0.0, options: options,
             animations: {
@@ -89,6 +109,10 @@ class ComponentCell: UITableViewCell {
     }
     
     func offCellAnimation() {
+        //hide gradiente
+        subviewtop.hidden = true
+        subviewbottom.hidden = true
+        
         view.layer.removeAllAnimations()
         view.layer.backgroundColor = settings.cellNormal.CGColor
     }

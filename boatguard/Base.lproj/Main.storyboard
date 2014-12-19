@@ -283,6 +283,16 @@
                                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <view hidden="YES" contentMode="scaleToFill" id="dGn-as-1pF">
+                                                            <rect key="frame" x="0.0" y="0.0" width="320" height="10"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </view>
+                                                        <view hidden="YES" contentMode="scaleToFill" id="LmN-ae-lYf">
+                                                            <rect key="frame" x="0.0" y="78" width="320" height="10"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </view>
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.90980398650000005" green="0.90588241820000004" blue="0.90980398650000005" alpha="1" colorSpace="deviceRGB"/>
                                                 </tableViewCellContentView>
@@ -290,6 +300,8 @@
                                                     <outlet property="bnr" destination="9hN-uL-sYe" id="idM-7G-6xi"/>
                                                     <outlet property="img" destination="aBW-wP-AVX" id="gAf-Vs-9BR"/>
                                                     <outlet property="lbl" destination="Y1p-pz-zdr" id="O0H-K2-X56"/>
+                                                    <outlet property="subviewbottom" destination="LmN-ae-lYf" id="VWl-3d-5Ga"/>
+                                                    <outlet property="subviewtop" destination="dGn-as-1pF" id="tPE-SM-dCL"/>
                                                     <outlet property="view" destination="gJW-MY-uxp" id="GAo-A8-4e4"/>
                                                 </connections>
                                             </tableViewCell>
