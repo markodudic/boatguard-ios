@@ -115,25 +115,29 @@ class Components: NSObject {
     func setImagePump(idx: Int) ->[UIImage] {
         var compImages: [UIImage] = []
         let component_data: JSON = states.getObudataByIdState(20)
-        let component_value: String = component_data["value"].asString!
+        if (component_data.length > 0) {
+            let component_value: String = component_data["value"].asString!
 
-        if (component_value == "0") {
-            compImages.append(UIImage(named: "ic_ok")!)
-        } else if (component_value == "1") {
-            compImages.append(UIImage(named: "ic_pump_1_2")!)
-            compImages.append(UIImage(named: "ic_pump_1_3")!)
-            compImages.append(UIImage(named: "ic_pump_1_4")!)
-            compImages.append(UIImage(named: "ic_pump_1_5")!)
-            compImages.append(UIImage(named: "ic_pump_1_6")!)
-            compImages.append(UIImage(named: "ic_pump_1_7")!)
-            compImages.append(UIImage(named: "ic_pump_1_8")!)
-            compImages.append(UIImage(named: "ic_pump_1_9")!)
-        } else if (component_value == "2") {
-            compImages.append(UIImage(named: "ic_pump_2")!)
-        } else if (component_value == "3") {
-            compImages.append(UIImage(named: "ic_pump_3")!)
-        } else {
-            compImages.append(UIImage(named: "ic_ok")!)
+            if (component_value == "0") {
+                compImages.append(UIImage(named: "ic_ok")!)
+            } else if (component_value == "1") {
+                compImages.append(UIImage(named: "ic_pump_1_2")!)
+                compImages.append(UIImage(named: "ic_pump_1_3")!)
+                compImages.append(UIImage(named: "ic_pump_1_4")!)
+                compImages.append(UIImage(named: "ic_pump_1_5")!)
+                compImages.append(UIImage(named: "ic_pump_1_6")!)
+                compImages.append(UIImage(named: "ic_pump_1_7")!)
+                compImages.append(UIImage(named: "ic_pump_1_8")!)
+                compImages.append(UIImage(named: "ic_pump_1_9")!)
+            } else if (component_value == "2") {
+                compImages.append(UIImage(named: "ic_pump_2")!)
+            } else if (component_value == "3") {
+                compImages.append(UIImage(named: "ic_pump_3")!)
+            }
+        }
+        
+        if (compImages.count == 0) {
+            compImages.append(UIImage(named: "ic_pump_grey")!)
         }
         return compImages
     }
@@ -142,9 +146,11 @@ class Components: NSObject {
         let component_states: [JSON] = states.getComponentStates(json["id_component"].asInt!)
         for component_state in component_states {
             let component_data: JSON = states.getObudataByIdState(20)
-            if (component_data["value"].asString?.toInt() != 0) {
-                setAlarm(json["id_component"].asInt!)
-                return true
+            if (component_data.length > 0) {
+                if (component_data["value"].asString?.toInt() != 0) {
+                    setAlarm(json["id_component"].asInt!)
+                    return true
+                }
             }
         }
         return false
@@ -174,18 +180,23 @@ class Components: NSObject {
     func setImageAnchor(idx: Int) ->[UIImage] {
         var compImages: [UIImage] = []
         let component_data40: JSON = states.getObudataByIdState(40)
-        let component_value40: String = component_data40["value"].asString!
         let component_data41: JSON = states.getObudataByIdState(41)
-        let component_value41: String = component_data41["value"].asString!
+
+        if (component_data40.length > 0 && component_data41.length > 0) {
+            let component_value40: String = component_data40["value"].asString!
+            let component_value41: String = component_data41["value"].asString!
         
-        if (component_value40 == "0") {
+            if (component_value40 == "0") {
+                compImages.append(UIImage(named: "ic_anchor_grey")!)
+            } else if (component_value40 == "1" && component_value41 == "0") {
+                compImages.append(UIImage(named: "ic_anchor_green")!)
+            } else if (component_value41 == "1") {
+                compImages.append(UIImage(named: "ic_anchor_red")!)
+            }
+        }
+        
+        if (compImages.count == 0) {
             compImages.append(UIImage(named: "ic_anchor_grey")!)
-        } else if (component_value40 == "1" && component_value41 == "0") {
-            compImages.append(UIImage(named: "ic_anchor_green")!)
-        } else if (component_value41 == "1") {
-            compImages.append(UIImage(named: "ic_anchor_red")!)
-        } else {
-            compImages.append(UIImage(named: "ic_ok")!)
         }
         return compImages
     }
@@ -194,9 +205,11 @@ class Components: NSObject {
         let component_states: [JSON] = states.getComponentStates(json["id_component"].asInt!)
         for component_state in component_states {
             let component_data: JSON = states.getObudataByIdState(41)
-            if (component_data["value"].asString?.toInt() == 1) {
-                setAlarm(json["id_component"].asInt!)
-                return true
+            if (component_data.length > 0) {
+                if (component_data["value"].asString?.toInt() == 1) {
+                    setAlarm(json["id_component"].asInt!)
+                    return true
+                }
             }
         }
         return false
@@ -226,16 +239,20 @@ class Components: NSObject {
     func setImageGeo(idx: Int) ->[UIImage] {
         var compImages: [UIImage] = []
         let component_data: JSON = states.getObudataByIdState(10)
-        let component_value: String = component_data["value"].asString!
+        if (component_data.length > 0) {
+            let component_value: String = component_data["value"].asString!
         
-        if (component_value == "0") {
+            if (component_value == "0") {
+                compImages.append(UIImage(named: "ic_geo_grey")!)
+            } else if (component_value == "1") {
+                compImages.append(UIImage(named: "ic_geo_green")!)
+            } else if (component_value == "2") {
+                compImages.append(UIImage(named: "ic_geo_red")!)
+            }
+        }
+        
+        if (compImages.count == 0) {
             compImages.append(UIImage(named: "ic_geo_grey")!)
-        } else if (component_value == "1") {
-            compImages.append(UIImage(named: "ic_geo_green")!)
-        } else if (component_value == "2") {
-            compImages.append(UIImage(named: "ic_geo_red")!)
-        } else {
-            compImages.append(UIImage(named: "ic_ok")!)
         }
         return compImages
     }
@@ -277,15 +294,26 @@ class Components: NSObject {
         var bannerImages: [String] = []
         
         let component_data: JSON = states.getObudataByIdState(33)
-        let component_value: String = component_data["value"].asString!
+        if (component_data.length > 0) {
+            let component_value: String = component_data["value"].asString!
         
-        if (component_value == "1") {
-            let component_data30: JSON = states.getObudataByIdState(30)
-            let component_data31: JSON = states.getObudataByIdState(31)
-            let component_data32: JSON = states.getObudataByIdState(32)
-            bannerImages.append(states.toDecimal(component_data30["value"].asString!, decimals: 0)+"%")
-            bannerImages.append(states.toDecimal(component_data31["value"].asString!, decimals: 2)+"Ah")
-            bannerImages.append(states.toDecimal(component_data32["value"].asString!, decimals: 2)+"A")
+            if (component_value == "1") {
+                let component_data30: JSON = states.getObudataByIdState(30)
+                let component_data31: JSON = states.getObudataByIdState(31)
+                let component_data32: JSON = states.getObudataByIdState(32)
+
+                if (component_data30.length > 0) {
+                    bannerImages.append(states.toDecimal(component_data30["value"].asString!, decimals: 0)+"%")
+                }
+                
+                if (component_data31.length > 0) {
+                    bannerImages.append(states.toDecimal(component_data31["value"].asString!, decimals: 2)+"Ah")
+                }
+                
+                if (component_data32.length > 0) {
+                    bannerImages.append(states.toDecimal(component_data32["value"].asString!, decimals: 2)+"A")
+                }
+            }
         }
         return bannerImages
     }
@@ -293,11 +321,14 @@ class Components: NSObject {
     func setImageAccu(idx: Int) ->[UIImage] {
         var compImages: [UIImage] = []
         let component_data: JSON = states.getObudataByIdState(33)
-        let component_value: String = component_data["value"].asString!
+        if (component_data.length > 0) {
+            let component_value: String = component_data["value"].asString!
+            if (component_value == "0") {
+                compImages.append(UIImage(named: "ic_accu_disconnected")!)
+            }
+        }
         
-        if (component_value == "0") {
-            compImages.append(UIImage(named: "ic_accu_disconnected")!)
-        } else {
+        if (compImages.count == 0) {
             compImages.append(UIImage(named: "ic_ok")!)
         }
         return compImages
@@ -307,16 +338,20 @@ class Components: NSObject {
         let component_states: [JSON] = states.getComponentStates(json["id_component"].asInt!)
         for component_state in component_states {
             let component_data: JSON = states.getObudataByIdState(33)
-            if (component_data["value"].asString?.toInt() == 0) {
-                setAlarm(json["id_component"].asInt!)
-                return true
+            if (component_data.length > 0) {
+                if (component_data["value"].asString?.toInt() == 0) {
+                    setAlarm(json["id_component"].asInt!)
+                    return true
+                }
             }
         }
         for component_state in component_states {
             let component_data: JSON = states.getObudataByIdState(34)
-            if (component_data["value"].asString?.toInt() == 1) {
-                setAlarm(json["id_component"].asInt!)
-                return true
+            if (component_data.length > 0) {
+                if (component_data["value"].asString?.toInt() == 1) {
+                    setAlarm(json["id_component"].asInt!)
+                    return true
+                }
             }
         }
         return false
@@ -346,14 +381,18 @@ class Components: NSObject {
     func setImageLight(idx: Int) ->[UIImage] {
         var compImages: [UIImage] = []
         let component_data: JSON = states.getObudataByIdState(50)
-        let component_value: String = component_data["value"].asString!
+        if (component_data.length > 0) {
+            let component_value: String = component_data["value"].asString!
         
-        if (component_value == "0") {
+            if (component_value == "0") {
+                compImages.append(UIImage(named: "ic_light_grey")!)
+            } else if (component_value == "1") {
+                compImages.append(UIImage(named: "ic_light_green")!)
+            }
+        }
+        
+        if (compImages.count == 0) {
             compImages.append(UIImage(named: "ic_light_grey")!)
-        } else if (component_value == "1") {
-            compImages.append(UIImage(named: "ic_light_green")!)
-        } else {
-            compImages.append(UIImage(named: "ic_ok")!)
         }
         return compImages
     }
@@ -386,14 +425,18 @@ class Components: NSObject {
     func setImageFan(idx: Int) ->[UIImage] {
         var compImages: [UIImage] = []
         let component_data: JSON = states.getObudataByIdState(60)
-        let component_value: String = component_data["value"].asString!
+        if (component_data.length > 0) {
+            let component_value: String = component_data["value"].asString!
         
-        if (component_value == "0") {
+            if (component_value == "0") {
+                compImages.append(UIImage(named: "ic_fan_grey")!)
+            } else if (component_value == "1") {
+                compImages.append(UIImage(named: "ic_fan_green")!)
+            }
+        }
+
+        if (compImages.count == 0) {
             compImages.append(UIImage(named: "ic_fan_grey")!)
-        } else if (component_value == "1") {
-            compImages.append(UIImage(named: "ic_fan_green")!)
-        } else {
-            compImages.append(UIImage(named: "ic_ok")!)
         }
         return compImages
     }
@@ -426,13 +469,17 @@ class Components: NSObject {
     func setImageDoor(idx: Int) ->[UIImage] {
         var compImages: [UIImage] = []
         let component_data: JSON = states.getObudataByIdState(70)
-        let component_value: String = component_data["value"].asString!
+        if (component_data.length > 0) {
+            let component_value: String = component_data["value"].asString!
         
-        if (component_value == "0") {
-            compImages.append(UIImage(named: "ic_door_green")!)
-        } else if (component_value == "1") {
-            compImages.append(UIImage(named: "ic_door_red")!)
-        } else {
+            if (component_value == "0") {
+                compImages.append(UIImage(named: "ic_door_green")!)
+            } else if (component_value == "1") {
+                compImages.append(UIImage(named: "ic_door_red")!)
+            }
+        }
+
+        if (compImages.count == 0) {
             compImages.append(UIImage(named: "ic_door_grey")!)
         }
         return compImages
@@ -442,9 +489,11 @@ class Components: NSObject {
         let component_states: [JSON] = states.getComponentStates(json["id_component"].asInt!)
         for component_state in component_states {
             let component_data: JSON = states.getObudataByIdState(70)
-            if (component_data["value"].asString?.toInt() == 1) {
-                setAlarm(json["id_component"].asInt!)
-                return true
+            if (component_data.length > 0) {
+                if (component_data["value"].asString?.toInt() == 1) {
+                    setAlarm(json["id_component"].asInt!)
+                    return true
+                }
             }
         }
         return false
