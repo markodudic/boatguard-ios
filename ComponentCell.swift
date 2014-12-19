@@ -79,25 +79,44 @@ class ComponentCell: UITableViewCell {
     }
     
     func onCellAnimation() {
-        //show gradiente
+        //show gradients
         subviewtop.hidden = false
         subviewbottom.hidden = false
         subviewtop.backgroundColor = UIColor.clearColor()
         subviewbottom.backgroundColor = UIColor.clearColor()
+        
+        let options = (UIViewAnimationOptions.Autoreverse | UIViewAnimationOptions.Repeat)
 
         let gl_top = CAGradientLayer()
         gl_top.colors = [settings.gradientTop, settings.gradientBottom]
         gl_top.locations = [0.0, 1.0]
         gl_top.frame = CGRectMake(0,0,320,10)
         subviewtop.layer.insertSublayer(gl_top, atIndex: 0)
-        
+
         let gl_bottom = CAGradientLayer()
         gl_bottom.colors = [settings.gradientBottom, settings.gradientTop]
         gl_bottom.locations = [0.0, 1.0]
         gl_bottom.frame = CGRectMake(0,0,320,10)
         subviewbottom.layer.insertSublayer(gl_bottom, atIndex: 0)
+
+        UIView.animateWithDuration(2.0, delay: 0.0, options: options,
+            animations: {
+                self.subviewbottom.alpha = 1
+                self.subviewbottom.alpha = 0
+            }, completion: {
+                (value: Bool) in
+            }
+        )
+
+        UIView.animateWithDuration(2.0, delay: 0.0, options: options,
+            animations: {
+                self.subviewtop.alpha = 1
+                self.subviewtop.alpha = 0
+            }, completion: {
+                (value: Bool) in
+            }
+        )
         
-        let options = (UIViewAnimationOptions.Autoreverse | UIViewAnimationOptions.Repeat)
         UIView.animateWithDuration(2.0, delay: 0.0, options: options,
             animations: {
                 self.view.layer.backgroundColor = settings.cellAlarm.CGColor
@@ -109,9 +128,11 @@ class ComponentCell: UITableViewCell {
     }
     
     func offCellAnimation() {
-        //hide gradiente
+        //hide gradients
         subviewtop.hidden = true
+        subviewtop.layer.removeAllAnimations()
         subviewbottom.hidden = true
+        subviewbottom.layer.removeAllAnimations()
         
         view.layer.removeAllAnimations()
         view.layer.backgroundColor = settings.cellNormal.CGColor

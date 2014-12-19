@@ -46,6 +46,12 @@ class Refresh: NSObject {
             type = "GEO"
         } else if (json["type"].asString == "ACCU") {
             type = "ACCU"
+        } else if (json["type"].asString == "LIGHT") {
+            type = "LIGHT"
+        } else if (json["type"].asString == "FAN") {
+            type = "FAN"
+        } else if (json["type"].asString == "DOOR") {
+            type = "DOOR"
         }
         components.addComponent(json["id_component"].asInt!, json: json, alarm: false, type: type)
     }
@@ -146,6 +152,12 @@ class Refresh: NSObject {
             components.alarmCellGeo(json)
         } else if (json["type"].asString == "ACCU") {
             components.alarmCellAccu(json)
+        } else if (json["type"].asString == "LIGHT") {
+            components.alarmCellLight(json)
+        } else if (json["type"].asString == "FAN") {
+            components.alarmCellFan(json)
+        } else if (json["type"].asString == "DOOR") {
+            components.alarmCellDoor(json)
         }
     }
 }

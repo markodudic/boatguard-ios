@@ -50,6 +50,12 @@ class Components: NSObject {
             return renderCellGeo(idx, tableView: tableView)
         } else if (c.type == "ACCU") {
             return renderCellAccu(idx, tableView: tableView)
+        } else if (c.type == "LIGHT") {
+            return renderCellLight(idx, tableView: tableView)
+        } else if (c.type == "FAN") {
+            return renderCellFan(idx, tableView: tableView)
+        } else if (c.type == "DOOR") {
+            return renderCellDoor(idx, tableView: tableView)
         }
         return renderCellUnknown(idx, tableView: tableView, name: c.json["type"].asString!)
     }
@@ -310,6 +316,150 @@ class Components: NSObject {
         return false
     }
    
+    /**
+    * LIGHT
+    */
+    func renderCellLight(idx: Int, tableView: UITableView) ->UITableViewCell {
+        var c = comps[idx]
+        var json = c.json
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier("ComponentCell") as ComponentCell
+        cell.setName("LIGHT")
+        cell.lbl.text = states.dblSpace(json["name"].asString!)
+        cell.imgAnimate(setImageLight(idx))
+        if (c.alarm) {
+            cell.onCellAnimation()
+        } else {
+            cell.offCellAnimation()
+        }
+        return cell
+    }
+    
+    func setImageLight(idx: Int) ->[UIImage] {
+        var compImages: [UIImage] = []
+        let component_data: JSON = states.getObudataByIdState(10)
+        let component_value: String = component_data["value"].asString!
+        
+        if (component_value == "0") {
+            compImages.append(UIImage(named: "ic_geo_grey")!)
+        } else if (component_value == "1") {
+            compImages.append(UIImage(named: "ic_geo_green")!)
+        } else if (component_value == "2") {
+            compImages.append(UIImage(named: "ic_geo_red")!)
+        } else {
+            compImages.append(UIImage(named: "ic_ok")!)
+        }
+        return compImages
+    }
+    
+    func alarmCellLight(json: JSON) ->Bool {
+        let component_states: [JSON] = states.getComponentStates(json["id_component"].asInt!)
+        for component_state in component_states {
+            let component_data: JSON = states.getObudataByIdState(10)
+            if (component_data["value"].asString?.toInt() == 2) {
+                setAlarm(json["id_component"].asInt!)
+                return true
+            }
+        }
+        return false
+    }
+    
+    /**
+    * FAN
+    */
+    func renderCellFan(idx: Int, tableView: UITableView) ->UITableViewCell {
+        var c = comps[idx]
+        var json = c.json
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier("ComponentCell") as ComponentCell
+        cell.setName("FAN")
+        cell.lbl.text = states.dblSpace(json["name"].asString!)
+        cell.imgAnimate(setImageFan(idx))
+        if (c.alarm) {
+            cell.onCellAnimation()
+        } else {
+            cell.offCellAnimation()
+        }
+        return cell
+    }
+    
+    func setImageFan(idx: Int) ->[UIImage] {
+        var compImages: [UIImage] = []
+        let component_data: JSON = states.getObudataByIdState(10)
+        let component_value: String = component_data["value"].asString!
+        
+        if (component_value == "0") {
+            compImages.append(UIImage(named: "ic_geo_grey")!)
+        } else if (component_value == "1") {
+            compImages.append(UIImage(named: "ic_geo_green")!)
+        } else if (component_value == "2") {
+            compImages.append(UIImage(named: "ic_geo_red")!)
+        } else {
+            compImages.append(UIImage(named: "ic_ok")!)
+        }
+        return compImages
+    }
+    
+    func alarmCellFan(json: JSON) ->Bool {
+        let component_states: [JSON] = states.getComponentStates(json["id_component"].asInt!)
+        for component_state in component_states {
+            let component_data: JSON = states.getObudataByIdState(10)
+            if (component_data["value"].asString?.toInt() == 2) {
+                setAlarm(json["id_component"].asInt!)
+                return true
+            }
+        }
+        return false
+    }
+    
+    /**
+    * DOOR
+    */
+    func renderCellDoor(idx: Int, tableView: UITableView) ->UITableViewCell {
+        var c = comps[idx]
+        var json = c.json
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier("ComponentCell") as ComponentCell
+        cell.setName("DOOR")
+        cell.lbl.text = states.dblSpace(json["name"].asString!)
+        cell.imgAnimate(setImageDoor(idx))
+        if (c.alarm) {
+            cell.onCellAnimation()
+        } else {
+            cell.offCellAnimation()
+        }
+        return cell
+    }
+    
+    func setImageDoor(idx: Int) ->[UIImage] {
+        var compImages: [UIImage] = []
+        let component_data: JSON = states.getObudataByIdState(10)
+        let component_value: String = component_data["value"].asString!
+        
+        if (component_value == "0") {
+            compImages.append(UIImage(named: "ic_geo_grey")!)
+        } else if (component_value == "1") {
+            compImages.append(UIImage(named: "ic_geo_green")!)
+        } else if (component_value == "2") {
+            compImages.append(UIImage(named: "ic_geo_red")!)
+        } else {
+            compImages.append(UIImage(named: "ic_ok")!)
+        }
+        return compImages
+    }
+    
+    func alarmCellDoor(json: JSON) ->Bool {
+        let component_states: [JSON] = states.getComponentStates(json["id_component"].asInt!)
+        for component_state in component_states {
+            let component_data: JSON = states.getObudataByIdState(10)
+            if (component_data["value"].asString?.toInt() == 2) {
+                setAlarm(json["id_component"].asInt!)
+                return true
+            }
+        }
+        return false
+    }
+    
     /**
     * common
     */

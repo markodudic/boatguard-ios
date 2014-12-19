@@ -20,12 +20,15 @@ class Settings: NSObject {
     internal let obudataUri       = "http://93.103.12.155:8080/boatguard/getdata"
     internal let obualarmUri      = "http://93.103.12.155:8080/boatguard/confirmalarm"
     
-    internal let gradientTop    = UIColor(red: 102.0/255.0, green: 102.0/255.0, blue: 102.0/255.0, alpha: 0.4).CGColor
-    internal let gradientBottom = UIColor(red: 215.0/255.0, green: 215.0/255.0, blue: 215.0/255.0, alpha: 0.1).CGColor
+    internal let gradientTop      = UIColor(red: 102.0/255.0, green: 102.0/255.0, blue: 102.0/255.0, alpha: 0.4).CGColor
+    internal let gradientBottom   = UIColor(red: 215.0/255.0, green: 215.0/255.0, blue: 215.0/255.0, alpha: 0.1).CGColor
+
+    internal let gradientTopa     = UIColor(red: 102.0/255.0, green: 102.0/255.0, blue: 102.0/255.0, alpha: 1).CGColor
+    internal let gradientBottoma  = UIColor(red: 215.0/255.0, green: 215.0/255.0, blue: 215.0/255.0, alpha: 1).CGColor
+
+    internal let cellNormal       = UIColor(red: 226.0/255.0, green: 226.0/255.0, blue: 226.0/255.0, alpha: 1)
+    internal let cellAlarm        = UIColor(red: 213.0/255.0, green: 14.0/255.0, blue: 15.0/255.0, alpha: 0.50)
     
-    internal let cellNormal     = UIColor(red: 226.0/255.0, green: 226.0/255.0, blue: 226.0/255.0, alpha: 1)
-    internal let cellAlarm      = UIColor(red: 213.0/255.0, green: 14.0/255.0, blue: 15.0/255.0, alpha: 0.50)
-    
-    internal let lblGreen       = UIColor(red: 57.0/255.0, green: 169.0/255.0, blue: 53.0/255.0, alpha: 1)
-    internal let lblRed         = UIColor(red: 212.0/255.0, green: 69.0/255.0, blue: 29.0/255.0, alpha: 1)
+    internal let lblGreen         = UIColor(red: 57.0/255.0, green: 169.0/255.0, blue: 53.0/255.0, alpha: 1)
+    internal let lblRed           = UIColor(red: 212.0/255.0, green: 69.0/255.0, blue: 29.0/255.0, alpha: 1)
 }
