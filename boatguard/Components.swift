@@ -265,7 +265,7 @@ class Components: NSObject {
         
         let component_data: JSON = states.getObudataByIdState(33)
         let component_value: String = component_data["value"].asString!
-
+        
         if (component_value == "1") {
             let component_data30: JSON = states.getObudataByIdState(30)
             let component_data31: JSON = states.getObudataByIdState(31)

@@ -43,13 +43,17 @@ class ComponentCell: UITableViewCell {
     }
     
     func imgBanner(banner: [String]) {
+        //event
+        let recognizer = UITapGestureRecognizer(target: self, action:Selector("handleTap:"))
+        
         //no component banner
         if (banner.count == 0) {
+            bnr.hidden = true
+            self.userInteractionEnabled = false
             return
         }
         
-        //event
-        let recognizer = UITapGestureRecognizer(target: self, action:Selector("handleTap:"))
+        bnr.hidden = false
         self.userInteractionEnabled = true
         self.addGestureRecognizer(recognizer)
         
@@ -99,6 +103,16 @@ class ComponentCell: UITableViewCell {
             let anim = UIImageView(image: UIImage(named: "ic_bnr_"+String(componentAccuIdx)))
             img.addSubview(anim)
             bnr.text = componentAccuBanner[componentAccuIdx]
+            bnr.textColor = settings.lblGreen
+            
+            if (componentAccuIdx == 0) {
+                let component_data: JSON = states.getObudataByIdState(34)
+                let component_value: String = component_data["value"].asString!
+                
+                if (component_value == "1") {
+                    bnr.textColor = settings.lblRed
+                }
+            }
         }
     }
 }
