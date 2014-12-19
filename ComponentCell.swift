@@ -88,21 +88,21 @@ class ComponentCell: UITableViewCell {
         let options = (UIViewAnimationOptions.Autoreverse | UIViewAnimationOptions.Repeat)
 
         let gl_top = CAGradientLayer()
-        gl_top.colors = [settings.gradientTop, settings.gradientBottom]
+        gl_top.colors = [settings.gradientTop_a, settings.gradientBottom_a]
         gl_top.locations = [0.0, 1.0]
         gl_top.frame = CGRectMake(0,0,320,10)
         subviewtop.layer.insertSublayer(gl_top, atIndex: 0)
 
         let gl_bottom = CAGradientLayer()
-        gl_bottom.colors = [settings.gradientBottom, settings.gradientTop]
+        gl_bottom.colors = [settings.gradientBottom_a, settings.gradientTop_a]
         gl_bottom.locations = [0.0, 1.0]
         gl_bottom.frame = CGRectMake(0,0,320,10)
         subviewbottom.layer.insertSublayer(gl_bottom, atIndex: 0)
 
         UIView.animateWithDuration(2.0, delay: 0.0, options: options,
             animations: {
-                self.subviewbottom.alpha = 1
-                self.subviewbottom.alpha = 0
+                self.subviewbottom.alpha = 0.4
+                self.subviewbottom.alpha = 0.0
             }, completion: {
                 (value: Bool) in
             }
@@ -110,8 +110,8 @@ class ComponentCell: UITableViewCell {
 
         UIView.animateWithDuration(2.0, delay: 0.0, options: options,
             animations: {
-                self.subviewtop.alpha = 1
-                self.subviewtop.alpha = 0
+                self.subviewtop.alpha = 0.4
+                self.subviewtop.alpha = 0.0
             }, completion: {
                 (value: Bool) in
             }
