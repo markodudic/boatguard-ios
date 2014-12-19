@@ -337,15 +337,13 @@ class Components: NSObject {
     
     func setImageLight(idx: Int) ->[UIImage] {
         var compImages: [UIImage] = []
-        let component_data: JSON = states.getObudataByIdState(10)
+        let component_data: JSON = states.getObudataByIdState(50)
         let component_value: String = component_data["value"].asString!
         
         if (component_value == "0") {
-            compImages.append(UIImage(named: "ic_geo_grey")!)
+            compImages.append(UIImage(named: "ic_light_grey")!)
         } else if (component_value == "1") {
-            compImages.append(UIImage(named: "ic_geo_green")!)
-        } else if (component_value == "2") {
-            compImages.append(UIImage(named: "ic_geo_red")!)
+            compImages.append(UIImage(named: "ic_light_green")!)
         } else {
             compImages.append(UIImage(named: "ic_ok")!)
         }
@@ -353,14 +351,6 @@ class Components: NSObject {
     }
     
     func alarmCellLight(json: JSON) ->Bool {
-        let component_states: [JSON] = states.getComponentStates(json["id_component"].asInt!)
-        for component_state in component_states {
-            let component_data: JSON = states.getObudataByIdState(10)
-            if (component_data["value"].asString?.toInt() == 2) {
-                setAlarm(json["id_component"].asInt!)
-                return true
-            }
-        }
         return false
     }
     
@@ -385,15 +375,13 @@ class Components: NSObject {
     
     func setImageFan(idx: Int) ->[UIImage] {
         var compImages: [UIImage] = []
-        let component_data: JSON = states.getObudataByIdState(10)
+        let component_data: JSON = states.getObudataByIdState(60)
         let component_value: String = component_data["value"].asString!
         
         if (component_value == "0") {
-            compImages.append(UIImage(named: "ic_geo_grey")!)
+            compImages.append(UIImage(named: "ic_fan_grey")!)
         } else if (component_value == "1") {
-            compImages.append(UIImage(named: "ic_geo_green")!)
-        } else if (component_value == "2") {
-            compImages.append(UIImage(named: "ic_geo_red")!)
+            compImages.append(UIImage(named: "ic_fan_green")!)
         } else {
             compImages.append(UIImage(named: "ic_ok")!)
         }
@@ -401,14 +389,6 @@ class Components: NSObject {
     }
     
     func alarmCellFan(json: JSON) ->Bool {
-        let component_states: [JSON] = states.getComponentStates(json["id_component"].asInt!)
-        for component_state in component_states {
-            let component_data: JSON = states.getObudataByIdState(10)
-            if (component_data["value"].asString?.toInt() == 2) {
-                setAlarm(json["id_component"].asInt!)
-                return true
-            }
-        }
         return false
     }
     
@@ -433,17 +413,15 @@ class Components: NSObject {
     
     func setImageDoor(idx: Int) ->[UIImage] {
         var compImages: [UIImage] = []
-        let component_data: JSON = states.getObudataByIdState(10)
+        let component_data: JSON = states.getObudataByIdState(70)
         let component_value: String = component_data["value"].asString!
         
         if (component_value == "0") {
-            compImages.append(UIImage(named: "ic_geo_grey")!)
+            compImages.append(UIImage(named: "ic_door_green")!)
         } else if (component_value == "1") {
-            compImages.append(UIImage(named: "ic_geo_green")!)
-        } else if (component_value == "2") {
-            compImages.append(UIImage(named: "ic_geo_red")!)
+            compImages.append(UIImage(named: "ic_door_red")!)
         } else {
-            compImages.append(UIImage(named: "ic_ok")!)
+            compImages.append(UIImage(named: "ic_door_grey")!)
         }
         return compImages
     }
@@ -451,8 +429,8 @@ class Components: NSObject {
     func alarmCellDoor(json: JSON) ->Bool {
         let component_states: [JSON] = states.getComponentStates(json["id_component"].asInt!)
         for component_state in component_states {
-            let component_data: JSON = states.getObudataByIdState(10)
-            if (component_data["value"].asString?.toInt() == 2) {
+            let component_data: JSON = states.getObudataByIdState(70)
+            if (component_data["value"].asString?.toInt() == 1) {
                 setAlarm(json["id_component"].asInt!)
                 return true
             }
