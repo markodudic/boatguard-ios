@@ -32,6 +32,7 @@ class Refresh: NSObject {
             }
             idx++
         }
+        println("add components")
     }
     
     func handelComponent(idx: Int) {
@@ -53,7 +54,10 @@ class Refresh: NSObject {
         } else if (json["type"].asString == "DOOR") {
             type = "DOOR"
         }
+        //println("0add component")
         components.addComponent(json["id_component"].asInt!, json: json, alarm: false, type: type)
+        //println("1add component")
+
     }
     
     //proces recived JSON
@@ -61,10 +65,10 @@ class Refresh: NSObject {
         if (refreshSemaphoreGo) {
             println("refresh start")
             refreshSemaphoreGo = false
-            handleAlarms()
-            handleComponents()
+            //handleAlarms()
+            //handleComponents()
             refreshSemaphoreGo = true
-            println("end")
+            println("refresh end")
         }
     }
 

@@ -148,7 +148,9 @@ class States: NSObject {
                 d = v["dateState"].asString!
             }
         }
-        return dateFormatter.stringFromDate(Date.parse(d)).uppercaseString
+
+        //return dateFormatter.stringFromDate(Date.parse(d)).uppercaseString
+        return d
     }
     
     func dblSpace(s: String) -> String {
@@ -163,9 +165,15 @@ class States: NSObject {
     func toDecimal(s: String, decimals: Int)-> String {
         let numberFormatter = NSNumberFormatter()
         let number = numberFormatter.numberFromString(s)
+        
+        //TODO nil?
         let numberFloatValue = number?.floatValue
         
-        return dblSpace(String(format: "%."+String(decimals)+"f", numberFloatValue!))
+        if (numberFloatValue != nil) {
+            return dblSpace(String(format: "%."+String(decimals)+"f", numberFloatValue!))
+        } else {
+            return dblSpace(s)
+        }
     }
 }
 

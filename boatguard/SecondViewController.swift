@@ -56,15 +56,18 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     //refresh via pull
     func refreshData(sender:AnyObject) {
+
         //fetch json
         states.setObudata(JSON.fromURL(settings.obudataUri+"?obuid="+String(states.getObuid())))
-        self.lblRefresh.text = states.dblSpace("LAST UPDATE: "+states.getObudatadateTime())
         refresh.process()
+        
         if (states.isAlarm) {
             imgLogo.image = UIImage(named: "logo_alarm")
         } else {
             imgLogo.image = UIImage(named: "logo")
         }
+        self.lblRefresh.text = states.dblSpace("LAST UPDATE: "+states.getObudatadateTime())
+
         tblDashboard.reloadData() //force refresh
         self.refreshControl.endRefreshing()
     }
@@ -72,18 +75,18 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     //first time & on tab open
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-       
+        
         //show toolbar
         self.tabBarController?.tabBar.hidden = false
-        self.lblRefresh.text = states.dblSpace("LAST UPDATE: "+states.getObudatadateTime())
         
         if (states.isAlarm) {
             imgLogo.image = UIImage(named: "logo_alarm")
         } else {
             imgLogo.image = UIImage(named: "logo")
         }
-
-        //refresh component alarms
+        self.lblRefresh.text = states.dblSpace("LAST UPDATE: "+states.getObudatadateTime())
+        
+        //force refresh component alarms
         dispatch_async(dispatch_get_main_queue(), { () -> Void in
             self.tblDashboard.reloadData() //force refresh even if not in focus
         })
@@ -101,5 +104,14 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = components.getComponent(indexPath.row, tableView: tableView)
         return cell
+/*
+        let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "test")
+        
+        var json = states.getObusettings()
+        cell.textLabel?.text = "a"
+        cell.detailTextLabel?.text = "b"
+       
+        return cell
+*/
     }
 }

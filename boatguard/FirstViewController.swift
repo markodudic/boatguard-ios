@@ -107,21 +107,29 @@ class FirstViewController: UIViewController, UITextFieldDelegate, NSURLConnectio
         //appsettings
         let appsettingsJSON  = JSON.fromURL(settings.settingsUri)
         states.setAppsettings(appsettingsJSON)
+        //println("1---------------------------------------------------")
+        //println(appsettingsJSON)
         
         //obusettings
         let obusettingsURL   = settings.obusettingsUri+"?format=json&obuid="+String(obuid)
         let obusettingsJSON  = JSON.fromURL(obusettingsURL)
         states.setObusettings(obusettingsJSON)
+        //println("2---------------------------------------------------")
+        //println(obusettingsJSON)
         
         //obucomponents
         let obucomponentsURL  = settings.obucomponentsUri+"?obuid="+String(obuid)
         let obucomponentsJSON = JSON.fromURL(obucomponentsURL)
         states.setObucomponents(obucomponentsJSON)
+        //println("3---------------------------------------------------")
+        //println(obucomponentsJSON)
         
         //obudata
         let obudataURL        = settings.obudataUri+"?obuid="+String(obuid)
         let obudataJSON       = JSON.fromURL(obudataURL)
         states.setObudata(obudataJSON)
+        //println("4---------------------------------------------------")
+        //println(obudataJSON)
         
         refresh.setView(self) //send view to refresh
         refresh.addComponents() //add components to view
@@ -129,6 +137,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate, NSURLConnectio
         self.tabBarController?.selectedIndex = 1
         
         //refresh thread
+        /*
         Async.background {
             while(true) {
                 sleep(300)
@@ -136,6 +145,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate, NSURLConnectio
                 refresh.process()
             }
         }
+        */
     }
   
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
