@@ -15,7 +15,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: NSDictionary?) -> Bool {
-        // Override point for customization after application launch.
+
+        var rootController:UIViewController? = nil
+        var idiom = UIDevice.currentDevice().userInterfaceIdiom
+        if idiom == UIUserInterfaceIdiom.Phone {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            rootController = storyboard.instantiateViewControllerWithIdentifier("TabController") as? UIViewController
+        } else {
+            let storyboard = UIStoryboard(name: "Main_ipad", bundle: nil)
+            rootController = storyboard.instantiateViewControllerWithIdentifier("TabController") as? UIViewController
+        }
+
+        // get your storyboard
+        let frame = UIScreen.mainScreen().bounds
+        window = UIWindow(frame: frame)
+        
+        // Because self.window is an optional you should check it's value first and assign your rootViewController
+        if self.window != nil {
+            self.window!.rootViewController = rootController
+            self.window!.makeKeyAndVisible()
+        }
+        
         application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: UIUserNotificationType.Sound | UIUserNotificationType.Alert |
             UIUserNotificationType.Badge, categories: nil))
         return true
