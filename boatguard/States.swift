@@ -153,17 +153,9 @@ class States: NSObject {
         var v = obudata["states"]
         for (i, v) in obudata["states"] {
             if (v["id_state"].asInt == 1) {
-                d = v["dateState"].asString!
-                //TODO nil?
-                //wox in simulator not on device
-                /*
-                let dateFormatter = NSDateFormatter()
-                dateFormatter.dateFormat = "MMM d, y hh:mm:ss aaa"
-                var date = dateFormatter.dateFromString(d)
-                */
+                d = v["dateString"].asString!
             }
         }
-        //return dateFormatter.stringFromDate(Date.parse(d)).uppercaseString
         return d
     }
     
