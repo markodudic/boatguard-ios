@@ -28,19 +28,19 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let gl_top = CAGradientLayer()
         gl_top.colors = [settings.gradientTop, settings.gradientBottom]
         gl_top.locations = [0.0, 1.0]
-        gl_top.frame = CGRectMake(0,0,320,10)
+        gl_top.frame = CGRectMake(0,0,viewComponents.layer.frame.width,10)
         viewComponents.layer.insertSublayer(gl_top, atIndex: 0)
 
         let gl_bottom = CAGradientLayer()
         gl_bottom.colors = [settings.gradientBottom, settings.gradientTop]
         gl_bottom.locations = [0.0, 1.0]
-        gl_bottom.frame = CGRectMake(0,viewComponents.layer.frame.height-10,320,10)
+        gl_bottom.frame = CGRectMake(0,viewComponents.layer.frame.height-10,viewComponents.layer.frame.width,10)
         viewComponents.layer.insertSublayer(gl_bottom, atIndex: 0)
 
         let gll_bottom = CAGradientLayer()
         gll_bottom.colors = [settings.gradientBottom, settings.gradientTop]
         gll_bottom.locations = [0.0, 1.0]
-        gll_bottom.frame = CGRectMake(0,viewLogo.layer.frame.height-10,320,10)
+        gll_bottom.frame = CGRectMake(0,viewLogo.layer.frame.height-10,viewComponents.layer.frame.width,10)
         viewLogo.layer.insertSublayer(gll_bottom, atIndex: 0)
         
         //show toolbar

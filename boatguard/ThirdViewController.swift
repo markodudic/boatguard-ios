@@ -30,7 +30,7 @@ class ThirdViewController: UIViewController, MKMapViewDelegate {
         let gl = CAGradientLayer()
         gl.colors = [settings.gradientTop, settings.gradientBottom]
         gl.locations = [0.0, 1.0]
-        gl.frame = CGRectMake(0,0,320,10)
+        gl.frame = CGRectMake(0,0,viewMap.layer.frame.width,10)
         viewMap.layer.insertSublayer(gl, atIndex: 999)
         
         var json = states.getObudata()

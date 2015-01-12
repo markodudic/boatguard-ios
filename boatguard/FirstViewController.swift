@@ -36,13 +36,13 @@ class FirstViewController: UIViewController, UITextFieldDelegate, NSURLConnectio
         let gl_login = CAGradientLayer()
         gl_login.colors = [settings.gradientTop, settings.gradientBottom]
         gl_login.locations = [0.0, 1.0]
-        gl_login.frame = CGRectMake(0,0,320,10)
+        gl_login.frame = CGRectMake(0,0,viewLogin.layer.frame.width,10)
         viewLogin.layer.insertSublayer(gl_login, atIndex: 0)
         
         let gl_dash = CAGradientLayer()
         gl_dash.colors = [settings.gradientTop, settings.gradientBottom]
         gl_dash.locations = [0.0, 1.0]
-        gl_dash.frame = CGRectMake(0,0,320,10)
+        gl_dash.frame = CGRectMake(0,0,viewLogin.layer.frame.width,10)
         viewDashboard.layer.insertSublayer(gl_dash, atIndex: 0)
         
         //set toolbar highlighting color
