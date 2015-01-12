@@ -36,6 +36,7 @@
 		948DDF5A19C99A23006F5CBD /* Dosis-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 948DDF4E19C99A23006F5CBD /* Dosis-SemiBold.otf */; };
 		94C825AC1A1C97050066B6FC /* horn.wav in Resources */ = {isa = PBXBuildFile; fileRef = 94C825AB1A1C97050066B6FC /* horn.wav */; };
 		94CF52EA1A631583001E2C81 /* Main_ipad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94CF52E81A631583001E2C81 /* Main_ipad.storyboard */; };
+		94CF52EC1A64347D001E2C81 /* TabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CF52EB1A64347D001E2C81 /* TabController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +83,7 @@
 		948DDF4E19C99A23006F5CBD /* Dosis-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dosis-SemiBold.otf"; sourceTree = "<group>"; };
 		94C825AB1A1C97050066B6FC /* horn.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = horn.wav; sourceTree = "<group>"; };
 		94CF52E91A631583001E2C81 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_ipad.storyboard; sourceTree = "<group>"; };
+		94CF52EB1A64347D001E2C81 /* TabController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +148,7 @@
 				943E1E701A0500D4008FF404 /* Refresh.swift */,
 				9459CD6919E00EFF00B7FF4E /* Components.swift */,
 				946664551A1A68330073028A /* ComponentCell.swift */,
+				94CF52EB1A64347D001E2C81 /* TabController.swift */,
 				948DDF0C19C073F3006F5CBD /* FirstViewController.swift */,
 				948DDF0E19C073F3006F5CBD /* SecondViewController.swift */,
 				9424502719D0B09F004A496C /* ThirdViewController.swift */,
@@ -299,6 +302,7 @@
 				948DDF0F19C073F3006F5CBD /* SecondViewController.swift in Sources */,
 				9459CD6A19E00EFF00B7FF4E /* Components.swift in Sources */,
 				9424502219CF38DD004A496C /* Json.swift in Sources */,
+				94CF52EC1A64347D001E2C81 /* TabController.swift in Sources */,
 				9424502819D0B09F004A496C /* ThirdViewController.swift in Sources */,
 				9424502C19D3FA9C004A496C /* Async.swift in Sources */,
 				9424502419D09E94004A496C /* States.swift in Sources */,

@@ -47,6 +47,25 @@ class FirstViewController: UIViewController, UITextFieldDelegate, NSURLConnectio
         
         //set toolbar highlighting color
         self.tabBarController?.tabBar.tintColor = UIColor(red: CGFloat(0.607843), green: CGFloat(0.607843), blue: CGFloat(0.607843), alpha: CGFloat(1))
+
+//        self.tabBarController?.tabBar.frame.origin.y -= 25
+//        self.tabBarController?.tabBar.frame.height = CGFloat(100)
+//        self.tabBarController?.tabBar.frame.size = CGSize(width: 200, height: 200)
+//        self.tabBarController?.tabBar.frame = CGRectMake(100, 200, 300, 400)
+
+
+        /*
+        var newFrame:CGRect! = self.tabBarController?.tabBar.frame
+        newFrame.origin.y = -50;
+        newFrame.size.height = 100;
+        self.tabBarController?.tabBar.frame = newFrame;
+        */
+        
+        /*
+        var tabArray = self.tabBarController?.tabBar.items as NSArray!
+        var tabItem = tabArray.objectAtIndex(0) as UITabBarItem
+        //tabItem.image = UIImage(named: "logo")
+        */
         
         //test login
         txtUser.text = "marko"

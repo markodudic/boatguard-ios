@@ -389,10 +389,10 @@
             </objects>
             <point key="canvasLocation" x="924" y="724"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tab Controller-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
-                <tabBarController storyboardIdentifier="TabController" id="49e-Tb-3d3" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabController" id="49e-Tb-3d3" customClass="TabController" customModule="boatguard" customModuleProvider="target" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" itemPositioning="centered" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
@@ -413,7 +413,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="home" width="22" height="22"/>
+        <image name="home" width="48" height="48"/>
         <image name="input_bg" width="559" height="118"/>
         <image name="location" width="22" height="22"/>
         <image name="logo" width="184" height="22"/>
