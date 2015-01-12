@@ -235,7 +235,7 @@
                                         </subviews>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LAST UPDATE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4Pj-aP-Rjd">
-                                        <rect key="frame" x="238" y="74" width="293" height="21"/>
+                                        <rect key="frame" x="8" y="74" width="752" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Dosis-Regular" family="Dosis" pointSize="14"/>
                                         <color key="textColor" red="0.20000000000000001" green="0.24313725490196078" blue="0.28235294117647058" alpha="1" colorSpace="calibratedRGB"/>
@@ -286,8 +286,8 @@
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         </view>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9hN-uL-sYe">
-                                                            <rect key="frame" x="393" y="45" width="171" height="50"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9hN-uL-sYe">
+                                                            <rect key="frame" x="567" y="18" width="171" height="50"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" name="Dosis-Regular" family="Dosis" pointSize="22"/>
                                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>

@@ -151,10 +151,12 @@ class ComponentCell: UITableViewCell {
             
         if (componentAccuIdx == 0) {
             let component_data: JSON = states.getObudataByIdState(34)
-            let component_value: String = component_data["value"].asString!
+            if (component_data.length > 0) {
+                let component_value: String = component_data["value"].asString!
                 
-            if (component_value == "1") {
-                bnr.textColor = settings.lblRed
+                if (component_value == "1") {
+                    bnr.textColor = settings.lblRed
+                }
             }
         }
     }

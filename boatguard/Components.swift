@@ -304,15 +304,22 @@ class Components: NSObject {
 
                 if (component_data30.length > 0) {
                     bannerImages.append(states.toDecimal(component_data30["value"].asString!, decimals: 0)+"%")
+                } else {
+                    bannerImages.append(states.dblSpace("NA %"))
                 }
                 
                 if (component_data31.length > 0) {
                     bannerImages.append(states.toDecimal(component_data31["value"].asString!, decimals: 2)+"Ah")
+                } else {
+                    bannerImages.append(states.dblSpace("NA Ah"))
                 }
                 
                 if (component_data32.length > 0) {
                     bannerImages.append(states.toDecimal(component_data32["value"].asString!, decimals: 2)+"A")
+                } else {
+                    bannerImages.append(states.dblSpace("NA A"))
                 }
+
             }
         }
         return bannerImages

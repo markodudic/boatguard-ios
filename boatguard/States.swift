@@ -134,25 +134,7 @@ class States: NSObject {
         }
         return comp
     }
-    
-    /*
-    * device data timestapm
-    */
-    func getObudatadateTime() -> String {
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "MMM/dd/yyyy HH:mm"
-        var d:String!
-        var v = obudata["states"]
-        for (i, v) in obudata["states"] {
-            if (v["id_state"].asInt == 1) {
-                d = v["dateState"].asString!
-            }
-        }
 
-        //return dateFormatter.stringFromDate(Date.parse(d)).uppercaseString
-        return d
-    }
-    
     func dblSpace(s: String) -> String {
         let characters = Array(s)
         var dbl:String = ""
@@ -162,11 +144,38 @@ class States: NSObject {
         return dbl
     }
     
+    /*
+    * states timestamp
+    */
+    func getObudatadateTime() -> String {
+
+        var d:String!
+        var v = obudata["states"]
+        for (i, v) in obudata["states"] {
+            if (v["id_state"].asInt == 1) {
+                d = v["dateState"].asString!
+                //TODO nil?
+                //wox in simulator not on device
+                /*
+                let dateFormatter = NSDateFormatter()
+                dateFormatter.dateFormat = "MMM d, y hh:mm:ss aaa"
+                var date = dateFormatter.dateFromString(d)
+                */
+            }
+        }
+        //return dateFormatter.stringFromDate(Date.parse(d)).uppercaseString
+        return d
+    }
+    
+    /*
+    * convert numbers
+    */
     func toDecimal(s: String, decimals: Int)-> String {
         let numberFormatter = NSNumberFormatter()
         let number = numberFormatter.numberFromString(s)
         
         //TODO nil?
+        //wox in simulator not on device
         let numberFloatValue = number?.floatValue
         
         if (numberFloatValue != nil) {
@@ -174,14 +183,5 @@ class States: NSObject {
         } else {
             return dblSpace(s)
         }
-    }
-}
-
-class Date {
-    class func parse(dateStr:String, format:String="MMM d, yyyy hh:mm:ss aaa") -> NSDate {
-        var dateFmt = NSDateFormatter()
-        dateFmt.timeZone = NSTimeZone.defaultTimeZone()
-        dateFmt.dateFormat = format
-        return dateFmt.dateFromString(dateStr)!
     }
 }
