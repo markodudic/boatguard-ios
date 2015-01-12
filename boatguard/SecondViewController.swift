@@ -104,14 +104,5 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = components.getComponent(indexPath.row, tableView: tableView)
         return cell
-/*
-        let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "test")
-        
-        var json = states.getObusettings()
-        cell.textLabel?.text = "a"
-        cell.detailTextLabel?.text = "b"
-       
-        return cell
-*/
     }
 }

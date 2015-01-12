@@ -65,8 +65,8 @@ class Refresh: NSObject {
         if (refreshSemaphoreGo) {
             println("refresh start")
             refreshSemaphoreGo = false
-            //handleAlarms()
-            //handleComponents()
+            handleAlarms()
+            handleComponents()
             refreshSemaphoreGo = true
             println("refresh end")
         }
