@@ -17,16 +17,20 @@ class TabController: UITabBarController {
         tabFrame.origin.y = self.view.frame.size.height - 100;
         self.tabBar.frame = tabFrame;
         
-        //add vertical lines
+        var third = tabFrame.size.width/3
+        var line_height = tabFrame.size.height/2
+        var line_offset = tabFrame.size.height/4
         
-        let imageSize = CGSize(width: 1, height: 40)
-        let imageView1 = UIImageView(frame: CGRect(origin: CGPoint(x: 250, y: 950), size: imageSize))
-        let imageView2 = UIImageView(frame: CGRect(origin: CGPoint(x: 500, y: 950), size: imageSize))
-        self.view.addSubview(imageView1)
-        self.view.addSubview(imageView2)
-        let image = drawCustomImage(imageSize)
-        imageView1.image = image
-        imageView2.image = image
+        //add vertical lines
+        let imageSize = CGSize(width: 1, height: line_height)
+        let imageView1 = UIImageView(frame: CGRect(origin: CGPoint(x: third*1, y: line_offset), size: imageSize))
+        let imageView2 = UIImageView(frame: CGRect(origin: CGPoint(x: third*2, y: line_offset), size: imageSize))
+        
+        imageView1.image = drawCustomImage(imageSize)
+        imageView2.image = drawCustomImage(imageSize)
+        
+        self.tabBar.addSubview(imageView1)
+        self.tabBar.addSubview(imageView2)
     }
     
     func drawCustomImage(size: CGSize) -> UIImage {
