@@ -13,8 +13,8 @@ class TabController: UITabBarController {
         super.viewWillLayoutSubviews()
 
         var tabFrame: CGRect = self.tabBar.frame; //self.TabBar is IBOutlet of your TabBar
-        tabFrame.size.height = 100;
-        tabFrame.origin.y = self.view.frame.size.height - 100;
+        tabFrame.size.height = 60;
+        tabFrame.origin.y = self.view.frame.size.height - 60;
         self.tabBar.frame = tabFrame;
         
         var third = tabFrame.size.width/3

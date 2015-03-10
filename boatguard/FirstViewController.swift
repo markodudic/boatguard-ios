@@ -36,13 +36,26 @@ class FirstViewController: UIViewController, UITextFieldDelegate, NSURLConnectio
         let gl_login = CAGradientLayer()
         gl_login.colors = [settings.gradientTop, settings.gradientBottom]
         gl_login.locations = [0.0, 1.0]
-        gl_login.frame = CGRectMake(0,40,viewLogin.layer.frame.width,30)
+        var idiom = UIDevice.currentDevice().userInterfaceIdiom
+        if idiom == UIUserInterfaceIdiom.Phone {
+            gl_login.frame = CGRectMake(0,0,viewLogin.layer.frame.width,10)
+        }
+        else {
+            gl_login.frame = CGRectMake(0,40,viewLogin.layer.frame.width,30)
+        
+        }
         viewLogin.layer.insertSublayer(gl_login, atIndex: 0)
         
         let gl_dash = CAGradientLayer()
         gl_dash.colors = [settings.gradientTop, settings.gradientBottom]
         gl_dash.locations = [0.0, 1.0]
-        gl_dash.frame = CGRectMake(0,40,viewLogin.layer.frame.width,30)
+        if idiom == UIUserInterfaceIdiom.Phone {
+            gl_dash.frame = CGRectMake(0,0,viewLogin.layer.frame.width,10)
+        }
+        else {
+            gl_dash.frame = CGRectMake(0,40,viewLogin.layer.frame.width,30)
+            
+        }
         viewDashboard.layer.insertSublayer(gl_dash, atIndex: 0)
         
         //set toolbar highlighting color
@@ -167,7 +180,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate, NSURLConnectio
         let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "test")
         
         var json = states.getObusettings()
-        cell.textLabel?.text = states.dblSpace(json[indexPath.row]["code"].asString!)
+        cell.textLabel.text = states.dblSpace(json[indexPath.row]["code"].asString!)
         cell.detailTextLabel?.text = states.dblSpace(json[indexPath.row]["value"].asString!)
         cell.backgroundColor = UIColor(red: CGFloat(0.886), green: CGFloat(0.888), blue: CGFloat(0.886), alpha: CGFloat(1))
         

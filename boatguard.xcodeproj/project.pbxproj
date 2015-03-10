@@ -234,10 +234,11 @@
 				TargetAttributes = {
 					948DDF0419C073F3006F5CBD = {
 						CreatedOnToolsVersion = 6.0;
-						DevelopmentTeam = YXW7B79GC8;
+						DevelopmentTeam = 7D2YX4HL57;
 					};
 					948DDF1819C073F3006F5CBD = {
 						CreatedOnToolsVersion = 6.0;
+						DevelopmentTeam = 7D2YX4HL57;
 						TestTargetID = 948DDF0419C073F3006F5CBD;
 					};
 				};
