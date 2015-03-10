@@ -4,11 +4,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
     <customFonts key="customFonts">
-        <mutableArray key="Dosis-Bold.otf">
-            <string>Dosis-Bold</string>
-            <string>Dosis-Bold</string>
-            <string>Dosis-Bold</string>
-        </mutableArray>
         <mutableArray key="Dosis-ExtraLight.otf">
             <string>Dosis-ExtraLight</string>
             <string>Dosis-ExtraLight</string>
@@ -27,6 +22,11 @@
             <string>Dosis-Regular</string>
             <string>Dosis-Regular</string>
         </mutableArray>
+        <mutableArray key="Dosis-SemiBold.otf">
+            <string>Dosis-SemiBold</string>
+            <string>Dosis-SemiBold</string>
+            <string>Dosis-SemiBold</string>
+        </mutableArray>
     </customFonts>
     <scenes>
         <!--First View Controller-->
@@ -42,9 +42,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="L O G I N   F O R M" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Hyv-k8-wqJ">
-                                        <rect key="frame" x="8" y="16" width="304" height="26"/>
+                                        <rect key="frame" x="0.0" y="16" width="320" height="26"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="Dosis-Bold" family="Dosis" pointSize="28"/>
+                                        <fontDescription key="fontDescription" name="Dosis-SemiBold" family="Dosis" pointSize="28"/>
                                         <color key="textColor" red="0.20000000000000001" green="0.24313725490196078" blue="0.28235294117647058" alpha="1" colorSpace="deviceRGB"/>
                                         <nil key="highlightedColor"/>
                                         <size key="shadowOffset" width="0.0" height="0.0"/>
@@ -157,9 +157,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="M E N U" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4cQ-k7-pFh">
-                                        <rect key="frame" x="8" y="16" width="304" height="26"/>
+                                        <rect key="frame" x="0.0" y="16" width="320" height="26"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="Dosis-Bold" family="Dosis" pointSize="28"/>
+                                        <fontDescription key="fontDescription" name="Dosis-SemiBold" family="Dosis" pointSize="28"/>
                                         <color key="textColor" red="0.20000000000000001" green="0.24313725489999999" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                         <size key="shadowOffset" width="0.0" height="0.0"/>
@@ -225,17 +225,17 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" id="IvF-cA-9yI">
-                                        <rect key="frame" x="0.0" y="8" width="320" height="53"/>
+                                        <rect key="frame" x="0.0" y="8" width="320" height="64"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="logo" id="WSD-MK-Ycv">
-                                                <rect key="frame" x="28" y="6" width="288" height="30"/>
+                                                <rect key="frame" x="0.0" y="8" width="320" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
                                         </subviews>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LAST UPDATE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4Pj-aP-Rjd">
-                                        <rect key="frame" x="14" y="74" width="293" height="21"/>
+                                        <rect key="frame" x="0.0" y="79" width="320" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Dosis-Regular" family="Dosis" pointSize="14"/>
                                         <color key="textColor" red="0.20000000000000001" green="0.24313725490196078" blue="0.28235294117647058" alpha="1" colorSpace="calibratedRGB"/>
@@ -272,7 +272,7 @@
                                                             <color key="backgroundColor" red="0.70196078431372544" green="0.70196078431372544" blue="0.70196078431372544" alpha="1" colorSpace="calibratedRGB"/>
                                                         </view>
                                                         <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="aBW-wP-AVX">
-                                                            <rect key="frame" x="240" y="18" width="50" height="50"/>
+                                                            <rect key="frame" x="240" y="15" width="50" height="50"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <gestureRecognizers/>
                                                         </imageView>
@@ -287,7 +287,7 @@
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9hN-uL-sYe">
-                                                            <rect key="frame" x="224" y="18" width="83" height="21"/>
+                                                            <rect key="frame" x="224" y="28" width="83" height="21"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" name="Dosis-Regular" family="Dosis" pointSize="22"/>
                                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -354,9 +354,9 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="L O C A T I O N" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8NN-az-DY8">
-                                        <rect key="frame" x="8" y="16" width="304" height="26"/>
+                                        <rect key="frame" x="0.0" y="16" width="320" height="26"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="Dosis-Bold" family="Dosis" pointSize="28"/>
+                                        <fontDescription key="fontDescription" name="Dosis-SemiBold" family="Dosis" pointSize="28"/>
                                         <color key="textColor" red="0.20000000000000001" green="0.24313725489999999" blue="0.28235294119999998" alpha="1" colorSpace="deviceRGB"/>
                                         <nil key="highlightedColor"/>
                                         <size key="shadowOffset" width="0.0" height="0.0"/>
@@ -364,7 +364,7 @@
                                 </subviews>
                             </view>
                             <view contentMode="scaleToFill" id="C01-us-fgr">
-                                <rect key="frame" x="0.0" y="90" width="320" height="479"/>
+                                <rect key="frame" x="0.0" y="82" width="320" height="479"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="94O-RO-MiB">

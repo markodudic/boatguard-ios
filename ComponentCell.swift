@@ -42,6 +42,7 @@ class ComponentCell: UITableViewCell {
             anim.startAnimating()
         }
         img.addSubview(anim)
+ 
     }
     
     func imgBanner(banner: [String]) {
@@ -146,6 +147,7 @@ class ComponentCell: UITableViewCell {
 
         let anim = UIImageView(image: UIImage(named: "ic_bnr_"+String(componentAccuIdx)))
         img.addSubview(anim)
+        img.frame = CGRect(x: img.frame.origin.x, y: bnr.frame.origin.y+10, width: img.frame.size.width, height: img.frame.size.height)
         bnr.text = componentAccuBanner[componentAccuIdx]
         bnr.textColor = settings.lblGreen
             

@@ -30,25 +30,25 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         gl_top.locations = [0.0, 1.0]
         var idiom = UIDevice.currentDevice().userInterfaceIdiom
         if idiom == UIUserInterfaceIdiom.Phone {
-            gl_top.frame = CGRectMake(0,0,viewComponents.layer.frame.width,10)
+            gl_top.frame = CGRectMake(0,8,viewComponents.layer.frame.width,10)
         }
         else {
             gl_top.frame = CGRectMake(0,viewComponents.layer.frame.height,viewComponents.layer.frame.width,30)
             
         }
-        viewComponents.layer.insertSublayer(gl_top, atIndex: 0)
+        viewComponents.layer.insertSublayer(gl_top, atIndex: 100)
 
         let gl_bottom = CAGradientLayer()
         gl_bottom.colors = [settings.gradientBottom, settings.gradientTop]
         gl_bottom.locations = [0.0, 1.0]
         if idiom == UIUserInterfaceIdiom.Phone {
-            gl_bottom.frame = CGRectMake(0,viewComponents.layer.frame.height-10,viewComponents.layer.frame.width,10)
+            gl_bottom.frame = CGRectMake(0,viewComponents.layer.frame.height-21.5,viewComponents.layer.frame.width,10)
         }
         else {
             gl_bottom.frame = CGRectMake(0,viewComponents.layer.frame.height-30,viewComponents.layer.frame.width,30)
             
         }
-        viewComponents.layer.insertSublayer(gl_bottom, atIndex: 0)
+        viewComponents.layer.insertSublayer(gl_bottom, atIndex: 100)
 
         let gll_bottom = CAGradientLayer()
         gll_bottom.colors = [settings.gradientTop, settings.gradientBottom]
@@ -60,7 +60,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
             gll_bottom.frame = CGRectMake(0,95,viewComponents.layer.frame.width,30)
             
         }
-        viewLogo.layer.insertSublayer(gll_bottom, atIndex: 0)
+        viewLogo.layer.insertSublayer(gll_bottom, atIndex: 100)
         
         //show toolbar
         self.tabBarController?.tabBar.hidden = false
