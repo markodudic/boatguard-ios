@@ -35,14 +35,16 @@ class ComponentCell: UITableViewCell {
             view.removeFromSuperview()
         }
         
-        let anim = UIImageView(image: compImages.first)
+        img.image = compImages.first
+        //let anim = UIImageView(image: compImages.first)
         if (compImages.count > 0) {
-            anim.animationImages = compImages
-            anim.animationDuration = 2
-            anim.startAnimating()
+            img.animationImages = compImages
+            img.animationDuration = 2
+            img.startAnimating()
         }
-        img.addSubview(anim)
- 
+        img.clipsToBounds = true
+        img.contentMode = UIViewContentMode.ScaleAspectFit
+        //img.addSubview(anim)
     }
     
     func imgBanner(banner: [String]) {
@@ -145,9 +147,12 @@ class ComponentCell: UITableViewCell {
             view.removeFromSuperview()
         }
 
-        let anim = UIImageView(image: UIImage(named: "ic_bnr_"+String(componentAccuIdx)))
-        img.addSubview(anim)
-        img.frame = CGRect(x: img.frame.origin.x, y: bnr.frame.origin.y+10, width: img.frame.size.width, height: img.frame.size.height)
+        //let anim = UIImageView(image: UIImage(named: "ic_bnr_"+String(componentAccuIdx)))
+        img.image = UIImage(named: "ic_bnr_"+String(componentAccuIdx))
+        img.clipsToBounds = true
+        img.contentMode = UIViewContentMode.ScaleAspectFit
+        //img.addSubview(anim)
+        img.frame = CGRect(x: img.frame.origin.x, y: bnr.frame.origin.y+15, width: img.frame.size.width, height: img.frame.size.height)
         bnr.text = componentAccuBanner[componentAccuIdx]
         bnr.textColor = settings.lblGreen
             

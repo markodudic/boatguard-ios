@@ -335,9 +335,9 @@ class Components: NSObject {
             }
         }
         
-        if (compImages.count == 0) {
+        /*if (compImages.count == 0) {
             compImages.append(UIImage(named: "ic_ok")!)
-        }
+        }*/
         return compImages
     }
     

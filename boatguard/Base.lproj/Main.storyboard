@@ -196,7 +196,9 @@
                         </subviews>
                         <color key="backgroundColor" red="0.90980398650000005" green="0.90588241820000004" blue="0.90980398650000005" alpha="1" colorSpace="deviceRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="settings" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="" image="settings" id="acW-dT-cKf">
+                        <inset key="imageInsets" minX="3" minY="8" maxX="3" maxY="-1"/>
+                    </tabBarItem>
                     <connections>
                         <outlet property="tblObusettings" destination="rCp-y0-ix9" id="P0z-D6-zJH"/>
                         <outlet property="txtObuid" destination="krR-Wp-fHj" id="EYZ-Vg-VyI"/>
@@ -256,11 +258,11 @@
                                             <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="0.0" shouldIndentWhileEditing="NO" reuseIdentifier="ComponentCell" id="pNE-HE-LZY" customClass="ComponentCell" customModule="boatguard" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
-                                                <tableViewCellContentView key="contentView" clearsContextBeforeDrawing="NO" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="center" tableViewCell="pNE-HE-LZY" id="gJW-MY-uxp">
+                                                <tableViewCellContentView key="contentView" clearsContextBeforeDrawing="NO" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" tableViewCell="pNE-HE-LZY" id="gJW-MY-uxp">
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Y1p-pz-zdr">
-                                                            <rect key="frame" x="30" y="18" width="212" height="51"/>
+                                                            <rect key="frame" x="30" y="18" width="212" height="50"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" name="Dosis-Regular" family="Dosis" pointSize="17"/>
                                                             <color key="textColor" red="0.42745098040000001" green="0.4549019608" blue="0.48627450979999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -271,8 +273,8 @@
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <color key="backgroundColor" red="0.70196078431372544" green="0.70196078431372544" blue="0.70196078431372544" alpha="1" colorSpace="calibratedRGB"/>
                                                         </view>
-                                                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="aBW-wP-AVX">
-                                                            <rect key="frame" x="240" y="15" width="50" height="50"/>
+                                                        <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="aBW-wP-AVX">
+                                                            <rect key="frame" x="250" y="23" width="40" height="40"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <gestureRecognizers/>
                                                         </imageView>
@@ -287,9 +289,9 @@
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9hN-uL-sYe">
-                                                            <rect key="frame" x="224" y="28" width="83" height="21"/>
+                                                            <rect key="frame" x="229" y="33" width="83" height="21"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <fontDescription key="fontDescription" name="Dosis-Regular" family="Dosis" pointSize="22"/>
+                                                            <fontDescription key="fontDescription" name="Dosis-Regular" family="Dosis" pointSize="20"/>
                                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -316,7 +318,9 @@
                         </subviews>
                         <color key="backgroundColor" red="0.90980398650000005" green="0.90588241820000004" blue="0.90980398650000005" alpha="1" colorSpace="deviceRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="home" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="" image="home" id="cPa-gy-q4n">
+                        <inset key="imageInsets" minX="4" minY="12" maxX="4" maxY="0.0"/>
+                    </tabBarItem>
                     <connections>
                         <outlet property="imgLogo" destination="WSD-MK-Ycv" id="EHZ-pq-K9B"/>
                         <outlet property="lblRefresh" destination="4Pj-aP-Rjd" id="ACt-gc-Skg"/>
@@ -379,7 +383,9 @@
                         </subviews>
                         <color key="backgroundColor" red="0.90980398650000005" green="0.90588241820000004" blue="0.90980398650000005" alpha="1" colorSpace="deviceRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="location" id="Jik-c8-SM5"/>
+                    <tabBarItem key="tabBarItem" title="" image="location" id="Jik-c8-SM5">
+                        <inset key="imageInsets" minX="3" minY="8" maxX="3" maxY="-2"/>
+                    </tabBarItem>
                     <connections>
                         <outlet property="theMapView" destination="94O-RO-MiB" id="aYd-bY-zib"/>
                         <outlet property="viewMap" destination="C01-us-fgr" id="lcv-5q-COE"/>

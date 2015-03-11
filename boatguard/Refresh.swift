@@ -64,6 +64,7 @@ class Refresh: NSObject {
     func process() -> Void {
         if (refreshSemaphoreGo) {
             println("refresh start")
+            println(NSDate())
             refreshSemaphoreGo = false
             handleAlarms()
             handleComponents()
