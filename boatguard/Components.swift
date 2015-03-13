@@ -133,6 +133,8 @@ class Components: NSObject {
                 compImages.append(UIImage(named: "ic_pump_2")!)
             } else if (component_value == "3") {
                 compImages.append(UIImage(named: "ic_pump_3")!)
+            } else if (component_value > "3") {
+                compImages.append(UIImage(named: "ic_pump_4")!)
             }
         }
         
