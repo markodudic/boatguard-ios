@@ -96,7 +96,6 @@ class Refresh: NSObject {
                 notification.alertAction = message
                 UIApplication.sharedApplication().scheduleLocalNotification(notification)
             } else {
-            
                 if (vibrate == 1) {
                     AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
                 }
@@ -112,11 +111,12 @@ class Refresh: NSObject {
                 dispatch_async(dispatch_get_main_queue(), {
                     var alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
                     alert.addAction(UIAlertAction(title: "Confirm", style: UIAlertActionStyle.Default, handler: {(alert: UIAlertAction!) in self.confirmAlarm(id_alarm)}))
-                    alert.addAction(UIAlertAction(title: "Pospone", style: UIAlertActionStyle.Cancel, handler: nil))
+                    alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: {(alert: UIAlertAction!) in self.confirmAlarm(id_alarm)}))
                     self.view.presentViewController(alert, animated: true, completion: nil)
-                });
+               });
             }
             states.setIdAlarm(id_alarm)
+            
         }
     }
     
@@ -125,11 +125,14 @@ class Refresh: NSObject {
         let obualarmURL = settings.obualarmUri+"?obuid="+String(states.obuid)+"&alarmid="+String(id_alarm)
         let obualarmJSON = JSON.fromURL(obualarmURL)
 
+        states.setIdAlarm(0)
+        
         //refresh
         states.setObudata(JSON.fromURL(settings.obudataUri+"?obuid="+String(states.getObuid())))
         process()
     }
-    
+
+        
     //component states
     func handleComponents() {
         

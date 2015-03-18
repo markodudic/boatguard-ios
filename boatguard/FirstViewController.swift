@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FirstViewController: UIViewController, UITextFieldDelegate, NSURLConnectionDelegate, UITableViewDelegate, UITableViewDataSource {
+class FirstViewController: UIViewController, UITextFieldDelegate, NSURLConnectionDelegate {
 
     @IBOutlet var txtUser: UITextField!
     @IBOutlet var txtPass: UITextField!
@@ -46,7 +46,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate, NSURLConnectio
         }
         viewLogin.layer.insertSublayer(gl_login, atIndex: 0)
         
-        let gl_dash = CAGradientLayer()
+        /*let gl_dash = CAGradientLayer()
         gl_dash.colors = [settings.gradientTop, settings.gradientBottom]
         gl_dash.locations = [0.0, 1.0]
         if idiom == UIUserInterfaceIdiom.Phone {
@@ -57,6 +57,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate, NSURLConnectio
             
         }
         viewDashboard.layer.insertSublayer(gl_dash, atIndex: 0)
+        */
         
         //set toolbar highlighting color
         self.tabBarController?.tabBar.tintColor = UIColor(red: CGFloat(0.607843), green: CGFloat(0.607843), blue: CGFloat(0.607843), alpha: CGFloat(1))
@@ -79,11 +80,11 @@ class FirstViewController: UIViewController, UITextFieldDelegate, NSURLConnectio
         var tabItem = tabArray.objectAtIndex(0) as UITabBarItem
         //tabItem.image = UIImage(named: "logo")
         */
-        
+                
         //test login
         txtUser.text = "marko"
         txtPass.text = "dudic"
-        txtObuid.text = "12345"
+        //txtObuid.text = "12345"
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -130,11 +131,11 @@ class FirstViewController: UIViewController, UITextFieldDelegate, NSURLConnectio
     
     func getobusettings(obuid: Int) {
         self.tabBarController?.tabBar.hidden = false
-        viewDashboardTitle.hidden = false
-        viewDashboard.hidden = false
+        //viewDashboardTitle.hidden = false
+        //viewDashboard.hidden = false
 
-        viewLoginTitle.hidden = true
-        viewLogin.hidden = true
+        //viewLoginTitle.hidden = true
+        //viewLogin.hidden = true
         
         //appsettings
         let appsettingsJSON  = JSON.fromURL(settings.settingsUri)
@@ -156,10 +157,9 @@ class FirstViewController: UIViewController, UITextFieldDelegate, NSURLConnectio
         states.setObudata(obudataJSON)
         println(obudataJSON)
         
-        refresh.setView(self) //send view to refresh
+        /*refresh.setView(self) //send view to refresh
         refresh.addComponents() //add components to view
         refresh.process()
-        self.tabBarController?.selectedIndex = 1
         
         //refresh thread
         Async.background {
@@ -168,10 +168,15 @@ class FirstViewController: UIViewController, UITextFieldDelegate, NSURLConnectio
                 states.setObudata(JSON.fromURL(settings.obudataUri+"?obuid="+String(obuid)))
                 refresh.process()
             }
-        }
+        }*/
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let tabController = storyboard.instantiateViewControllerWithIdentifier("TabController") as? UIViewController
+        //self.tabBarController?.selectedIndex = 2
+        presentViewController(tabController!, animated:true, completion:nil)
+        
     }
   
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    /*func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var json = states.getObusettings()
         return json.length
     }
@@ -185,7 +190,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate, NSURLConnectio
         cell.backgroundColor = UIColor(red: CGFloat(0.886), green: CGFloat(0.888), blue: CGFloat(0.886), alpha: CGFloat(1))
         
         return cell
-    }
+    }*/
    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

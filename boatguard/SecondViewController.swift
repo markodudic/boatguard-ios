@@ -71,11 +71,25 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.refreshControl.addTarget(self, action: "refreshData:", forControlEvents: UIControlEvents.ValueChanged)
         
         self.tblDashboard.addSubview(refreshControl)
+        
+    
+        refresh.setView(self) //send view to refresh
+        refresh.addComponents() //add components to view
+        refresh.process()
+        
+        //refresh thread
+        Async.background {
+            while(true) {
+                self.refreshData(self)
+                sleep(300)
+                //states.setObudata(JSON.fromURL(settings.obudataUri+"?obuid="+String(states.getObuid())))
+                //refresh.process()
+            }
+        }
     }
     
     //refresh via pull
     func refreshData(sender:AnyObject) {
-
         //fetch json
         states.setObudata(JSON.fromURL(settings.obudataUri+"?obuid="+String(states.getObuid())))
         refresh.process()
@@ -87,14 +101,16 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
         self.lblRefresh.text = states.dblSpace("LAST UPDATE: "+states.getObudatadateTime())
 
-        tblDashboard.reloadData() //force refresh
+        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            self.tblDashboard.reloadData() //force refresh even if not in focus
+        })
         self.refreshControl.endRefreshing()
     }
 
     //first time & on tab open
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
+        /*
         //show toolbar
         self.tabBarController?.tabBar.hidden = false
         
@@ -108,7 +124,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         //force refresh component alarms
         dispatch_async(dispatch_get_main_queue(), { () -> Void in
             self.tblDashboard.reloadData() //force refresh even if not in focus
-        })
+        })*/
     }
    
     override func didReceiveMemoryWarning() {

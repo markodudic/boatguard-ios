@@ -20,10 +20,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         var idiom = UIDevice.currentDevice().userInterfaceIdiom
         if idiom == UIUserInterfaceIdiom.Phone {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            rootController = storyboard.instantiateViewControllerWithIdentifier("TabController") as? UIViewController
+            rootController = storyboard.instantiateViewControllerWithIdentifier("FirstView") as? UIViewController
         } else {
             let storyboard = UIStoryboard(name: "Main_ipad", bundle: nil)
-            rootController = storyboard.instantiateViewControllerWithIdentifier("TabController") as? UIViewController
+            rootController = storyboard.instantiateViewControllerWithIdentifier("FirstView") as? UIViewController
         }
 
         // get your storyboard

@@ -9,9 +9,22 @@ import UIKit
 
 class TabController: UITabBarController {
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        var tabArray = self.tabBar.items as NSArray!
+        var tabItem0 = tabArray.objectAtIndex(0) as UITabBarItem
+        tabItem0.selectedImage = UIImage(named: "settings")!.imageWithRenderingMode(.AlwaysOriginal)
+        var tabItem1 = tabArray.objectAtIndex(1) as UITabBarItem
+        tabItem1.selectedImage = UIImage(named: "home")!.imageWithRenderingMode(.AlwaysOriginal)
+        var tabItem2 = tabArray.objectAtIndex(2) as UITabBarItem
+        tabItem2.selectedImage = UIImage(named: "location")!.imageWithRenderingMode(.AlwaysOriginal)
+    }
+        
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
 
+        self.selectedIndex = 1
         var tabFrame: CGRect = self.tabBar.frame; //self.TabBar is IBOutlet of your TabBar
         tabFrame.size.height = 60;
         tabFrame.origin.y = self.view.frame.size.height - 60;
@@ -31,7 +44,9 @@ class TabController: UITabBarController {
         
         self.tabBar.addSubview(imageView1)
         self.tabBar.addSubview(imageView2)
+        
     }
+ 
     
     func drawCustomImage(size: CGSize) -> UIImage {
         // Setup our context
