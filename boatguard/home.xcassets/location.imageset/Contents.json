@@ -3,17 +3,17 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "ic_location.png"
+      "filename" : "ic_location_day.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "ic_location2x.png"
+      "filename" : "ic_location_day-1.png"
     },
     {
       "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "ic_location3x.png"
+      "filename" : "ic_location_day-2.png"
     }
   ],
   "info" : {

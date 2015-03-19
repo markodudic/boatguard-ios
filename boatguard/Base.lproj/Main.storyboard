@@ -118,7 +118,9 @@
                         </subviews>
                         <color key="backgroundColor" red="0.90980398650000005" green="0.90588241820000004" blue="0.90980398650000005" alpha="1" colorSpace="deviceRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="settings" id="5r5-VW-vOZ"/>
+                    <tabBarItem key="tabBarItem" title="" image="settings" id="5r5-VW-vOZ">
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
+                    </tabBarItem>
                     <connections>
                         <outlet property="viewSettings" destination="oHg-Ut-hMq" id="2QW-VX-obj"/>
                     </connections>
@@ -127,10 +129,10 @@
             </objects>
             <point key="canvasLocation" x="122" y="724"/>
         </scene>
-        <!--Login-->
+        <!--First View Controller-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <viewController storyboardIdentifier="FirstView" title="Login" id="9pv-A4-QxB" customClass="FirstViewController" customModule="boatguard" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FirstView" id="9pv-A4-QxB" customClass="FirstViewController" customModule="boatguard" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -269,10 +271,10 @@
             </objects>
             <point key="canvasLocation" x="24" y="-265"/>
         </scene>
-        <!--Main-->
+        <!--Second View Controller-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
-                <viewController storyboardIdentifier="SecondView" title="Main" id="8rJ-Kc-sve" customClass="SecondViewController" customModule="boatguard" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SecondView" id="8rJ-Kc-sve" customClass="SecondViewController" customModule="boatguard" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -373,7 +375,9 @@
                         </subviews>
                         <color key="backgroundColor" red="0.90980398650000005" green="0.90588241820000004" blue="0.90980398650000005" alpha="1" colorSpace="deviceRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="home" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="" image="home" id="cPa-gy-q4n">
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
+                    </tabBarItem>
                     <connections>
                         <outlet property="imgLogo" destination="WSD-MK-Ycv" id="EHZ-pq-K9B"/>
                         <outlet property="lblRefresh" destination="4Pj-aP-Rjd" id="ACt-gc-Skg"/>
@@ -386,10 +390,10 @@
             </objects>
             <point key="canvasLocation" x="528" y="724"/>
         </scene>
-        <!--Location-->
+        <!--Third View Controller-->
         <scene sceneID="XTx-Mn-nN1">
             <objects>
-                <viewController title="Location" id="wUB-Za-a6M" customClass="ThirdViewController" customModule="boatguard" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="wUB-Za-a6M" customClass="ThirdViewController" customModule="boatguard" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jBw-jU-Dtn">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -436,7 +440,9 @@
                         </subviews>
                         <color key="backgroundColor" red="0.90980398650000005" green="0.90588241820000004" blue="0.90980398650000005" alpha="1" colorSpace="deviceRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="location" id="Jik-c8-SM5"/>
+                    <tabBarItem key="tabBarItem" title="" image="location" id="Jik-c8-SM5">
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
+                    </tabBarItem>
                     <connections>
                         <outlet property="theMapView" destination="94O-RO-MiB" id="aYd-bY-zib"/>
                         <outlet property="viewMap" destination="C01-us-fgr" id="lcv-5q-COE"/>
@@ -470,11 +476,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="home" width="48" height="48"/>
+        <image name="home" width="60" height="60"/>
         <image name="input_bg" width="559" height="118"/>
-        <image name="location" width="48" height="48"/>
+        <image name="location" width="60" height="60"/>
         <image name="logo" width="184" height="22"/>
-        <image name="settings" width="48" height="48"/>
+        <image name="settings" width="60" height="60"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
