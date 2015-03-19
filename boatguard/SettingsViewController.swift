@@ -35,7 +35,8 @@ class SettingsViewController: UIViewController, UITableViewDelegate {
         }
         viewSettings.layer.insertSublayer(gl, atIndex: 999)
         
-
+        var tableView:UITableView = UITableView();
+        tableView.delegate = self;
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -60,5 +61,11 @@ class SettingsViewController: UIViewController, UITableViewDelegate {
         cell.lbl.text = settings.settingsTableData[indexPath.row]
        
         return cell
+    }
+    
+    func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!)
+    {
+        println("**************")
+        println(indexPath.row)
     }
 }
