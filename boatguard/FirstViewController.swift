@@ -22,13 +22,6 @@ class FirstViewController: UIViewController, UITextFieldDelegate, NSURLConnectio
     @IBOutlet var tblObusettings: UITableView!
     @IBOutlet var imgLogo: UIImageView!
     
-    
-    //Events
-    @IBAction func btnBack_click(sender: UIButton) {
-        self.tabBarController?.selectedIndex = 1
-        self.tabBarController?.tabBar.hidden = false
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -46,41 +39,6 @@ class FirstViewController: UIViewController, UITextFieldDelegate, NSURLConnectio
         }
         viewLogin.layer.insertSublayer(gl_login, atIndex: 0)
         
-        /*let gl_dash = CAGradientLayer()
-        gl_dash.colors = [settings.gradientTop, settings.gradientBottom]
-        gl_dash.locations = [0.0, 1.0]
-        if idiom == UIUserInterfaceIdiom.Phone {
-            gl_dash.frame = CGRectMake(0,0,viewLogin.layer.frame.width,10)
-        }
-        else {
-            gl_dash.frame = CGRectMake(0,40,viewLogin.layer.frame.width,30)
-            
-        }
-        viewDashboard.layer.insertSublayer(gl_dash, atIndex: 0)
-        */
-        
-        //set toolbar highlighting color
-        self.tabBarController?.tabBar.tintColor = UIColor(red: CGFloat(0.607843), green: CGFloat(0.607843), blue: CGFloat(0.607843), alpha: CGFloat(1))
-
-//        self.tabBarController?.tabBar.frame.origin.y -= 25
-//        self.tabBarController?.tabBar.frame.height = CGFloat(100)
-//        self.tabBarController?.tabBar.frame.size = CGSize(width: 200, height: 200)
-//        self.tabBarController?.tabBar.frame = CGRectMake(100, 200, 300, 400)
-
-
-        /*
-        var newFrame:CGRect! = self.tabBarController?.tabBar.frame
-        newFrame.origin.y = -50;
-        newFrame.size.height = 100;
-        self.tabBarController?.tabBar.frame = newFrame;
-        */
-        
-        /*
-        var tabArray = self.tabBarController?.tabBar.items as NSArray!
-        var tabItem = tabArray.objectAtIndex(0) as UITabBarItem
-        //tabItem.image = UIImage(named: "logo")
-        */
-                
         //test login
         txtUser.text = "marko"
         txtPass.text = "dudic"
@@ -90,12 +48,6 @@ class FirstViewController: UIViewController, UITextFieldDelegate, NSURLConnectio
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.hidden = true
-        
-        /*if (states.isAlarm) {
-            imgLogo.image = UIImage(named: "logo_alarm")
-        } else {
-            imgLogo.image = UIImage(named: "logo")
-        }*/
     }
 
     //Events
@@ -131,11 +83,6 @@ class FirstViewController: UIViewController, UITextFieldDelegate, NSURLConnectio
     
     func getobusettings(obuid: Int) {
         self.tabBarController?.tabBar.hidden = false
-        //viewDashboardTitle.hidden = false
-        //viewDashboard.hidden = false
-
-        //viewLoginTitle.hidden = true
-        //viewLogin.hidden = true
         
         //appsettings
         let appsettingsJSON  = JSON.fromURL(settings.settingsUri)
@@ -157,40 +104,11 @@ class FirstViewController: UIViewController, UITextFieldDelegate, NSURLConnectio
         states.setObudata(obudataJSON)
         println(obudataJSON)
         
-        /*refresh.setView(self) //send view to refresh
-        refresh.addComponents() //add components to view
-        refresh.process()
-        
-        //refresh thread
-        Async.background {
-            while(true) {
-                sleep(300)
-                states.setObudata(JSON.fromURL(settings.obudataUri+"?obuid="+String(obuid)))
-                refresh.process()
-            }
-        }*/
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let tabController = storyboard.instantiateViewControllerWithIdentifier("TabController") as? UIViewController
-        //self.tabBarController?.selectedIndex = 2
-        presentViewController(tabController!, animated:true, completion:nil)
+        presentViewController(tabController!, animated:false, completion:nil)
         
     }
-  
-    /*func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        var json = states.getObusettings()
-        return json.length
-    }
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "test")
-        
-        var json = states.getObusettings()
-        cell.textLabel.text = states.dblSpace(json[indexPath.row]["code"].asString!)
-        cell.detailTextLabel?.text = states.dblSpace(json[indexPath.row]["value"].asString!)
-        cell.backgroundColor = UIColor(red: CGFloat(0.886), green: CGFloat(0.888), blue: CGFloat(0.886), alpha: CGFloat(1))
-        
-        return cell
-    }*/
    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

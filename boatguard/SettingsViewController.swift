@@ -57,7 +57,6 @@ class SettingsViewController: UIViewController, UITableViewDelegate {
         cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell!
     {
         let cell = tableView.dequeueReusableCellWithIdentifier("SettingsCell") as SettingsCell
-        println(cell)
         cell.lbl.text = settings.settingsTableData[indexPath.row]
        
         return cell

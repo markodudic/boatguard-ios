@@ -20,6 +20,8 @@ class Settings: NSObject {
     internal let obudataUri       = "http://93.103.12.155:8080/boatguard/getdata"
     internal let obualarmUri      = "http://93.103.12.155:8080/boatguard/confirmalarm"
     
+    internal var refreshTime:UInt32      = 300
+    
     internal let gradientTop      = UIColor(red: 102.0/255.0, green: 102.0/255.0, blue: 102.0/255.0, alpha: 0.4).CGColor
     internal let gradientBottom   = UIColor(red: 215.0/255.0, green: 215.0/255.0, blue: 215.0/255.0, alpha: 0).CGColor
 

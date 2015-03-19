@@ -12,13 +12,8 @@ class TabController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        var tabArray = self.tabBar.items as NSArray!
-        var tabItem0 = tabArray.objectAtIndex(0) as UITabBarItem
-        tabItem0.selectedImage = UIImage(named: "settings")!.imageWithRenderingMode(.AlwaysOriginal)
-        var tabItem1 = tabArray.objectAtIndex(1) as UITabBarItem
-        tabItem1.selectedImage = UIImage(named: "home")!.imageWithRenderingMode(.AlwaysOriginal)
-        var tabItem2 = tabArray.objectAtIndex(2) as UITabBarItem
-        tabItem2.selectedImage = UIImage(named: "location")!.imageWithRenderingMode(.AlwaysOriginal)
+        //set toolbar highlighting color
+        self.tabBar.tintColor = UIColor(red: CGFloat(0.607843), green: CGFloat(0.607843), blue: CGFloat(0.607843), alpha: CGFloat(1))
     }
         
     override func viewWillLayoutSubviews() {

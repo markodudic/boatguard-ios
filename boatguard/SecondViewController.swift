@@ -81,7 +81,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         Async.background {
             while(true) {
                 self.refreshData(self)
-                sleep(300)
+                sleep(settings.refreshTime)
                 //states.setObudata(JSON.fromURL(settings.obudataUri+"?obuid="+String(states.getObuid())))
                 //refresh.process()
             }
