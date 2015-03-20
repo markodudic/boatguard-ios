@@ -18,12 +18,39 @@ class States: NSObject {
     var obuid        = 0
     
     var login:JSON!
+    var user = ""
+    var pass = ""
+    var remember = false
     var appsettings:JSON!
     
     var obusettings:JSON!
     var obucomponents:JSON!
     var obudata:JSON!
     var obudatadateTime = NSDate()
+
+    func setUser(data: String) {
+        user = data
+    }
+    
+    func getUser() -> String {
+        return user
+    }
+
+    func setPass(data: String) {
+        pass = data
+    }
+    
+    func getPass() -> String {
+        return pass
+    }
+
+    func setRemember(data: Bool) {
+        remember = data
+    }
+    
+    func getRemember() -> Bool {
+        return remember
+    }
 
     func setIsBackground(data: Bool) {
         isBackground = data

@@ -65,7 +65,12 @@ class SettingsViewController: UIViewController, UITableViewDelegate {
     
     func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!)
     {
-        println("**************")
-        println(indexPath.row)
+        switch indexPath.row {
+            case 9:
+                let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("FirstView") as UIViewController
+                self.presentViewController(vc, animated: false, completion: nil)
+            default: println()
+        }
+
     }
 }

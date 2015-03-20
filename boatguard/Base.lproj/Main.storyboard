@@ -170,7 +170,7 @@
                                         <fontDescription key="fontDescription" name="Dosis-Regular" family="Dosis" pointSize="18"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <connections>
-                                            <outlet property="delegate" destination="9pv-A4-QxB" id="bPR-cg-gdJ"/>
+                                            <outlet property="delegate" destination="9pv-A4-QxB" id="S9L-pC-jjT"/>
                                         </connections>
                                     </textField>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="P A S S W O R D" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jzt-fk-Iin">
@@ -207,7 +207,7 @@
                                             <outlet property="delegate" destination="9pv-A4-QxB" id="eNz-YT-rDI"/>
                                         </connections>
                                     </textField>
-                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="fsK-85-pqt">
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="fsK-85-pqt">
                                         <rect key="frame" x="10" y="311" width="51" height="31"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="onTintColor" red="0.20000001789999999" green="0.24313727020000001" blue="0.2823529541" alpha="1" colorSpace="deviceRGB"/>
@@ -260,6 +260,7 @@
                         <inset key="imageInsets" minX="3" minY="8" maxX="3" maxY="-1"/>
                     </tabBarItem>
                     <connections>
+                        <outlet property="swRemember" destination="fsK-85-pqt" id="19q-km-8uA"/>
                         <outlet property="txtObuid" destination="krR-Wp-fHj" id="EYZ-Vg-VyI"/>
                         <outlet property="txtPass" destination="dyP-MF-fpL" id="zDx-XQ-z4M"/>
                         <outlet property="txtUser" destination="hxE-eE-IW8" id="QGj-9N-0AG"/>

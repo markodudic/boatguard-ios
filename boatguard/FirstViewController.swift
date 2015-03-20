@@ -13,6 +13,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate, NSURLConnectio
     @IBOutlet var txtUser: UITextField!
     @IBOutlet var txtPass: UITextField!
     @IBOutlet var txtObuid: UITextField!
+    @IBOutlet var swRemember: UISwitch!
     
     @IBOutlet var viewLoginTitle: UIView!
     @IBOutlet var viewDashboardTitle: UIView!
@@ -43,6 +44,11 @@ class FirstViewController: UIViewController, UITextFieldDelegate, NSURLConnectio
         txtUser.text = "marko"
         txtPass.text = "dudic"
         //txtObuid.text = "12345"
+        if (states.getRemember()) {
+            txtUser.text = states.getUser()
+            txtPass.text = states.getPass()
+            swRemember.on = states.getRemember()
+        }
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -77,6 +83,9 @@ class FirstViewController: UIViewController, UITextFieldDelegate, NSURLConnectio
         } else {
             states.setLogin(json)
             states.setObuid(json["obu"]["uid"].asInt!)
+            states.setUser(txtUser.text)
+            states.setPass(txtPass.text)
+            states.setRemember(swRemember.on)
             getobusettings(states.getObuid())
         }
     }
