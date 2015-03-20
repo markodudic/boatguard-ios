@@ -38,6 +38,7 @@
 		94CF52EA1A631583001E2C81 /* Main_ipad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94CF52E81A631583001E2C81 /* Main_ipad.storyboard */; };
 		94CF52EC1A64347D001E2C81 /* TabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CF52EB1A64347D001E2C81 /* TabController.swift */; };
 		FE01116B1AB97F8E00C8B0EF /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE01116A1AB97F8E00C8B0EF /* SettingsViewController.swift */; };
+		FE35D7871ABC72E700E73897 /* GeoFenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE35D7861ABC72E700E73897 /* GeoFenceViewController.swift */; };
 		FE61F34E1AB9BAD500B3F8A2 /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE61F34D1AB9BAD500B3F8A2 /* SettingsCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -87,6 +88,7 @@
 		94CF52E91A631583001E2C81 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_ipad.storyboard; sourceTree = "<group>"; };
 		94CF52EB1A64347D001E2C81 /* TabController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabController.swift; sourceTree = "<group>"; };
 		FE01116A1AB97F8E00C8B0EF /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		FE35D7861ABC72E700E73897 /* GeoFenceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeoFenceViewController.swift; sourceTree = "<group>"; };
 		FE61F34D1AB9BAD500B3F8A2 /* SettingsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -157,6 +159,7 @@
 				948DDF0C19C073F3006F5CBD /* FirstViewController.swift */,
 				948DDF0E19C073F3006F5CBD /* SecondViewController.swift */,
 				FE01116A1AB97F8E00C8B0EF /* SettingsViewController.swift */,
+				FE35D7861ABC72E700E73897 /* GeoFenceViewController.swift */,
 				9424502719D0B09F004A496C /* ThirdViewController.swift */,
 				948DDF1019C073F3006F5CBD /* Main.storyboard */,
 				94CF52E81A631583001E2C81 /* Main_ipad.storyboard */,
@@ -315,6 +318,7 @@
 				9424502C19D3FA9C004A496C /* Async.swift in Sources */,
 				9424502419D09E94004A496C /* States.swift in Sources */,
 				943E1E6F1A04EBE9008FF404 /* Settings.swift in Sources */,
+				FE35D7871ABC72E700E73897 /* GeoFenceViewController.swift in Sources */,
 				943E1E711A0500D4008FF404 /* Refresh.swift in Sources */,
 				948DDF0B19C073F3006F5CBD /* AppDelegate.swift in Sources */,
 				FE01116B1AB97F8E00C8B0EF /* SettingsViewController.swift in Sources */,
