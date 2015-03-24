@@ -11,9 +11,9 @@
         </mutableArray>
         <mutableArray key="Dosis-Medium.otf">
             <string>Dosis-Medium</string>
+            <string>Dosis-Medium</string>
         </mutableArray>
         <mutableArray key="Dosis-Regular.otf">
-            <string>Dosis-Regular</string>
             <string>Dosis-Regular</string>
             <string>Dosis-Regular</string>
             <string>Dosis-Regular</string>
@@ -402,7 +402,7 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9hN-uL-sYe">
                                                             <rect key="frame" x="229" y="33" width="83" height="21"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <fontDescription key="fontDescription" name="Dosis-Regular" family="Dosis" pointSize="20"/>
+                                                            <fontDescription key="fontDescription" name="Dosis-Medium" family="Dosis" pointSize="22"/>
                                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
