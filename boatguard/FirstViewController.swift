@@ -40,9 +40,13 @@ class FirstViewController: UIViewController, UITextFieldDelegate, NSURLConnectio
         }
         viewLogin.layer.insertSublayer(gl_login, atIndex: 0)
         
+        self.txtUser.delegate = self;
+        self.txtPass.delegate = self;
+        self.txtObuid.delegate = self;
+        
         //test login
-        txtUser.text = "marko"
-        txtPass.text = "dudic"
+        //txtUser.text = "marko"
+        //txtPass.text = "dudic"
         //txtObuid.text = "12345"
         if (states.getRemember()) {
             txtUser.text = states.getUser()
@@ -122,5 +126,14 @@ class FirstViewController: UIViewController, UITextFieldDelegate, NSURLConnectio
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func touchesBegan(touches: NSSet!, withEvent event: UIEvent!) {
+        self.view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(textField: UITextField!) -> Bool {
+        self.view.endEditing(true)
+        return false
     }
 }
