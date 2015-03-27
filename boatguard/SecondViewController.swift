@@ -71,6 +71,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.refreshControl.addTarget(self, action: "refreshData:", forControlEvents: UIControlEvents.ValueChanged)
         
         self.tblDashboard.addSubview(refreshControl)
+        self.tblDashboard.delegate = self;
         
     
         refresh.setView(self) //send view to refresh
@@ -86,6 +87,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 //refresh.process()
             }
         }
+        
     }
     
     //refresh via pull
@@ -110,21 +112,6 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     //first time & on tab open
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        /*
-        //show toolbar
-        self.tabBarController?.tabBar.hidden = false
-        
-        if (states.isAlarm) {
-            imgLogo.image = UIImage(named: "logo_alarm")
-        } else {
-            imgLogo.image = UIImage(named: "logo")
-        }
-        self.lblRefresh.text = states.dblSpace("LAST UPDATE: "+states.getObudatadateTime())
-        
-        //force refresh component alarms
-        dispatch_async(dispatch_get_main_queue(), { () -> Void in
-            self.tblDashboard.reloadData() //force refresh even if not in focus
-        })*/
     }
    
     override func didReceiveMemoryWarning() {
@@ -138,6 +125,22 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = components.getComponent(indexPath.row, tableView: tableView)
+        cell.userInteractionEnabled = true
         return cell
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath!)
+    {
+        var comps = components.getComponents()
+        //println(comps[indexPath.row].type);
+        
+        switch comps[indexPath.row].type {
+        case "GEO":
+            let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("GeoFenceView") as UIViewController
+            self.presentViewController(vc, animated: false, completion: nil)
+        default: println()
+        }
+        
+        
     }
 }

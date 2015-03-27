@@ -413,11 +413,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="home" width="48" height="48"/>
+        <image name="home" width="60" height="60"/>
         <image name="input_bg" width="559" height="118"/>
-        <image name="location" width="48" height="48"/>
+        <image name="location" width="60" height="60"/>
         <image name="logo" width="184" height="22"/>
-        <image name="settings" width="48" height="48"/>
+        <image name="settings" width="60" height="60"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

@@ -45,8 +45,8 @@ class FirstViewController: UIViewController, UITextFieldDelegate, NSURLConnectio
         self.txtObuid.delegate = self;
         
         //test login
-        //txtUser.text = "marko"
-        //txtPass.text = "dudic"
+        txtUser.text = "marko"
+        txtPass.text = "dudic"
         //txtObuid.text = "12345"
         if (states.getRemember()) {
             txtUser.text = states.getUser()

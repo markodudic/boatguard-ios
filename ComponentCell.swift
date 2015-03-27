@@ -93,13 +93,13 @@ class ComponentCell: UITableViewCell {
         let gl_top = CAGradientLayer()
         gl_top.colors = [settings.gradientTop_a, settings.gradientBottom_a]
         gl_top.locations = [0.0, 1.0]
-        gl_top.frame = CGRectMake(0,0,view.layer.frame.width,15)
+        gl_top.frame = CGRectMake(0,0,self.layer.frame.width,15)
         subviewtop.layer.insertSublayer(gl_top, atIndex: 0)
 
         let gl_bottom = CAGradientLayer()
         gl_bottom.colors = [settings.gradientBottom_a, settings.gradientTop_a]
         gl_bottom.locations = [0.0, 1.0]
-        gl_bottom.frame = CGRectMake(0,-5,view.layer.frame.width,15)
+        gl_bottom.frame = CGRectMake(0,-5,self.layer.frame.width,15)
         subviewbottom.layer.insertSublayer(gl_bottom, atIndex: 0)
 
         UIView.animateWithDuration(2.0, delay: 0.0, options: options,
