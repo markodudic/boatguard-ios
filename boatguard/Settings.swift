@@ -35,6 +35,4 @@ class Settings: NSObject {
     internal let lblRed           = UIColor(red: 212.0/255.0, green: 69.0/255.0, blue: 29.0/255.0, alpha: 1)
     
     internal let settingsTableData = ["GEOFENCE","BILGE PUMP","ANCHOR DRIFTING","BATTERY","ALARM CONTACTS","ALARM SETTINGS","MY ACCOUNT","HISTORY","APP SETTINGS","LOG OUT"]
-
-    
 }
