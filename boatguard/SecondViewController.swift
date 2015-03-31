@@ -76,7 +76,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
         refresh.setView(self) //send view to refresh
         refresh.addComponents() //add components to view
-        refresh.process()
+        //refresh.process()
         
         //refresh thread
         Async.background {

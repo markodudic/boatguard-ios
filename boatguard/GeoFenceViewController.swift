@@ -40,8 +40,9 @@ class GeoFenceViewController: UIViewController {
         viewGeoFence.layer.insertSublayer(gl, atIndex: 999)
         
         obusettings = states.getObusettings()
-        println(obusettings);
         for (i, v) in obusettings {
+            println(v["id_setting"].asInt)
+            println(v["value"].asString!);
             if (v["id_setting"].asInt == 10) {
                 swGeoFence.on = (v["value"].asString! == "1")
             }
@@ -59,7 +60,10 @@ class GeoFenceViewController: UIViewController {
     }
     
     @IBAction func btnDefine_click(sender: UIButton) {
-
+        let obusettingsSetUri = settings.obusettingsSetUri+"?json="+obusettings.toString(pretty: false)
+        println(obusettingsSetUri);
+        var obusettingsSetJSON       = JSON.fromURL(obusettingsSetUri)
+        println(obusettingsSetJSON);
         
         self.dismissViewControllerAnimated(false, completion: nil)
     }
@@ -67,39 +71,63 @@ class GeoFenceViewController: UIViewController {
     @IBAction func slGeoFenceDistance_valueChanged(sender: UISlider) {
         var dist = Int(sender.value)
         lblDistance.text = "\(dist)m"
-        var obusettingsNew:JSON!
+        var obusettingsNew = ""
+        var first = true
         
-        for (i, var v: JSON) in obusettings {
+        for (i, v) in obusettings {
+            var vs = v.toString(pretty: false);
             if (v["id_setting"].asInt == 13) {
                 var vl = v["value"]
-                vl = JSON("\(dist)")
-                println(vl);
-                //v = JSON(vl)
-                //states.setObusettings(v)
+                let vsnew: [String:AnyObject] = ["id_setting" : v["id_setting"],
+                                                "code" : "GEO_FENCE_DISTANCE",
+                                                "type" : "",
+                                                "value" : "\(dist)",
+                                                "id_obu" : states.getObuid()]
+                vs = JSON(vsnew).toString()
+            }
+            if (first) {
+                obusettingsNew = obusettingsNew + vs;
+                first = false
+            }
+            else {
+                obusettingsNew = obusettingsNew + "," + vs;
             }
         }
-        
-        /*var json: JSON = ["foo": ["amount": 2], "bar": ["amount": 3]]
-        for (key, var item: JSON) in json {
-            println("\(key) -> \(item)")
-            item["price"] = 10
-            json[key] = item
-        }
-        println(json)*/
+        obusettingsNew = "[" + obusettingsNew + "]";
+        var j = JSON(string: obusettingsNew)
+        states.setObusettings(j)
+
     }
     
     @IBAction func swGeoFence_valueChanged(sender: UISwitch) {
-        for (i, var v: JSON) in obusettings {
+        var obusettingsNew = ""
+        var first = true
+
+        for (i, v) in obusettings {
+            var vs = v.toString(pretty: false);
             if (v["id_setting"].asInt == 10) {
-                var vl = v["value"]
-                if (swGeoFence.on) {
-                    vl = JSON("1")
+                var vl = 0
+                if (sender.on) {
+                   vl = 1
                 }
-                else {
-                    vl = JSON("0")
-                }
-                //obusettings[i] = v
+                let vsnew: [String:AnyObject] = ["id_setting" : v["id_setting"],
+                                                "code" : "GEO_FENCE",
+                                                "type" : "",
+                                                "value" : "\(vl)",
+                                                "id_obu" : states.getObuid()]
+                vs = JSON(vsnew).toString()
+            }
+            if (first) {
+                obusettingsNew = obusettingsNew + vs;
+                first = false
+            }
+            else {
+                obusettingsNew = obusettingsNew + "," + vs;
             }
         }
+        obusettingsNew = "[" + obusettingsNew + "]";
+        var j = JSON(string: obusettingsNew)
+        states.setObusettings(j)
     }
+
 }
