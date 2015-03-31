@@ -132,7 +132,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath!)
     {
         var comps = components.getComponents()
-        //println(comps[indexPath.row].type);
+        println(comps[indexPath.row].type);
         
         switch comps[indexPath.row].type {
         case "GEO":
