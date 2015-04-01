@@ -39,6 +39,9 @@
 		FE01116B1AB97F8E00C8B0EF /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE01116A1AB97F8E00C8B0EF /* SettingsViewController.swift */; };
 		FE19773D1ACACA4200EF34BA /* json.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE19773C1ACACA4200EF34BA /* json.swift */; };
 		FE1977411ACC185600EF34BA /* AnchorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1977401ACC185600EF34BA /* AnchorViewController.swift */; };
+		FE1977451ACC34A600EF34BA /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE1977441ACC34A600EF34BA /* SystemConfiguration.framework */; };
+		FE1977471ACC34B900EF34BA /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE1977461ACC34B900EF34BA /* Security.framework */; };
+		FE1977491ACC358100EF34BA /* libFlurry_6.2.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FE1977481ACC358100EF34BA /* libFlurry_6.2.0.a */; };
 		FE35D7871ABC72E700E73897 /* GeoFenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE35D7861ABC72E700E73897 /* GeoFenceViewController.swift */; };
 		FE61F34E1AB9BAD500B3F8A2 /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE61F34D1AB9BAD500B3F8A2 /* SettingsCell.swift */; };
 /* End PBXBuildFile section */
@@ -90,6 +93,11 @@
 		FE01116A1AB97F8E00C8B0EF /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		FE19773C1ACACA4200EF34BA /* json.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = json.swift; sourceTree = "<group>"; };
 		FE1977401ACC185600EF34BA /* AnchorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnchorViewController.swift; sourceTree = "<group>"; };
+		FE1977421ACC2F5C00EF34BA /* Flurry.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Flurry.h; sourceTree = "<group>"; };
+		FE1977431ACC306400EF34BA /* BOATGUARD-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BOATGUARD-Bridging-Header.h"; sourceTree = "<group>"; };
+		FE1977441ACC34A600EF34BA /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		FE1977461ACC34B900EF34BA /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		FE1977481ACC358100EF34BA /* libFlurry_6.2.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libFlurry_6.2.0.a; path = ../../../Desktop/libFlurry_6.2.0.a; sourceTree = "<group>"; };
 		FE35D7861ABC72E700E73897 /* GeoFenceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeoFenceViewController.swift; sourceTree = "<group>"; };
 		FE61F34D1AB9BAD500B3F8A2 /* SettingsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -99,6 +107,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE1977471ACC34B900EF34BA /* Security.framework in Frameworks */,
+				FE1977451ACC34A600EF34BA /* SystemConfiguration.framework in Frameworks */,
+				FE1977491ACC358100EF34BA /* libFlurry_6.2.0.a in Frameworks */,
 				9424502619D0AFB6004A496C /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -116,6 +127,8 @@
 		948DDEFC19C073F3006F5CBD = {
 			isa = PBXGroup;
 			children = (
+				FE1977461ACC34B900EF34BA /* Security.framework */,
+				FE1977441ACC34A600EF34BA /* SystemConfiguration.framework */,
 				9424502519D0AFB6004A496C /* MapKit.framework */,
 				948DDF0719C073F3006F5CBD /* boatguard */,
 				948DDF1C19C073F3006F5CBD /* boatguardTests */,
@@ -149,6 +162,8 @@
 			isa = PBXGroup;
 			children = (
 				948DDF0A19C073F3006F5CBD /* AppDelegate.swift */,
+				FE1977421ACC2F5C00EF34BA /* Flurry.h */,
+				FE1977481ACC358100EF34BA /* libFlurry_6.2.0.a */,
 				9424502B19D3FA9C004A496C /* Async.swift */,
 				FE19773C1ACACA4200EF34BA /* json.swift */,
 				9424502319D09E94004A496C /* States.swift */,
@@ -165,6 +180,7 @@
 				FE1977401ACC185600EF34BA /* AnchorViewController.swift */,
 				9424502719D0B09F004A496C /* ThirdViewController.swift */,
 				948DDF1019C073F3006F5CBD /* Main.storyboard */,
+				FE1977431ACC306400EF34BA /* BOATGUARD-Bridging-Header.h */,
 				94CF52E81A631583001E2C81 /* Main_ipad.storyboard */,
 				948DDF1319C073F3006F5CBD /* home.xcassets */,
 				948DDF0819C073F3006F5CBD /* Supporting Files */,
@@ -458,8 +474,13 @@
 				INFOPLIST_FILE = boatguard/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/markodudic/Desktop,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/boatguard/BOATGUARD-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -474,8 +495,13 @@
 				INFOPLIST_FILE = boatguard/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/markodudic/Desktop,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/boatguard/BOATGUARD-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

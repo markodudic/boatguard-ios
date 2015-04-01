@@ -16,6 +16,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: NSDictionary?) -> Bool {
 
+        // setup Flurry
+        Flurry.startSession("83VV9ZX37HNWD2KSYYQJ")         // replace flurryKey with your own key
+        //Flurry.setCrashReportingEnabled(true)  // records app crashing in Flurry
+        //Flurry.logEvent("Start Application")   // Example of even logging
+        
         var rootController:UIViewController? = nil
         var idiom = UIDevice.currentDevice().userInterfaceIdiom
         if idiom == UIUserInterfaceIdiom.Phone {
