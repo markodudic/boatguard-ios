@@ -41,8 +41,6 @@ class GeoFenceViewController: UIViewController {
         
         obusettings = states.getObusettings()
         for (i, v) in obusettings {
-            println(v["id_setting"].asInt)
-            println(v["value"].asString!);
             if (v["id_setting"].asInt == 10) {
                 swGeoFence.on = (v["value"].asString! == "1")
             }
@@ -71,6 +69,10 @@ class GeoFenceViewController: UIViewController {
     @IBAction func slGeoFenceDistance_valueChanged(sender: UISlider) {
         var dist = Int(sender.value)
         lblDistance.text = "\(dist)m"
+    }
+    
+    @IBAction func slGeoFenceDistance_finished(sender: UISlider) {
+        var dist = Int(sender.value)
         var obusettingsNew = ""
         var first = true
         

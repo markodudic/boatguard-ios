@@ -145,8 +145,8 @@ class Components: NSObject {
     }
     
     func alarmCellPump(json: JSON) ->Bool {
-        let component_states: [JSON] = states.getComponentStates(json["id_component"].asInt!)
-        for component_state in component_states {
+        //let component_states: [JSON] = states.getComponentStates(json["id_component"].asInt!)
+        //for component_state in component_states {
             let component_data: JSON = states.getObudataByIdState(20)
             if (component_data.length > 0) {
                 if (component_data["value"].asString?.toInt() != 0) {
@@ -154,7 +154,7 @@ class Components: NSObject {
                     return true
                 }
             }
-        }
+        //}
         return false
     }
     
@@ -204,8 +204,8 @@ class Components: NSObject {
     }
     
     func alarmCellAnchor(json: JSON) ->Bool {
-        let component_states: [JSON] = states.getComponentStates(json["id_component"].asInt!)
-        for component_state in component_states {
+        //let component_states: [JSON] = states.getComponentStates(json["id_component"].asInt!)
+        //for component_state in component_states {
             let component_data: JSON = states.getObudataByIdState(41)
             if (component_data.length > 0) {
                 if (component_data["value"].asString?.toInt() == 1) {
@@ -213,7 +213,7 @@ class Components: NSObject {
                     return true
                 }
             }
-        }
+        //}
         return false
     }
     
@@ -260,14 +260,14 @@ class Components: NSObject {
     }
     
     func alarmCellGeo(json: JSON) ->Bool {
-        let component_states: [JSON] = states.getComponentStates(json["id_component"].asInt!)
-        for component_state in component_states {
+        //let component_states: [JSON] = states.getComponentStates(json["id_component"].asInt!)
+        //for component_state in component_states {
             let component_data: JSON = states.getObudataByIdState(10)
             if (component_data["value"].asString?.toInt() == 2) {
                 setAlarm(json["id_component"].asInt!)
                 return true
             }
-        }
+        //}
         return false
     }
     
@@ -344,25 +344,25 @@ class Components: NSObject {
     }
     
     func alarmCellAccu(json: JSON) ->Bool {
-        let component_states: [JSON] = states.getComponentStates(json["id_component"].asInt!)
-        for component_state in component_states {
-            let component_data: JSON = states.getObudataByIdState(33)
-            if (component_data.length > 0) {
-                if (component_data["value"].asString?.toInt() == 0) {
+        //let component_states: [JSON] = states.getComponentStates(json["id_component"].asInt!)
+        //for component_state in component_states {
+            let component_data1: JSON = states.getObudataByIdState(33)
+            if (component_data1.length > 0) {
+                if (component_data1["value"].asString?.toInt() == 0) {
                     setAlarm(json["id_component"].asInt!)
                     return true
                 }
             }
-        }
-        for component_state in component_states {
-            let component_data: JSON = states.getObudataByIdState(34)
-            if (component_data.length > 0) {
-                if (component_data["value"].asString?.toInt() == 1) {
+        //}
+        //for component_state in component_states {
+            let component_data2: JSON = states.getObudataByIdState(34)
+            if (component_data2.length > 0) {
+                if (component_data2["value"].asString?.toInt() == 1) {
                     setAlarm(json["id_component"].asInt!)
                     return true
                 }
             }
-        }
+        //}
         return false
     }
    

@@ -67,7 +67,11 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         //trigger data refresh
         self.refreshControl = UIRefreshControl()
-        self.refreshControl.attributedTitle = NSAttributedString(string: "refreshing data")
+        self.refreshControl.tintColor = settings.refresh
+        
+        var refreshing: NSMutableAttributedString = NSMutableAttributedString(string:  "R E F R E S H I N G")
+        refreshing.addAttribute(NSForegroundColorAttributeName, value: settings.refresh, range: NSMakeRange(0, refreshing.length))
+        self.refreshControl.attributedTitle = refreshing
         self.refreshControl.addTarget(self, action: "refreshData:", forControlEvents: UIControlEvents.ValueChanged)
         
         self.tblDashboard.addSubview(refreshControl)
@@ -85,7 +89,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 sleep(settings.refreshTime)
                 //states.setObudata(JSON.fromURL(settings.obudataUri+"?obuid="+String(states.getObuid())))
                 //refresh.process()
-            }
+           }
         }
         
     }
@@ -96,13 +100,14 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         states.setObudata(JSON.fromURL(settings.obudataUri+"?obuid="+String(states.getObuid())))
         refresh.process()
         
+        self.lblRefresh.text = states.dblSpace("LAST UPDATE: "+states.getObudatadateTime())
+
         if (states.isAlarm) {
             imgLogo.image = UIImage(named: "logo_alarm")
         } else {
             imgLogo.image = UIImage(named: "logo")
         }
-        self.lblRefresh.text = states.dblSpace("LAST UPDATE: "+states.getObudatadateTime())
-
+        
         dispatch_async(dispatch_get_main_queue(), { () -> Void in
             self.tblDashboard.reloadData() //force refresh even if not in focus
         })
