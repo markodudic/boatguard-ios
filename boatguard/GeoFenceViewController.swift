@@ -17,11 +17,6 @@ class GeoFenceViewController: UIViewController {
     
     var obusettings:JSON!
     
-    //Events
-    @IBAction func btnBack_click(sender: UIButton) {
-        self.dismissViewControllerAnimated(false, completion: nil)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -57,11 +52,15 @@ class GeoFenceViewController: UIViewController {
         super.viewWillAppear(animated)
     }
     
+    //Events
+    @IBAction func btnBack_click(sender: UIButton) {
+        self.dismissViewControllerAnimated(false, completion: nil)
+        states.HTTPPostJSON(settings.obusettingsSetUri, jsonObj: states.getObusettings().toString(pretty: false))
+    }
+    
     @IBAction func btnDefine_click(sender: UIButton) {
-        let obusettingsSetUri = settings.obusettingsSetUri+"?json="+obusettings.toString(pretty: false)
-        println(obusettingsSetUri);
-        var obusettingsSetJSON       = JSON.fromURL(obusettingsSetUri)
-        println(obusettingsSetJSON);
+        states.setObuSetting(11, code: "LAT", value: "SET")
+        states.HTTPPostJSON(settings.obusettingsSetUri, jsonObj: states.getObusettings().toString(pretty: false))
         
         self.dismissViewControllerAnimated(false, completion: nil)
     }
@@ -73,63 +72,15 @@ class GeoFenceViewController: UIViewController {
     
     @IBAction func slGeoFenceDistance_finished(sender: UISlider) {
         var dist = Int(sender.value)
-        var obusettingsNew = ""
-        var first = true
-        
-        for (i, v) in obusettings {
-            var vs = v.toString(pretty: false);
-            if (v["id_setting"].asInt == 13) {
-                var vl = v["value"]
-                let vsnew: [String:AnyObject] = ["id_setting" : v["id_setting"],
-                                                "code" : "GEO_FENCE_DISTANCE",
-                                                "type" : "",
-                                                "value" : "\(dist)",
-                                                "id_obu" : states.getObuid()]
-                vs = JSON(vsnew).toString()
-            }
-            if (first) {
-                obusettingsNew = obusettingsNew + vs;
-                first = false
-            }
-            else {
-                obusettingsNew = obusettingsNew + "," + vs;
-            }
-        }
-        obusettingsNew = "[" + obusettingsNew + "]";
-        var j = JSON(string: obusettingsNew)
-        states.setObusettings(j)
-
+        states.setObuSetting(13, code: "GEO_FENCE_DISTANCE", value: String(dist))
     }
     
     @IBAction func swGeoFence_valueChanged(sender: UISwitch) {
-        var obusettingsNew = ""
-        var first = true
-
-        for (i, v) in obusettings {
-            var vs = v.toString(pretty: false);
-            if (v["id_setting"].asInt == 10) {
-                var vl = 0
-                if (sender.on) {
-                   vl = 1
-                }
-                let vsnew: [String:AnyObject] = ["id_setting" : v["id_setting"],
-                                                "code" : "GEO_FENCE",
-                                                "type" : "",
-                                                "value" : "\(vl)",
-                                                "id_obu" : states.getObuid()]
-                vs = JSON(vsnew).toString()
-            }
-            if (first) {
-                obusettingsNew = obusettingsNew + vs;
-                first = false
-            }
-            else {
-                obusettingsNew = obusettingsNew + "," + vs;
-            }
+        var vl = 0
+        if (sender.on) {
+            vl = 1
         }
-        obusettingsNew = "[" + obusettingsNew + "]";
-        var j = JSON(string: obusettingsNew)
-        states.setObusettings(j)
+        states.setObuSetting(10, code: "GEO_FENCE", value: String(vl))
     }
 
 }

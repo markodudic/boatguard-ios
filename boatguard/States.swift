@@ -162,6 +162,33 @@ class States: NSObject {
         return comp
     }
 
+    func setObuSetting(id_state: Int, code: String, value: String) {
+        var obusettingsNew = ""
+        var first = true
+        
+        for (i, v) in obusettings {
+            var vs = v.toString(pretty: false);
+            if (v["id_setting"].asInt == id_state) {
+                let vsnew: [String:AnyObject] = ["id_setting" : v["id_setting"],
+                    "code" : code,
+                    "type" : "",
+                    "value" : value,
+                    "id_obu" : states.getObuid()]
+                vs = JSON(vsnew).toString()
+            }
+            if (first) {
+                obusettingsNew = obusettingsNew + vs;
+                first = false
+            }
+            else {
+                obusettingsNew = obusettingsNew + "," + vs;
+            }
+        }
+        obusettingsNew = "[" + obusettingsNew + "]";
+        var j = JSON(string: obusettingsNew)
+        states.setObusettings(j)
+    }
+    
     func dblSpace(s: String) -> String {
         let characters = Array(s)
         var dbl:String = ""
@@ -203,4 +230,35 @@ class States: NSObject {
             return dblSpace(s)
         }
     }
+    
+    func HTTPPostJSON(url: String, jsonObj: String) {
+            var request = NSMutableURLRequest(URL: NSURL(string: url)!)
+            request.HTTPMethod = "POST"
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            //let jsonString = JSONStringify(jsonObj)
+        
+        println(jsonObj)
+            let data: NSData = jsonObj.dataUsingEncoding(NSUTF8StringEncoding)!
+            request.HTTPBody = data
+            HTTPsendRequest(request)
+    }
+    
+    func HTTPsendRequest(request: NSMutableURLRequest) {
+            let task = NSURLSession.sharedSession().dataTaskWithRequest(
+                request,
+                {
+                    data, response, error in
+                    /*if error != nil {
+                        callback("", error.localizedDescription)
+                    } else {
+                        callback(
+                            NSString(data: data, encoding: NSUTF8StringEncoding)!,
+                            nil
+                        )
+                    }*/
+            })
+            
+            task.resume()
+    }
+    
 }
