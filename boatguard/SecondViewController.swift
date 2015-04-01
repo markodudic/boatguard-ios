@@ -140,9 +140,12 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         println(comps[indexPath.row].type);
         
         switch comps[indexPath.row].type {
-        case "GEO":
-            let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("GeoFenceView") as UIViewController
-            self.presentViewController(vc, animated: false, completion: nil)
+            case "GEO":
+                let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("GeoFenceView") as UIViewController
+                self.presentViewController(vc, animated: false, completion: nil)
+            case "ANCHOR":
+                let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("AnchorView") as UIViewController
+                self.presentViewController(vc, animated: false, completion: nil)
         default: println()
         }
         

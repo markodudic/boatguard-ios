@@ -69,6 +69,9 @@ class SettingsViewController: UIViewController, UITableViewDelegate {
             case 0:
                 let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("GeoFenceView") as UIViewController
                 self.presentViewController(vc, animated: false, completion: nil)
+            case 2:
+                let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("AnchorView") as UIViewController
+                self.presentViewController(vc, animated: false, completion: nil)
             case 9:
                 let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("FirstView") as UIViewController
                 self.presentViewController(vc, animated: false, completion: nil)
