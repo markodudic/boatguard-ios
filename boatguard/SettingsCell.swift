@@ -11,6 +11,7 @@ import UIKit
 class SettingsCell: UITableViewCell {
     
     @IBOutlet weak var lbl: UILabel!
+    @IBOutlet weak var lblState: UILabel!
     @IBOutlet weak var img: UIImageView!
 
 

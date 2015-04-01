@@ -59,6 +59,29 @@ class SettingsViewController: UIViewController, UITableViewDelegate {
     {
         let cell = tableView.dequeueReusableCellWithIdentifier("SettingsCell") as SettingsCell
         cell.lbl.text = settings.settingsTableData[indexPath.row]
+        cell.lblState.text = ""
+        
+        switch indexPath.row {
+            case 0:
+                if (states.getObuSettingsByIdState(10)["value"].asString! == "1") {
+                    cell.lblState.text = "ON"
+                    cell.lblState.textColor = settings.lblGreen
+                }
+                else {
+                    cell.lblState.text = "OFF"
+                    cell.lblState.textColor = settings.lblRed
+            }
+            case 2:
+                if (states.getObuSettingsByIdState(40)["value"].asString! == "1") {
+                    cell.lblState.text = "ON"
+                    cell.lblState.textColor = settings.lblGreen
+                }
+                else {
+                    cell.lblState.text = "OFF"
+                    cell.lblState.textColor = settings.lblRed
+                }
+            default: println()
+        }
        
         return cell
     }

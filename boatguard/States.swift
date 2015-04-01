@@ -189,6 +189,15 @@ class States: NSObject {
         states.setObusettings(j)
     }
     
+    func getObuSettingsByIdState(id_state: Int) -> JSON {
+        for (i, v) in obusettings {
+            if (v["id_setting"].asInt == id_state) {
+                return v
+            }
+        }
+        return JSON([])
+    }
+    
     func dblSpace(s: String) -> String {
         let characters = Array(s)
         var dbl:String = ""

@@ -35,18 +35,9 @@ class AnchorViewController: UIViewController {
         }
         viewAnchor.layer.insertSublayer(gl, atIndex: 999)
         
-        obusettings = states.getObusettings()
-        for (i, v) in obusettings {
-            if (v["id_setting"].asInt == 40) {
-                swAnchor.on = (v["value"].asString! == "1")
-            }
-            else if (v["id_setting"].asInt == 41) {
-                lblDistance.text = v["value"].asString! + "m"
-                slAnchorDistance.value = (v["value"].asString! as NSString).floatValue
-            }
-        }
-        
-        
+        swAnchor.on = (states.getObuSettingsByIdState(40)["value"].asString! == "1")
+        lblDistance.text = states.getObuSettingsByIdState(41)["value"].asString! + "m"
+        slAnchorDistance.value = (states.getObuSettingsByIdState(41)["value"].asString! as NSString).floatValue
     }
     
     override func viewWillAppear(animated: Bool) {

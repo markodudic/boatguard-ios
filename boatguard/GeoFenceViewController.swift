@@ -34,18 +34,9 @@ class GeoFenceViewController: UIViewController {
         }
         viewGeoFence.layer.insertSublayer(gl, atIndex: 999)
         
-        obusettings = states.getObusettings()
-        for (i, v) in obusettings {
-            if (v["id_setting"].asInt == 10) {
-                swGeoFence.on = (v["value"].asString! == "1")
-            }
-            else if (v["id_setting"].asInt == 13) {
-                lblDistance.text = v["value"].asString! + "m"
-                slGeoFenceDistance.value = (v["value"].asString! as NSString).floatValue
-            }
-        }
-
-        
+        swGeoFence.on = (states.getObuSettingsByIdState(10)["value"].asString! == "1")
+        lblDistance.text = states.getObuSettingsByIdState(13)["value"].asString! + "m"
+        slGeoFenceDistance.value = (states.getObuSettingsByIdState(13)["value"].asString! as NSString).floatValue
     }
     
     override func viewWillAppear(animated: Bool) {
