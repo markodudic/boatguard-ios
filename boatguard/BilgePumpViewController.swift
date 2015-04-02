@@ -62,8 +62,8 @@ class BilgePumpViewController: UIViewController, UIPickerViewDelegate, UITextFie
     //Events
     @IBAction func btnBack_click(sender: UIButton) {
         self.dismissViewControllerAnimated(false, completion: nil)
-        states.setObuSetting(23, code: "PUMP_ALARM_SHORT_PERIOD", value: String(tfShortPeriod.text))
-        states.setObuSetting(24, code: "PUMP_ALARM_LONG_PERIOD", value: String(tfLongPeriod.text))
+        states.setObuSetting(23, value: String(tfShortPeriod.text))
+        states.setObuSetting(24, value: String(tfLongPeriod.text))
         states.HTTPPostJSON(settings.obusettingsSetUri, jsonObj: states.getObusettings().toString(pretty: false))
     }
     
@@ -72,7 +72,7 @@ class BilgePumpViewController: UIViewController, UIPickerViewDelegate, UITextFie
         if (sender.on) {
             vl = 1
         }
-        states.setObuSetting(22, code: "PUMP_ALARM_ALWAYS", value: String(vl))
+        states.setObuSetting(22, value: String(vl))
     }
     
     func textFieldDidBeginEditing(textField: UITextField) {

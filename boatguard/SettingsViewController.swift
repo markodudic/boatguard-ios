@@ -63,6 +63,9 @@ class SettingsViewController: UIViewController, UITableViewDelegate {
         cell.lblState.text = ""
         switch indexPath.row {
             case 0:
+                cell.lblState.text = states.getObuSettingsByIdState(32)["value"].asString! + "Ah / " +
+                                     states.getObuSettingsByIdState(33)["value"].asString! + "%"
+            case 1:
                 if (states.getObuSettingsByIdState(10)["value"].asString! == "1") {
                     cell.lblState.text = "ON"
                 }
@@ -70,7 +73,15 @@ class SettingsViewController: UIViewController, UITableViewDelegate {
                     cell.lblState.text = "OFF"
                     cell.lblState.textColor = settings.lblRed
                 }
-            case 1:
+            case 2:
+                if (states.getObuSettingsByIdState(40)["value"].asString! == "1") {
+                    cell.lblState.text = "ON"
+                }
+                else {
+                    cell.lblState.text = "OFF"
+                    cell.lblState.textColor = settings.lblRed
+                }
+            case 3:
                 if (states.getObuSettingsByIdState(22)["value"].asString! == "1") {
                     cell.lblState.text = "ON"
                 }
@@ -80,18 +91,6 @@ class SettingsViewController: UIViewController, UITableViewDelegate {
                 cell.lblState.text = cell.lblState.text! + " / " +
                                     states.getObuSettingsByIdState(23)["value"].asString! + " / " +
                                     states.getObuSettingsByIdState(24)["value"].asString!
-           
-            case 2:
-                if (states.getObuSettingsByIdState(40)["value"].asString! == "1") {
-                    cell.lblState.text = "ON"
-                }
-                else {
-                    cell.lblState.text = "OFF"
-                    cell.lblState.textColor = settings.lblRed
-                }
-            case 3: 
-                cell.lblState.text = states.getObuSettingsByIdState(32)["value"].asString! + "Ah / " +
-                                     states.getObuSettingsByIdState(33)["value"].asString! + "%"
             default: println()
         }
        
@@ -102,16 +101,16 @@ class SettingsViewController: UIViewController, UITableViewDelegate {
     {
         switch indexPath.row {
             case 0:
-                let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("GeoFenceView") as UIViewController
+                let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("BatteryView") as UIViewController
                 self.presentViewController(vc, animated: false, completion: nil)
             case 1:
-                let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("BilgePumpView") as UIViewController
+                let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("GeoFenceView") as UIViewController
                 self.presentViewController(vc, animated: false, completion: nil)
             case 2:
                 let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("AnchorView") as UIViewController
                 self.presentViewController(vc, animated: false, completion: nil)
             case 3:
-                let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("BatteryView") as UIViewController
+                let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("BilgePumpView") as UIViewController
                 self.presentViewController(vc, animated: false, completion: nil)
             case 9:
                 let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("FirstView") as UIViewController

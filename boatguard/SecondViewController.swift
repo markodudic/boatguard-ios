@@ -116,6 +116,9 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     //first time & on tab open
     override func viewWillAppear(animated: Bool) {
+        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            self.tblDashboard.reloadData() //force refresh even if not in focus
+        })
         super.viewWillAppear(animated)
     }
    

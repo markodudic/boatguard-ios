@@ -51,7 +51,7 @@ class AnchorViewController: UIViewController {
     }
     
     @IBAction func btnDefine_click(sender: UIButton) {
-        states.setObuSetting(11, code: "LAT", value: "SET")
+        states.setObuSetting(11, value: "SET")
         states.HTTPPostJSON(settings.obusettingsSetUri, jsonObj: states.getObusettings().toString(pretty: false))
         
         self.dismissViewControllerAnimated(false, completion: nil)
@@ -64,7 +64,7 @@ class AnchorViewController: UIViewController {
     
     @IBAction func slAnchorDistance_finished(sender: UISlider) {
         var dist = Int(sender.value)
-        states.setObuSetting(41, code: "ANCHOR_DISTANCE", value: String(dist))
+        states.setObuSetting(41, value: String(dist))
     }
     
     @IBAction func swAnchor_valueChanged(sender: UISwitch) {
@@ -72,7 +72,7 @@ class AnchorViewController: UIViewController {
         if (sender.on) {
             vl = 1
         }
-        states.setObuSetting(40, code: "ANCHOR", value: String(vl))
+        states.setObuSetting(40, value: String(vl))
     }
     
 }

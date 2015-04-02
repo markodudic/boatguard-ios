@@ -50,7 +50,7 @@ class GeoFenceViewController: UIViewController {
     }
     
     @IBAction func btnDefine_click(sender: UIButton) {
-        states.setObuSetting(11, code: "LAT", value: "SET")
+        states.setObuSetting(11, value: "SET")
         states.HTTPPostJSON(settings.obusettingsSetUri, jsonObj: states.getObusettings().toString(pretty: false))
         
         self.dismissViewControllerAnimated(false, completion: nil)
@@ -63,7 +63,7 @@ class GeoFenceViewController: UIViewController {
     
     @IBAction func slGeoFenceDistance_finished(sender: UISlider) {
         var dist = Int(sender.value)
-        states.setObuSetting(13, code: "GEO_FENCE_DISTANCE", value: String(dist))
+        states.setObuSetting(13, value: String(dist))
     }
     
     @IBAction func swGeoFence_valueChanged(sender: UISwitch) {
@@ -71,7 +71,7 @@ class GeoFenceViewController: UIViewController {
         if (sender.on) {
             vl = 1
         }
-        states.setObuSetting(10, code: "GEO_FENCE", value: String(vl))
+        states.setObuSetting(10, value: String(vl))
     }
 
 }

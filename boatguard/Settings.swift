@@ -39,5 +39,5 @@ class Settings: NSObject {
 
     internal let refresh           = UIColor(red: 109.0/255.0, green: 116.0/255.0, blue: 124.0/255.0, alpha: 1)
     
-    internal let settingsTableData = ["GEOFENCE","BILGE PUMP","ANCHOR DRIFTING","BATTERY","ALARM CONTACTS","ALARM SETTINGS","MY ACCOUNT","HISTORY","APP SETTINGS","LOG OUT"]
+    internal let settingsTableData = ["BATTERY","GEOFENCE","ANCHOR DRIFTING","BILGE PUMP","ALARM CONTACTS","ALARM SETTINGS","MY ACCOUNT","HISTORY","APP SETTINGS","LOG OUT"]
 }

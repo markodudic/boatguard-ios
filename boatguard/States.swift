@@ -162,7 +162,7 @@ class States: NSObject {
         return comp
     }
 
-    func setObuSetting(id_state: Int, code: String, value: String) {
+    func setObuSetting(id_state: Int, value: String) {
         var obusettingsNew = ""
         var first = true
         
@@ -170,10 +170,10 @@ class States: NSObject {
             var vs = v.toString(pretty: false);
             if (v["id_setting"].asInt == id_state) {
                 let vsnew: [String:AnyObject] = ["id_setting" : v["id_setting"],
-                    "code" : code,
-                    "type" : "",
-                    "value" : value,
-                    "id_obu" : states.getObuid()]
+                                                "code" : v["code"],
+                                                "type" : "",
+                                                "value" : value,
+                                                "id_obu" : v["id_obu"]]
                 vs = JSON(vsnew).toString()
             }
             if (first) {

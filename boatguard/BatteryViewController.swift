@@ -47,12 +47,12 @@ class BatteryViewController: UIViewController {
     //Events
     @IBAction func btnBack_click(sender: UIButton) {
         self.dismissViewControllerAnimated(false, completion: nil)
-        states.setObuSetting(32, code: "BATTERY_CAPACITY", value: txtCapacity.text.stringByReplacingOccurrencesOfString("Ah", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil))
+        states.setObuSetting(32, value: txtCapacity.text.stringByReplacingOccurrencesOfString("Ah", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil))
         states.HTTPPostJSON(settings.obusettingsSetUri, jsonObj: states.getObusettings().toString(pretty: false))
     }
     
     @IBAction func btnReset_click(sender: UIButton) {
-        states.setObuSetting(31, code: "BATTERY_ENERGY_RESET", value: "1")
+        states.setObuSetting(31, value: "1")
     }
     
     @IBAction func slBatteryAlarm_valueChanged(sender: UISlider) {
@@ -62,7 +62,7 @@ class BatteryViewController: UIViewController {
     
     @IBAction func slBatteryAlarm_finished(sender: UISlider) {
         var alarm = Int(sender.value)
-        states.setObuSetting(33, code: "BATTERY_ALARM_LEVEL", value: String(alarm))
+        states.setObuSetting(33, value: String(alarm))
     }
 
     
