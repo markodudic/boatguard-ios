@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Fabric
+import Crashlytics
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,6 +17,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: NSDictionary?) -> Bool {
+        //Crashlytics
+        //Crashlytics.sharedInstance().debugMode = true
+        Fabric.with([Crashlytics()])
 
         // setup Flurry
         Flurry.startSession(settings.flurryKey)         // replace flurryKey with your own key
