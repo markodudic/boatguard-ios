@@ -54,13 +54,13 @@ class ComponentCell: UITableViewCell {
         //no component banner
         if (banner.count == 0) {
             bnr.hidden = true
-            self.userInteractionEnabled = false
+            bnr.userInteractionEnabled = false
             return
         }
         
         bnr.hidden = false
-        self.userInteractionEnabled = true
-        self.addGestureRecognizer(recognizer)
+        bnr.userInteractionEnabled = true
+        bnr.addGestureRecognizer(recognizer)
         
         //showbanner
         if (name == "ACCU") {

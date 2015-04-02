@@ -12,6 +12,8 @@ import UIKit
 var settings: Settings = Settings()
 
 class Settings: NSObject {
+    internal let flurryKey          = "83VV9ZX37HNWD2KSYYQJ"
+    
     internal let registerUri        = "http://93.103.12.155:8080/boatguard/login?type=register"
     internal let loginUri           = "http://93.103.12.155:8080/boatguard/login?type=login"
     internal let settingsUri        = "http://93.103.12.155:8080/boatguard/getsettings"

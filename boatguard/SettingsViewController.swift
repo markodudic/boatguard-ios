@@ -11,6 +11,7 @@ import UIKit
 class SettingsViewController: UIViewController, UITableViewDelegate {
 
     @IBOutlet var viewSettings: UIView!
+    @IBOutlet var tableView: UITableView!
     
     //Events
     @IBAction func btnBack_click(sender: UIButton) {
@@ -34,12 +35,12 @@ class SettingsViewController: UIViewController, UITableViewDelegate {
             
         }
         viewSettings.layer.insertSublayer(gl, atIndex: 999)
-        
-        var tableView:UITableView = UITableView();
-        tableView.delegate = self;
     }
     
     override func viewWillAppear(animated: Bool) {
+        dispatch_async(dispatch_get_main_queue()) {
+            self.tableView.reloadData()
+        }
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.hidden = true
     }
@@ -60,12 +61,10 @@ class SettingsViewController: UIViewController, UITableViewDelegate {
         let cell = tableView.dequeueReusableCellWithIdentifier("SettingsCell") as SettingsCell
         cell.lbl.text = settings.settingsTableData[indexPath.row]
         cell.lblState.text = ""
-        
         switch indexPath.row {
             case 0:
                 if (states.getObuSettingsByIdState(10)["value"].asString! == "1") {
                     cell.lblState.text = "ON"
-                    cell.lblState.textColor = settings.lblGreen
                 }
                 else {
                     cell.lblState.text = "OFF"
@@ -74,12 +73,14 @@ class SettingsViewController: UIViewController, UITableViewDelegate {
             case 2:
                 if (states.getObuSettingsByIdState(40)["value"].asString! == "1") {
                     cell.lblState.text = "ON"
-                    cell.lblState.textColor = settings.lblGreen
                 }
                 else {
                     cell.lblState.text = "OFF"
                     cell.lblState.textColor = settings.lblRed
                 }
+            case 3: 
+                cell.lblState.text = states.getObuSettingsByIdState(32)["value"].asString! + "Ah / " +
+                                     states.getObuSettingsByIdState(33)["value"].asString! + "%"
             default: println()
         }
        
@@ -94,6 +95,9 @@ class SettingsViewController: UIViewController, UITableViewDelegate {
                 self.presentViewController(vc, animated: false, completion: nil)
             case 2:
                 let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("AnchorView") as UIViewController
+                self.presentViewController(vc, animated: false, completion: nil)
+            case 3:
+                let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("BatteryView") as UIViewController
                 self.presentViewController(vc, animated: false, completion: nil)
             case 9:
                 let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("FirstView") as UIViewController

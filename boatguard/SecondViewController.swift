@@ -146,7 +146,10 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
             case "ANCHOR":
                 let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("AnchorView") as UIViewController
                 self.presentViewController(vc, animated: false, completion: nil)
-        default: println()
+            case "ACCU":
+                let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("BatteryView") as UIViewController
+                self.presentViewController(vc, animated: false, completion: nil)
+            default: println()
         }
         
         
