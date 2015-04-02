@@ -43,7 +43,7 @@ class ThirdViewController: UIViewController, MKMapViewDelegate {
         var json = states.getObudata()
         var sLat:String = ""
         var sLon:String = ""
-        
+         
         for (i, v) in json["states"] {
             if (v["id_state"].asInt == 11) {
                 sLon = v["value"].asString!

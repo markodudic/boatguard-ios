@@ -149,6 +149,9 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
             case "ACCU":
                 let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("BatteryView") as UIViewController
                 self.presentViewController(vc, animated: false, completion: nil)
+            case "PUMP":
+                let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("BilgePumpView") as UIViewController
+                self.presentViewController(vc, animated: false, completion: nil)
             default: println()
         }
         

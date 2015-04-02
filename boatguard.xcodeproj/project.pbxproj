@@ -45,6 +45,7 @@
 		FE61F34E1AB9BAD500B3F8A2 /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE61F34D1AB9BAD500B3F8A2 /* SettingsCell.swift */; };
 		FEAB296E1ACD26BC00DA46B6 /* BatteryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEAB296D1ACD26BC00DA46B6 /* BatteryViewController.swift */; };
 		FEAB29701ACD2F2C00DA46B6 /* libFlurry_6.2.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FEAB296F1ACD2F2C00DA46B6 /* libFlurry_6.2.0.a */; };
+		FEAB29721ACD485300DA46B6 /* BilgePumpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEAB29711ACD485300DA46B6 /* BilgePumpViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +103,7 @@
 		FE61F34D1AB9BAD500B3F8A2 /* SettingsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
 		FEAB296D1ACD26BC00DA46B6 /* BatteryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BatteryViewController.swift; sourceTree = "<group>"; };
 		FEAB296F1ACD2F2C00DA46B6 /* libFlurry_6.2.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurry_6.2.0.a; sourceTree = "<group>"; };
+		FEAB29711ACD485300DA46B6 /* BilgePumpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BilgePumpViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +182,7 @@
 				948DDF0E19C073F3006F5CBD /* SecondViewController.swift */,
 				FE01116A1AB97F8E00C8B0EF /* SettingsViewController.swift */,
 				FE35D7861ABC72E700E73897 /* GeoFenceViewController.swift */,
+				FEAB29711ACD485300DA46B6 /* BilgePumpViewController.swift */,
 				FE1977401ACC185600EF34BA /* AnchorViewController.swift */,
 				FEAB296D1ACD26BC00DA46B6 /* BatteryViewController.swift */,
 				9424502719D0B09F004A496C /* ThirdViewController.swift */,
@@ -347,6 +350,7 @@
 				FE01116B1AB97F8E00C8B0EF /* SettingsViewController.swift in Sources */,
 				946664561A1A68330073028A /* ComponentCell.swift in Sources */,
 				948DDF0D19C073F3006F5CBD /* FirstViewController.swift in Sources */,
+				FEAB29721ACD485300DA46B6 /* BilgePumpViewController.swift in Sources */,
 				FE1977411ACC185600EF34BA /* AnchorViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
