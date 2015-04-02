@@ -32,7 +32,6 @@ class Refresh: NSObject {
             }
             idx++
         }
-        println("add components")
     }
     
     func handelComponent(idx: Int) {
@@ -54,10 +53,7 @@ class Refresh: NSObject {
         } else if (json["type"].asString == "DOOR") {
             type = "DOOR"
         }
-        //println("0add component")
         components.addComponent(json["id_component"].asInt!, json: json, alarm: false, type: type)
-        //println("1add component")
-
     }
     
     //proces recived JSON

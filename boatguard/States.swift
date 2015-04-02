@@ -241,15 +241,12 @@ class States: NSObject {
     }
     
     func HTTPPostJSON(url: String, jsonObj: String) {
-            var request = NSMutableURLRequest(URL: NSURL(string: url)!)
-            request.HTTPMethod = "POST"
-            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-            //let jsonString = JSONStringify(jsonObj)
-        
-        println(jsonObj)
-            let data: NSData = jsonObj.dataUsingEncoding(NSUTF8StringEncoding)!
-            request.HTTPBody = data
-            HTTPsendRequest(request)
+        var request = NSMutableURLRequest(URL: NSURL(string: url)!)
+        request.HTTPMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        let data: NSData = jsonObj.dataUsingEncoding(NSUTF8StringEncoding)!
+        request.HTTPBody = data
+        HTTPsendRequest(request)
     }
     
     func HTTPsendRequest(request: NSMutableURLRequest) {
