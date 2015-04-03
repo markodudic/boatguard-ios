@@ -25,7 +25,6 @@ class ThirdViewController: UIViewController, MKMapViewDelegate {
             
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         //add gradients
         let gl = CAGradientLayer()
         gl.colors = [settings.gradientTop, settings.gradientBottom]
