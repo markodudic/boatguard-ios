@@ -1,17 +1,40 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="13F1066" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="9pv-A4-QxB">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
     <customFonts key="customFonts">
-        <mutableArray key="Dosis-Bold.otf">
-            <string>Dosis-Bold</string>
-            <string>Dosis-Bold</string>
-            <string>Dosis-Bold</string>
-        </mutableArray>
         <mutableArray key="Dosis-ExtraLight.otf">
             <string>Dosis-ExtraLight</string>
             <string>Dosis-ExtraLight</string>
+            <string>Dosis-ExtraLight</string>
+            <string>Dosis-ExtraLight</string>
+            <string>Dosis-ExtraLight</string>
+            <string>Dosis-ExtraLight</string>
+        </mutableArray>
+        <mutableArray key="Dosis-Medium.otf">
+            <string>Dosis-Medium</string>
+            <string>Dosis-Medium</string>
+            <string>Dosis-Medium</string>
+            <string>Dosis-Medium</string>
+            <string>Dosis-Medium</string>
+            <string>Dosis-Medium</string>
+            <string>Dosis-Medium</string>
+            <string>Dosis-Medium</string>
+            <string>Dosis-Medium</string>
+            <string>Dosis-Medium</string>
+            <string>Dosis-Medium</string>
+            <string>Dosis-Medium</string>
+            <string>Dosis-Medium</string>
+            <string>Dosis-Medium</string>
+            <string>Dosis-Medium</string>
+            <string>Dosis-Medium</string>
+            <string>Dosis-Medium</string>
+            <string>Dosis-Medium</string>
+            <string>Dosis-Medium</string>
+            <string>Dosis-Medium</string>
+            <string>Dosis-Medium</string>
+            <string>Dosis-Medium</string>
         </mutableArray>
         <mutableArray key="Dosis-Regular.otf">
             <string>Dosis-Regular</string>
@@ -26,46 +49,154 @@
             <string>Dosis-Regular</string>
             <string>Dosis-Regular</string>
             <string>Dosis-Regular</string>
+            <string>Dosis-Regular</string>
+            <string>Dosis-Regular</string>
+            <string>Dosis-Regular</string>
+            <string>Dosis-Regular</string>
+        </mutableArray>
+        <mutableArray key="Dosis-SemiBold.otf">
+            <string>Dosis-SemiBold</string>
+            <string>Dosis-SemiBold</string>
+            <string>Dosis-SemiBold</string>
+            <string>Dosis-SemiBold</string>
+            <string>Dosis-SemiBold</string>
+            <string>Dosis-SemiBold</string>
+            <string>Dosis-SemiBold</string>
         </mutableArray>
     </customFonts>
     <scenes>
-        <!--First View Controller-->
-        <scene sceneID="hNz-n2-bh7">
+        <!--Settings View Controller-->
+        <scene sceneID="gg9-JJ-aY2">
             <objects>
-                <viewController storyboardIdentifier="FirstView" id="9pv-A4-QxB" customClass="FirstViewController" customModule="boatguard" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
+                <viewController storyboardIdentifier="SettingsView" title="Settings" id="aZn-ss-ziN" userLabel="Settings View Controller" customClass="SettingsViewController" customModule="boatguard" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="PqO-Va-sAx">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="975"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view hidden="YES" contentMode="scaleToFill" id="xa7-fa-C9U">
-                                <rect key="frame" x="0.0" y="82" width="768" height="953"/>
+                            <view contentMode="scaleToFill" id="oHg-Ut-hMq">
+                                <rect key="frame" x="0.0" y="164" width="768" height="1024"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="rCp-y0-ix9">
-                                        <rect key="frame" x="-25" y="28" width="768" height="933"/>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelectionDuringEditing="YES" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="054-Wq-wxU">
+                                        <rect key="frame" x="0.0" y="3" width="768" height="1024"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.90980398650000005" green="0.90588241820000004" blue="0.90980398650000005" alpha="1" colorSpace="deviceRGB"/>
+                                        <color key="sectionIndexColor" red="0.42745098040000001" green="0.4549019608" blue="0.48627450979999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <prototypes>
+                                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="SettingsCell" id="whg-Oa-s6z" userLabel="SettingsCell" customClass="SettingsCell" customModule="boatguard" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="305" height="44"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="whg-Oa-s6z" id="SEV-Ex-cPT">
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hjO-xQ-WaK">
+                                                            <rect key="frame" x="15" y="3" width="250" height="21"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <rect key="contentStretch" x="1.3877787807814457e-17" y="0.0" width="1" height="1"/>
+                                                            <fontDescription key="fontDescription" name="Dosis-Medium" family="Dosis" pointSize="17"/>
+                                                            <color key="textColor" red="0.20000000000000001" green="0.24313725490196078" blue="0.28235294117647058" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                            <size key="shadowOffset" width="0.0" height="0.0"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=">" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="none" adjustsFontSizeToFit="NO" id="q7v-VH-toH">
+                                                            <rect key="frame" x="290" y="2" width="20" height="31"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <inset key="insetFor6xAndEarlier" minX="0.0" minY="0.0" maxX="0.0" maxY="-3"/>
+                                                            <fontDescription key="fontDescription" name="Dosis-Regular" family="Dosis" pointSize="37"/>
+                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                            <size key="shadowOffset" width="0.0" height="0.0"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xDz-fh-OXB">
+                                                            <rect key="frame" x="15" y="20" width="250" height="21"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" name="Dosis-Medium" family="Dosis" pointSize="15"/>
+                                                            <color key="textColor" red="0.20000000000000001" green="0.90488138689999997" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </tableViewCellContentView>
+                                                <color key="backgroundColor" red="0.90980398650000005" green="0.90588241820000004" blue="0.90980398650000005" alpha="1" colorSpace="deviceRGB"/>
+                                                <connections>
+                                                    <outlet property="lbl" destination="hjO-xQ-WaK" id="Vma-4e-CWT"/>
+                                                    <outlet property="lblState" destination="xDz-fh-OXB" id="dMo-nW-NzA"/>
+                                                </connections>
+                                            </tableViewCell>
+                                        </prototypes>
                                         <connections>
-                                            <outlet property="dataSource" destination="9pv-A4-QxB" id="5Jk-ee-8Ze"/>
-                                            <outlet property="delegate" destination="9pv-A4-QxB" id="Ffq-7I-fW9"/>
+                                            <outlet property="dataSource" destination="aZn-ss-ziN" id="UDw-Dr-iys"/>
+                                            <outlet property="delegate" destination="aZn-ss-ziN" id="8fb-9x-TNt"/>
                                         </connections>
                                     </tableView>
                                 </subviews>
                             </view>
-                            <view hidden="YES" contentMode="scaleToFill" id="dme-bl-59E">
-                                <rect key="frame" x="0.0" y="20" width="768" height="87"/>
+                            <view contentMode="scaleToFill" id="OQi-9x-iDF">
+                                <rect key="frame" x="0.0" y="20" width="768" height="124"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="M E N U" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4cQ-k7-pFh">
-                                        <rect key="frame" x="8" y="16" width="752" height="53"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="9BN-7s-6pu">
+                                        <rect key="frame" x="30" y="25" width="30" height="53"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="Dosis-Bold" family="Dosis" pointSize="50"/>
+                                        <fontDescription key="fontDescription" name="Dosis-ExtraLight" family="Dosis" pointSize="76"/>
+                                        <state key="normal" title="&lt;">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnBack_click:" destination="aZn-ss-ziN" eventType="touchUpInside" id="kyz-Ez-5jk"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="M E N U" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Pxy-te-Isv">
+                                        <rect key="frame" x="0.0" y="36" width="768" height="52"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Dosis-SemiBold" family="Dosis" pointSize="58"/>
                                         <color key="textColor" red="0.20000000000000001" green="0.24313725489999999" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                         <size key="shadowOffset" width="0.0" height="0.0"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Xye-UX-JPf">
-                                        <rect key="frame" x="8" y="12" width="46" height="50"/>
+                                </subviews>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.90980398650000005" green="0.90588241820000004" blue="0.90980398650000005" alpha="1" colorSpace="deviceRGB"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="settings" id="5r5-VW-vOZ">
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
+                    </tabBarItem>
+                    <connections>
+                        <outlet property="tableView" destination="054-Wq-wxU" id="UEn-J9-PNH"/>
+                        <outlet property="viewSettings" destination="oHg-Ut-hMq" id="2QW-VX-obj"/>
+                        <segue destination="Jr0-fR-zYF" kind="modal" id="3jr-YV-Iwq"/>
+                        <segue destination="Crg-ye-zXX" kind="modal" id="PEG-MZ-xxF"/>
+                        <segue destination="8YI-Eo-KEg" kind="modal" id="zlX-sr-Dt3"/>
+                        <segue destination="r5i-SD-VHb" kind="modal" id="U81-R1-cb6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fM9-aF-nwH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-678" y="748"/>
+        </scene>
+        <!--GeoFenceController-->
+        <scene sceneID="iiL-Rz-5E3">
+            <objects>
+                <viewController storyboardIdentifier="GeoFenceView" id="Jr0-fR-zYF" userLabel="GeoFenceController" customClass="GeoFenceViewController" customModule="boatguard" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vQQ-Ec-ECe">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" id="MQR-QX-9OM">
+                                <rect key="frame" x="0.0" y="20" width="768" height="62"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="G E O F E N C E" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="DCo-Bx-PlU">
+                                        <rect key="frame" x="0.0" y="16" width="768" height="26"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Dosis-SemiBold" family="Dosis" pointSize="28"/>
+                                        <color key="textColor" red="0.20000000000000001" green="0.24313725489999999" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <size key="shadowOffset" width="0.0" height="0.0"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Xmc-ok-d4t">
+                                        <rect key="frame" x="8" y="12" width="46" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Dosis-ExtraLight" family="Dosis" pointSize="38"/>
                                         <state key="normal" title="&lt;">
@@ -73,19 +204,110 @@
                                             <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="btnBack_click:" destination="9pv-A4-QxB" eventType="touchUpInside" id="fim-KW-GiE"/>
+                                            <action selector="btnBack_click:" destination="Jr0-fR-zYF" eventType="touchUpInside" id="pZh-bo-oIP"/>
                                         </connections>
                                     </button>
                                 </subviews>
                             </view>
+                            <view contentMode="scaleToFill" id="Z1S-YR-9pR">
+                                <rect key="frame" x="0.0" y="82" width="768" height="1024"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="G E O F E N C E" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="CY1-F6-82p">
+                                        <rect key="frame" x="15" y="20" width="207" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Dosis-Medium" family="Dosis" pointSize="16"/>
+                                        <color key="textColor" red="0.20000000000000001" green="0.24313725489999999" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="G E O F E N C E  R A D I U S" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QIC-hp-Ica">
+                                        <rect key="frame" x="15" y="55" width="221" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Dosis-Medium" family="Dosis" pointSize="16"/>
+                                        <color key="textColor" red="0.20000000000000001" green="0.24313725489999999" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="D E F I N E  C U R R E N T  L O C A T I O N  A S  H O M E" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cbr-ih-v57">
+                                        <rect key="frame" x="15" y="129" width="180" height="42"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Dosis-Medium" family="Dosis" pointSize="16"/>
+                                        <color key="textColor" red="0.20000000000000001" green="0.24313725489999999" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="500" minValue="0.0" maxValue="1000" id="N53-ST-Bb6">
+                                        <rect key="frame" x="15" y="84" width="289" height="31"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="minimumTrackTintColor" red="0.20000000000000001" green="0.90488138689999997" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="maximumTrackTintColor" red="0.42745098040000001" green="0.4549019608" blue="0.48627450979999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="thumbTintColor" red="0.20000001789999999" green="0.24313727020000001" blue="0.2823529541" alpha="1" colorSpace="deviceRGB"/>
+                                        <connections>
+                                            <action selector="slGeoFenceDistance_finished:" destination="Jr0-fR-zYF" eventType="touchUpInside" id="mI9-OE-wwM"/>
+                                            <action selector="slGeoFenceDistance_valueChanged:" destination="Jr0-fR-zYF" eventType="valueChanged" id="aiV-bo-cZZ"/>
+                                        </connections>
+                                    </slider>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="000m" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vuJ-D6-uCQ">
+                                        <rect key="frame" x="242" y="55" width="60" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Dosis-Medium" family="Dosis" pointSize="17"/>
+                                        <color key="textColor" red="0.20000000000000001" green="0.90488138689999997" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="8Ru-j0-5F1">
+                                        <rect key="frame" x="253" y="15" width="51" height="31"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="tintColor" red="0.20000001789999999" green="0.24313727020000001" blue="0.2823529541" alpha="1" colorSpace="deviceRGB"/>
+                                        <color key="onTintColor" red="0.20000001789999999" green="0.24313727020000001" blue="0.2823529541" alpha="1" colorSpace="deviceRGB"/>
+                                        <color key="thumbTintColor" red="0.42745098040000001" green="0.4549019608" blue="0.48627450979999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="swGeoFence_valueChanged:" destination="Jr0-fR-zYF" eventType="valueChanged" id="zQd-Re-SlV"/>
+                                        </connections>
+                                    </switch>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="yCH-qY-LiW">
+                                        <rect key="frame" x="213" y="131" width="89" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.20000001789999999" green="0.24313727020000001" blue="0.2823529541" alpha="1" colorSpace="deviceRGB"/>
+                                        <fontDescription key="fontDescription" name="Dosis-Regular" family="Dosis" pointSize="17"/>
+                                        <state key="normal" title="D E F I N E">
+                                            <color key="titleColor" red="0.90980392160000001" green="0.90588235289999997" blue="0.90980392160000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" red="0.90980392160000001" green="0.90588235289999997" blue="0.90980392160000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnDefine_click:" destination="Jr0-fR-zYF" eventType="touchUpInside" id="2m2-Dw-y5j"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.90980398650000005" green="0.90588241820000004" blue="0.90980398650000005" alpha="1" colorSpace="deviceRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.90980398650000005" green="0.90588241820000004" blue="0.90980398650000005" alpha="1" colorSpace="deviceRGB"/>
+                    </view>
+                    <connections>
+                        <outlet property="lblDistance" destination="vuJ-D6-uCQ" id="4j6-fj-k31"/>
+                        <outlet property="slGeoFenceDistance" destination="N53-ST-Bb6" id="e0R-m4-RVx"/>
+                        <outlet property="swGeoFence" destination="8Ru-j0-5F1" id="cxl-uO-2NH"/>
+                        <outlet property="viewGeoFence" destination="Z1S-YR-9pR" id="n3D-Zl-wPV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="edY-ab-23s" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-392" y="2375"/>
+        </scene>
+        <!--First View Controller-->
+        <scene sceneID="hNz-n2-bh7">
+            <objects>
+                <viewController storyboardIdentifier="FirstView" id="9pv-A4-QxB" customClass="FirstViewController" customModule="boatguard" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
                             <view contentMode="scaleToFill" id="IcZ-ye-E5l">
-                                <rect key="frame" x="0.0" y="20" width="768" height="87"/>
+                                <rect key="frame" x="0.0" y="20" width="768" height="124"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="L O G I N   F O R M" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Hyv-k8-wqJ">
-                                        <rect key="frame" x="8" y="16" width="752" height="51"/>
+                                        <rect key="frame" x="0.0" y="36" width="768" height="52"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="Dosis-Bold" family="Dosis" pointSize="50"/>
+                                        <fontDescription key="fontDescription" name="Dosis-SemiBold" family="Dosis" pointSize="56"/>
                                         <color key="textColor" red="0.20000000000000001" green="0.24313725490196078" blue="0.28235294117647058" alpha="1" colorSpace="deviceRGB"/>
                                         <nil key="highlightedColor"/>
                                         <size key="shadowOffset" width="0.0" height="0.0"/>
@@ -93,100 +315,102 @@
                                 </subviews>
                             </view>
                             <view contentMode="scaleToFill" id="MDu-Km-hOe">
-                                <rect key="frame" x="0.0" y="82" width="768" height="805"/>
+                                <rect key="frame" x="0.0" y="164" width="768" height="942"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="U S E R N A M E" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xbj-NR-Zkg">
-                                        <rect key="frame" x="37" y="83" width="752" height="40"/>
+                                        <rect key="frame" x="30" y="37" width="440" height="35"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="Dosis-Regular" family="Dosis" pointSize="32"/>
+                                        <fontDescription key="fontDescription" name="Dosis-Regular" family="Dosis" pointSize="36"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" minimumFontSize="17" background="input_bg" clearButtonMode="always" id="hxE-eE-IW8">
-                                        <rect key="frame" x="37" y="131" width="687" height="100"/>
+                                        <rect key="frame" x="30" y="80" width="708" height="100"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.87058830261230469" green="0.87843143939971924" blue="0.88627457618713379" alpha="1" colorSpace="deviceRGB"/>
-                                        <fontDescription key="fontDescription" name="Dosis-Regular" family="Dosis" pointSize="32"/>
+                                        <fontDescription key="fontDescription" name="Dosis-Regular" family="Dosis" pointSize="36"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <connections>
-                                            <outlet property="delegate" destination="9pv-A4-QxB" id="bPR-cg-gdJ"/>
+                                            <outlet property="delegate" destination="9pv-A4-QxB" id="S9L-pC-jjT"/>
                                         </connections>
                                     </textField>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="P A S S W O R D" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jzt-fk-Iin">
-                                        <rect key="frame" x="37" y="239" width="752" height="40"/>
+                                        <rect key="frame" x="30" y="202" width="440" height="36"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="Dosis-Regular" family="Dosis" pointSize="32"/>
+                                        <fontDescription key="fontDescription" name="Dosis-Regular" family="Dosis" pointSize="36"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" minimumFontSize="17" background="input_bg" clearButtonMode="always" id="dyP-MF-fpL">
-                                        <rect key="frame" x="37" y="282" width="687" height="100"/>
+                                        <rect key="frame" x="30" y="246" width="708" height="100"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.87058830259999997" green="0.87843143940000001" blue="0.88627457620000005" alpha="1" colorSpace="deviceRGB"/>
-                                        <fontDescription key="fontDescription" name="Dosis-Regular" family="Dosis" pointSize="32"/>
+                                        <fontDescription key="fontDescription" name="Dosis-Regular" family="Dosis" pointSize="36"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                         <connections>
                                             <outlet property="delegate" destination="9pv-A4-QxB" id="0vo-qd-mo1"/>
                                         </connections>
                                     </textField>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="O B U   I D" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kUm-2V-bGR">
-                                        <rect key="frame" x="37" y="390" width="752" height="40"/>
+                                        <rect key="frame" x="30" y="363" width="440" height="36"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="Dosis-Regular" family="Dosis" pointSize="32"/>
+                                        <fontDescription key="fontDescription" name="Dosis-Regular" family="Dosis" pointSize="36"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" minimumFontSize="17" background="input_bg" clearButtonMode="always" id="krR-Wp-fHj">
-                                        <rect key="frame" x="37" y="438" width="687" height="100"/>
+                                        <rect key="frame" x="30" y="407" width="708" height="100"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.87058830259999997" green="0.87843143940000001" blue="0.88627457620000005" alpha="1" colorSpace="deviceRGB"/>
-                                        <fontDescription key="fontDescription" name="Dosis-Regular" family="Dosis" pointSize="32"/>
+                                        <fontDescription key="fontDescription" name="Dosis-Regular" family="Dosis" pointSize="36"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <connections>
                                             <outlet property="delegate" destination="9pv-A4-QxB" id="eNz-YT-rDI"/>
                                         </connections>
                                     </textField>
-                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="fsK-85-pqt">
-                                        <rect key="frame" x="37" y="565" width="51" height="31"/>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="fsK-85-pqt">
+                                        <rect key="frame" x="30" y="530" width="51" height="31"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="tintColor" red="0.20000001789999999" green="0.24313727020000001" blue="0.2823529541" alpha="1" colorSpace="deviceRGB"/>
                                         <color key="onTintColor" red="0.20000001789999999" green="0.24313727020000001" blue="0.2823529541" alpha="1" colorSpace="deviceRGB"/>
+                                        <color key="thumbTintColor" red="0.42745098040000001" green="0.4549019608" blue="0.48627450979999998" alpha="1" colorSpace="calibratedRGB"/>
                                     </switch>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="R E M E M B E R   M E" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="iZi-cW-zfT">
-                                        <rect key="frame" x="94" y="561" width="336" height="39"/>
+                                        <rect key="frame" x="94" y="526" width="424" height="40"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="Dosis-Regular" family="Dosis" pointSize="32"/>
+                                        <fontDescription key="fontDescription" name="Dosis-Regular" family="Dosis" pointSize="36"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" id="UcF-O3-NUf">
-                                        <rect key="frame" x="8" y="608" width="752" height="247"/>
+                                        <rect key="frame" x="0.0" y="569" width="768" height="140"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="x8V-qH-UvK">
-                                                <rect key="frame" x="391" y="7" width="325" height="100"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" red="0.20000001789999999" green="0.24313727020000001" blue="0.2823529541" alpha="1" colorSpace="deviceRGB"/>
-                                                <fontDescription key="fontDescription" name="Dosis-Regular" family="Dosis" pointSize="32"/>
-                                                <state key="normal" title="L O G I N">
-                                                    <color key="titleColor" red="0.90980392160000001" green="0.90588235289999997" blue="0.90980392160000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <color key="titleShadowColor" red="0.90980392160000001" green="0.90588235289999997" blue="0.90980392160000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="btnLogin_click:" destination="9pv-A4-QxB" eventType="touchUpInside" id="bOw-68-XHa"/>
-                                                </connections>
-                                            </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Gno-NQ-F9u">
-                                                <rect key="frame" x="28" y="8" width="325" height="99"/>
+                                                <rect key="frame" x="30" y="12" width="339" height="100"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" red="0.42745098040000001" green="0.4549019608" blue="0.48627450979999998" alpha="1" colorSpace="deviceRGB"/>
-                                                <fontDescription key="fontDescription" name="Dosis-Regular" family="Dosis" pointSize="32"/>
+                                                <fontDescription key="fontDescription" name="Dosis-Regular" family="Dosis" pointSize="36"/>
                                                 <state key="normal" title="R E G I S T E R">
                                                     <color key="titleColor" red="0.90980392160000001" green="0.90588235289999997" blue="0.90980392160000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="titleShadowColor" red="0.90980392160000001" green="0.90588235289999997" blue="0.90980392160000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="btnRegister_click:" destination="9pv-A4-QxB" eventType="touchUpInside" id="be9-ei-tEx"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="x8V-qH-UvK">
+                                                <rect key="frame" x="399" y="12" width="339" height="100"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" red="0.20000001789999999" green="0.24313727020000001" blue="0.2823529541" alpha="1" colorSpace="deviceRGB"/>
+                                                <fontDescription key="fontDescription" name="Dosis-Regular" family="Dosis" pointSize="36"/>
+                                                <state key="normal" title="L O G I N">
+                                                    <color key="titleColor" red="0.90980392160000001" green="0.90588235289999997" blue="0.90980392160000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleShadowColor" red="0.90980392160000001" green="0.90588235289999997" blue="0.90980392160000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="btnLogin_click:" destination="9pv-A4-QxB" eventType="touchUpInside" id="bOw-68-XHa"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -196,103 +420,104 @@
                         </subviews>
                         <color key="backgroundColor" red="0.90980398650000005" green="0.90588241820000004" blue="0.90980398650000005" alpha="1" colorSpace="deviceRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="settings" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="" image="settings" id="acW-dT-cKf">
+                        <inset key="imageInsets" minX="3" minY="8" maxX="3" maxY="-1"/>
+                    </tabBarItem>
                     <connections>
-                        <outlet property="tblObusettings" destination="rCp-y0-ix9" id="P0z-D6-zJH"/>
+                        <outlet property="swRemember" destination="fsK-85-pqt" id="19q-km-8uA"/>
                         <outlet property="txtObuid" destination="krR-Wp-fHj" id="EYZ-Vg-VyI"/>
                         <outlet property="txtPass" destination="dyP-MF-fpL" id="zDx-XQ-z4M"/>
                         <outlet property="txtUser" destination="hxE-eE-IW8" id="QGj-9N-0AG"/>
-                        <outlet property="viewDashboard" destination="xa7-fa-C9U" id="hPj-Z9-5ew"/>
-                        <outlet property="viewDashboardTitle" destination="dme-bl-59E" id="XkO-IH-2IM"/>
                         <outlet property="viewLogin" destination="MDu-Km-hOe" id="Awc-8S-73k"/>
                         <outlet property="viewLoginTitle" destination="IcZ-ye-E5l" id="aUQ-ie-USL"/>
+                        <segue destination="49e-Tb-3d3" kind="modal" id="8uS-WE-n3n"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-366" y="1058"/>
+            <point key="canvasLocation" x="-638" y="-633"/>
         </scene>
         <!--Second View Controller-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
-                <viewController id="8rJ-Kc-sve" customClass="SecondViewController" customModule="boatguard" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SecondView" id="8rJ-Kc-sve" customClass="SecondViewController" customModule="boatguard" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="975"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" id="nKt-7Y-CTu">
-                                <rect key="frame" x="0.0" y="20" width="768" height="200"/>
+                                <rect key="frame" x="0.0" y="20" width="768" height="95"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" id="IvF-cA-9yI">
-                                        <rect key="frame" x="0.0" y="8" width="768" height="127"/>
+                                        <rect key="frame" x="0.0" y="8" width="768" height="64"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="logo" id="WSD-MK-Ycv">
-                                                <rect key="frame" x="240" y="13" width="288" height="44"/>
+                                                <rect key="frame" x="0.0" y="8" width="768" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
                                         </subviews>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LAST UPDATE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4Pj-aP-Rjd">
-                                        <rect key="frame" x="8" y="130" width="752" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LAST UPDATE:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4Pj-aP-Rjd">
+                                        <rect key="frame" x="0.0" y="80" width="768" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="Dosis-Regular" family="Dosis" pointSize="26"/>
+                                        <fontDescription key="fontDescription" name="Dosis-Regular" family="Dosis" pointSize="14"/>
                                         <color key="textColor" red="0.20000000000000001" green="0.24313725490196078" blue="0.28235294117647058" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                             </view>
                             <view contentMode="scaleToFill" id="nlx-hW-Gyt">
-                                <rect key="frame" x="0.0" y="219" width="768" height="806"/>
+                                <rect key="frame" x="0.0" y="129" width="768" height="390"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="140" sectionHeaderHeight="33" sectionFooterHeight="33" id="in3-ey-KxE">
-                                        <rect key="frame" x="0.0" y="-32" width="768" height="830"/>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelectionDuringEditing="YES" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="88" sectionHeaderHeight="33" sectionFooterHeight="33" id="in3-ey-KxE">
+                                        <rect key="frame" x="0.0" y="8" width="768" height="372"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.90980398650000005" green="0.90588241820000004" blue="0.90980398650000005" alpha="1" colorSpace="deviceRGB"/>
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <prototypes>
-                                            <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="0.0" shouldIndentWhileEditing="NO" reuseIdentifier="ComponentCell" rowHeight="140" id="pNE-HE-LZY" customClass="ComponentCell" customModule="boatguard" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="0.0" shouldIndentWhileEditing="NO" reuseIdentifier="ComponentCell" id="pNE-HE-LZY" customClass="ComponentCell" customModule="boatguard" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
-                                                <tableViewCellContentView key="contentView" clearsContextBeforeDrawing="NO" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="center" tableViewCell="pNE-HE-LZY" id="gJW-MY-uxp">
+                                                <tableViewCellContentView key="contentView" clearsContextBeforeDrawing="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" tableViewCell="pNE-HE-LZY" id="gJW-MY-uxp">
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Y1p-pz-zdr">
-                                                            <rect key="frame" x="30" y="45" width="355" height="50"/>
+                                                            <rect key="frame" x="30" y="18" width="212" height="50"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <fontDescription key="fontDescription" name="Dosis-Regular" family="Dosis" pointSize="34"/>
+                                                            <fontDescription key="fontDescription" name="Dosis-Regular" family="Dosis" pointSize="17"/>
                                                             <color key="textColor" red="0.42745098040000001" green="0.4549019608" blue="0.48627450979999998" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <view contentMode="scaleToFill" id="Rp0-Sf-jja">
-                                                            <rect key="frame" x="30" y="139" width="708" height="1"/>
+                                                            <rect key="frame" x="30" y="87" width="260" height="1"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <color key="backgroundColor" red="0.70196078431372544" green="0.70196078431372544" blue="0.70196078431372544" alpha="1" colorSpace="calibratedRGB"/>
                                                         </view>
+                                                        <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="aBW-wP-AVX">
+                                                            <rect key="frame" x="250" y="23" width="40" height="40"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <gestureRecognizers/>
+                                                        </imageView>
                                                         <view hidden="YES" contentMode="scaleToFill" id="dGn-as-1pF">
                                                             <rect key="frame" x="0.0" y="0.0" width="768" height="10"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         </view>
                                                         <view hidden="YES" contentMode="scaleToFill" id="LmN-ae-lYf">
-                                                            <rect key="frame" x="0.0" y="130" width="768" height="10"/>
+                                                            <rect key="frame" x="0.0" y="78" width="768" height="10"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         </view>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9hN-uL-sYe">
-                                                            <rect key="frame" x="580" y="18" width="158" height="70"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9hN-uL-sYe">
+                                                            <rect key="frame" x="229" y="33" width="83" height="21"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <fontDescription key="fontDescription" name="Dosis-Regular" family="Dosis" pointSize="32"/>
+                                                            <fontDescription key="fontDescription" name="Dosis-Medium" family="Dosis" pointSize="22"/>
                                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="aBW-wP-AVX">
-                                                            <rect key="frame" x="668" y="35" width="70" height="70"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <gestureRecognizers/>
-                                                        </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.90980398650000005" green="0.90588241820000004" blue="0.90980398650000005" alpha="1" colorSpace="deviceRGB"/>
                                                 </tableViewCellContentView>
@@ -300,9 +525,9 @@
                                                     <outlet property="bnr" destination="9hN-uL-sYe" id="idM-7G-6xi"/>
                                                     <outlet property="img" destination="aBW-wP-AVX" id="gAf-Vs-9BR"/>
                                                     <outlet property="lbl" destination="Y1p-pz-zdr" id="O0H-K2-X56"/>
-                                                    <outlet property="subviewbottom" destination="LmN-ae-lYf" id="VWl-3d-5Ga"/>
+                                                    <outlet property="subviewbottom" destination="LmN-ae-lYf" id="Jkz-Ph-Odb"/>
                                                     <outlet property="subviewtop" destination="dGn-as-1pF" id="tPE-SM-dCL"/>
-                                                    <outlet property="view" destination="gJW-MY-uxp" id="GAo-A8-4e4"/>
+                                                    <outlet property="view" destination="gJW-MY-uxp" id="nSI-fg-6EU"/>
                                                 </connections>
                                             </tableViewCell>
                                         </prototypes>
@@ -316,10 +541,12 @@
                         </subviews>
                         <color key="backgroundColor" red="0.90980398650000005" green="0.90588241820000004" blue="0.90980398650000005" alpha="1" colorSpace="deviceRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="home" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="" image="home" id="cPa-gy-q4n">
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
+                    </tabBarItem>
                     <connections>
                         <outlet property="imgLogo" destination="WSD-MK-Ycv" id="EHZ-pq-K9B"/>
-                        <outlet property="lblRefresh" destination="4Pj-aP-Rjd" id="ACt-gc-Skg"/>
+                        <outlet property="lblRefresh" destination="4Pj-aP-Rjd" id="5ZP-uz-xs6"/>
                         <outlet property="tblDashboard" destination="in3-ey-KxE" id="pS5-ra-a1G"/>
                         <outlet property="viewComponents" destination="nlx-hW-Gyt" id="HWU-4X-puz"/>
                         <outlet property="viewLogo" destination="IvF-cA-9yI" id="qPc-zF-TRf"/>
@@ -327,7 +554,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="528" y="1026"/>
+            <point key="canvasLocation" x="528" y="724"/>
         </scene>
         <!--Third View Controller-->
         <scene sceneID="XTx-Mn-nN1">
@@ -337,14 +564,35 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="975"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" id="87n-VL-hEU">
-                                <rect key="frame" x="0.0" y="20" width="768" height="87"/>
+                            <view contentMode="scaleToFill" id="C01-us-fgr">
+                                <rect key="frame" x="0.0" y="164" width="768" height="862"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="XCS-BM-ljc">
-                                        <rect key="frame" x="8" y="16" width="46" height="55"/>
+                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="94O-RO-MiB">
+                                        <rect key="frame" x="0.0" y="0.0" width="768" height="862"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="Dosis-ExtraLight" family="Dosis" pointSize="38"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="wUB-Za-a6M" id="4zn-FJ-Zry"/>
+                                        </connections>
+                                    </mapView>
+                                </subviews>
+                            </view>
+                            <view contentMode="scaleToFill" id="87n-VL-hEU">
+                                <rect key="frame" x="0.0" y="33" width="768" height="124"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="L O C A T I O N" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8NN-az-DY8">
+                                        <rect key="frame" x="0.0" y="34" width="768" height="51"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Dosis-SemiBold" family="Dosis" pointSize="56"/>
+                                        <color key="textColor" red="0.20000000000000001" green="0.24313725489999999" blue="0.28235294119999998" alpha="1" colorSpace="deviceRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <size key="shadowOffset" width="0.0" height="0.0"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="XCS-BM-ljc">
+                                        <rect key="frame" x="30" y="25" width="30" height="53"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Dosis-ExtraLight" family="Dosis" pointSize="76"/>
                                         <state key="normal" title="&lt;">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -353,33 +601,14 @@
                                             <action selector="btnBack_click:" destination="wUB-Za-a6M" eventType="touchUpInside" id="1Lj-WQ-G0h"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="L O C A T I O N" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8NN-az-DY8">
-                                        <rect key="frame" x="8" y="16" width="752" height="55"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="Dosis-Bold" family="Dosis" pointSize="50"/>
-                                        <color key="textColor" red="0.20000000000000001" green="0.24313725489999999" blue="0.28235294119999998" alpha="1" colorSpace="deviceRGB"/>
-                                        <nil key="highlightedColor"/>
-                                        <size key="shadowOffset" width="0.0" height="0.0"/>
-                                    </label>
-                                </subviews>
-                            </view>
-                            <view contentMode="scaleToFill" id="C01-us-fgr">
-                                <rect key="frame" x="0.0" y="123" width="768" height="908"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="94O-RO-MiB">
-                                        <rect key="frame" x="0.0" y="0.0" width="768" height="933"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <connections>
-                                            <outlet property="delegate" destination="wUB-Za-a6M" id="4zn-FJ-Zry"/>
-                                        </connections>
-                                    </mapView>
                                 </subviews>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.90980398650000005" green="0.90588241820000004" blue="0.90980398650000005" alpha="1" colorSpace="deviceRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="location" id="Jik-c8-SM5"/>
+                    <tabBarItem key="tabBarItem" title="" image="location" id="Jik-c8-SM5">
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
+                    </tabBarItem>
                     <connections>
                         <outlet property="theMapView" destination="94O-RO-MiB" id="aYd-bY-zib"/>
                         <outlet property="viewMap" destination="C01-us-fgr" id="lcv-5q-COE"/>
@@ -387,7 +616,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yoI-Jk-0bo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1395" y="1026"/>
+            <point key="canvasLocation" x="1660" y="748"/>
         </scene>
         <!--Tab Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -398,18 +627,370 @@
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="barTintColor" red="0.90980392156862744" green="0.90588235294117647" blue="0.90980392156862744" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.90980398650000005" green="0.90588241820000004" blue="0.90980398650000005" alpha="1" colorSpace="deviceRGB"/>
                         <color key="selectedImageTintColor" red="0.90980392156862744" green="0.90588235294117647" blue="0.90980392156862744" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
-                        <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
-                        <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
-                        <segue destination="wUB-Za-a6M" kind="relationship" relationship="viewControllers" id="xgC-7Z-xW9"/>
+                        <segue destination="aZn-ss-ziN" kind="relationship" relationship="viewControllers" id="Wp2-rJ-gDN"/>
+                        <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="FWx-hI-5pG"/>
+                        <segue destination="wUB-Za-a6M" kind="relationship" relationship="viewControllers" id="vqh-rU-wrX"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="528" y="-265"/>
+            <point key="canvasLocation" x="876" y="-489"/>
+        </scene>
+        <!--AnchorController-->
+        <scene sceneID="N11-93-gbX">
+            <objects>
+                <viewController storyboardIdentifier="AnchorView" id="Crg-ye-zXX" userLabel="AnchorController" customClass="AnchorViewController" customModule="boatguard" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gs8-2x-q0W">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" id="ZaQ-eo-J70">
+                                <rect key="frame" x="0.0" y="20" width="768" height="62"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A N C H O R" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="S0B-aB-PAE">
+                                        <rect key="frame" x="0.0" y="16" width="768" height="26"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Dosis-SemiBold" family="Dosis" pointSize="28"/>
+                                        <color key="textColor" red="0.20000000000000001" green="0.24313725489999999" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <size key="shadowOffset" width="0.0" height="0.0"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="dVo-Q6-Ecv">
+                                        <rect key="frame" x="8" y="12" width="46" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Dosis-ExtraLight" family="Dosis" pointSize="38"/>
+                                        <state key="normal" title="&lt;">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnBack_click:" destination="Crg-ye-zXX" eventType="touchUpInside" id="bJW-bd-v1z"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </view>
+                            <view contentMode="scaleToFill" id="nyh-xq-0jR">
+                                <rect key="frame" x="0.0" y="82" width="768" height="1024"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A N C H O R  D R I F T I N G" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="n2m-8j-ufn">
+                                        <rect key="frame" x="15" y="20" width="207" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Dosis-Medium" family="Dosis" pointSize="16"/>
+                                        <color key="textColor" red="0.20000000000000001" green="0.24313725489999999" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A N C H O R  R A D I U S" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="XEO-kk-ePn">
+                                        <rect key="frame" x="15" y="55" width="221" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Dosis-Medium" family="Dosis" pointSize="16"/>
+                                        <color key="textColor" red="0.20000000000000001" green="0.24313725489999999" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="D E F I N E  C U R R E N T  L O C A T I O N  A S  H O M E" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lNT-ri-gnb">
+                                        <rect key="frame" x="15" y="129" width="180" height="42"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Dosis-Medium" family="Dosis" pointSize="16"/>
+                                        <color key="textColor" red="0.20000000000000001" green="0.24313725489999999" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="50" minValue="0.0" maxValue="100" id="c9q-BP-HXh">
+                                        <rect key="frame" x="15" y="84" width="289" height="31"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="minimumTrackTintColor" red="0.20000000000000001" green="0.90488138689999997" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="maximumTrackTintColor" red="0.42745098040000001" green="0.4549019608" blue="0.48627450979999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="thumbTintColor" red="0.20000001789999999" green="0.24313727020000001" blue="0.2823529541" alpha="1" colorSpace="deviceRGB"/>
+                                        <connections>
+                                            <action selector="slAnchorDistance_finished:" destination="Crg-ye-zXX" eventType="touchUpInside" id="mOL-Vp-3QO"/>
+                                            <action selector="slAnchorDistance_valueChanged:" destination="Crg-ye-zXX" eventType="valueChanged" id="Y00-Tx-kFe"/>
+                                        </connections>
+                                    </slider>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="000m" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dRT-oJ-eKx">
+                                        <rect key="frame" x="242" y="55" width="60" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Dosis-Medium" family="Dosis" pointSize="17"/>
+                                        <color key="textColor" red="0.20000000000000001" green="0.90488138689999997" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="O2x-W9-KyW">
+                                        <rect key="frame" x="253" y="15" width="51" height="31"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="tintColor" red="0.20000001789999999" green="0.24313727020000001" blue="0.2823529541" alpha="1" colorSpace="deviceRGB"/>
+                                        <color key="onTintColor" red="0.20000001789999999" green="0.24313727020000001" blue="0.2823529541" alpha="1" colorSpace="deviceRGB"/>
+                                        <color key="thumbTintColor" red="0.42745098040000001" green="0.4549019608" blue="0.48627450979999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="swAnchor_valueChanged:" destination="Crg-ye-zXX" eventType="valueChanged" id="jXf-3S-WVJ"/>
+                                        </connections>
+                                    </switch>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="HIv-J6-8qy">
+                                        <rect key="frame" x="213" y="131" width="89" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.20000001789999999" green="0.24313727020000001" blue="0.2823529541" alpha="1" colorSpace="deviceRGB"/>
+                                        <fontDescription key="fontDescription" name="Dosis-Regular" family="Dosis" pointSize="17"/>
+                                        <state key="normal" title="D E F I N E">
+                                            <color key="titleColor" red="0.90980392160000001" green="0.90588235289999997" blue="0.90980392160000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" red="0.90980392160000001" green="0.90588235289999997" blue="0.90980392160000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnDefine_click:" destination="Crg-ye-zXX" eventType="touchUpInside" id="wb8-gg-KJq"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.90980398650000005" green="0.90588241820000004" blue="0.90980398650000005" alpha="1" colorSpace="deviceRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.90980398650000005" green="0.90588241820000004" blue="0.90980398650000005" alpha="1" colorSpace="deviceRGB"/>
+                    </view>
+                    <connections>
+                        <outlet property="lblDistance" destination="dRT-oJ-eKx" id="ywm-sd-fQz"/>
+                        <outlet property="slAnchorDistance" destination="c9q-BP-HXh" id="3ju-1l-lRb"/>
+                        <outlet property="swAnchor" destination="O2x-W9-KyW" id="iRF-tS-r58"/>
+                        <outlet property="viewAnchor" destination="nyh-xq-0jR" id="0vS-KH-jDv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TPL-hc-3OJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="536" y="2391"/>
+        </scene>
+        <!--BatteryController-->
+        <scene sceneID="Y85-N1-cWy">
+            <objects>
+                <viewController storyboardIdentifier="BatteryView" id="8YI-Eo-KEg" userLabel="BatteryController" customClass="BatteryViewController" customModule="boatguard" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zMP-FF-FeS">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" id="Bx6-42-O3R">
+                                <rect key="frame" x="0.0" y="20" width="768" height="62"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="B A T T E R Y" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0OJ-hN-aDw">
+                                        <rect key="frame" x="0.0" y="16" width="768" height="26"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Dosis-SemiBold" family="Dosis" pointSize="28"/>
+                                        <color key="textColor" red="0.20000000000000001" green="0.24313725489999999" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <size key="shadowOffset" width="0.0" height="0.0"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="BSP-pp-i2b">
+                                        <rect key="frame" x="8" y="12" width="46" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Dosis-ExtraLight" family="Dosis" pointSize="38"/>
+                                        <state key="normal" title="&lt;">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnBack_click:" destination="8YI-Eo-KEg" eventType="touchUpInside" id="5Zx-6d-kYj"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </view>
+                            <view contentMode="scaleToFill" id="6NS-NR-XGJ">
+                                <rect key="frame" x="0.0" y="82" width="768" height="1024"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="B A T T E R Y  C A P A C I T Y:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="N77-hO-Hq1">
+                                        <rect key="frame" x="15" y="20" width="207" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Dosis-Medium" family="Dosis" pointSize="16"/>
+                                        <color key="textColor" red="0.20000000000000001" green="0.24313725489999999" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="S E N D  A L A R M  W H E N  B A T T E R Y  L E V E L  I S  A T:" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="BFx-z3-cR0">
+                                        <rect key="frame" x="15" y="105" width="221" height="43"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Dosis-Medium" family="Dosis" pointSize="16"/>
+                                        <color key="textColor" red="0.20000000000000001" green="0.24313725489999999" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="R E S E T  B A T T E R Y  E N E R G Y:" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Us8-xs-chf">
+                                        <rect key="frame" x="15" y="194" width="180" height="42"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Dosis-Medium" family="Dosis" pointSize="16"/>
+                                        <color key="textColor" red="0.20000000000000001" green="0.24313725489999999" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="50" minValue="0.0" maxValue="100" id="W6X-5k-5nh">
+                                        <rect key="frame" x="15" y="156" width="289" height="31"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="minimumTrackTintColor" red="0.20000000000000001" green="0.90488138689999997" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="maximumTrackTintColor" red="0.42745098040000001" green="0.4549019608" blue="0.48627450979999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="thumbTintColor" red="0.20000001789999999" green="0.24313727020000001" blue="0.2823529541" alpha="1" colorSpace="deviceRGB"/>
+                                        <connections>
+                                            <action selector="slBatteryAlarm_finished:" destination="8YI-Eo-KEg" eventType="touchUpInside" id="ZLu-J1-8ck"/>
+                                            <action selector="slBatteryAlarm_valueChanged:" destination="8YI-Eo-KEg" eventType="valueChanged" id="UGI-GZ-AfS"/>
+                                        </connections>
+                                    </slider>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10%" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7K2-sA-JOZ">
+                                        <rect key="frame" x="244" y="116" width="60" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Dosis-Medium" family="Dosis" pointSize="17"/>
+                                        <color key="textColor" red="0.20000000000000001" green="0.90488138689999997" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="oOJ-fY-eks">
+                                        <rect key="frame" x="215" y="196" width="89" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.20000001789999999" green="0.24313727020000001" blue="0.2823529541" alpha="1" colorSpace="deviceRGB"/>
+                                        <fontDescription key="fontDescription" name="Dosis-Regular" family="Dosis" pointSize="17"/>
+                                        <state key="normal" title="R E S E T">
+                                            <color key="titleColor" red="0.90980392160000001" green="0.90588235289999997" blue="0.90980392160000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" red="0.90980392160000001" green="0.90588235289999997" blue="0.90980392160000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnReset_click:" destination="8YI-Eo-KEg" eventType="touchUpInside" id="5Pg-kn-VMW"/>
+                                        </connections>
+                                    </button>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" minimumFontSize="17" background="input_bg" clearButtonMode="always" id="Daz-VI-4dH">
+                                        <rect key="frame" x="14" y="47" width="290" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.87058830259999997" green="0.87843143940000001" blue="0.88627457620000005" alpha="1" colorSpace="deviceRGB"/>
+                                        <fontDescription key="fontDescription" name="Dosis-Regular" family="Dosis" pointSize="18"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="8YI-Eo-KEg" id="Zyh-9h-bBp"/>
+                                        </connections>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" red="0.90980398650000005" green="0.90588241820000004" blue="0.90980398650000005" alpha="1" colorSpace="deviceRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.90980398650000005" green="0.90588241820000004" blue="0.90980398650000005" alpha="1" colorSpace="deviceRGB"/>
+                    </view>
+                    <connections>
+                        <outlet property="lblAlarm" destination="7K2-sA-JOZ" id="FUb-5O-gU5"/>
+                        <outlet property="slBatteryAlarm" destination="W6X-5k-5nh" id="g50-1A-zI3"/>
+                        <outlet property="txtCapacity" destination="Daz-VI-4dH" id="DUb-yY-UdS"/>
+                        <outlet property="viewBattery" destination="6NS-NR-XGJ" id="KMj-EY-Eep"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZM0-2M-1QK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1578" y="2343"/>
+        </scene>
+        <!--BilgePumpController-->
+        <scene sceneID="9dY-fv-S8v">
+            <objects>
+                <viewController storyboardIdentifier="BilgePumpView" id="r5i-SD-VHb" userLabel="BilgePumpController" customClass="BilgePumpViewController" customModule="boatguard" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dPy-CG-hSq">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" id="y79-uV-lyE">
+                                <rect key="frame" x="0.0" y="20" width="768" height="62"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="B I L G E  P U P M" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ebR-dE-VeV">
+                                        <rect key="frame" x="0.0" y="16" width="768" height="26"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Dosis-SemiBold" family="Dosis" pointSize="28"/>
+                                        <color key="textColor" red="0.20000000000000001" green="0.24313725489999999" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <size key="shadowOffset" width="0.0" height="0.0"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ueb-9m-EA5">
+                                        <rect key="frame" x="8" y="12" width="46" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Dosis-ExtraLight" family="Dosis" pointSize="38"/>
+                                        <state key="normal" title="&lt;">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnBack_click:" destination="r5i-SD-VHb" eventType="touchUpInside" id="pYG-ni-uys"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </view>
+                            <view contentMode="scaleToFill" id="ahy-UL-Gs8">
+                                <rect key="frame" x="0.0" y="82" width="768" height="1024"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="S H O R T  P E R I O D  B I L G E  A L E R T:" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="B75-ma-vBd">
+                                        <rect key="frame" x="15" y="63" width="287" height="24"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Dosis-Medium" family="Dosis" pointSize="16"/>
+                                        <color key="textColor" red="0.20000000000000001" green="0.24313725489999999" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="/ 1 0   M I N U T E S" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="JMn-6A-d64">
+                                        <rect key="frame" x="66" y="98" width="162" height="24"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Dosis-Medium" family="Dosis" pointSize="16"/>
+                                        <color key="textColor" red="0.20000000000000001" green="0.24313725489999999" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="TRV-4Q-xcp">
+                                        <rect key="frame" x="253" y="15" width="51" height="31"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="tintColor" red="0.20000001789999999" green="0.24313727020000001" blue="0.2823529541" alpha="1" colorSpace="deviceRGB"/>
+                                        <color key="onTintColor" red="0.20000001789999999" green="0.24313727020000001" blue="0.2823529541" alpha="1" colorSpace="deviceRGB"/>
+                                        <color key="thumbTintColor" red="0.42745098040000001" green="0.4549019608" blue="0.48627450979999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="swBilgePump_valueChanged:" destination="r5i-SD-VHb" eventType="valueChanged" id="jqj-Z5-cea"/>
+                                        </connections>
+                                    </switch>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A L E R T  A L W A Y S  W H E N  P U M P I N G:" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Vbs-R4-lIY">
+                                        <rect key="frame" x="15" y="15" width="207" height="43"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Dosis-Medium" family="Dosis" pointSize="16"/>
+                                        <color key="textColor" red="0.20000000000000001" green="0.24313725489999999" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="L O N G  P E R I O D  B I L G E  A L E R T:" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ShC-FC-NBk">
+                                        <rect key="frame" x="15" y="134" width="287" height="24"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Dosis-Medium" family="Dosis" pointSize="16"/>
+                                        <color key="textColor" red="0.20000000000000001" green="0.24313725489999999" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="5" textAlignment="center" minimumFontSize="17" id="pxH-JT-5e4">
+                                        <rect key="frame" x="15" y="97" width="43" height="25"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.42745098040000001" green="0.4549019608" blue="0.48627450979999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" name="Dosis-Medium" family="Dosis" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="10" textAlignment="center" minimumFontSize="17" id="auR-jW-b9y">
+                                        <rect key="frame" x="15" y="166" width="43" height="25"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.42745098040000001" green="0.4549019608" blue="0.48627450979999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" name="Dosis-Medium" family="Dosis" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="/ 1 0 0   M I N U T E S  f r o m  2 4 H" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="RbZ-1T-1Ba">
+                                        <rect key="frame" x="66" y="167" width="236" height="24"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Dosis-Medium" family="Dosis" pointSize="16"/>
+                                        <color key="textColor" red="0.20000000000000001" green="0.24313725489999999" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.90980398650000005" green="0.90588241820000004" blue="0.90980398650000005" alpha="1" colorSpace="deviceRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.90980398650000005" green="0.90588241820000004" blue="0.90980398650000005" alpha="1" colorSpace="deviceRGB"/>
+                    </view>
+                    <connections>
+                        <outlet property="swBilgePump" destination="TRV-4Q-xcp" id="ZnL-VU-b8V"/>
+                        <outlet property="tfLongPeriod" destination="auR-jW-b9y" id="Kft-mr-J7d"/>
+                        <outlet property="tfShortPeriod" destination="pxH-JT-5e4" id="Nuw-Ho-wwC"/>
+                        <outlet property="viewBilgePump" destination="ahy-UL-Gs8" id="QIa-nD-SHE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zhB-yV-gDi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1384" y="2359"/>
         </scene>
     </scenes>
     <resources>

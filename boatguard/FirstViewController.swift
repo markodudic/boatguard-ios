@@ -35,7 +35,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate, NSURLConnectio
             gl_login.frame = CGRectMake(0,0,viewLogin.layer.frame.width,10)
         }
         else {
-            gl_login.frame = CGRectMake(0,40,viewLogin.layer.frame.width,30)
+            gl_login.frame = CGRectMake(0,0,viewLogin.layer.frame.width,30)
         
         }
         viewLogin.layer.insertSublayer(gl_login, atIndex: 0)

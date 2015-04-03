@@ -34,7 +34,6 @@
 		948DDF5919C99A23006F5CBD /* Dosis-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 948DDF4D19C99A23006F5CBD /* Dosis-Regular.otf */; };
 		948DDF5A19C99A23006F5CBD /* Dosis-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 948DDF4E19C99A23006F5CBD /* Dosis-SemiBold.otf */; };
 		94C825AC1A1C97050066B6FC /* horn.wav in Resources */ = {isa = PBXBuildFile; fileRef = 94C825AB1A1C97050066B6FC /* horn.wav */; };
-		94CF52EA1A631583001E2C81 /* Main_ipad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94CF52E81A631583001E2C81 /* Main_ipad.storyboard */; };
 		94CF52EC1A64347D001E2C81 /* TabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CF52EB1A64347D001E2C81 /* TabController.swift */; };
 		FE01116B1AB97F8E00C8B0EF /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE01116A1AB97F8E00C8B0EF /* SettingsViewController.swift */; };
 		FE19773D1ACACA4200EF34BA /* json.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE19773C1ACACA4200EF34BA /* json.swift */; };
@@ -48,6 +47,7 @@
 		FEAB29721ACD485300DA46B6 /* BilgePumpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEAB29711ACD485300DA46B6 /* BilgePumpViewController.swift */; };
 		FEAB29761ACD817600DA46B6 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEAB29741ACD817600DA46B6 /* Crashlytics.framework */; };
 		FEAB29771ACD817600DA46B6 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEAB29751ACD817600DA46B6 /* Fabric.framework */; };
+		FEAB297A1ACE792C00DA46B6 /* Main_ipad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FEAB29781ACE792C00DA46B6 /* Main_ipad.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,7 +92,6 @@
 		948DDF4D19C99A23006F5CBD /* Dosis-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dosis-Regular.otf"; sourceTree = "<group>"; };
 		948DDF4E19C99A23006F5CBD /* Dosis-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dosis-SemiBold.otf"; sourceTree = "<group>"; };
 		94C825AB1A1C97050066B6FC /* horn.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = horn.wav; sourceTree = "<group>"; };
-		94CF52E91A631583001E2C81 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_ipad.storyboard; sourceTree = "<group>"; };
 		94CF52EB1A64347D001E2C81 /* TabController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabController.swift; sourceTree = "<group>"; };
 		FE01116A1AB97F8E00C8B0EF /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		FE19773C1ACACA4200EF34BA /* json.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = json.swift; sourceTree = "<group>"; };
@@ -108,6 +107,7 @@
 		FEAB29711ACD485300DA46B6 /* BilgePumpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BilgePumpViewController.swift; sourceTree = "<group>"; };
 		FEAB29741ACD817600DA46B6 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		FEAB29751ACD817600DA46B6 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
+		FEAB29791ACE792C00DA46B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_ipad.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,7 +195,7 @@
 				FEAB296D1ACD26BC00DA46B6 /* BatteryViewController.swift */,
 				9424502719D0B09F004A496C /* ThirdViewController.swift */,
 				948DDF1019C073F3006F5CBD /* Main.storyboard */,
-				94CF52E81A631583001E2C81 /* Main_ipad.storyboard */,
+				FEAB29781ACE792C00DA46B6 /* Main_ipad.storyboard */,
 				948DDF1319C073F3006F5CBD /* home.xcassets */,
 				948DDF0819C073F3006F5CBD /* Supporting Files */,
 			);
@@ -323,7 +323,7 @@
 				948DDF5219C99A23006F5CBD /* DINPro-Medium.otf in Resources */,
 				948DDF5419C99A23006F5CBD /* Dosis-Bold.otf in Resources */,
 				948DDF5919C99A23006F5CBD /* Dosis-Regular.otf in Resources */,
-				94CF52EA1A631583001E2C81 /* Main_ipad.storyboard in Resources */,
+				FEAB297A1ACE792C00DA46B6 /* Main_ipad.storyboard in Resources */,
 				948DDF5319C99A23006F5CBD /* DINPro-Regular.otf in Resources */,
 				948DDF4F19C99A23006F5CBD /* DINPro-Black.otf in Resources */,
 			);
@@ -407,10 +407,10 @@
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		94CF52E81A631583001E2C81 /* Main_ipad.storyboard */ = {
+		FEAB29781ACE792C00DA46B6 /* Main_ipad.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				94CF52E91A631583001E2C81 /* Base */,
+				FEAB29791ACE792C00DA46B6 /* Base */,
 			);
 			name = Main_ipad.storyboard;
 			sourceTree = "<group>";
@@ -519,7 +519,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/boatguard/BOATGUARD-Bridging-Header.h";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -545,7 +545,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/boatguard/BOATGUARD-Bridging-Header.h";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
