@@ -25,7 +25,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate, NSURLConnectio
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         //add gradients
         let gl_login = CAGradientLayer()
         gl_login.colors = [settings.gradientTop, settings.gradientBottom]
@@ -72,6 +72,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate, NSURLConnectio
         } else {
             states.setLogin(json)
             getobusettings(json["obu"]["uid"].asInt!)
+            setDevice()
         }
     }
 
@@ -91,9 +92,27 @@ class FirstViewController: UIViewController, UITextFieldDelegate, NSURLConnectio
             states.setPass(txtPass.text)
             states.setRemember(swRemember.on)
             getobusettings(states.getObuid())
+            setDevice()
         }
     }
+
+    func setDevice() {
+        println("**************")
+        println(UIDevice.currentDevice().userInterfaceIdiom.rawValue)
+        println(UIDevice.currentDevice().description)
+        println(UIDevice.currentDevice().identifierForVendor.UUIDString)
+        println(UIDevice.currentDevice().localizedModel)
+        println(UIDevice.currentDevice().model)
+        println(UIDevice.currentDevice().name)
+        println(UIDevice.currentDevice().systemName)
+        println(UIDevice.currentDevice().systemVersion)
+        println(NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleShortVersionString") as String)
     
+        var deviceJson = "{\"id_obu\":\""+String(states.obuid)+"\", \"phone_model\":\""+UIDevice.currentDevice().localizedModel+"\", \"phone_platform\":\""+UIDevice.currentDevice().systemName+"\", \"phone_platform_version\":\""+UIDevice.currentDevice().systemVersion+"\", \"phone_uuid\":\""+UIDevice.currentDevice().identifierForVendor.UUIDString+"\", \"app_version\":\""+(NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleShortVersionString") as String)+"\"}"
+        
+        states.HTTPPostJSON(settings.deviceUri, jsonObj: deviceJson)
+    }
+
     func getobusettings(obuid: Int) {
         self.tabBarController?.tabBar.hidden = false
         
