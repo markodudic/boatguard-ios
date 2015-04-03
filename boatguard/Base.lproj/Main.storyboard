@@ -591,11 +591,11 @@
                                 </subviews>
                             </view>
                             <view contentMode="scaleToFill" id="C01-us-fgr">
-                                <rect key="frame" x="0.0" y="82" width="320" height="479"/>
+                                <rect key="frame" x="0.0" y="82" width="320" height="490"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="94O-RO-MiB">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="479"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="490"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <connections>
                                             <outlet property="delegate" destination="wUB-Za-a6M" id="4zn-FJ-Zry"/>

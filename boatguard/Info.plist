@@ -51,11 +51,19 @@
 		<string>Dosis-Regular.otf</string>
 		<string>Dosis-SemiBold.otf</string>
 	</array>
+	<key>UIMainStoryboardFile</key>
+	<string>Main_ipad</string>
+	<key>UIMainStoryboardFile~ipad</key>
+	<string>Main_ipad</string>
+	<key>UIMainStoryboardFile~iphone</key>
+	<string>Main</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
 	</array>
 	<key>UIStatusBarHidden</key>
+	<false/>
+	<key>UIStatusBarHidden~ipad</key>
 	<false/>
 	<key>UIStatusBarStyle</key>
 	<string>UIStatusBarStyleDefault</string>
