@@ -30,11 +30,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         var idiom = UIDevice.currentDevice().userInterfaceIdiom
         
         if idiom == UIUserInterfaceIdiom.Phone {
-            println("11111")
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             rootController = storyboard.instantiateViewControllerWithIdentifier("FirstView") as? UIViewController
         } else {
-            println("2222")
             let storyboard = UIStoryboard(name: "Main_ipad", bundle: nil)
             rootController = storyboard.instantiateViewControllerWithIdentifier("FirstView") as? UIViewController
         }
