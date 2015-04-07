@@ -167,7 +167,13 @@ class ComponentCell: UITableViewCell {
         img.clipsToBounds = true
         img.contentMode = UIViewContentMode.ScaleAspectFit
         //img.addSubview(anim)
-        img.frame = CGRect(x: img.frame.origin.x, y: bnr.frame.origin.y+15, width: img.frame.size.width, height: img.frame.size.height)
+        var idiom = UIDevice.currentDevice().userInterfaceIdiom
+        if idiom == UIUserInterfaceIdiom.Phone {
+            img.frame = CGRect(x: img.frame.origin.x, y: bnr.frame.origin.y+15, width: img.frame.size.width, height: img.frame.size.height)
+        }
+        else {
+            img.frame = CGRect(x: img.frame.origin.x, y: bnr.frame.origin.y+30, width: img.frame.size.width, height: img.frame.size.height)
+        }
         bnr.text = componentAccuBanner[componentAccuIdx]
         bnr.textColor = settings.lblGreen
             
