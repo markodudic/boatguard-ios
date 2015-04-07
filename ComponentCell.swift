@@ -91,13 +91,26 @@ class ComponentCell: UITableViewCell {
         let gl_top = CAGradientLayer()
         gl_top.colors = [settings.gradientTop_a, settings.gradientBottom_a]
         gl_top.locations = [0.0, 1.0]
-        gl_top.frame = CGRectMake(0,0,self.layer.frame.width,15)
+        var idiom = UIDevice.currentDevice().userInterfaceIdiom
+        if idiom == UIUserInterfaceIdiom.Phone {
+            gl_top.frame = CGRectMake(0,0,self.layer.frame.width,15)
+        }
+        else {
+            gl_top.frame = CGRectMake(0,0,self.layer.frame.width,30)
+            
+        }
         subviewtop.layer.insertSublayer(gl_top, atIndex: 0)
 
         let gl_bottom = CAGradientLayer()
         gl_bottom.colors = [settings.gradientBottom_a, settings.gradientTop_a]
         gl_bottom.locations = [0.0, 1.0]
-        gl_bottom.frame = CGRectMake(0,-5,self.layer.frame.width,15)
+        if idiom == UIUserInterfaceIdiom.Phone {
+            gl_bottom.frame = CGRectMake(0,-5,self.layer.frame.width,15)
+        }
+        else {
+            gl_bottom.frame = CGRectMake(0,0,self.layer.frame.width,30)
+            
+        }
         subviewbottom.layer.insertSublayer(gl_bottom, atIndex: 0)
 
         let options = (UIViewAnimationOptions.Autoreverse |

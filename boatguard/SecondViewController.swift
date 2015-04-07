@@ -33,7 +33,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
             gl_top.frame = CGRectMake(0,8,viewComponents.layer.frame.width,10)
         }
         else {
-            gl_top.frame = CGRectMake(0,viewComponents.layer.frame.height,viewComponents.layer.frame.width,30)
+            gl_top.frame = CGRectMake(0,8,viewComponents.layer.frame.width,30)
             
         }
         viewComponents.layer.insertSublayer(gl_top, atIndex: 100)
@@ -57,7 +57,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
             gll_bottom.frame = CGRectMake(0,viewLogo.layer.frame.height-10,viewComponents.layer.frame.width,10)
         }
         else {
-            gll_bottom.frame = CGRectMake(0,95,viewComponents.layer.frame.width,30)
+            gll_bottom.frame = CGRectMake(0,viewLogo.layer.frame.height+7,viewComponents.layer.frame.width,30)
             
         }
         viewLogo.layer.insertSublayer(gll_bottom, atIndex: 100)

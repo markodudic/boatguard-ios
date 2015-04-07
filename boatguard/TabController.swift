@@ -21,8 +21,15 @@ class TabController: UITabBarController {
 
         self.selectedIndex = 1
         var tabFrame: CGRect = self.tabBar.frame; //self.TabBar is IBOutlet of your TabBar
-        tabFrame.size.height = 60;
-        tabFrame.origin.y = self.view.frame.size.height - 60;
+        var idiom = UIDevice.currentDevice().userInterfaceIdiom
+        if idiom == UIUserInterfaceIdiom.Phone {
+            tabFrame.size.height = 60;
+            tabFrame.origin.y = self.view.frame.size.height - 60;
+        }
+        else {
+            tabFrame.size.height = 120;
+            tabFrame.origin.y = self.view.frame.size.height - 120;
+        }
         self.tabBar.frame = tabFrame;
         
         var third = tabFrame.size.width/3

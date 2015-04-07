@@ -136,7 +136,11 @@ class FirstViewController: UIViewController, UITextFieldDelegate, NSURLConnectio
         states.setObudata(obudataJSON)
         println(obudataJSON)
         
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        var storyboard = UIStoryboard(name: "Main_ipad", bundle: nil)
+        var idiom = UIDevice.currentDevice().userInterfaceIdiom
+        if idiom == UIUserInterfaceIdiom.Phone {
+            storyboard = UIStoryboard(name: "Main", bundle: nil)
+        }
         let tabController = storyboard.instantiateViewControllerWithIdentifier("TabController") as? UIViewController
         presentViewController(tabController!, animated:false, completion:nil)
         
@@ -146,7 +150,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate, NSURLConnectio
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+    /*
     override func touchesBegan(touches: NSSet!, withEvent event: UIEvent!) {
         self.view.endEditing(true)
     }
@@ -155,4 +159,5 @@ class FirstViewController: UIViewController, UITextFieldDelegate, NSURLConnectio
         self.view.endEditing(true)
         return false
     }
+*/
 }
