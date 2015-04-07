@@ -73,10 +73,9 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         refreshing.addAttribute(NSForegroundColorAttributeName, value: settings.refresh, range: NSMakeRange(0, refreshing.length))
         self.refreshControl.attributedTitle = refreshing
         self.refreshControl.addTarget(self, action: "refreshData:", forControlEvents: UIControlEvents.ValueChanged)
-        
+       
         self.tblDashboard.addSubview(refreshControl)
         self.tblDashboard.delegate = self;
-        
     
         refresh.setView(self) //send view to refresh
         refresh.addComponents() //add components to view
