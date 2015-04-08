@@ -72,7 +72,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         var refreshing: NSMutableAttributedString = NSMutableAttributedString(string:  "R E F R E S H I N G")
         refreshing.addAttribute(NSForegroundColorAttributeName, value: settings.refresh, range: NSMakeRange(0, refreshing.length))
         self.refreshControl.attributedTitle = refreshing
-        self.refreshControl.addTarget(self, action: "refreshData:", forControlEvents: UIControlEvents.ValueChanged)
+        self.refreshControl.addTarget(self, action: "refreshDataManualy:", forControlEvents: UIControlEvents.ValueChanged)
        
         self.tblDashboard.addSubview(refreshControl)
         self.tblDashboard.delegate = self;
@@ -84,7 +84,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         //refresh thread
         Async.background {
             while(true) {
-                self.refreshData(self)
+                self.refreshData(self, manually:false)
                 sleep(settings.refreshTime)
            }
         }
@@ -92,22 +92,40 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     //refresh via pull
-    func refreshData(sender:AnyObject) {
-        //fetch json
-        states.setObudata(Comm.JSONfromURL(settings.obudataUri+"?obuid="+String(states.getObuid())))
-        refresh.process()
+    func refreshDataManualy(sender:AnyObject) {
+        self.refreshData(self, manually:true)
+    }
         
+    func refreshData(sender:AnyObject, manually:Bool) {
+        //fetch json
+        
+        let json = Comm.JSONfromURL(settings.obudataUri+"?obuid="+String(states.getObuid()))
+        
+        if (json["error"].isDictionary){
+            if (manually == true) {
+                var alert = UIAlertController(title: json["error"]["name"].asString, message: json["error"]["msg"].asString, preferredStyle: UIAlertControllerStyle.Alert)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+                self.presentViewController(alert, animated: true, completion: nil)
+            }
+        }
+        else {
+            states.setObudata(json)
+        }
+        
+        refresh.process()
+            
         self.lblRefresh.text = states.dblSpace("LAST UPDATE: "+states.getObudatadateTime())
-
+            
         if (states.isAlarm) {
             imgLogo.image = UIImage(named: "logo_alarm")
         } else {
             imgLogo.image = UIImage(named: "logo")
         }
-        
+            
         dispatch_async(dispatch_get_main_queue(), { () -> Void in
             self.tblDashboard.reloadData() //force refresh even if not in focus
         })
+        
         self.refreshControl.endRefreshing()
     }
 

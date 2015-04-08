@@ -520,6 +520,7 @@
 					/Users/markodudic/Desktop,
 					"$(PROJECT_DIR)/boatguard",
 				);
+				OTHER_SWIFT_FLAGS = "-DDEBUG";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/boatguard/BOATGUARD-Bridging-Header.h";
@@ -546,6 +547,7 @@
 					/Users/markodudic/Desktop,
 					"$(PROJECT_DIR)/boatguard",
 				);
+				OTHER_SWIFT_FLAGS = "-DRELEASE";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/boatguard/BOATGUARD-Bridging-Header.h";

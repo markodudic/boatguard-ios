@@ -28,7 +28,7 @@ class States: NSObject {
     var obudata:JSON!
     var obudatadateTime = NSDate()
 
-    var isAlert = false
+    //var isAlert = false
 
     func setUser(data: String) {
         user = data

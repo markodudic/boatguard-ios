@@ -13,31 +13,46 @@ import SystemConfiguration
 public class Comm {
     
     public class func JSONfromURL(uri: String) ->JSON {
+        println(isConnectedToNetwork())
         if (isConnectedToNetwork() == true)
         {
             return JSON.fromURL(uri)
         }
         else
         {
-            if (!states.isAlert) {
+            /*if (!states.isAlert) {
                 let alert = UIAlertView()
                 alert.title = "Internet connection"
                 alert.message = "There is no internet connection. Enable it."
                 alert.addButtonWithTitle("OK")
                 alert.show()
-            }
+            }*/
+            let error = "{\"obu\":\"\",\"sessionId\":\"\",\"error\":{\"name\":\"Internet connection\",\"code\":\"1\",\"msg\":\"There is no internet connection. Enable it.\"}}"
+            
+            return JSON(string: error)
         }
-        states.isAlert = !isConnectedToNetwork();
-        return JSON(string: "")
+        //states.isAlert = !isConnectedToNetwork();
     }
     
     public class func HTTPPostJSON(url: String, jsonObj: String) {
-        var request = NSMutableURLRequest(URL: NSURL(string: url)!)
-        request.HTTPMethod = "POST"
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        let data: NSData = jsonObj.dataUsingEncoding(NSUTF8StringEncoding)!
-        request.HTTPBody = data
-        HTTPsendRequest(request)
+        println(isConnectedToNetwork())
+        if (isConnectedToNetwork() == true)
+        {
+            var request = NSMutableURLRequest(URL: NSURL(string: url)!)
+            request.HTTPMethod = "POST"
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            let data: NSData = jsonObj.dataUsingEncoding(NSUTF8StringEncoding)!
+            request.HTTPBody = data
+            HTTPsendRequest(request)
+        }
+        else
+        {
+            let alert = UIAlertView()
+            alert.title = "Internet connection"
+            alert.message = "There is no internet connection. Enable it."
+            alert.addButtonWithTitle("OK")
+            alert.show()
+        }
     }
     
     public class func HTTPsendRequest(request: NSMutableURLRequest) {
