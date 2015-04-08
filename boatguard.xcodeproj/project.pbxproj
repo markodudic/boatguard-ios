@@ -48,6 +48,7 @@
 		FEAB29761ACD817600DA46B6 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEAB29741ACD817600DA46B6 /* Crashlytics.framework */; };
 		FEAB29771ACD817600DA46B6 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEAB29751ACD817600DA46B6 /* Fabric.framework */; };
 		FEAB297A1ACE792C00DA46B6 /* Main_ipad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FEAB29781ACE792C00DA46B6 /* Main_ipad.storyboard */; };
+		FEB3074C1AD5329C00EA95FD /* Comm.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB3074B1AD5329C00EA95FD /* Comm.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,6 +109,7 @@
 		FEAB29741ACD817600DA46B6 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		FEAB29751ACD817600DA46B6 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		FEAB29791ACE792C00DA46B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_ipad.storyboard; sourceTree = "<group>"; };
+		FEB3074B1AD5329C00EA95FD /* Comm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comm.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +180,7 @@
 				FEAB296F1ACD2F2C00DA46B6 /* libFlurry_6.2.0.a */,
 				FE1977431ACC306400EF34BA /* BOATGUARD-Bridging-Header.h */,
 				9424502B19D3FA9C004A496C /* Async.swift */,
+				FEB3074B1AD5329C00EA95FD /* Comm.swift */,
 				FE19773C1ACACA4200EF34BA /* json.swift */,
 				9424502319D09E94004A496C /* States.swift */,
 				943E1E6E1A04EBE9008FF404 /* Settings.swift */,
@@ -363,6 +366,7 @@
 				948DDF0F19C073F3006F5CBD /* SecondViewController.swift in Sources */,
 				FE19773D1ACACA4200EF34BA /* json.swift in Sources */,
 				9459CD6A19E00EFF00B7FF4E /* Components.swift in Sources */,
+				FEB3074C1AD5329C00EA95FD /* Comm.swift in Sources */,
 				94CF52EC1A64347D001E2C81 /* TabController.swift in Sources */,
 				9424502819D0B09F004A496C /* ThirdViewController.swift in Sources */,
 				9424502C19D3FA9C004A496C /* Async.swift in Sources */,

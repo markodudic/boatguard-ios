@@ -63,7 +63,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate, NSURLConnectio
     //Events
     @IBAction func btnRegister_click(sender: UIButton) {
         var urlPath: String = settings.registerUri+"&username="+txtUser.text+"&password="+txtPass.text+"&obu_sn="+txtObuid.text+"&app_version=1"
-        let json = JSON.fromURL(urlPath)
+        let json = Comm.JSONfromURL(urlPath)
 
         if (json["error"].isDictionary){
             var alert = UIAlertController(title: json["error"]["name"].asString, message: json["error"]["msg"].asString, preferredStyle: UIAlertControllerStyle.Alert)
@@ -79,7 +79,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate, NSURLConnectio
     @IBAction func btnLogin_click(sender: UIButton) {
         var urlPath: String = settings.loginUri+"&username="+txtUser.text+"&password="+txtPass.text+"&obu_sn="+txtObuid.text+"&app_version=1"
         
-        let json = JSON.fromURL(urlPath)
+        let json = Comm.JSONfromURL(urlPath)
        
         if (json["error"].isDictionary) {
             var alert = UIAlertController(title: json["error"]["name"].asString, message: json["error"]["msg"].asString, preferredStyle: UIAlertControllerStyle.Alert)
@@ -110,29 +110,29 @@ class FirstViewController: UIViewController, UITextFieldDelegate, NSURLConnectio
     
         var deviceJson = "{\"id_obu\":\""+String(states.obuid)+"\", \"phone_model\":\""+UIDevice.currentDevice().localizedModel+"\", \"phone_platform\":\""+UIDevice.currentDevice().systemName+"\", \"phone_platform_version\":\""+UIDevice.currentDevice().systemVersion+"\", \"phone_uuid\":\""+UIDevice.currentDevice().identifierForVendor.UUIDString+"\", \"app_version\":\""+(NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleShortVersionString") as String)+"\"}"
         
-        states.HTTPPostJSON(settings.deviceUri, jsonObj: deviceJson)
+        Comm.HTTPPostJSON(settings.deviceUri, jsonObj: deviceJson)
     }
 
     func getobusettings(obuid: Int) {
         self.tabBarController?.tabBar.hidden = false
         
         //appsettings
-        let appsettingsJSON  = JSON.fromURL(settings.settingsUri)
+        let appsettingsJSON  = Comm.JSONfromURL(settings.settingsUri)
         states.setAppsettings(appsettingsJSON)
         
         //obusettings
         let obusettingsURL   = settings.obusettingsUri+"?format=json&obuid="+String(obuid)
-        let obusettingsJSON  = JSON.fromURL(obusettingsURL)
+        let obusettingsJSON  = Comm.JSONfromURL(obusettingsURL)
         states.setObusettings(obusettingsJSON)
         
         //obucomponents
         let obucomponentsURL  = settings.obucomponentsUri+"?obuid="+String(obuid)
-        let obucomponentsJSON = JSON.fromURL(obucomponentsURL)
+        let obucomponentsJSON = Comm.JSONfromURL(obucomponentsURL)
         states.setObucomponents(obucomponentsJSON)
         
         //obudata
         let obudataURL        = settings.obudataUri+"?obuid="+String(obuid)
-        let obudataJSON       = JSON.fromURL(obudataURL)
+        let obudataJSON       = Comm.JSONfromURL(obudataURL)
         states.setObudata(obudataJSON)
         println(obudataJSON)
         
@@ -150,7 +150,8 @@ class FirstViewController: UIViewController, UITextFieldDelegate, NSURLConnectio
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    /*
+    
+    //tole je za skrivanje tipkovnice ob prijavi
     override func touchesBegan(touches: NSSet!, withEvent event: UIEvent!) {
         self.view.endEditing(true)
     }
@@ -159,5 +160,5 @@ class FirstViewController: UIViewController, UITextFieldDelegate, NSURLConnectio
         self.view.endEditing(true)
         return false
     }
-*/
+
 }

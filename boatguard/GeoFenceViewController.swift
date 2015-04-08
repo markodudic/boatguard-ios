@@ -46,12 +46,12 @@ class GeoFenceViewController: UIViewController {
     //Events
     @IBAction func btnBack_click(sender: UIButton) {
         self.dismissViewControllerAnimated(false, completion: nil)
-        states.HTTPPostJSON(settings.obusettingsSetUri, jsonObj: states.getObusettings().toString(pretty: false))
+        Comm.HTTPPostJSON(settings.obusettingsSetUri, jsonObj: states.getObusettings().toString(pretty: false))
     }
     
     @IBAction func btnDefine_click(sender: UIButton) {
         states.setObuSetting(11, value: "SET")
-        states.HTTPPostJSON(settings.obusettingsSetUri, jsonObj: states.getObusettings().toString(pretty: false))
+        Comm.HTTPPostJSON(settings.obusettingsSetUri, jsonObj: states.getObusettings().toString(pretty: false))
         
         self.dismissViewControllerAnimated(false, completion: nil)
     }

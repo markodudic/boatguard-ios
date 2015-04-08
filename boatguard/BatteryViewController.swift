@@ -48,7 +48,7 @@ class BatteryViewController: UIViewController {
     @IBAction func btnBack_click(sender: UIButton) {
         self.dismissViewControllerAnimated(false, completion: nil)
         states.setObuSetting(32, value: txtCapacity.text.stringByReplacingOccurrencesOfString("Ah", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil))
-        states.HTTPPostJSON(settings.obusettingsSetUri, jsonObj: states.getObusettings().toString(pretty: false))
+        Comm.HTTPPostJSON(settings.obusettingsSetUri, jsonObj: states.getObusettings().toString(pretty: false))
     }
     
     @IBAction func btnReset_click(sender: UIButton) {

@@ -61,6 +61,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate {
         let cell = tableView.dequeueReusableCellWithIdentifier("SettingsCell") as SettingsCell
         cell.lbl.text = settings.settingsTableData[indexPath.row]
         cell.lblState.text = ""
+        cell.lblState.textColor = settings.lblGreen
         switch indexPath.row {
             case 0:
                 cell.lblState.text = states.getObuSettingsByIdState(32)["value"].asString! + "Ah / " +

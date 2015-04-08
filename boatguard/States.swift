@@ -28,6 +28,8 @@ class States: NSObject {
     var obudata:JSON!
     var obudatadateTime = NSDate()
 
+    var isAlert = false
+
     func setUser(data: String) {
         user = data
     }
@@ -240,31 +242,6 @@ class States: NSObject {
         }
     }
     
-    func HTTPPostJSON(url: String, jsonObj: String) {
-        var request = NSMutableURLRequest(URL: NSURL(string: url)!)
-        request.HTTPMethod = "POST"
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        let data: NSData = jsonObj.dataUsingEncoding(NSUTF8StringEncoding)!
-        request.HTTPBody = data
-        HTTPsendRequest(request)
-    }
-    
-    func HTTPsendRequest(request: NSMutableURLRequest) {
-            let task = NSURLSession.sharedSession().dataTaskWithRequest(
-                request,
-                {
-                    data, response, error in
-                    /*if error != nil {
-                        callback("", error.localizedDescription)
-                    } else {
-                        callback(
-                            NSString(data: data, encoding: NSUTF8StringEncoding)!,
-                            nil
-                        )
-                    }*/
-            })
-            
-            task.resume()
-    }
+
     
 }

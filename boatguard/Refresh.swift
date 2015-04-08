@@ -118,8 +118,7 @@ class Refresh: NSObject {
     
     func confirmAlarm(id_alarm: Int) {
         //confirm
-        let obualarmURL = settings.obualarmUri+"?obuid="+String(states.obuid)+"&alarmid="+String(id_alarm)
-        let obualarmJSON = JSON.fromURL(obualarmURL)
+        let obualarmJSON = JSON.fromURL(settings.obualarmUri+"?obuid="+String(states.obuid)+"&alarmid="+String(id_alarm))
 
         states.setIdAlarm(0)
         

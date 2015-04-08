@@ -86,8 +86,6 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
             while(true) {
                 self.refreshData(self)
                 sleep(settings.refreshTime)
-                //states.setObudata(JSON.fromURL(settings.obudataUri+"?obuid="+String(states.getObuid())))
-                //refresh.process()
            }
         }
         
@@ -96,7 +94,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     //refresh via pull
     func refreshData(sender:AnyObject) {
         //fetch json
-        states.setObudata(JSON.fromURL(settings.obudataUri+"?obuid="+String(states.getObuid())))
+        states.setObudata(Comm.JSONfromURL(settings.obudataUri+"?obuid="+String(states.getObuid())))
         refresh.process()
         
         self.lblRefresh.text = states.dblSpace("LAST UPDATE: "+states.getObudatadateTime())

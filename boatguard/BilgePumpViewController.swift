@@ -64,7 +64,7 @@ class BilgePumpViewController: UIViewController, UIPickerViewDelegate, UITextFie
         self.dismissViewControllerAnimated(false, completion: nil)
         states.setObuSetting(23, value: String(tfShortPeriod.text))
         states.setObuSetting(24, value: String(tfLongPeriod.text))
-        states.HTTPPostJSON(settings.obusettingsSetUri, jsonObj: states.getObusettings().toString(pretty: false))
+        Comm.HTTPPostJSON(settings.obusettingsSetUri, jsonObj: states.getObusettings().toString(pretty: false)) 
     }
     
     @IBAction func swBilgePump_valueChanged(sender: UISwitch) {
