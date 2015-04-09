@@ -44,12 +44,12 @@ class BilgePumpViewController: UIViewController, UIPickerViewDelegate, UITextFie
         tfLongPeriod.text = states.getObuSettingsByIdState(24)["value"].asString!
         
         tfShortPeriod.delegate = self
-        tfShortPeriod.inputAccessoryView = pvShortPeriod
+        tfShortPeriod.inputView = pvShortPeriod
         pvShortPeriod.hidden = true
         pvShortPeriod.delegate = self
         
         tfLongPeriod.delegate = self
-        tfLongPeriod.inputAccessoryView = pvLongPeriod
+        tfLongPeriod.inputView = pvLongPeriod
         pvLongPeriod.hidden = true
         pvLongPeriod.delegate = self
         
