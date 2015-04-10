@@ -12,32 +12,37 @@ import SystemConfiguration
 
 public class Comm {
     
-    public class func JSONfromURL(uri: String) ->JSON {
-        println(isConnectedToNetwork())
+    public class func JSONfromURL(var uri: String) ->JSON {
         if (isConnectedToNetwork() == true)
         {
+            if (uri.rangeOfString("?") == nil) {
+                uri += "?sesionid="+states.getSessionId()
+            }
+            else {
+                uri += "&sesionid="+states.getSessionId()
+            }
+            println(uri)
             return JSON.fromURL(uri)
         }
         else
         {
-            /*if (!states.isAlert) {
-                let alert = UIAlertView()
-                alert.title = "Internet connection"
-                alert.message = "There is no internet connection. Enable it."
-                alert.addButtonWithTitle("OK")
-                alert.show()
-            }*/
             let error = "{\"obu\":\"\",\"sessionId\":\"\",\"error\":{\"name\":\"Internet connection\",\"code\":\"1\",\"msg\":\"There is no internet connection. Enable it.\"}}"
             
             return JSON(string: error)
         }
-        //states.isAlert = !isConnectedToNetwork();
     }
     
-    public class func HTTPPostJSON(url: String, jsonObj: String) {
+    public class func HTTPPostJSON(var url: String, jsonObj: String) {
         println(isConnectedToNetwork())
         if (isConnectedToNetwork() == true)
         {
+            if (url.rangeOfString("?") == nil) {
+                url += "?sesionid="+states.getSessionId()
+            }
+            else {
+                url += "&sesionid="+states.getSessionId()
+            }
+
             var request = NSMutableURLRequest(URL: NSURL(string: url)!)
             request.HTTPMethod = "POST"
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")

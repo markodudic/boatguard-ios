@@ -28,8 +28,16 @@ class States: NSObject {
     var obudata:JSON!
     var obudatadateTime = NSDate()
 
-    //var isAlert = false
+    var sessionId = "";
 
+    func setSessionId(data: String) {
+        sessionId = data
+    }
+    
+    func getSessionId() -> String {
+        return sessionId
+    }
+    
     func setUser(data: String) {
         user = data
     }

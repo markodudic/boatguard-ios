@@ -64,7 +64,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate, NSURLConnectio
 
     //Events
     @IBAction func btnRegister_click(sender: UIButton) {
-        var urlPath: String = settings.registerUri+"&username="+txtUser.text+"&password="+txtPass.text+"&obu_sn="+txtObuid.text+"&app_version=1"
+        var urlPath: String = settings.registerUri+"&username="+txtUser.text+"&password="+txtPass.text+"&obu_sn="+txtObuid.text
         let json = Comm.JSONfromURL(urlPath)
 
         if (json["error"].isDictionary){
@@ -73,16 +73,16 @@ class FirstViewController: UIViewController, UITextFieldDelegate, NSURLConnectio
             self.presentViewController(alert, animated: true, completion: nil)
         } else {
             states.setLogin(json)
+            states.setSessionId(json["sessionId"].asString!)
             getobusettings(json["obu"]["uid"].asInt!)
             setDevice()
         }
     }
 
     @IBAction func btnLogin_click(sender: UIButton) {
-        var urlPath: String = settings.loginUri+"&username="+txtUser.text+"&password="+txtPass.text+"&obu_sn="+txtObuid.text+"&app_version=1"
+        var urlPath: String = settings.loginUri+"&username="+txtUser.text+"&password="+txtPass.text+"&obu_sn="+txtObuid.text
         
         let json = Comm.JSONfromURL(urlPath)
-       
         if (json["error"].isDictionary) {
             var alert = UIAlertController(title: json["error"]["name"].asString, message: json["error"]["msg"].asString, preferredStyle: UIAlertControllerStyle.Alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
@@ -93,6 +93,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate, NSURLConnectio
             states.setUser(txtUser.text)
             states.setPass(txtPass.text)
             states.setRemember(swRemember.on)
+            states.setSessionId(json["sessionId"].asString!)
             getobusettings(states.getObuid())
             setDevice()
         }
