@@ -23,6 +23,7 @@ class Settings: NSObject {
     internal let obucomponentsUri   = "http://93.103.12.155:8080/boatguard/getobucomponents"
     internal let obudataUri         = "http://93.103.12.155:8080/boatguard/getdata"
     internal let obualarmUri        = "http://93.103.12.155:8080/boatguard/confirmalarm"
+    internal let customerUri        = "http://93.103.12.155:8080/boatguard/getcustomer"
 
     internal var refreshTime:UInt32      = 300
     

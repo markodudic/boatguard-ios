@@ -93,7 +93,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate, NSURLConnectio
     }
 
     func setDevice() {
-        println("**************")
+        /*println("**************")
         println(UIDevice.currentDevice().userInterfaceIdiom.rawValue)
         println(UIDevice.currentDevice().description)
         println(UIDevice.currentDevice().identifierForVendor.UUIDString)
@@ -103,8 +103,18 @@ class FirstViewController: UIViewController, UITextFieldDelegate, NSURLConnectio
         println(UIDevice.currentDevice().systemName)
         println(UIDevice.currentDevice().systemVersion)
         println(NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleShortVersionString") as String)
-    
-        var deviceJson = "{\"id_obu\":\""+String(states.obuid)+"\", \"phone_model\":\""+UIDevice.currentDevice().localizedModel+"\", \"phone_platform\":\""+UIDevice.currentDevice().systemName+"\", \"phone_platform_version\":\""+UIDevice.currentDevice().systemVersion+"\", \"phone_uuid\":\""+UIDevice.currentDevice().identifierForVendor.UUIDString+"\", \"app_version\":\""+(NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleShortVersionString") as String)+"\"}"
+    */
+        let customer = states.getCustomer()["uid"]
+        let appVersion = (NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleShortVersionString") as String)
+        let device = UIDevice.currentDevice()
+        
+        var deviceJson = "{\"id_obu\":\""+String(states.obuid)
+        deviceJson += "\", \"id_customer\":\""+customer.description
+        deviceJson += "\", \"phone_model\":\""+device.localizedModel
+        deviceJson += "\", \"phone_platform\":\""+device.systemName
+        deviceJson += "\", \"phone_platform_version\":\""+device.systemVersion
+        deviceJson += "\", \"phone_uuid\":\""+device.identifierForVendor.UUIDString
+        deviceJson += "\", \"app_version\":\""+appVersion+"\"}"
         
         Comm.HTTPPostJSON(settings.deviceUri, jsonObj: deviceJson)
     }
@@ -126,6 +136,11 @@ class FirstViewController: UIViewController, UITextFieldDelegate, NSURLConnectio
         let obucomponentsJSON = Comm.JSONfromURL(obucomponentsURL)
         states.setObucomponents(obucomponentsJSON)
         
+        //customer
+        let customerURL  = settings.customerUri+"?obuid="+String(obuid)
+        let customerJSON  = Comm.JSONfromURL(customerURL)
+        states.setCustomer(customerJSON)
+
         //obudata
         let obudataURL        = settings.obudataUri+"?obuid="+String(obuid)
         let obudataJSON       = Comm.JSONfromURL(obudataURL)
