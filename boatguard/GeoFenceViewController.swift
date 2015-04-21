@@ -20,6 +20,7 @@ class GeoFenceViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        Flurry.logEvent("GeoFence Settings")
         //add gradients
         let gl = CAGradientLayer()
         gl.colors = [settings.gradientTop, settings.gradientBottom]
@@ -50,6 +51,7 @@ class GeoFenceViewController: UIViewController {
     }
     
     @IBAction func btnDefine_click(sender: UIButton) {
+        Flurry.logEvent("GeoFence Define")
         states.setObuSetting(11, value: "SET")
         Comm.HTTPPostJSON(settings.obusettingsSetUri, jsonObj: states.getObusettings().toString(pretty: false))
         
@@ -70,6 +72,7 @@ class GeoFenceViewController: UIViewController {
         var vl = 0
         if (sender.on) {
             vl = 1
+            Flurry.logEvent("GeoFence On")
         }
         states.setObuSetting(10, value: String(vl))
     }

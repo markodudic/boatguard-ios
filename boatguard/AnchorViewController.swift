@@ -21,6 +21,7 @@ class AnchorViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        Flurry.logEvent("Anchor Settings")
         //add gradients
         let gl = CAGradientLayer()
         gl.colors = [settings.gradientTop, settings.gradientBottom]
@@ -51,6 +52,7 @@ class AnchorViewController: UIViewController {
     }
     
     @IBAction func btnDefine_click(sender: UIButton) {
+        Flurry.logEvent("Anchor Define")
         states.setObuSetting(11, value: "SET")
         Comm.HTTPPostJSON(settings.obusettingsSetUri, jsonObj: states.getObusettings().toString(pretty: false))
         
@@ -71,6 +73,7 @@ class AnchorViewController: UIViewController {
         var vl = 0
         if (sender.on) {
             vl = 1
+            Flurry.logEvent("Anchor On")
         }
         states.setObuSetting(40, value: String(vl))
     }

@@ -25,6 +25,7 @@ class BilgePumpViewController: UIViewController, UIPickerViewDelegate, UITextFie
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        Flurry.logEvent("Bilge Pump Settings")
         //add gradients
         let gl = CAGradientLayer()
         gl.colors = [settings.gradientTop, settings.gradientBottom]

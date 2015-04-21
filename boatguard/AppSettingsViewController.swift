@@ -20,6 +20,7 @@ class AppSettingsViewController: UIViewController, UIPickerViewDelegate, UITextF
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        Flurry.logEvent("GeoFence")
         //add gradients
         let gl = CAGradientLayer()
         gl.colors = [settings.gradientTop, settings.gradientBottom]
@@ -59,7 +60,6 @@ class AppSettingsViewController: UIViewController, UIPickerViewDelegate, UITextF
     }
 
     func textFieldDidBeginEditing(textField: UITextField) {
-        println("???????")
         pvTime.hidden = false
     }
     

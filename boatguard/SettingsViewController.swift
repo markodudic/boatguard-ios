@@ -22,6 +22,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        Flurry.logEvent("Settings")
         //add gradients
         let gl = CAGradientLayer()
         gl.colors = [settings.gradientTop, settings.gradientBottom]

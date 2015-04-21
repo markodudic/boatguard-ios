@@ -21,7 +21,7 @@ public class Comm {
             else {
                 uri += "&sesionid="+states.getSessionId()
             }
-            println(uri)
+            //println(uri)
             return JSON.fromURL(uri)
         }
         else
@@ -33,7 +33,7 @@ public class Comm {
     }
     
     public class func HTTPPostJSON(var url: String, jsonObj: String) {
-        println(isConnectedToNetwork())
+        //println(isConnectedToNetwork())
         if (isConnectedToNetwork() == true)
         {
             if (url.rangeOfString("?") == nil) {

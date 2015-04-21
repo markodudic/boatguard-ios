@@ -21,6 +21,7 @@ class BatteryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        Flurry.logEvent("Batterz Settings")
         //add gradients
         let gl = CAGradientLayer()
         gl.colors = [settings.gradientTop, settings.gradientBottom]

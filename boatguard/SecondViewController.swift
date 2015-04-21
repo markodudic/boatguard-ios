@@ -18,6 +18,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet var viewLogo: UIView!
     
     var refreshControl:UIRefreshControl!
+    var firstTime = true;
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -93,11 +94,13 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     //refresh via pull
     func refreshDataManualy(sender:AnyObject) {
+        Flurry.logEvent("Refresh Manually")
         self.refreshData(self, manually:true)
     }
         
     func refreshData(sender:AnyObject, manually:Bool) {
         //fetch json
+        var dataChanged = true;
         
         let json = Comm.JSONfromURL(settings.obudataUri+"?obuid="+String(states.getObuid()))
         
@@ -109,11 +112,15 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
             }
         }
         else {
+            dataChanged = (states.getObudata().description != json.description);
             states.setObudata(json)
         }
         
-        refresh.process()
-            
+        if (dataChanged || firstTime) {
+            refresh.process()
+            firstTime = false
+        }
+        
         self.lblRefresh.text = states.dblSpace("LAST UPDATE: "+states.getObudatadateTime())
             
         if (states.isAlarm) {
