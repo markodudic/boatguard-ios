@@ -14,17 +14,18 @@ var settings: Settings = Settings()
 class Settings: NSObject {
     internal let flurryKey          = "83VV9ZX37HNWD2KSYYQJ"
     
-    internal let deviceUri          = "http://93.103.12.155:8080/boatguard/setdevice"
-    internal let registerUri        = "http://93.103.12.155:8080/boatguard/login?type=register"
-    internal let loginUri           = "http://93.103.12.155:8080/boatguard/login?type=login"
-    internal let settingsUri        = "http://93.103.12.155:8080/boatguard/getsettings"
-    internal let obusettingsUri     = "http://93.103.12.155:8080/boatguard/getobusettings"
-    internal let obusettingsSetUri  = "http://93.103.12.155:8080/boatguard/setobusettings"
-    internal let obucomponentsUri   = "http://93.103.12.155:8080/boatguard/getobucomponents"
-    internal let obudataUri         = "http://93.103.12.155:8080/boatguard/getdata"
-    internal let obualarmUri        = "http://93.103.12.155:8080/boatguard/confirmalarm"
-    internal let customerUri        = "http://93.103.12.155:8080/boatguard/getcustomer"
-
+    internal let deviceUri          = "http://server.boatguard.com:8080/boatguard/setdevice"
+    internal let registerUri        = "http://server.boatguard.com:8080/boatguard/login?type=register"
+    internal let loginUri           = "http://server.boatguard.com:8080/boatguard/login?type=login"
+    internal let settingsUri        = "http://server.boatguard.com:8080/boatguard/getsettings"
+    internal let obusettingsUri     = "http://server.boatguard.com:8080/boatguard/getobusettings"
+    internal let obusettingsSetUri  = "http://server.boatguard.com:8080/boatguard/setobusettings"
+    internal let obucomponentsUri   = "http://server.boatguard.com:8080/boatguard/getobucomponents"
+    internal let obudataUri         = "http://server.boatguard.com:8080/boatguard/getdata"
+    internal let obualarmUri        = "http://server.boatguard.com:8080/boatguard/confirmalarm"
+    internal let customerUri        = "http://server.boatguard.com:8080/boatguard/getcustomer"
+    internal let customerSetUri     = "http://server.boatguard.com:8080/boatguard/setcustomer"
+    
     internal var refreshTime:UInt32      = 600
     
     internal let gradientTop      = UIColor(red: 102.0/255.0, green: 102.0/255.0, blue: 102.0/255.0, alpha: 0.4).CGColor

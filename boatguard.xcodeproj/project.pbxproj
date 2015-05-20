@@ -50,6 +50,7 @@
 		FEAB29771ACD817600DA46B6 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEAB29751ACD817600DA46B6 /* Fabric.framework */; };
 		FEAB297A1ACE792C00DA46B6 /* Main_ipad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FEAB29781ACE792C00DA46B6 /* Main_ipad.storyboard */; };
 		FEB3074C1AD5329C00EA95FD /* Comm.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB3074B1AD5329C00EA95FD /* Comm.swift */; };
+		FEB8B2FA1B0CBA7C00C460EE /* MyAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB8B2F91B0CBA7C00C460EE /* MyAccountViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,6 +113,7 @@
 		FEAB29751ACD817600DA46B6 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		FEAB29791ACE792C00DA46B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_ipad.storyboard; sourceTree = "<group>"; };
 		FEB3074B1AD5329C00EA95FD /* Comm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comm.swift; sourceTree = "<group>"; };
+		FEB8B2F91B0CBA7C00C460EE /* MyAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyAccountViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,6 +201,7 @@
 				FEA243651AD6745F003231C2 /* AppSettingsViewController.swift */,
 				FE1977401ACC185600EF34BA /* AnchorViewController.swift */,
 				FEAB296D1ACD26BC00DA46B6 /* BatteryViewController.swift */,
+				FEB8B2F91B0CBA7C00C460EE /* MyAccountViewController.swift */,
 				9424502719D0B09F004A496C /* ThirdViewController.swift */,
 				948DDF1019C073F3006F5CBD /* Main.storyboard */,
 				FEAB29781ACE792C00DA46B6 /* Main_ipad.storyboard */,
@@ -382,6 +385,7 @@
 				948DDF0B19C073F3006F5CBD /* AppDelegate.swift in Sources */,
 				FE01116B1AB97F8E00C8B0EF /* SettingsViewController.swift in Sources */,
 				946664561A1A68330073028A /* ComponentCell.swift in Sources */,
+				FEB8B2FA1B0CBA7C00C460EE /* MyAccountViewController.swift in Sources */,
 				948DDF0D19C073F3006F5CBD /* FirstViewController.swift in Sources */,
 				FEAB29721ACD485300DA46B6 /* BilgePumpViewController.swift in Sources */,
 				FE1977411ACC185600EF34BA /* AnchorViewController.swift in Sources */,

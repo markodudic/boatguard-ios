@@ -69,10 +69,10 @@ class GeoFenceViewController: UIViewController {
     }
     
     @IBAction func swGeoFence_valueChanged(sender: UISwitch) {
+        Flurry.logEvent("GeoFence On/Off")
         var vl = 0
         if (sender.on) {
             vl = 1
-            Flurry.logEvent("GeoFence On")
         }
         states.setObuSetting(10, value: String(vl))
     }

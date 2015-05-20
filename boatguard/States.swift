@@ -207,6 +207,7 @@ class States: NSObject {
         var j = JSON(string: obusettingsNew)
         states.setObusettings(j)
     }
+
     
     func getObuSettingsByIdState(id_state: Int) -> JSON {
         for (i, v) in obusettings {

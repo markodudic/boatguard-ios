@@ -70,10 +70,10 @@ class AnchorViewController: UIViewController {
     }
     
     @IBAction func swAnchor_valueChanged(sender: UISwitch) {
+        Flurry.logEvent("Anchor On/Off")
         var vl = 0
         if (sender.on) {
             vl = 1
-            Flurry.logEvent("Anchor On")
         }
         states.setObuSetting(40, value: String(vl))
     }

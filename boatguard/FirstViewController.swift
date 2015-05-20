@@ -46,7 +46,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate, NSURLConnectio
         
         //test login
         #if DEBUG
-            txtUser.text = "itunes"
+            txtUser.text = "test"
             txtPass.text = "test"
             //txtObuid.text = "12345"
         #endif
@@ -74,7 +74,8 @@ class FirstViewController: UIViewController, UITextFieldDelegate, NSURLConnectio
     }
         
     func checkLoginRegister(urlPath : String) {
-        let json = Comm.JSONfromURL(urlPath)
+        
+        let json = Comm.JSONfromURL(urlPath.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!)
         
         if (json["error"].isDictionary) {
             var alert = UIAlertController(title: json["error"]["name"].asString, message: json["error"]["msg"].asString, preferredStyle: UIAlertControllerStyle.Alert)

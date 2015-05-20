@@ -93,6 +93,9 @@ class SettingsViewController: UIViewController, UITableViewDelegate {
                 cell.lblState.text = cell.lblState.text! + " / " +
                                     states.getObuSettingsByIdState(23)["value"].asString! + " / " +
                                     states.getObuSettingsByIdState(24)["value"].asString!
+            case 6:
+                cell.lblState.text = states.customer["name"].asString! + " " + states.customer["surname"].asString! + " / " +
+                    states.customer["boat_name"].asString!
             case 8:
                 cell.lblState.text = states.getObuSettingsByIdState(1)["value"].asString!
             default: println()
@@ -115,6 +118,9 @@ class SettingsViewController: UIViewController, UITableViewDelegate {
                 self.presentViewController(vc, animated: false, completion: nil)
             case 3:
                 let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("BilgePumpView") as UIViewController
+                self.presentViewController(vc, animated: false, completion: nil)
+            case 6:
+                let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("MyAccountView") as UIViewController
                 self.presentViewController(vc, animated: false, completion: nil)
             case 8:
                 let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("AppSettingsView") as UIViewController
