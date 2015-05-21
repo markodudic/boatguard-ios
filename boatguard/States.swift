@@ -208,6 +208,27 @@ class States: NSObject {
         states.setObusettings(j)
     }
 
+    func setCustomerSetting(name: String, surname: String, password: String, birthYear: String, country: String, email: String, boatName: String, boatManafacturer: String, boatModel: String, boatCountry: String) {
+
+        let c: [String:AnyObject] = [
+            "uid" : states.customer["uid"],
+            "id_obu" : states.customer["id_obu"],
+            "username": states.customer["username"],
+            "serial_number": states.customer["serial_number"],
+            "name" : name,
+            "surname" : surname,
+            "password" : password,
+            "birth_year" : birthYear.toInt()!,
+            "country" : country,
+            "email" : email,
+            "boat_name" : boatName,
+            "boat_manafacturer" : boatManafacturer,
+            "boat_model" : boatModel,
+            "boat_country" : boatCountry
+        ]
+
+        states.setCustomer(JSON(c))
+    }
     
     func getObuSettingsByIdState(id_state: Int) -> JSON {
         for (i, v) in obusettings {

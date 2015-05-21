@@ -26,7 +26,7 @@ class Settings: NSObject {
     internal let customerUri        = "http://server.boatguard.com:8080/boatguard/getcustomer"
     internal let customerSetUri     = "http://server.boatguard.com:8080/boatguard/setcustomer"
     
-    internal var refreshTime:UInt32      = 600
+    internal var refreshTime:UInt32 = 600
     
     internal let gradientTop      = UIColor(red: 102.0/255.0, green: 102.0/255.0, blue: 102.0/255.0, alpha: 0.4).CGColor
     internal let gradientBottom   = UIColor(red: 215.0/255.0, green: 215.0/255.0, blue: 215.0/255.0, alpha: 0).CGColor

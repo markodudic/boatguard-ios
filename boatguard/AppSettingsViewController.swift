@@ -43,9 +43,7 @@ class AppSettingsViewController: UIViewController, UIPickerViewDelegate, UITextF
         pvTime.delegate = self
         
         lblVersion.text = (NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleShortVersionString") as String) + " (" + (NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleVersion") as String) + ")"
-
-        
-        
+      
     }
     
     override func viewWillAppear(animated: Bool) {
