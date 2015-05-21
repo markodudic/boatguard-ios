@@ -46,8 +46,8 @@ class FirstViewController: UIViewController, UITextFieldDelegate, NSURLConnectio
         
         //test login
         #if DEBUG
-            txtUser.text = "test"
-            txtPass.text = "test"
+            txtUser.text = "01104"
+            txtPass.text = "01104"
             //txtObuid.text = "12345"
         #endif
         if (states.getRemember()) {
@@ -146,8 +146,13 @@ class FirstViewController: UIViewController, UITextFieldDelegate, NSURLConnectio
         let obudataURL        = settings.obudataUri+"?obuid="+String(obuid)
         let obudataJSON       = Comm.JSONfromURL(obudataURL)
         states.setObudata(obudataJSON)
-        //println(obudataJSON)
         
+        //history
+        let historyURL  = settings.historyUri+"?obuid="+String(obuid)
+        let historyJSON  = Comm.JSONfromURL(historyURL)
+        states.setHistory(historyJSON)
+        //println(historyJSON)
+
         var storyboard = UIStoryboard(name: "Main_ipad", bundle: nil)
         var idiom = UIDevice.currentDevice().userInterfaceIdiom
         if idiom == UIUserInterfaceIdiom.Phone {

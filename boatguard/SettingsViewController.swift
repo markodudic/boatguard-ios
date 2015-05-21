@@ -122,6 +122,9 @@ class SettingsViewController: UIViewController, UITableViewDelegate {
             case 6:
                 let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("MyAccountView") as UIViewController
                 self.presentViewController(vc, animated: false, completion: nil)
+            case 7:
+                let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("HistoryView") as UIViewController
+                self.presentViewController(vc, animated: false, completion: nil)
             case 8:
                 let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("AppSettingsView") as UIViewController
                 self.presentViewController(vc, animated: false, completion: nil)

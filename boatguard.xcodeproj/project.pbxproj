@@ -51,6 +51,8 @@
 		FEAB297A1ACE792C00DA46B6 /* Main_ipad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FEAB29781ACE792C00DA46B6 /* Main_ipad.storyboard */; };
 		FEB3074C1AD5329C00EA95FD /* Comm.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB3074B1AD5329C00EA95FD /* Comm.swift */; };
 		FEB8B2FA1B0CBA7C00C460EE /* MyAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB8B2F91B0CBA7C00C460EE /* MyAccountViewController.swift */; };
+		FEB8B2FC1B0DFA5200C460EE /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB8B2FB1B0DFA5200C460EE /* HistoryViewController.swift */; };
+		FEB8B2FE1B0E00E000C460EE /* HistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB8B2FD1B0E00E000C460EE /* HistoryCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,6 +116,8 @@
 		FEAB29791ACE792C00DA46B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_ipad.storyboard; sourceTree = "<group>"; };
 		FEB3074B1AD5329C00EA95FD /* Comm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comm.swift; sourceTree = "<group>"; };
 		FEB8B2F91B0CBA7C00C460EE /* MyAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyAccountViewController.swift; sourceTree = "<group>"; };
+		FEB8B2FB1B0DFA5200C460EE /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		FEB8B2FD1B0E00E000C460EE /* HistoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,6 +196,7 @@
 				9459CD6919E00EFF00B7FF4E /* Components.swift */,
 				946664551A1A68330073028A /* ComponentCell.swift */,
 				FE61F34D1AB9BAD500B3F8A2 /* SettingsCell.swift */,
+				FEB8B2FD1B0E00E000C460EE /* HistoryCell.swift */,
 				94CF52EB1A64347D001E2C81 /* TabController.swift */,
 				948DDF0C19C073F3006F5CBD /* FirstViewController.swift */,
 				948DDF0E19C073F3006F5CBD /* SecondViewController.swift */,
@@ -201,6 +206,7 @@
 				FEA243651AD6745F003231C2 /* AppSettingsViewController.swift */,
 				FE1977401ACC185600EF34BA /* AnchorViewController.swift */,
 				FEAB296D1ACD26BC00DA46B6 /* BatteryViewController.swift */,
+				FEB8B2FB1B0DFA5200C460EE /* HistoryViewController.swift */,
 				FEB8B2F91B0CBA7C00C460EE /* MyAccountViewController.swift */,
 				9424502719D0B09F004A496C /* ThirdViewController.swift */,
 				948DDF1019C073F3006F5CBD /* Main.storyboard */,
@@ -373,6 +379,7 @@
 				FE19773D1ACACA4200EF34BA /* json.swift in Sources */,
 				9459CD6A19E00EFF00B7FF4E /* Components.swift in Sources */,
 				FEB3074C1AD5329C00EA95FD /* Comm.swift in Sources */,
+				FEB8B2FC1B0DFA5200C460EE /* HistoryViewController.swift in Sources */,
 				94CF52EC1A64347D001E2C81 /* TabController.swift in Sources */,
 				9424502819D0B09F004A496C /* ThirdViewController.swift in Sources */,
 				FEA243661AD6745F003231C2 /* AppSettingsViewController.swift in Sources */,
@@ -382,6 +389,7 @@
 				943E1E6F1A04EBE9008FF404 /* Settings.swift in Sources */,
 				FE35D7871ABC72E700E73897 /* GeoFenceViewController.swift in Sources */,
 				943E1E711A0500D4008FF404 /* Refresh.swift in Sources */,
+				FEB8B2FE1B0E00E000C460EE /* HistoryCell.swift in Sources */,
 				948DDF0B19C073F3006F5CBD /* AppDelegate.swift in Sources */,
 				FE01116B1AB97F8E00C8B0EF /* SettingsViewController.swift in Sources */,
 				946664561A1A68330073028A /* ComponentCell.swift in Sources */,

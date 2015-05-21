@@ -121,7 +121,13 @@ class MyAccountViewController: UIViewController, UITextFieldDelegate, UIPickerVi
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        scrollView.contentSize = CGSize(width:100, height:1300)
+        var idiom = UIDevice.currentDevice().userInterfaceIdiom
+        if idiom == UIUserInterfaceIdiom.Phone {
+            scrollView.contentSize = CGSize(width:100, height:1300)
+        }
+        else {
+            scrollView.contentSize = CGSize(width:100, height:2400)
+        }
     }
     
     override func viewWillAppear(animated: Bool) {

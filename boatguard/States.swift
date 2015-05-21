@@ -28,7 +28,8 @@ class States: NSObject {
     var obudata:JSON!
     var obudatadateTime = NSDate()
     var customer:JSON!
-
+    var history:JSON!
+    
     var sessionId = "";
 
     func setSessionId(data: String) {
@@ -116,6 +117,14 @@ class States: NSObject {
     
     func getCustomer() -> JSON {
         return customer
+    }
+    
+    func setHistory(data: JSON) {
+        history = data
+    }
+    
+    func getHistory() -> JSON {
+        return history
     }
     
     func setObusettings(data: JSON) {

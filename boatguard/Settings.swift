@@ -25,6 +25,7 @@ class Settings: NSObject {
     internal let obualarmUri        = "http://server.boatguard.com:8080/boatguard/confirmalarm"
     internal let customerUri        = "http://server.boatguard.com:8080/boatguard/getcustomer"
     internal let customerSetUri     = "http://server.boatguard.com:8080/boatguard/setcustomer"
+    internal let historyUri         = "http://server.boatguard.com:8080/boatguard/gethistorydata"
     
     internal var refreshTime:UInt32 = 600
     

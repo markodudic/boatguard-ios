@@ -97,7 +97,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         Flurry.logEvent("Refresh Manually")
         self.refreshData(self, manually:true)
     }
-        
+    
     func refreshData(sender:AnyObject, manually:Bool) {
         //fetch json
         var dataChanged = true;
