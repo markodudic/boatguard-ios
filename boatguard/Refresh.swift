@@ -71,9 +71,12 @@ class Refresh: NSObject {
 
     //notification alarms
     func handleAlarms() {
-        var json = states.getObudata()
-        for (i, v) in json["alarms"] {
-            self.displayAlarm(v["title"].asString!, message: v["message"].asString!, id_alarm: v["id_alarm"].asInt!, vibrate: v["vibrate"].asInt!, sound: v["sound"].asInt!)
+        if NSUserDefaults.standardUserDefaults().boolForKey("SETTING_POP_UP") {
+        
+            var json = states.getObudata()
+            for (i, v) in json["alarms"] {
+                self.displayAlarm(v["title"].asString!, message: v["message"].asString!, id_alarm: v["id_alarm"].asInt!, vibrate: v["vibrate"].asInt!, sound: v["sound"].asInt!)
+            }
         }
     }
     
@@ -92,11 +95,11 @@ class Refresh: NSObject {
                 notification.alertAction = message
                 UIApplication.sharedApplication().scheduleLocalNotification(notification)
             } else {
-                if (vibrate == 1) {
+                if (vibrate == 1 && NSUserDefaults.standardUserDefaults().boolForKey("SETTING_VIBRATE")) {
                     AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
                 }
             
-                if (sound == 1) {
+                if (sound == 1 && NSUserDefaults.standardUserDefaults().boolForKey("SETTING_PLAY_SOUND")) {
                     var alertSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("horn", ofType: "wav")!)
                     var audioPlayer = AVAudioPlayer()
                     audioPlayer = AVAudioPlayer(contentsOfURL: alertSound, error: nil)

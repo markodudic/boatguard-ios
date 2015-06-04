@@ -8,12 +8,14 @@
 
 import UIKit
 
-class AlarmSettingsViewController: UIViewController, UITextFieldDelegate {
+class AlarmSettingsViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate {
     
     @IBOutlet var viewAlarmSettings: UIView!
-    @IBOutlet var swAlarmSettings: UISwitch!
+    @IBOutlet var swPlaySound: UISwitch!
+    @IBOutlet var swVibrate: UISwitch!
+    @IBOutlet var swPopUp: UISwitch!
     
-    var obusettings:JSON!
+    @IBOutlet var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,9 +35,9 @@ class AlarmSettingsViewController: UIViewController, UITextFieldDelegate {
         }
         viewAlarmSettings.layer.insertSublayer(gl, atIndex: 999)
         
-        swAlarmSettings.on = (states.getObuSettingsByIdState(22)["value"].asString! == "1")
-
-        
+        swPlaySound.on = NSUserDefaults.standardUserDefaults().boolForKey("SETTING_PLAY_SOUND")
+        swVibrate.on = NSUserDefaults.standardUserDefaults().boolForKey("SETTING_VIBRATE")
+        swPopUp.on = NSUserDefaults.standardUserDefaults().boolForKey("SETTING_POP_UP")
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -47,17 +49,40 @@ class AlarmSettingsViewController: UIViewController, UITextFieldDelegate {
         self.dismissViewControllerAnimated(false, completion: nil)
     }
     
-    @IBAction func swAlarmSettings_valueChanged(sender: UISwitch) {
-        var vl = 0
-        if (sender.on) {
-            vl = 1
-        }
-        states.setObuSetting(22, value: String(vl))
+    @IBAction func swPlaySound_valueChanged(sender: UISwitch) {
+        NSUserDefaults.standardUserDefaults().setBool(sender.on, forKey: "SETTING_PLAY_SOUND")
     }
     
-
-
+    @IBAction func swVibrate_valueChanged(sender: UISwitch) {
+        NSUserDefaults.standardUserDefaults().setBool(sender.on, forKey: "SETTING_VIBRATE")
+    }
     
+    @IBAction func swPopUp_valueChanged(sender: UISwitch) {
+        NSUserDefaults.standardUserDefaults().setBool(sender.on, forKey: "SETTING_POP_UP")
+    }
+
+    func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int
+    {
+        return states.alarms.length;
+    }
+    
+    func tableView(tableView: UITableView!,
+        cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell!
+    {
+        let cell = tableView.dequeueReusableCellWithIdentifier("AlarmCell") as AlarmCell
+        var alarm = states.alarms[indexPath.row]
+        cell.lblAlarmName.text = alarm["message_short"].asString!.uppercaseString
+        
+        cell.swAlarmOn.on = alarm["active"].asInt! == 1
+        cell.swSendEmail.on = alarm["send_email"].asInt! == 1
+        cell.swAlarmFriends.on = alarm["send_friends"].asInt! == 1
+
+        return cell
+    }
+    
+    func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!)
+    {
+    }
 }
 
 

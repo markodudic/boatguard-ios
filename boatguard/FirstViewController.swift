@@ -148,6 +148,11 @@ class FirstViewController: UIViewController, UITextFieldDelegate, NSURLConnectio
         let obudataJSON       = Comm.JSONfromURL(obudataURL)
         states.setObudata(obudataJSON)
         
+        //alarms
+        let alarmsURL  = settings.obuAlarmsUri+"?obuid="+String(obuid)
+        let alarmsJSON  = Comm.JSONfromURL(alarmsURL)
+        states.setAlarms(alarmsJSON)
+        
         //history
         let historyURL  = settings.historyUri+"?obuid="+String(obuid)
         let historyJSON  = Comm.JSONfromURL(historyURL)

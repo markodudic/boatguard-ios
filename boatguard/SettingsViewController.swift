@@ -102,6 +102,27 @@ class SettingsViewController: UIViewController, UITableViewDelegate {
                     contacts += v["name"].asString! + " " + v["surname"].asString!
                 }
                 cell.lblState.text = contacts
+            case 5:
+                var playSound = NSUserDefaults.standardUserDefaults().boolForKey("SETTING_PLAY_SOUND")
+                var vibrate = NSUserDefaults.standardUserDefaults().boolForKey("SETTING_VIBRATE")
+                var popUp = NSUserDefaults.standardUserDefaults().boolForKey("SETTING_POP_UP")
+                var settings = ""
+                if playSound {
+                    settings += "PLAY SOUND"
+                }
+                if playSound&&vibrate {
+                    settings += " / "
+                }
+                if vibrate {
+                    settings += "VIBRATE"
+                }
+                if ((playSound && !vibrate) || vibrate) && popUp {
+                    settings += " / "
+                }
+                if popUp {
+                    settings += "POP-UP"
+                }
+                cell.lblState.text = settings
             case 6:
                 cell.lblState.text = states.customer["name"].asString! + " " + states.customer["surname"].asString! + " / " +
                     states.customer["boat_name"].asString!

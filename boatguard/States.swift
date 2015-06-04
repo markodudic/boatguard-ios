@@ -27,6 +27,7 @@ class States: NSObject {
     var obucomponents:JSON!
     var obudata:JSON!
     var obudatadateTime = NSDate()
+    var alarms:JSON!
     var customer:JSON!
     var history:JSON!
     var friends:JSON!
@@ -127,6 +128,14 @@ class States: NSObject {
     
     func getHistory() -> JSON {
         return history
+    }
+    
+    func setAlarms(data: JSON) {
+        alarms = data
+    }
+    
+    func getAlarms() -> JSON {
+        return alarms
     }
     
     func setFriends(data: JSON) {

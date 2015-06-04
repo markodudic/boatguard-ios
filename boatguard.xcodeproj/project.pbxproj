@@ -46,6 +46,7 @@
 		FE3DE3791B1F062F00519A84 /* ContactsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3DE3781B1F062F00519A84 /* ContactsCell.swift */; };
 		FE3DE37B1B1F363D00519A84 /* PhoneContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3DE37A1B1F363D00519A84 /* PhoneContactsViewController.swift */; };
 		FE3DE37D1B1F43C700519A84 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3DE37C1B1F43C700519A84 /* Contact.swift */; };
+		FE3DE37F1B207C6500519A84 /* AlarmCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3DE37E1B207C6500519A84 /* AlarmCell.swift */; };
 		FE61F34E1AB9BAD500B3F8A2 /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE61F34D1AB9BAD500B3F8A2 /* SettingsCell.swift */; };
 		FEA243661AD6745F003231C2 /* AppSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA243651AD6745F003231C2 /* AppSettingsViewController.swift */; };
 		FEAB296E1ACD26BC00DA46B6 /* BatteryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEAB296D1ACD26BC00DA46B6 /* BatteryViewController.swift */; };
@@ -116,6 +117,7 @@
 		FE3DE3781B1F062F00519A84 /* ContactsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsCell.swift; sourceTree = "<group>"; };
 		FE3DE37A1B1F363D00519A84 /* PhoneContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneContactsViewController.swift; sourceTree = "<group>"; };
 		FE3DE37C1B1F43C700519A84 /* Contact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
+		FE3DE37E1B207C6500519A84 /* AlarmCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmCell.swift; sourceTree = "<group>"; };
 		FE61F34D1AB9BAD500B3F8A2 /* SettingsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
 		FEA243651AD6745F003231C2 /* AppSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSettingsViewController.swift; sourceTree = "<group>"; };
 		FEAB296D1ACD26BC00DA46B6 /* BatteryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BatteryViewController.swift; sourceTree = "<group>"; };
@@ -207,6 +209,7 @@
 				9459CD6919E00EFF00B7FF4E /* Components.swift */,
 				946664551A1A68330073028A /* ComponentCell.swift */,
 				FE61F34D1AB9BAD500B3F8A2 /* SettingsCell.swift */,
+				FE3DE37E1B207C6500519A84 /* AlarmCell.swift */,
 				FE3DE3781B1F062F00519A84 /* ContactsCell.swift */,
 				FEB8B2FD1B0E00E000C460EE /* HistoryCell.swift */,
 				94CF52EB1A64347D001E2C81 /* TabController.swift */,
@@ -413,6 +416,7 @@
 				FE01116B1AB97F8E00C8B0EF /* SettingsViewController.swift in Sources */,
 				946664561A1A68330073028A /* ComponentCell.swift in Sources */,
 				FE3DE3771B1EF53800519A84 /* AlarmSettingsViewController.swift in Sources */,
+				FE3DE37F1B207C6500519A84 /* AlarmCell.swift in Sources */,
 				FEB8B2FA1B0CBA7C00C460EE /* MyAccountViewController.swift in Sources */,
 				948DDF0D19C073F3006F5CBD /* FirstViewController.swift in Sources */,
 				FEAB29721ACD485300DA46B6 /* BilgePumpViewController.swift in Sources */,
