@@ -47,20 +47,20 @@ class PhoneContactsViewController: UIViewController, UITableViewDelegate {
     
     func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int
     {
-        return states.friends.length;
+        return states.contacts.count;
     }
     
     func tableView(tableView: UITableView!,
         cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell!
     {
         let cell = tableView.dequeueReusableCellWithIdentifier("ContactsCell") as ContactsCell
-        var friend = states.friends[indexPath.row]
-        cell.lblName.text = friend["name"].asString! + " " + friend["surname"].asString!
-        if (friend["email"].isNull || friend["email"].asString? == "null") {
-            cell.lblDetail.text = friend["number"].asString!
+        var contact = states.contacts[indexPath.row]
+        cell.lblName.text = contact.getName() + " " + contact.getLastName()
+        if (contact.getEmail().isEmpty) {
+            cell.lblDetail.text = contact.getPhoneNum()
         }
         else {
-            cell.lblDetail.text = friend["number"].asString! + " / " + friend["email"].asString!
+            cell.lblDetail.text = contact.getPhoneNum() + " / " + contact.getEmail()
         }
         cell.img.hidden = true
         return cell
@@ -68,6 +68,9 @@ class PhoneContactsViewController: UIViewController, UITableViewDelegate {
     
     func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!)
     {
-        println(indexPath.row)
+        var contact = states.contacts[indexPath.row]
+        states.addFriend(contact.getUid(), idCustomer: states.customer["uid"].asInt!, name: contact.getName(), surname: contact.getLastName(), number: contact.getPhoneNum(), email: contact.getEmail())
+        Comm.HTTPPostJSON(settings.friendsSetUri, jsonObj: states.friends.toString(pretty: false))
+        self.dismissViewControllerAnimated(false, completion: nil)
     }
 }

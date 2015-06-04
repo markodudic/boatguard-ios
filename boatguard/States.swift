@@ -30,7 +30,8 @@ class States: NSObject {
     var customer:JSON!
     var history:JSON!
     var friends:JSON!
-    
+    var contacts = [Contact]()
+
     var sessionId = "";
 
     func setSessionId(data: String) {
@@ -215,6 +216,41 @@ class States: NSObject {
                 }
             }
         }
+        friendsNew = "[" + friendsNew + "]";
+        var j = JSON(string: friendsNew)
+        states.setFriends(j)
+    }
+    
+    func addFriend(uid: Int, idCustomer: Int, name: String, surname: String, number: String, email: String) {
+        var friendsNew = ""
+        var first = true
+        
+        for (i, v) in friends {
+            var vs = v.toString(pretty: false);
+            if (first) {
+                friendsNew += vs;
+                first = false
+            }
+            else {
+                friendsNew += "," + vs;
+            }
+        }
+        let vsnew: [String:AnyObject] = [
+            "uid" : uid,
+            "id_customer" : idCustomer,
+            "name" : name,
+            "surname" : surname,
+            "number" : number,
+            "email" : email
+        ]
+        var vs = JSON(vsnew).toString()
+        if (first) {
+            friendsNew += vs;
+        }
+        else {
+            friendsNew += "," + vs;
+        }
+        
         friendsNew = "[" + friendsNew + "]";
         var j = JSON(string: friendsNew)
         states.setFriends(j)

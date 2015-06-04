@@ -187,12 +187,15 @@ class FirstViewController: UIViewController, UITextFieldDelegate, NSURLConnectio
                 return
             }
             
-            var contacts = [Contact]()
             
             let allContacts : NSArray = ABAddressBookCopyArrayOfAllPeople(addressBook).takeRetainedValue()
             for contactRef:ABRecordRef in allContacts {
-                if let uid = ABRecordCopyValue(contactRef, kABPersonIdProperty).takeUnretainedValue() as? NSString {
-                    contact.setUid(uid)
+                var contact: Contact = Contact()
+
+                let uid = ABRecordGetRecordID(contactRef)
+                if uid != kABRecordInvalidID{
+                    var numberID: NSNumber = NSNumber(int: uid)
+                    contact.setUid(numberID.integerValue)
                 }
                 if let firstName = ABRecordCopyValue(contactRef, kABPersonFirstNameProperty).takeUnretainedValue() as? NSString {
                     contact.setName(firstName)
@@ -200,17 +203,23 @@ class FirstViewController: UIViewController, UITextFieldDelegate, NSURLConnectio
                 if let lastName = ABRecordCopyValue(contactRef, kABPersonLastNameProperty).takeUnretainedValue() as? NSString {
                     contact.setLastName(lastName)
                 }
-                if let phoneNum = ABRecordCopyValue(contactRef, kABPersonPhoneProperty).takeUnretainedValue() as? NSString {
-                    contact.setPhoneNum(phoneNum)
+                var phones: ABMultiValueRef = ABRecordCopyValue(contactRef, kABPersonPhoneProperty).takeUnretainedValue() as ABMultiValueRef
+                
+                for var index = 0; index < ABMultiValueGetCount(phones); ++index{
+                    let currentPhoneLabel = ABMultiValueCopyLabelAtIndex(phones, index).takeUnretainedValue() as CFStringRef as String
+                    let currentPhoneValue = ABMultiValueCopyValueAtIndex(phones, index).takeUnretainedValue() as CFStringRef as String
+                    
+                    if currentPhoneLabel == kABPersonPhoneMobileLabel {
+                        contact.setPhoneNum(currentPhoneValue)
+                    }
                 }
                 if let email = ABRecordCopyValue(contactRef, kABPersonEmailProperty).takeUnretainedValue() as? NSString {
                     contact.setEmail(email)
                 }
                 
-                contacts.append(contact)
+                states.contacts.append(contact)
                 
             }
-            println(contacts)
         }
 
         //open storyboard

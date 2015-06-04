@@ -8,8 +8,6 @@
 
 import Foundation
 
-var contact: Contact = Contact()
-
 class Contact: NSObject {
     
     var uid       = 0
