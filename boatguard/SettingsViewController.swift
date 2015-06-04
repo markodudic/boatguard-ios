@@ -93,6 +93,15 @@ class SettingsViewController: UIViewController, UITableViewDelegate {
                 cell.lblState.text = cell.lblState.text! + " / " +
                                     states.getObuSettingsByIdState(23)["value"].asString! + " / " +
                                     states.getObuSettingsByIdState(24)["value"].asString!
+            case 4:
+                var contacts = "";
+                for (i, v) in states.friends {
+                    if !contacts.isEmpty {
+                        contacts += " / ";
+                    }
+                    contacts += v["name"].asString! + " " + v["surname"].asString!
+                }
+                cell.lblState.text = contacts
             case 6:
                 cell.lblState.text = states.customer["name"].asString! + " " + states.customer["surname"].asString! + " / " +
                     states.customer["boat_name"].asString!
@@ -118,6 +127,12 @@ class SettingsViewController: UIViewController, UITableViewDelegate {
                 self.presentViewController(vc, animated: false, completion: nil)
             case 3:
                 let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("BilgePumpView") as UIViewController
+                self.presentViewController(vc, animated: false, completion: nil)
+            case 4:
+                let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("AlarmContactsView") as UIViewController
+                self.presentViewController(vc, animated: false, completion: nil)
+            case 5:
+                let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("AlarmSettingsView") as UIViewController
                 self.presentViewController(vc, animated: false, completion: nil)
             case 6:
                 let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("MyAccountView") as UIViewController

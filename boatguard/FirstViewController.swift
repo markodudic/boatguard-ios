@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AddressBook
 
 class FirstViewController: UIViewController, UITextFieldDelegate, NSURLConnectionDelegate {
 
@@ -46,8 +47,8 @@ class FirstViewController: UIViewController, UITextFieldDelegate, NSURLConnectio
         
         //test login
         #if DEBUG
-            txtUser.text = "01104"
-            txtPass.text = "01104"
+            txtUser.text = "test"
+            txtPass.text = "test"
             //txtObuid.text = "12345"
         #endif
         if (states.getRemember()) {
@@ -151,8 +152,68 @@ class FirstViewController: UIViewController, UITextFieldDelegate, NSURLConnectio
         let historyURL  = settings.historyUri+"?obuid="+String(obuid)
         let historyJSON  = Comm.JSONfromURL(historyURL)
         states.setHistory(historyJSON)
-        //println(historyJSON)
 
+        //friends
+        let friendsURL  = settings.friendsUri+"?customerid="+String(states.customer["uid"].asInt!)
+        let friendsJSON  = Comm.JSONfromURL(friendsURL)
+        states.setFriends(friendsJSON)
+        
+        //get contacts from phonebook
+        // make sure user hadn't previously denied access
+        let status = ABAddressBookGetAuthorizationStatus()
+        if status == .Denied || status == .Restricted {
+            var alert = UIAlertController(title: "Phonebook access", message: "Phonebook is not accessable. Enable it in the settings.", preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
+            return
+        }
+        
+        // open it
+        var error: Unmanaged<CFError>?
+        let addressBook: ABAddressBook? = ABAddressBookCreateWithOptions(nil, &error)?.takeRetainedValue()
+        if addressBook == nil {
+            println(error?.takeRetainedValue())
+            return
+        }
+        
+        // request permission to use it
+        ABAddressBookRequestAccessWithCompletion(addressBook) {
+            granted, error in
+            
+            if !granted {
+                var alert = UIAlertController(title: "Phonebook access", message: "Phonebook is not accessable. Enable it in the settings.", preferredStyle: UIAlertControllerStyle.Alert)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+                self.presentViewController(alert, animated: true, completion: nil)
+                return
+            }
+            
+            var contacts = [Contact]()
+            
+            let allContacts : NSArray = ABAddressBookCopyArrayOfAllPeople(addressBook).takeRetainedValue()
+            for contactRef:ABRecordRef in allContacts {
+                if let uid = ABRecordCopyValue(contactRef, kABPersonIdProperty).takeUnretainedValue() as? NSString {
+                    contact.setUid(uid)
+                }
+                if let firstName = ABRecordCopyValue(contactRef, kABPersonFirstNameProperty).takeUnretainedValue() as? NSString {
+                    contact.setName(firstName)
+                }
+                if let lastName = ABRecordCopyValue(contactRef, kABPersonLastNameProperty).takeUnretainedValue() as? NSString {
+                    contact.setLastName(lastName)
+                }
+                if let phoneNum = ABRecordCopyValue(contactRef, kABPersonPhoneProperty).takeUnretainedValue() as? NSString {
+                    contact.setPhoneNum(phoneNum)
+                }
+                if let email = ABRecordCopyValue(contactRef, kABPersonEmailProperty).takeUnretainedValue() as? NSString {
+                    contact.setEmail(email)
+                }
+                
+                contacts.append(contact)
+                
+            }
+            println(contacts)
+        }
+
+        //open storyboard
         var storyboard = UIStoryboard(name: "Main_ipad", bundle: nil)
         var idiom = UIDevice.currentDevice().userInterfaceIdiom
         if idiom == UIUserInterfaceIdiom.Phone {

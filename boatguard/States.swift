@@ -29,6 +29,7 @@ class States: NSObject {
     var obudatadateTime = NSDate()
     var customer:JSON!
     var history:JSON!
+    var friends:JSON!
     
     var sessionId = "";
 
@@ -127,6 +128,14 @@ class States: NSObject {
         return history
     }
     
+    func setFriends(data: JSON) {
+        friends = data
+    }
+    
+    func getFriends() -> JSON {
+        return friends
+    }
+    
     func setObusettings(data: JSON) {
         obusettings = data
     }
@@ -190,6 +199,27 @@ class States: NSObject {
         return comp
     }
 
+    func deleteFriend(id: Int) {
+        var friendsNew = ""
+        var first = true
+        
+        for (i, v) in friends {
+            var vs = v.toString(pretty: false);
+            if (v["uid"].asInt != id) {
+                if (first) {
+                    friendsNew += vs;
+                    first = false
+                }
+                else {
+                    friendsNew += "," + vs;
+                }
+            }
+        }
+        friendsNew = "[" + friendsNew + "]";
+        var j = JSON(string: friendsNew)
+        states.setFriends(j)
+    }
+    
     func setObuSetting(id_state: Int, value: String) {
         var obusettingsNew = ""
         var first = true

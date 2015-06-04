@@ -41,6 +41,11 @@
 		FE1977451ACC34A600EF34BA /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE1977441ACC34A600EF34BA /* SystemConfiguration.framework */; };
 		FE1977471ACC34B900EF34BA /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE1977461ACC34B900EF34BA /* Security.framework */; };
 		FE35D7871ABC72E700E73897 /* GeoFenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE35D7861ABC72E700E73897 /* GeoFenceViewController.swift */; };
+		FE3DE3751B1EF41A00519A84 /* AlarmContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3DE3741B1EF41A00519A84 /* AlarmContactsViewController.swift */; };
+		FE3DE3771B1EF53800519A84 /* AlarmSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3DE3761B1EF53800519A84 /* AlarmSettingsViewController.swift */; };
+		FE3DE3791B1F062F00519A84 /* ContactsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3DE3781B1F062F00519A84 /* ContactsCell.swift */; };
+		FE3DE37B1B1F363D00519A84 /* PhoneContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3DE37A1B1F363D00519A84 /* PhoneContactsViewController.swift */; };
+		FE3DE37D1B1F43C700519A84 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3DE37C1B1F43C700519A84 /* Contact.swift */; };
 		FE61F34E1AB9BAD500B3F8A2 /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE61F34D1AB9BAD500B3F8A2 /* SettingsCell.swift */; };
 		FEA243661AD6745F003231C2 /* AppSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA243651AD6745F003231C2 /* AppSettingsViewController.swift */; };
 		FEAB296E1ACD26BC00DA46B6 /* BatteryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEAB296D1ACD26BC00DA46B6 /* BatteryViewController.swift */; };
@@ -106,6 +111,11 @@
 		FE1977441ACC34A600EF34BA /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		FE1977461ACC34B900EF34BA /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		FE35D7861ABC72E700E73897 /* GeoFenceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeoFenceViewController.swift; sourceTree = "<group>"; };
+		FE3DE3741B1EF41A00519A84 /* AlarmContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmContactsViewController.swift; sourceTree = "<group>"; };
+		FE3DE3761B1EF53800519A84 /* AlarmSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmSettingsViewController.swift; sourceTree = "<group>"; };
+		FE3DE3781B1F062F00519A84 /* ContactsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsCell.swift; sourceTree = "<group>"; };
+		FE3DE37A1B1F363D00519A84 /* PhoneContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneContactsViewController.swift; sourceTree = "<group>"; };
+		FE3DE37C1B1F43C700519A84 /* Contact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		FE61F34D1AB9BAD500B3F8A2 /* SettingsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
 		FEA243651AD6745F003231C2 /* AppSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSettingsViewController.swift; sourceTree = "<group>"; };
 		FEAB296D1ACD26BC00DA46B6 /* BatteryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BatteryViewController.swift; sourceTree = "<group>"; };
@@ -191,16 +201,21 @@
 				FEB3074B1AD5329C00EA95FD /* Comm.swift */,
 				FE19773C1ACACA4200EF34BA /* json.swift */,
 				9424502319D09E94004A496C /* States.swift */,
+				FE3DE37C1B1F43C700519A84 /* Contact.swift */,
 				943E1E6E1A04EBE9008FF404 /* Settings.swift */,
 				943E1E701A0500D4008FF404 /* Refresh.swift */,
 				9459CD6919E00EFF00B7FF4E /* Components.swift */,
 				946664551A1A68330073028A /* ComponentCell.swift */,
 				FE61F34D1AB9BAD500B3F8A2 /* SettingsCell.swift */,
+				FE3DE3781B1F062F00519A84 /* ContactsCell.swift */,
 				FEB8B2FD1B0E00E000C460EE /* HistoryCell.swift */,
 				94CF52EB1A64347D001E2C81 /* TabController.swift */,
 				948DDF0C19C073F3006F5CBD /* FirstViewController.swift */,
 				948DDF0E19C073F3006F5CBD /* SecondViewController.swift */,
 				FE01116A1AB97F8E00C8B0EF /* SettingsViewController.swift */,
+				FE3DE3741B1EF41A00519A84 /* AlarmContactsViewController.swift */,
+				FE3DE37A1B1F363D00519A84 /* PhoneContactsViewController.swift */,
+				FE3DE3761B1EF53800519A84 /* AlarmSettingsViewController.swift */,
 				FE35D7861ABC72E700E73897 /* GeoFenceViewController.swift */,
 				FEAB29711ACD485300DA46B6 /* BilgePumpViewController.swift */,
 				FEA243651AD6745F003231C2 /* AppSettingsViewController.swift */,
@@ -376,23 +391,28 @@
 			files = (
 				FE61F34E1AB9BAD500B3F8A2 /* SettingsCell.swift in Sources */,
 				948DDF0F19C073F3006F5CBD /* SecondViewController.swift in Sources */,
+				FE3DE3791B1F062F00519A84 /* ContactsCell.swift in Sources */,
 				FE19773D1ACACA4200EF34BA /* json.swift in Sources */,
 				9459CD6A19E00EFF00B7FF4E /* Components.swift in Sources */,
 				FEB3074C1AD5329C00EA95FD /* Comm.swift in Sources */,
+				FE3DE3751B1EF41A00519A84 /* AlarmContactsViewController.swift in Sources */,
 				FEB8B2FC1B0DFA5200C460EE /* HistoryViewController.swift in Sources */,
 				94CF52EC1A64347D001E2C81 /* TabController.swift in Sources */,
 				9424502819D0B09F004A496C /* ThirdViewController.swift in Sources */,
 				FEA243661AD6745F003231C2 /* AppSettingsViewController.swift in Sources */,
 				9424502C19D3FA9C004A496C /* Async.swift in Sources */,
 				9424502419D09E94004A496C /* States.swift in Sources */,
+				FE3DE37B1B1F363D00519A84 /* PhoneContactsViewController.swift in Sources */,
 				FEAB296E1ACD26BC00DA46B6 /* BatteryViewController.swift in Sources */,
 				943E1E6F1A04EBE9008FF404 /* Settings.swift in Sources */,
 				FE35D7871ABC72E700E73897 /* GeoFenceViewController.swift in Sources */,
 				943E1E711A0500D4008FF404 /* Refresh.swift in Sources */,
 				FEB8B2FE1B0E00E000C460EE /* HistoryCell.swift in Sources */,
 				948DDF0B19C073F3006F5CBD /* AppDelegate.swift in Sources */,
+				FE3DE37D1B1F43C700519A84 /* Contact.swift in Sources */,
 				FE01116B1AB97F8E00C8B0EF /* SettingsViewController.swift in Sources */,
 				946664561A1A68330073028A /* ComponentCell.swift in Sources */,
+				FE3DE3771B1EF53800519A84 /* AlarmSettingsViewController.swift in Sources */,
 				FEB8B2FA1B0CBA7C00C460EE /* MyAccountViewController.swift in Sources */,
 				948DDF0D19C073F3006F5CBD /* FirstViewController.swift in Sources */,
 				FEAB29721ACD485300DA46B6 /* BilgePumpViewController.swift in Sources */,
