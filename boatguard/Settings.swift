@@ -28,7 +28,8 @@ class Settings: NSObject {
     internal let historyUri         = "http://server.boatguard.com:8080/boatguard/gethistorydata"
     internal let friendsUri         = "http://server.boatguard.com:8080/boatguard/getfriends"
     internal let friendsSetUri      = "http://server.boatguard.com:8080/boatguard/setfriends"
-    internal let obuAlarmsUri      = "http://server.boatguard.com:8080/boatguard/getobualarms"
+    internal let obuAlarmsUri       = "http://server.boatguard.com:8080/boatguard/getobualarms"
+    internal let obuAlarmsSetUri    = "http://server.boatguard.com:8080/boatguard/setobualarms"
     
     internal var refreshTime:UInt32 = 600
     

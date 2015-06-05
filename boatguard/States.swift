@@ -264,6 +264,37 @@ class States: NSObject {
         var j = JSON(string: friendsNew)
         states.setFriends(j)
     }
+ 
+    func setAlarm(id_alarm: Int, active: Int, send_email: Int, send_friends: Int) {
+        var alarmsNew = ""
+        var first = true
+        
+        for (i, v) in alarms {
+            var vs = v.toString(pretty: false);
+            if (v["id_alarm"].asInt == id_alarm) {
+                let vsnew: [String:AnyObject] = [
+                    "id_alarm":v["id_alarm"],
+                    "id_obu":v["id_obu"],
+                    "message_short":v["message_short"],
+                    "active":active,
+                    "send_email":send_email,
+                    "send_friends":send_friends
+                ]
+                vs = JSON(vsnew).toString()
+            }
+            if (first) {
+                alarmsNew = alarmsNew + vs;
+                first = false
+            }
+            else {
+                alarmsNew = alarmsNew + "," + vs;
+            }
+        }
+        alarmsNew = "[" + alarmsNew + "]";
+        var j = JSON(string: alarmsNew)
+        states.setAlarms(j)
+    }
+    
     
     func setObuSetting(id_state: Int, value: String) {
         var obusettingsNew = ""

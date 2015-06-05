@@ -60,7 +60,7 @@ class AlarmSettingsViewController: UIViewController, UITextFieldDelegate, UITabl
     @IBAction func swPopUp_valueChanged(sender: UISwitch) {
         NSUserDefaults.standardUserDefaults().setBool(sender.on, forKey: "SETTING_POP_UP")
     }
-
+    
     func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int
     {
         return states.alarms.length;
@@ -77,6 +77,8 @@ class AlarmSettingsViewController: UIViewController, UITextFieldDelegate, UITabl
         cell.swSendEmail.on = alarm["send_email"].asInt! == 1
         cell.swAlarmFriends.on = alarm["send_friends"].asInt! == 1
 
+        cell.swChanged(alarm["id_alarm"].asInt!)
+        
         return cell
     }
     
