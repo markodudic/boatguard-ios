@@ -62,7 +62,6 @@ class PhoneContactsViewController: UIViewController, UITableViewDelegate {
         else {
             cell.lblDetail.text = contact.getPhoneNum() + " / " + contact.getEmail()
         }
-        cell.img.hidden = true
         return cell
     }
     
