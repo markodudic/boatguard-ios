@@ -325,6 +325,11 @@ class States: NSObject {
 
     func setCustomerSetting(name: String, surname: String, password: String, birthYear: String, country: String, email: String, boatName: String, boatManafacturer: String, boatModel: String, boatCountry: String) {
 
+        var by = 0;
+        if birthYear != "" {
+            by = birthYear.toInt()!
+        }
+        
         let c: [String:AnyObject] = [
             "uid" : states.customer["uid"],
             "id_obu" : states.customer["id_obu"],
@@ -333,7 +338,7 @@ class States: NSObject {
             "name" : name,
             "surname" : surname,
             "password" : password,
-            "birth_year" : birthYear.toInt()!,
+            "birth_year" : by,
             "country" : country,
             "email" : email,
             "boat_name" : boatName,

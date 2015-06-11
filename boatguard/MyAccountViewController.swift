@@ -235,6 +235,7 @@ class MyAccountViewController: UIViewController, UITextFieldDelegate, UIPickerVi
         else if pickerView == pvBoatCountry {
             return country.count
         }
+        
         return 0
     }
     
@@ -274,6 +275,11 @@ class MyAccountViewController: UIViewController, UITextFieldDelegate, UIPickerVi
         else if pickerView == pvBoatCountry {
             txtBoatCountry.text = "\(country[row])"
         }
+        pvBirthYear.hidden = true
+        pvCountry.hidden = true
+        pvBoatManafacturer.hidden = true
+        pvBoatModel.hidden = true
+        pvBoatCountry.hidden = true
     }
 }
 
