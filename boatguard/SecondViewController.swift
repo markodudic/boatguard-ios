@@ -78,7 +78,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.tblDashboard.addSubview(refreshControl)
         self.tblDashboard.delegate = self;
     
-        refresh.setView(self) //send view to refresh
+        refresh.setView1(self) //send view to refresh
         refresh.addComponents() //add components to view
         //refresh.process()
         
@@ -165,16 +165,16 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         switch comps[indexPath.row].type {
             case "GEO":
-                let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("GeoFenceView") as UIViewController
+                let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("GeoFenceView") as! UIViewController
                 self.presentViewController(vc, animated: false, completion: nil)
             case "ANCHOR":
-                let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("AnchorView") as UIViewController
+                let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("AnchorView")as! UIViewController
                 self.presentViewController(vc, animated: false, completion: nil)
             case "ACCU":
-                let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("BatteryView") as UIViewController
+                let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("BatteryView") as! UIViewController
                 self.presentViewController(vc, animated: false, completion: nil)
             case "PUMP":
-                let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("BilgePumpView") as UIViewController
+                let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("BilgePumpView") as! UIViewController
                 self.presentViewController(vc, animated: false, completion: nil)
             default: println()
         }

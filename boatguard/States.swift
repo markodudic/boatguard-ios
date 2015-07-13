@@ -35,7 +35,7 @@ class States: NSObject {
 
     var sessionId = "";
 
-    func setSessionId(data: String) {
+    func setSessionId1(data: String) {
         sessionId = data
     }
     
@@ -43,7 +43,7 @@ class States: NSObject {
         return sessionId
     }
     
-    func setUser(data: String) {
+    func setUser1(data: String) {
         user = data
     }
     
@@ -51,7 +51,7 @@ class States: NSObject {
         return user
     }
 
-    func setPass(data: String) {
+    func setPass1(data: String) {
         pass = data
     }
     
@@ -59,7 +59,7 @@ class States: NSObject {
         return pass
     }
 
-    func setRemember(data: Bool) {
+    func setRemember1(data: Bool) {
         remember = data
     }
     
@@ -67,14 +67,14 @@ class States: NSObject {
         return remember
     }
 
-    func setIsBackground(data: Bool) {
+    func setIsBackground1(data: Bool) {
         isBackground = data
     }
     func getIsBackground() -> Bool {
         return isBackground
     }
 
-    func setIsAlarm(data: Bool) {
+    func setIsAlarm1(data: Bool) {
         isAlarm = data
     }
     
@@ -82,7 +82,7 @@ class States: NSObject {
         return isAlarm
     }
 
-    func setIdAlarm(data: Int) {
+    func setIdAlarm1(data: Int) {
         idAlarm = data
     }
     
@@ -90,7 +90,7 @@ class States: NSObject {
         return idAlarm
     }
     
-    func setObuid(data: Int) {
+    func setObuid1(data: Int) {
         obuid = data
     }
     

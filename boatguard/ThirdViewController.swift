@@ -68,7 +68,7 @@ class ThirdViewController: UIViewController, MKMapViewDelegate {
         //Set annotation-specific properties **AFTER**
         //the view is dequeued or created...
         
-        let cpa = annotation as CustomPointAnnotation
+        let cpa = annotation as! CustomPointAnnotation
         anView.image = UIImage(named:cpa.imageName)
         
         return anView

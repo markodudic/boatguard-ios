@@ -63,7 +63,7 @@ public class Comm {
     public class func HTTPsendRequest(request: NSMutableURLRequest) {
         let task = NSURLSession.sharedSession().dataTaskWithRequest(
             request,
-            {
+            completionHandler: {
                 data, response, error in
                 /*if error != nil {
                 callback("", error.localizedDescription)

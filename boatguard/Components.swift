@@ -31,7 +31,7 @@ class Components: NSObject {
     }
     
     func removeAllComponents() -> Void {
-        states.setIsAlarm(false)
+        states.setIsAlarm1(false)
         comps = []
     }
     
@@ -65,14 +65,14 @@ class Components: NSObject {
     }
     
     func unsetAlarms() -> Void {
-        states.setIsAlarm(false)
+        states.setIsAlarm1(false)
         for c in comps {
             c.alarm = false
         }
     }
     
     func setAlarm(id: Int) {
-        states.setIsAlarm(true)
+        states.setIsAlarm1(true)
         for c in comps {
             if (c.id == id) {
                 c.alarm = true
@@ -82,7 +82,7 @@ class Components: NSObject {
   
     func renderCellUnknown(idx: Int, tableView: UITableView, name: String) ->UITableViewCell {
         var c = comps[idx]
-        let cell = tableView.dequeueReusableCellWithIdentifier("ComponentCell") as ComponentCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("ComponentCell") as! ComponentCell
         cell.lbl.text = name
         var compImages: [UIImage] = []
         compImages.append(UIImage(named: "ic_unknown")!)
@@ -98,8 +98,8 @@ class Components: NSObject {
         var c = comps[idx]
         var json = c.json
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("ComponentCell") as ComponentCell
-        cell.setName("PUMP")
+        let cell = tableView.dequeueReusableCellWithIdentifier("ComponentCell") as! ComponentCell
+        cell.setCellName("PUMP")
         cell.lbl.text = states.dblSpace(json["name"].asString!)
         cell.imgAnimate(setImagePump(idx))
         cell.imgBanner([])
@@ -165,8 +165,8 @@ class Components: NSObject {
         var c = comps[idx]
         var json = c.json
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("ComponentCell") as ComponentCell
-        cell.setName("ANCHOR")
+        let cell = tableView.dequeueReusableCellWithIdentifier("ComponentCell") as! ComponentCell
+        cell.setCellName("ANCHOR")
         cell.lbl.text = states.dblSpace(json["name"].asString!)
         cell.imgAnimate(setImageAnchor(idx))
         cell.imgBanner([])
@@ -224,8 +224,8 @@ class Components: NSObject {
         var c = comps[idx]
         var json = c.json
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("ComponentCell") as ComponentCell
-        cell.setName("GEO")
+        let cell = tableView.dequeueReusableCellWithIdentifier("ComponentCell") as! ComponentCell
+        cell.setCellName("GEO")
         cell.lbl.text = states.dblSpace(json["name"].asString!)
         cell.imgAnimate(setImageGeo(idx))
         cell.imgBanner([])
@@ -278,8 +278,8 @@ class Components: NSObject {
         var c = comps[idx]
         var json = c.json
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("ComponentCell") as ComponentCell
-        cell.setName("ACCU")
+        let cell = tableView.dequeueReusableCellWithIdentifier("ComponentCell") as! ComponentCell
+        cell.setCellName("ACCU")
         cell.lbl.text = states.dblSpace(json["name"].asString!)
         cell.imgAnimate(setImageAccu(idx))
         cell.imgBanner(setBannerAccu(idx))
@@ -373,8 +373,8 @@ class Components: NSObject {
         var c = comps[idx]
         var json = c.json
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("ComponentCell") as ComponentCell
-        cell.setName("LIGHT")
+        let cell = tableView.dequeueReusableCellWithIdentifier("ComponentCell") as! ComponentCell
+        cell.setCellName("LIGHT")
         cell.lbl.text = states.dblSpace(json["name"].asString!)
         cell.imgAnimate(setImageLight(idx))
         cell.imgBanner([])
@@ -417,8 +417,8 @@ class Components: NSObject {
         var c = comps[idx]
         var json = c.json
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("ComponentCell") as ComponentCell
-        cell.setName("FAN")
+        let cell = tableView.dequeueReusableCellWithIdentifier("ComponentCell") as! ComponentCell
+        cell.setCellName("FAN")
         cell.lbl.text = states.dblSpace(json["name"].asString!)
         cell.imgAnimate(setImageFan(idx))
         cell.imgBanner([])
@@ -461,8 +461,8 @@ class Components: NSObject {
         var c = comps[idx]
         var json = c.json
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("ComponentCell") as ComponentCell
-        cell.setName("DOOR")
+        let cell = tableView.dequeueReusableCellWithIdentifier("ComponentCell") as! ComponentCell
+        cell.setCellName("DOOR")
         cell.lbl.text = states.dblSpace(json["name"].asString!)
         cell.imgAnimate(setImageDoor(idx))
         cell.imgBanner([])

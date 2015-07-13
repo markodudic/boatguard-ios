@@ -59,7 +59,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate {
     func tableView(tableView: UITableView!,
         cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell!
     {
-        let cell = tableView.dequeueReusableCellWithIdentifier("SettingsCell") as SettingsCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("SettingsCell") as! SettingsCell
         cell.lbl.text = settings.settingsTableData[indexPath.row]
         cell.lblState.text = ""
         cell.lblState.textColor = settings.lblGreen
@@ -138,34 +138,34 @@ class SettingsViewController: UIViewController, UITableViewDelegate {
     {
         switch indexPath.row {
             case 0:
-                let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("BatteryView") as UIViewController
+                let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("BatteryView") as! UIViewController
                 self.presentViewController(vc, animated: false, completion: nil)
             case 1:
-                let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("GeoFenceView") as UIViewController
+                let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("GeoFenceView") as! UIViewController
                 self.presentViewController(vc, animated: false, completion: nil)
             case 2:
-                let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("AnchorView") as UIViewController
+                let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("AnchorView") as! UIViewController
                 self.presentViewController(vc, animated: false, completion: nil)
             case 3:
-                let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("BilgePumpView") as UIViewController
+                let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("BilgePumpView") as! UIViewController
                 self.presentViewController(vc, animated: false, completion: nil)
             case 4:
-                let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("AlarmContactsView") as UIViewController
+                let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("AlarmContactsView") as! UIViewController
                 self.presentViewController(vc, animated: false, completion: nil)
             case 5:
-                let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("AlarmSettingsView") as UIViewController
+                let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("AlarmSettingsView") as! UIViewController
                 self.presentViewController(vc, animated: false, completion: nil)
             case 6:
-                let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("MyAccountView") as UIViewController
+                let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("MyAccountView") as! UIViewController
                 self.presentViewController(vc, animated: false, completion: nil)
             case 7:
-                let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("HistoryView") as UIViewController
+                let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("HistoryView") as! UIViewController
                 self.presentViewController(vc, animated: false, completion: nil)
             case 8:
-                let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("AppSettingsView") as UIViewController
+                let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("AppSettingsView") as! UIViewController
                 self.presentViewController(vc, animated: false, completion: nil)
             case 9:
-                let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("FirstView") as UIViewController
+                let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("FirstView") as! UIViewController
                 self.presentViewController(vc, animated: false, completion: nil)
             default: println()
         }

@@ -53,7 +53,7 @@ class PhoneContactsViewController: UIViewController, UITableViewDelegate {
     func tableView(tableView: UITableView!,
         cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell!
     {
-        let cell = tableView.dequeueReusableCellWithIdentifier("ContactsCell") as ContactsCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("ContactsCell") as! ContactsCell
         var contact = states.contacts[indexPath.row]
         cell.lblName.text = contact.getName() + " " + contact.getLastName()
         if (contact.getEmail().isEmpty) {

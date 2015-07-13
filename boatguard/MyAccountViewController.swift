@@ -165,7 +165,7 @@ class MyAccountViewController: UIViewController, UITextFieldDelegate, UIPickerVi
     }
     
     //tole je za skrivanje tipkovnice ob prijavi
-    override func touchesBegan(touches: NSSet!, withEvent event: UIEvent!) {
+    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         self.view.endEditing(true)
     }
     

@@ -18,7 +18,7 @@ class Refresh: NSObject {
     var view: UIViewController!
     var refreshSemaphoreGo: Bool = true
     
-    func setView(v: UIViewController) -> Void {
+    func setView1(v: UIViewController) -> Void {
         view = v
     }
 
@@ -114,7 +114,7 @@ class Refresh: NSObject {
                     self.view.presentViewController(alert, animated: true, completion: nil)
                });
             }
-            states.setIdAlarm(id_alarm)
+            states.setIdAlarm1(id_alarm)
             
         }
     }
@@ -123,7 +123,7 @@ class Refresh: NSObject {
         //confirm
         let obualarmJSON = JSON.fromURL(settings.obualarmUri+"?obuid="+String(states.obuid)+"&alarmid="+String(id_alarm))
 
-        states.setIdAlarm(0)
+        states.setIdAlarm1(0)
         
         //refresh
         states.setObudata(JSON.fromURL(settings.obudataUri+"?obuid="+String(states.getObuid())))

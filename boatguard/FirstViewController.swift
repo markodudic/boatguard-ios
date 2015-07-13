@@ -84,11 +84,11 @@ class FirstViewController: UIViewController, UITextFieldDelegate, NSURLConnectio
             self.presentViewController(alert, animated: true, completion: nil)
         } else {
             states.setLogin(json)
-            states.setObuid(json["obu"]["uid"].asInt!)
-            states.setUser(txtUser.text)
-            states.setPass(txtPass.text)
-            states.setRemember(swRemember.on)
-            states.setSessionId(json["sessionId"].asString!)
+            states.setObuid1(json["obu"]["uid"].asInt!)
+            states.setUser1(txtUser.text)
+            states.setPass1(txtPass.text)
+            states.setRemember1(swRemember.on)
+            states.setSessionId1(json["sessionId"].asString!)
             getobusettings(states.getObuid())
             setDevice()
         }
@@ -107,7 +107,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate, NSURLConnectio
         println(NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleShortVersionString") as String)
     */
         let customer = states.getCustomer()["uid"]
-        let appVersion = (NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleShortVersionString") as String)
+        let appVersion = (NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleShortVersionString") as! String)
         let device = UIDevice.currentDevice()
         
         var deviceJson = "{\"id_obu\":\""+String(states.obuid)
@@ -200,26 +200,26 @@ class FirstViewController: UIViewController, UITextFieldDelegate, NSURLConnectio
                 let uid = ABRecordGetRecordID(contactRef)
                 if uid != kABRecordInvalidID{
                     var numberID: NSNumber = NSNumber(int: uid)
-                    contact.setUid(numberID.integerValue)
+                    contact.setUid1(numberID.integerValue)
                 }
                 if let firstName = ABRecordCopyValue(contactRef, kABPersonFirstNameProperty).takeUnretainedValue() as? NSString {
-                    contact.setName(firstName)
+                    contact.setName1(firstName as String)
                 }
                 if let lastName = ABRecordCopyValue(contactRef, kABPersonLastNameProperty).takeUnretainedValue() as? NSString {
-                    contact.setLastName(lastName)
+                    contact.setLastName1(lastName as String)
                 }
                 var phones: ABMultiValueRef = ABRecordCopyValue(contactRef, kABPersonPhoneProperty).takeUnretainedValue() as ABMultiValueRef
                 
                 for var index = 0; index < ABMultiValueGetCount(phones); ++index{
-                    let currentPhoneLabel = ABMultiValueCopyLabelAtIndex(phones, index).takeUnretainedValue() as CFStringRef as String
-                    let currentPhoneValue = ABMultiValueCopyValueAtIndex(phones, index).takeUnretainedValue() as CFStringRef as String
+                    let currentPhoneLabel = ABMultiValueCopyLabelAtIndex(phones, index).takeUnretainedValue() as CFStringRef as CFString
+                    let currentPhoneValue = ABMultiValueCopyValueAtIndex(phones, index).takeUnretainedValue() as! CFStringRef as String
                     
                     if currentPhoneLabel == kABPersonPhoneMobileLabel {
-                        contact.setPhoneNum(currentPhoneValue)
+                        contact.setPhoneNum1(currentPhoneValue)
                     }
                 }
                 if let email = ABRecordCopyValue(contactRef, kABPersonEmailProperty).takeUnretainedValue() as? NSString {
-                    contact.setEmail(email)
+                    contact.setEmail1(email as String)
                 }
                 
                 states.contacts.append(contact)
@@ -244,7 +244,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate, NSURLConnectio
     }
     
     //tole je za skrivanje tipkovnice ob prijavi
-    override func touchesBegan(touches: NSSet!, withEvent event: UIEvent!) {
+    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         self.view.endEditing(true)
     }
     

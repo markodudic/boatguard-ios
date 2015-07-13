@@ -42,7 +42,7 @@ class AppSettingsViewController: UIViewController, UIPickerViewDelegate, UITextF
         pvTime.hidden = true
         pvTime.delegate = self
         
-        lblVersion.text = (NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleShortVersionString") as String) + " (" + (NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleVersion") as String) + ")"
+        lblVersion.text = (NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleShortVersionString") as! String) + " (" + (NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleVersion")as! String) + ")"
       
     }
     

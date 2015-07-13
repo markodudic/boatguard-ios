@@ -16,35 +16,35 @@ class Contact: NSObject {
     var phoneNum  = ""
     var email     = ""
 
-    func setUid(data: Int) {
+    func setUid1(data: Int) {
         uid = data
     }
     func getUid() -> Int {
         return uid
     }
     
-    func setName(data: String) {
+    func setName1(data: String) {
         name = data
     }
     func getName() -> String {
         return name
     }
     
-    func setLastName(data: String) {
+    func setLastName1(data: String) {
         lastName = data
     }
     func getLastName() -> String {
         return lastName
     }
     
-    func setPhoneNum(data: String) {
+    func setPhoneNum1(data: String) {
         phoneNum = data
     }
     func getPhoneNum() -> String {
         return phoneNum
     }
     
-    func setEmail(data: String) {
+    func setEmail1(data: String) {
         email = data
     }
     func getEmail() -> String {

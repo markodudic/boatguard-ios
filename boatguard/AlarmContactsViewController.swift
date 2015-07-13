@@ -53,10 +53,10 @@ class AlarmContactsViewController: UIViewController, UITableViewDelegate {
     func tableView(tableView: UITableView!,
         cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell!
     {
-        let cell = tableView.dequeueReusableCellWithIdentifier("ContactsCell") as ContactsCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("ContactsCell") as! ContactsCell
         var friend = states.friends[indexPath.row]
         cell.lblName.text = friend["name"].asString! + " " + friend["surname"].asString!
-        if (friend["email"].isNull || friend["email"].asString? == "null") {
+        if (friend["email"].isNull || friend["email"].asString == "null") {
             cell.lblDetail.text = friend["number"].asString!
         }
         else {
@@ -71,7 +71,7 @@ class AlarmContactsViewController: UIViewController, UITableViewDelegate {
     }
     
     @IBAction func btnAddContact_click(sender: UIButton) {
-        let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("PhoneContactsView") as UIViewController
+        let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("PhoneContactsView") as! UIViewController
         self.presentViewController(vc, animated: false, completion: nil)
     }
 }

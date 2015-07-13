@@ -23,7 +23,7 @@ class ComponentCell: UITableViewCell {
     var componentAccuIdx: Int = 0
     var componentAccuBanner: [String] = []
     
-    func setName(n: String) {
+    func setCellName(n: String) {
         name = n
     }
     

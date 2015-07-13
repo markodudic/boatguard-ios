@@ -69,7 +69,7 @@ class AlarmSettingsViewController: UIViewController, UITextFieldDelegate, UITabl
     func tableView(tableView: UITableView!,
         cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell!
     {
-        let cell = tableView.dequeueReusableCellWithIdentifier("AlarmCell") as AlarmCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("AlarmCell") as! AlarmCell
         var alarm = states.alarms[indexPath.row]
         cell.lblAlarmName.text = alarm["message_short"].asString!.uppercaseString
         

@@ -68,7 +68,7 @@ class HistoryViewController: UIViewController, UITableViewDelegate {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         //println(indexPath.row)
-        let cell = tableView.dequeueReusableCellWithIdentifier("HistoryCell") as HistoryCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("HistoryCell") as! HistoryCell
         var historyString = historyStates[indexPath.row][0]["dateState"].asString! + " "
         var anchor = false
         
