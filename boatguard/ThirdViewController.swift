@@ -102,7 +102,10 @@ class ThirdViewController: UIViewController, MKMapViewDelegate {
             }
         }
         
-        var lat:CLLocationDegrees = Double((sLat as NSString).doubleValue)/100 //45.506
+        var lat:CLLocationDegrees = Double((sLat as NSString).doubleValue)
+        var lon:CLLocationDegrees = Double((sLon as NSString).doubleValue)
+
+        /*var lat:CLLocationDegrees = Double((sLat as NSString).doubleValue)/100 //45.506
         var lon:CLLocationDegrees = Double((sLon as NSString).doubleValue)/100 //13.596
         
         var lat_f = floor(lat)
@@ -115,7 +118,7 @@ class ThirdViewController: UIViewController, MKMapViewDelegate {
         lon_left = lon_left*100/60
         
         lat = lat_f + lat_left
-        lon = lon_f + lon_left
+        lon = lon_f + lon_left*/
         
         var latDelta:CLLocationDegrees = 0.04
         var lonDelta:CLLocationDegrees = 0.04
