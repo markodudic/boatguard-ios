@@ -214,7 +214,7 @@ class States: NSObject {
         var first = true
         
         for (i, v) in friends {
-            var vs = v.toString(pretty: false);
+            var vs = v.toString(false);
             if (v["uid"].asInt != id) {
                 if (first) {
                     friendsNew += vs;
@@ -235,7 +235,7 @@ class States: NSObject {
         var first = true
         
         for (i, v) in friends {
-            var vs = v.toString(pretty: false);
+            var vs = v.toString(false);
             if (first) {
                 friendsNew += vs;
                 first = false
@@ -270,7 +270,7 @@ class States: NSObject {
         var first = true
         
         for (i, v) in alarms {
-            var vs = v.toString(pretty: false);
+            var vs = v.toString(false);
             if (v["id_alarm"].asInt == id_alarm) {
                 let vsnew: [String:AnyObject] = [
                     "id_alarm":v["id_alarm"],
@@ -301,7 +301,7 @@ class States: NSObject {
         var first = true
         
         for (i, v) in obusettings {
-            var vs = v.toString(pretty: false);
+            var vs = v.toString(false);
             if (v["id_setting"].asInt == id_state) {
                 let vsnew: [String:AnyObject] = ["id_setting" : v["id_setting"],
                                                 "code" : v["code"],
@@ -327,7 +327,7 @@ class States: NSObject {
 
         var by = 0;
         if birthYear != "" {
-            by = birthYear.toInt()!
+            by = Int(birthYear)!
         }
         
         let c: [String:AnyObject] = [
@@ -360,10 +360,10 @@ class States: NSObject {
     }
     
     func dblSpace(s: String) -> String {
-        let characters = Array(s)
+        let characters = Array(arrayLiteral: s)
         var dbl:String = ""
         for c in characters {
-            dbl += [c] + " "
+            dbl += c + " "
         }
         return dbl
     }

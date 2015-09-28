@@ -30,7 +30,7 @@ class BilgePumpViewController: UIViewController, UIPickerViewDelegate, UITextFie
         let gl = CAGradientLayer()
         gl.colors = [settings.gradientTop, settings.gradientBottom]
         gl.locations = [0.0, 1.0]
-        var idiom = UIDevice.currentDevice().userInterfaceIdiom
+        let idiom = UIDevice.currentDevice().userInterfaceIdiom
         if idiom == UIUserInterfaceIdiom.Phone {
             gl.frame = CGRectMake(0,0,viewBilgePump.layer.frame.width,10)
         }
@@ -65,7 +65,7 @@ class BilgePumpViewController: UIViewController, UIPickerViewDelegate, UITextFie
         self.dismissViewControllerAnimated(false, completion: nil)
         states.setObuSetting(23, value: String(tfShortPeriod.text))
         states.setObuSetting(24, value: String(tfLongPeriod.text))
-        Comm.HTTPPostJSON(settings.obusettingsSetUri, jsonObj: states.getObusettings().toString(pretty: false)) 
+        Comm.HTTPPostJSON(settings.obusettingsSetUri, jsonObj: states.getObusettings().toString(false)) 
     }
     
     @IBAction func swBilgePump_valueChanged(sender: UISwitch) {

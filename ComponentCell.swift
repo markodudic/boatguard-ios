@@ -91,7 +91,7 @@ class ComponentCell: UITableViewCell {
         let gl_top = CAGradientLayer()
         gl_top.colors = [settings.gradientTop_a, settings.gradientBottom_a]
         gl_top.locations = [0.0, 1.0]
-        var idiom = UIDevice.currentDevice().userInterfaceIdiom
+        let idiom = UIDevice.currentDevice().userInterfaceIdiom
         if idiom == UIUserInterfaceIdiom.Phone {
             gl_top.frame = CGRectMake(0,0,self.layer.frame.width,15)
         }
@@ -113,9 +113,7 @@ class ComponentCell: UITableViewCell {
         }
         subviewbottom.layer.insertSublayer(gl_bottom, atIndex: 0)
 
-        let options = (UIViewAnimationOptions.Autoreverse |
-            UIViewAnimationOptions.Repeat |
-            UIViewAnimationOptions.AllowUserInteraction)
+        let options: UIViewAnimationOptions = ([UIViewAnimationOptions.Autoreverse, UIViewAnimationOptions.Repeat, UIViewAnimationOptions.AllowUserInteraction])
 
         UIView.animateWithDuration(2.0, delay: 0.0, options: options,
             animations: {
@@ -167,7 +165,7 @@ class ComponentCell: UITableViewCell {
         img.clipsToBounds = true
         img.contentMode = UIViewContentMode.ScaleAspectFit
         //img.addSubview(anim)
-        var idiom = UIDevice.currentDevice().userInterfaceIdiom
+        let idiom = UIDevice.currentDevice().userInterfaceIdiom
         if idiom == UIUserInterfaceIdiom.Phone {
             img.frame = CGRect(x: img.frame.origin.x, y: bnr.frame.origin.y+15, width: img.frame.size.width, height: img.frame.size.height)
         }

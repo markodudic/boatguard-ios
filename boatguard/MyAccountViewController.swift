@@ -48,7 +48,7 @@ class MyAccountViewController: UIViewController, UITextFieldDelegate, UIPickerVi
         let gl_login = CAGradientLayer()
         gl_login.colors = [settings.gradientTop, settings.gradientBottom]
         gl_login.locations = [0.0, 1.0]
-        var idiom = UIDevice.currentDevice().userInterfaceIdiom
+        let idiom = UIDevice.currentDevice().userInterfaceIdiom
         if idiom == UIUserInterfaceIdiom.Phone {
             gl_login.frame = CGRectMake(0,0,scrollView.layer.frame.width,10)
         }
@@ -67,7 +67,7 @@ class MyAccountViewController: UIViewController, UITextFieldDelegate, UIPickerVi
         if states.customer["surname"].asString != nil {
             txtSurname.text = states.customer["surname"].asString!
         }
-        var b = states.customer["birth_year"].asInt
+        let b = states.customer["birth_year"].asInt
         if b != nil && b != 0 {
             txtBirthYear.text = String(b!)
         }
@@ -121,7 +121,7 @@ class MyAccountViewController: UIViewController, UITextFieldDelegate, UIPickerVi
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        var idiom = UIDevice.currentDevice().userInterfaceIdiom
+        let idiom = UIDevice.currentDevice().userInterfaceIdiom
         if idiom == UIUserInterfaceIdiom.Phone {
             scrollView.contentSize = CGSize(width:100, height:1300)
         }
@@ -149,8 +149,8 @@ class MyAccountViewController: UIViewController, UITextFieldDelegate, UIPickerVi
         }
         else {
             self.dismissViewControllerAnimated(false, completion: nil)
-            states.setCustomerSetting(txtName.text, surname: txtSurname.text, password: txtPass.text, birthYear: txtBirthYear.text, country: txtCountry.text, email: txtEmail.text, boatName: txtBoatName.text, boatManafacturer: txtBoatManafacturer.text, boatModel: txtBoatModel.text, boatCountry: txtBoatCountry.text)
-            Comm.HTTPPostJSON(settings.customerSetUri, jsonObj: states.customer.toString(pretty: false))
+            states.setCustomerSetting(txtName.text!, surname: txtSurname.text!, password: txtPass.text!, birthYear: txtBirthYear.text!, country: txtCountry.text!, email: txtEmail.text!, boatName: txtBoatName.text!, boatManafacturer: txtBoatManafacturer.text!, boatModel: txtBoatModel.text!, boatCountry: txtBoatCountry.text!)
+            Comm.HTTPPostJSON(settings.customerSetUri, jsonObj: states.customer.toString(false))
         }
     }
 
@@ -165,7 +165,7 @@ class MyAccountViewController: UIViewController, UITextFieldDelegate, UIPickerVi
     }
     
     //tole je za skrivanje tipkovnice ob prijavi
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         self.view.endEditing(true)
     }
     

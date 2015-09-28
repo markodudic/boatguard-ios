@@ -21,7 +21,7 @@ class TabController: UITabBarController {
 
         self.selectedIndex = 1
         var tabFrame: CGRect = self.tabBar.frame; //self.TabBar is IBOutlet of your TabBar
-        var idiom = UIDevice.currentDevice().userInterfaceIdiom
+        let idiom = UIDevice.currentDevice().userInterfaceIdiom
         if idiom == UIUserInterfaceIdiom.Phone {
             tabFrame.size.height = 60;
             tabFrame.origin.y = self.view.frame.size.height - 60;
@@ -32,9 +32,9 @@ class TabController: UITabBarController {
         }
         self.tabBar.frame = tabFrame;
         
-        var third = tabFrame.size.width/3
-        var line_height = tabFrame.size.height/2
-        var line_offset = tabFrame.size.height/4
+        let third = tabFrame.size.width/3
+        let line_height = tabFrame.size.height/2
+        let line_offset = tabFrame.size.height/4
         
         //add vertical lines
         let imageSize = CGSize(width: 1, height: line_height)
@@ -52,7 +52,7 @@ class TabController: UITabBarController {
     
     func drawCustomImage(size: CGSize) -> UIImage {
         // Setup our context
-        let bounds = CGRect(origin: CGPoint.zeroPoint, size: size)
+        let bounds = CGRect(origin: CGPoint.zero, size: size)
         let opaque = false
         let scale: CGFloat = 0
         UIGraphicsBeginImageContextWithOptions(size, opaque, scale)

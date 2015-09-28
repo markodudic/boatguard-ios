@@ -29,7 +29,7 @@ class ContactsCell: UITableViewCell {
     
     func handleTap(recognizer: UITapGestureRecognizer) {
         states.deleteFriend(customerId)
-        Comm.HTTPPostJSON(settings.friendsSetUri, jsonObj: states.friends.toString(pretty: false))
+        Comm.HTTPPostJSON(settings.friendsSetUri, jsonObj: states.friends.toString(false))
         table.reloadData()
     }
 }

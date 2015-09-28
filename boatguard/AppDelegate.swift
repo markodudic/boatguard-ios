@@ -28,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //Flurry.logEvent("Start Application")   // Example of even logging
         
         var rootController:UIViewController? = nil
-        var idiom = UIDevice.currentDevice().userInterfaceIdiom
+        let idiom = UIDevice.currentDevice().userInterfaceIdiom
         
         if idiom == UIUserInterfaceIdiom.Phone {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -48,8 +48,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.window!.makeKeyAndVisible()
         }
         
-        application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: UIUserNotificationType.Sound | UIUserNotificationType.Alert |
-            UIUserNotificationType.Badge, categories: nil))
+        application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: [UIUserNotificationType.Sound, UIUserNotificationType.Alert, UIUserNotificationType.Badge], categories: nil))
         return true
     }
 

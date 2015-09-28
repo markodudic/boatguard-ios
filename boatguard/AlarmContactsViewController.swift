@@ -26,7 +26,7 @@ class AlarmContactsViewController: UIViewController, UITableViewDelegate {
         let gl = CAGradientLayer()
         gl.colors = [settings.gradientTop, settings.gradientBottom]
         gl.locations = [0.0, 1.0]
-        var idiom = UIDevice.currentDevice().userInterfaceIdiom
+        let idiom = UIDevice.currentDevice().userInterfaceIdiom
         if idiom == UIUserInterfaceIdiom.Phone {
             gl.frame = CGRectMake(0,0,viewContacts.layer.frame.width,10)
         }
@@ -54,7 +54,7 @@ class AlarmContactsViewController: UIViewController, UITableViewDelegate {
         cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell!
     {
         let cell = tableView.dequeueReusableCellWithIdentifier("ContactsCell") as! ContactsCell
-        var friend = states.friends[indexPath.row]
+        let friend = states.friends[indexPath.row]
         cell.lblName.text = friend["name"].asString! + " " + friend["surname"].asString!
         if (friend["email"].isNull || friend["email"].asString == "null") {
             cell.lblDetail.text = friend["number"].asString!
@@ -71,7 +71,7 @@ class AlarmContactsViewController: UIViewController, UITableViewDelegate {
     }
     
     @IBAction func btnAddContact_click(sender: UIButton) {
-        let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("PhoneContactsView") as! UIViewController
+        let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("PhoneContactsView") 
         self.presentViewController(vc, animated: false, completion: nil)
     }
 }

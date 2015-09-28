@@ -38,7 +38,7 @@ class AlarmCell: UITableViewCell {
     
     @IBAction func swOnChanged(sender: UISwitch) {
         states.setAlarm(alarmId, active: swAlarmOn.on.toInt()!, send_email: swSendEmail.on.toInt()!, send_friends: swAlarmFriends.on.toInt()!)
-        Comm.HTTPPostJSON(settings.obuAlarmsSetUri, jsonObj: states.alarms.toString(pretty: false))
+        Comm.HTTPPostJSON(settings.obuAlarmsSetUri, jsonObj: states.alarms.toString(false))
     }
 
 

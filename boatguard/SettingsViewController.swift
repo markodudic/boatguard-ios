@@ -27,7 +27,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate {
         let gl = CAGradientLayer()
         gl.colors = [settings.gradientTop, settings.gradientBottom]
         gl.locations = [0.0, 1.0]
-        var idiom = UIDevice.currentDevice().userInterfaceIdiom
+        let idiom = UIDevice.currentDevice().userInterfaceIdiom
         if idiom == UIUserInterfaceIdiom.Phone {
             gl.frame = CGRectMake(0,0,viewSettings.layer.frame.width,10)
         }
@@ -128,7 +128,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate {
                     states.customer["boat_name"].asString!
             case 8:
                 cell.lblState.text = states.getObuSettingsByIdState(1)["value"].asString!
-            default: println()
+            default: print("")
         }
        
         return cell
@@ -138,36 +138,36 @@ class SettingsViewController: UIViewController, UITableViewDelegate {
     {
         switch indexPath.row {
             case 0:
-                let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("BatteryView") as! UIViewController
+                let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("BatteryView") 
                 self.presentViewController(vc, animated: false, completion: nil)
             case 1:
-                let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("GeoFenceView") as! UIViewController
+                let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("GeoFenceView") 
                 self.presentViewController(vc, animated: false, completion: nil)
             case 2:
-                let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("AnchorView") as! UIViewController
+                let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("AnchorView") 
                 self.presentViewController(vc, animated: false, completion: nil)
             case 3:
-                let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("BilgePumpView") as! UIViewController
+                let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("BilgePumpView") 
                 self.presentViewController(vc, animated: false, completion: nil)
             case 4:
-                let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("AlarmContactsView") as! UIViewController
+                let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("AlarmContactsView") 
                 self.presentViewController(vc, animated: false, completion: nil)
             case 5:
-                let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("AlarmSettingsView") as! UIViewController
+                let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("AlarmSettingsView") 
                 self.presentViewController(vc, animated: false, completion: nil)
             case 6:
-                let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("MyAccountView") as! UIViewController
+                let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("MyAccountView") 
                 self.presentViewController(vc, animated: false, completion: nil)
             case 7:
-                let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("HistoryView") as! UIViewController
+                let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("HistoryView") 
                 self.presentViewController(vc, animated: false, completion: nil)
             case 8:
-                let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("AppSettingsView") as! UIViewController
+                let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("AppSettingsView") 
                 self.presentViewController(vc, animated: false, completion: nil)
             case 9:
-                let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("FirstView") as! UIViewController
+                let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("FirstView") 
                 self.presentViewController(vc, animated: false, completion: nil)
-            default: println()
+            default: print("")
         }
 
     }

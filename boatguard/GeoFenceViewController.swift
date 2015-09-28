@@ -25,7 +25,7 @@ class GeoFenceViewController: UIViewController {
         let gl = CAGradientLayer()
         gl.colors = [settings.gradientTop, settings.gradientBottom]
         gl.locations = [0.0, 1.0]
-        var idiom = UIDevice.currentDevice().userInterfaceIdiom
+        let idiom = UIDevice.currentDevice().userInterfaceIdiom
         if idiom == UIUserInterfaceIdiom.Phone {
             gl.frame = CGRectMake(0,0,viewGeoFence.layer.frame.width,10)
         }
@@ -47,24 +47,24 @@ class GeoFenceViewController: UIViewController {
     //Events
     @IBAction func btnBack_click(sender: UIButton) {
         self.dismissViewControllerAnimated(false, completion: nil)
-        Comm.HTTPPostJSON(settings.obusettingsSetUri, jsonObj: states.getObusettings().toString(pretty: false))
+        Comm.HTTPPostJSON(settings.obusettingsSetUri, jsonObj: states.getObusettings().toString(false))
     }
     
     @IBAction func btnDefine_click(sender: UIButton) {
         Flurry.logEvent("GeoFence Define")
         states.setObuSetting(11, value: "SET")
-        Comm.HTTPPostJSON(settings.obusettingsSetUri, jsonObj: states.getObusettings().toString(pretty: false))
+        Comm.HTTPPostJSON(settings.obusettingsSetUri, jsonObj: states.getObusettings().toString(false))
         
         self.dismissViewControllerAnimated(false, completion: nil)
     }
     
     @IBAction func slGeoFenceDistance_valueChanged(sender: UISlider) {
-        var dist = Int(sender.value)
+        let dist = Int(sender.value)
         lblDistance.text = "\(dist)m"
     }
     
     @IBAction func slGeoFenceDistance_finished(sender: UISlider) {
-        var dist = Int(sender.value)
+        let dist = Int(sender.value)
         states.setObuSetting(13, value: String(dist))
     }
     

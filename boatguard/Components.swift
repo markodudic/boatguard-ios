@@ -22,7 +22,7 @@ class Components: NSObject {
     var comps = [comp]()
     
     func addComponent(id: Int, json: JSON, alarm: Bool, type: String) {
-        var c = comp()
+        let c = comp()
         c.id    = id
         c.json  = json
         c.alarm = alarm
@@ -40,7 +40,7 @@ class Components: NSObject {
     }
     
     func getComponent(idx: Int, tableView: UITableView) -> UITableViewCell {
-        var c = comps[idx]
+        let c = comps[idx]
         
         if (c.type == "PUMP") {
             return renderCellPump(idx, tableView: tableView)
@@ -95,8 +95,8 @@ class Components: NSObject {
     * PUMP
     */
     func renderCellPump(idx: Int, tableView: UITableView) ->UITableViewCell {
-        var c = comps[idx]
-        var json = c.json
+        let c = comps[idx]
+        let json = c.json
         
         let cell = tableView.dequeueReusableCellWithIdentifier("ComponentCell") as! ComponentCell
         cell.setCellName("PUMP")
@@ -149,7 +149,7 @@ class Components: NSObject {
         //for component_state in component_states {
             let component_data: JSON = states.getObudataByIdState(20)
             if (component_data.length > 0) {
-                if (component_data["value"].asString?.toInt() != 0) {
+                if (Int((component_data["value"].asString)!) != 0) {
                     setAlarm(json["id_component"].asInt!)
                     return true
                 }
@@ -162,8 +162,8 @@ class Components: NSObject {
     * ANCHOR
     */
     func renderCellAnchor(idx: Int, tableView: UITableView) ->UITableViewCell {
-        var c = comps[idx]
-        var json = c.json
+        let c = comps[idx]
+        let json = c.json
         
         let cell = tableView.dequeueReusableCellWithIdentifier("ComponentCell") as! ComponentCell
         cell.setCellName("ANCHOR")
@@ -208,7 +208,7 @@ class Components: NSObject {
         //for component_state in component_states {
             let component_data: JSON = states.getObudataByIdState(41)
             if (component_data.length > 0) {
-                if (component_data["value"].asString?.toInt() == 1) {
+                if (Int((component_data["value"].asString)!)! == 1) {
                     setAlarm(json["id_component"].asInt!)
                     return true
                 }
@@ -221,8 +221,8 @@ class Components: NSObject {
     * GEO
     */
     func renderCellGeo(idx: Int, tableView: UITableView) ->UITableViewCell {
-        var c = comps[idx]
-        var json = c.json
+        let c = comps[idx]
+        let json = c.json
         
         let cell = tableView.dequeueReusableCellWithIdentifier("ComponentCell") as! ComponentCell
         cell.setCellName("GEO")
@@ -263,7 +263,7 @@ class Components: NSObject {
         //let component_states: [JSON] = states.getComponentStates(json["id_component"].asInt!)
         //for component_state in component_states {
             let component_data: JSON = states.getObudataByIdState(10)
-            if (component_data["value"].asString?.toInt() == 2) {
+            if (Int((component_data["value"].asString)!) == 2) {
                 setAlarm(json["id_component"].asInt!)
                 return true
             }
@@ -275,8 +275,8 @@ class Components: NSObject {
     * ACCU
     */
     func renderCellAccu(idx: Int, tableView: UITableView) ->UITableViewCell {
-        var c = comps[idx]
-        var json = c.json
+        let c = comps[idx]
+        let json = c.json
         
         let cell = tableView.dequeueReusableCellWithIdentifier("ComponentCell") as! ComponentCell
         cell.setCellName("ACCU")
@@ -348,7 +348,7 @@ class Components: NSObject {
         //for component_state in component_states {
             let component_data1: JSON = states.getObudataByIdState(33)
             if (component_data1.length > 0) {
-                if (component_data1["value"].asString?.toInt() == 0) {
+                if (Int((component_data1["value"].asString)!) == 0) {
                     setAlarm(json["id_component"].asInt!)
                     return true
                 }
@@ -357,7 +357,7 @@ class Components: NSObject {
         //for component_state in component_states {
             let component_data2: JSON = states.getObudataByIdState(34)
             if (component_data2.length > 0) {
-                if (component_data2["value"].asString?.toInt() == 1) {
+                if (Int((component_data2["value"].asString)!) == 1) {
                     setAlarm(json["id_component"].asInt!)
                     return true
                 }
@@ -370,8 +370,8 @@ class Components: NSObject {
     * LIGHT
     */
     func renderCellLight(idx: Int, tableView: UITableView) ->UITableViewCell {
-        var c = comps[idx]
-        var json = c.json
+        let c = comps[idx]
+        let json = c.json
         
         let cell = tableView.dequeueReusableCellWithIdentifier("ComponentCell") as! ComponentCell
         cell.setCellName("LIGHT")
@@ -414,8 +414,8 @@ class Components: NSObject {
     * FAN
     */
     func renderCellFan(idx: Int, tableView: UITableView) ->UITableViewCell {
-        var c = comps[idx]
-        var json = c.json
+        let c = comps[idx]
+        let json = c.json
         
         let cell = tableView.dequeueReusableCellWithIdentifier("ComponentCell") as! ComponentCell
         cell.setCellName("FAN")
@@ -458,8 +458,8 @@ class Components: NSObject {
     * DOOR
     */
     func renderCellDoor(idx: Int, tableView: UITableView) ->UITableViewCell {
-        var c = comps[idx]
-        var json = c.json
+        let c = comps[idx]
+        let json = c.json
         
         let cell = tableView.dequeueReusableCellWithIdentifier("ComponentCell") as! ComponentCell
         cell.setCellName("DOOR")
@@ -499,7 +499,7 @@ class Components: NSObject {
         for component_state in component_states {
             let component_data: JSON = states.getObudataByIdState(70)
             if (component_data.length > 0) {
-                if (component_data["value"].asString?.toInt() == 1) {
+                if (Int((component_data["value"].asString)!) == 1) {
                     setAlarm(json["id_component"].asInt!)
                     return true
                 }
@@ -521,10 +521,10 @@ class Components: NSObject {
         }
         
         let values:String = jcomp["values"].asString!
-        let valuesArr = split(values) {$0 == ","}
+        let valuesArr = values.characters.split {$0 == ","}.map { String($0) }
 
         for value in valuesArr {
-            if (jdata["value"].asString?.toInt() == value.toInt()) {
+            if (Int((jdata["value"].asString)!) == Int(value)) {
                 return true
             }
         }

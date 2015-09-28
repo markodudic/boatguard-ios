@@ -31,7 +31,7 @@ class ThirdViewController: UIViewController, MKMapViewDelegate {
         let gl = CAGradientLayer()
         gl.colors = [settings.gradientTop, settings.gradientBottom]
         gl.locations = [0.0, 1.0]
-        var idiom = UIDevice.currentDevice().userInterfaceIdiom
+        let idiom = UIDevice.currentDevice().userInterfaceIdiom
         if idiom == UIUserInterfaceIdiom.Phone {
             gl.frame = CGRectMake(0,0,viewMap.layer.frame.width,10)
         }
@@ -44,11 +44,11 @@ class ThirdViewController: UIViewController, MKMapViewDelegate {
     
     func addCircle(location: CLLocation, radius: CLLocationDistance){
         self.theMapView.delegate = self
-        var circle = MKCircle(centerCoordinate: location.coordinate, radius: radius)
+        let circle = MKCircle(centerCoordinate: location.coordinate, radius: radius)
         self.theMapView.addOverlay(circle)
     }
     
-    func mapView(mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
+    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView! {
         
         if !(annotation is CustomPointAnnotation) {
             return nil
@@ -59,24 +59,24 @@ class ThirdViewController: UIViewController, MKMapViewDelegate {
         var anView = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseId)
         if anView == nil {
             anView = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
-            anView.canShowCallout = true
+            anView!.canShowCallout = true
         }
         else {
-            anView.annotation = annotation
+            anView!.annotation = annotation
         }
         
         //Set annotation-specific properties **AFTER**
         //the view is dequeued or created...
         
         let cpa = annotation as! CustomPointAnnotation
-        anView.image = UIImage(named:cpa.imageName)
+        anView!.image = UIImage(named:cpa.imageName)
         
         return anView
     }
     
-    func mapView(mapView: MKMapView!, rendererForOverlay overlay: MKOverlay!) -> MKOverlayRenderer! {
+    func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer! {
         if overlay is MKCircle {
-            var circle = MKCircleRenderer(overlay: overlay)
+            let circle = MKCircleRenderer(overlay: overlay)
             circle.strokeColor = UIColor.redColor()
             circle.fillColor = UIColor(red: 255, green: 0, blue: 0, alpha: 0.1)
             circle.lineWidth = 1

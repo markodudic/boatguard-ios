@@ -35,7 +35,7 @@ class Refresh: NSObject {
     }
     
     func handelComponent(idx: Int) {
-        var json = states.getObucomponent(idx)
+        let json = states.getObucomponent(idx)
         var type = "unknown"
 
         if (json["type"].asString == "PUMP") {
@@ -59,13 +59,13 @@ class Refresh: NSObject {
     //proces recived JSON
     func process() -> Void {
         if (refreshSemaphoreGo) {
-            println("refresh start")
-            println(NSDate())
+            print("refresh start")
+            print(NSDate())
             refreshSemaphoreGo = false
             handleAlarms()
             handleComponents()
             refreshSemaphoreGo = true
-            println("refresh end")
+            print("refresh end")
         }
     }
 
@@ -100,17 +100,21 @@ class Refresh: NSObject {
                 }
             
                 if (sound == 1 && NSUserDefaults.standardUserDefaults().boolForKey("SETTING_PLAY_SOUND")) {
-                    var alertSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("horn", ofType: "wav")!)
-                    var audioPlayer = AVAudioPlayer()
-                    audioPlayer = AVAudioPlayer(contentsOfURL: alertSound, error: nil)
+                    let alertSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("horn", ofType: "wav")!)
+                    var audioPlayer = AVAudioPlayer();
+                    do {
+                        try audioPlayer = AVAudioPlayer(contentsOfURL: alertSound)
+                    } catch {
+                        //Handle the error
+                    }
                     audioPlayer.prepareToPlay()
                     audioPlayer.play()
                 }
             
                 dispatch_async(dispatch_get_main_queue(), {
-                    var alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
-                    alert.addAction(UIAlertAction(title: "Confirm", style: UIAlertActionStyle.Default, handler: {(alert: UIAlertAction!) in self.confirmAlarm(id_alarm)}))
-                    alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: {(alert: UIAlertAction!) in self.confirmAlarm(id_alarm)}))
+                    let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+                    alert.addAction(UIAlertAction(title: "Confirm", style: UIAlertActionStyle.Default, handler: {(alert: UIAlertAction) in self.confirmAlarm(id_alarm)}))
+                    alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: {(alert: UIAlertAction) in self.confirmAlarm(id_alarm)}))
                     self.view.presentViewController(alert, animated: true, completion: nil)
                });
             }
@@ -148,7 +152,7 @@ class Refresh: NSObject {
     }
     
     func handleComponentAlarms(idx: Int) {
-        var json = states.getObucomponent(idx)
+        let json = states.getObucomponent(idx)
         
         if (json["type"].asString == "PUMP") {
             components.alarmCellPump(json)

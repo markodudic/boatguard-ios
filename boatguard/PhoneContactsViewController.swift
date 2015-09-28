@@ -26,7 +26,7 @@ class PhoneContactsViewController: UIViewController, UITableViewDelegate {
         let gl = CAGradientLayer()
         gl.colors = [settings.gradientTop, settings.gradientBottom]
         gl.locations = [0.0, 1.0]
-        var idiom = UIDevice.currentDevice().userInterfaceIdiom
+        let idiom = UIDevice.currentDevice().userInterfaceIdiom
         if idiom == UIUserInterfaceIdiom.Phone {
             gl.frame = CGRectMake(0,0,viewContacts.layer.frame.width,10)
         }
@@ -54,7 +54,7 @@ class PhoneContactsViewController: UIViewController, UITableViewDelegate {
         cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell!
     {
         let cell = tableView.dequeueReusableCellWithIdentifier("ContactsCell") as! ContactsCell
-        var contact = states.contacts[indexPath.row]
+        let contact = states.contacts[indexPath.row]
         cell.lblName.text = contact.getName() + " " + contact.getLastName()
         if (contact.getEmail().isEmpty) {
             cell.lblDetail.text = contact.getPhoneNum()
@@ -69,7 +69,7 @@ class PhoneContactsViewController: UIViewController, UITableViewDelegate {
     {
         var contact = states.contacts[indexPath.row]
         states.addFriend(contact.getUid(), idCustomer: states.customer["uid"].asInt!, name: contact.getName(), surname: contact.getLastName(), number: contact.getPhoneNum(), email: contact.getEmail())
-        Comm.HTTPPostJSON(settings.friendsSetUri, jsonObj: states.friends.toString(pretty: false))
+        Comm.HTTPPostJSON(settings.friendsSetUri, jsonObj: states.friends.toString(false))
         self.dismissViewControllerAnimated(false, completion: nil)
     }
 }

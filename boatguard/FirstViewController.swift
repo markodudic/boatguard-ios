@@ -31,7 +31,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate, NSURLConnectio
         let gl_login = CAGradientLayer()
         gl_login.colors = [settings.gradientTop, settings.gradientBottom]
         gl_login.locations = [0.0, 1.0]
-        var idiom = UIDevice.currentDevice().userInterfaceIdiom
+        let idiom = UIDevice.currentDevice().userInterfaceIdiom
         if idiom == UIUserInterfaceIdiom.Phone {
             gl_login.frame = CGRectMake(0,0,viewLogin.layer.frame.width,10)
         }
@@ -65,12 +65,18 @@ class FirstViewController: UIViewController, UITextFieldDelegate, NSURLConnectio
 
     //Events
     @IBAction func btnRegister_click(sender: UIButton) {
-        var urlPath: String = settings.registerUri+"&username="+txtUser.text+"&password="+txtPass.text+"&obu_sn="+txtObuid.text
+        let params1 = "&username="+txtUser.text!
+        let params2 = "&password="+txtPass.text!
+        let params3 = "&obu_sn="+txtObuid.text!
+        let urlPath: String = settings.registerUri+params1+params2+params3
         checkLoginRegister(urlPath)
     }
 
     @IBAction func btnLogin_click(sender: UIButton) {
-        var urlPath: String = settings.loginUri+"&username="+txtUser.text+"&password="+txtPass.text+"&obu_sn="+txtObuid.text
+        let params1 = "&username="+txtUser.text!
+        let params2 = "&password="+txtPass.text!
+        let params3 = "&obu_sn="+txtObuid.text!
+        let urlPath: String = settings.loginUri+params1+params2+params3
         checkLoginRegister(urlPath)
     }
         
@@ -79,18 +85,18 @@ class FirstViewController: UIViewController, UITextFieldDelegate, NSURLConnectio
         let json = Comm.JSONfromURL(urlPath.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!)
         
         if (json["error"].isDictionary) {
-            var alert = UIAlertController(title: json["error"]["name"].asString, message: json["error"]["msg"].asString, preferredStyle: UIAlertControllerStyle.Alert)
+            let alert = UIAlertController(title: json["error"]["name"].asString, message: json["error"]["msg"].asString, preferredStyle: UIAlertControllerStyle.Alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
             self.presentViewController(alert, animated: true, completion: nil)
         } else {
             states.setLogin(json)
             states.setObuid1(json["obu"]["uid"].asInt!)
-            states.setUser1(txtUser.text)
-            states.setPass1(txtPass.text)
+            states.setUser1(txtUser.text!)
+            states.setPass1(txtPass.text!)
             states.setRemember1(swRemember.on)
             states.setSessionId1(json["sessionId"].asString!)
-            getobusettings(states.getObuid())
             setDevice()
+            getobusettings(states.getObuid())
         }
     }
 
@@ -106,7 +112,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate, NSURLConnectio
         println(UIDevice.currentDevice().systemVersion)
         println(NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleShortVersionString") as String)
     */
-        let customer = states.getCustomer()["uid"]
+    /*    let customer = states.getCustomer()["uid"]
         let appVersion = (NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleShortVersionString") as! String)
         let device = UIDevice.currentDevice()
         
@@ -115,10 +121,10 @@ class FirstViewController: UIViewController, UITextFieldDelegate, NSURLConnectio
         deviceJson += "\", \"phone_model\":\""+device.localizedModel
         deviceJson += "\", \"phone_platform\":\""+device.systemName
         deviceJson += "\", \"phone_platform_version\":\""+device.systemVersion
-        deviceJson += "\", \"phone_uuid\":\""+device.identifierForVendor.UUIDString
+        deviceJson += "\", \"phone_uuid\":\""+device.identifierForVendor!.UUIDString
         deviceJson += "\", \"app_version\":\""+appVersion+"\"}"
         
-        Comm.HTTPPostJSON(settings.deviceUri, jsonObj: deviceJson)
+        Comm.HTTPPostJSON(settings.deviceUri, jsonObj: deviceJson)*/
     }
 
     func getobusettings(obuid: Int) {
@@ -165,9 +171,10 @@ class FirstViewController: UIViewController, UITextFieldDelegate, NSURLConnectio
         
         //get contacts from phonebook
         // make sure user hadn't previously denied access
+        /*
         let status = ABAddressBookGetAuthorizationStatus()
         if status == .Denied || status == .Restricted {
-            var alert = UIAlertController(title: "Phonebook access", message: "Phonebook is not accessable. Enable it in the settings.", preferredStyle: UIAlertControllerStyle.Alert)
+            let alert = UIAlertController(title: "Phonebook access", message: "Phonebook is not accessable. Enable it in the settings.", preferredStyle: UIAlertControllerStyle.Alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
             self.presentViewController(alert, animated: true, completion: nil)
             return
@@ -177,7 +184,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate, NSURLConnectio
         var error: Unmanaged<CFError>?
         let addressBook: ABAddressBook? = ABAddressBookCreateWithOptions(nil, &error)?.takeRetainedValue()
         if addressBook == nil {
-            println(error?.takeRetainedValue())
+            print(error?.takeRetainedValue())
             return
         }
         
@@ -186,7 +193,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate, NSURLConnectio
             granted, error in
             
             if !granted {
-                var alert = UIAlertController(title: "Phonebook access", message: "Phonebook is not accessable. Enable it in the settings.", preferredStyle: UIAlertControllerStyle.Alert)
+                let alert = UIAlertController(title: "Phonebook access", message: "Phonebook is not accessable. Enable it in the settings.", preferredStyle: UIAlertControllerStyle.Alert)
                 alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
                 self.presentViewController(alert, animated: true, completion: nil)
                 return
@@ -195,11 +202,11 @@ class FirstViewController: UIViewController, UITextFieldDelegate, NSURLConnectio
             
             let allContacts : NSArray = ABAddressBookCopyArrayOfAllPeople(addressBook).takeRetainedValue()
             for contactRef:ABRecordRef in allContacts {
-                var contact: Contact = Contact()
+                let contact: Contact = Contact()
 
                 let uid = ABRecordGetRecordID(contactRef)
                 if uid != kABRecordInvalidID{
-                    var numberID: NSNumber = NSNumber(int: uid)
+                    let numberID: NSNumber = NSNumber(int: uid)
                     contact.setUid1(numberID.integerValue)
                 }
                 if let firstName = ABRecordCopyValue(contactRef, kABPersonFirstNameProperty).takeUnretainedValue() as? NSString {
@@ -208,7 +215,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate, NSURLConnectio
                 if let lastName = ABRecordCopyValue(contactRef, kABPersonLastNameProperty).takeUnretainedValue() as? NSString {
                     contact.setLastName1(lastName as String)
                 }
-                var phones: ABMultiValueRef = ABRecordCopyValue(contactRef, kABPersonPhoneProperty).takeUnretainedValue() as ABMultiValueRef
+                let phones: ABMultiValueRef = ABRecordCopyValue(contactRef, kABPersonPhoneProperty).takeUnretainedValue() as ABMultiValueRef
                 
                 for var index = 0; index < ABMultiValueGetCount(phones); ++index{
                     let currentPhoneLabel = ABMultiValueCopyLabelAtIndex(phones, index).takeUnretainedValue() as CFStringRef as CFString
@@ -225,11 +232,11 @@ class FirstViewController: UIViewController, UITextFieldDelegate, NSURLConnectio
                 states.contacts.append(contact)
                 
             }
-        }
+        }*/
 
         //open storyboard
         var storyboard = UIStoryboard(name: "Main_ipad", bundle: nil)
-        var idiom = UIDevice.currentDevice().userInterfaceIdiom
+        let idiom = UIDevice.currentDevice().userInterfaceIdiom
         if idiom == UIUserInterfaceIdiom.Phone {
             storyboard = UIStoryboard(name: "Main", bundle: nil)
         }
@@ -244,7 +251,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate, NSURLConnectio
     }
     
     //tole je za skrivanje tipkovnice ob prijavi
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         self.view.endEditing(true)
     }
     

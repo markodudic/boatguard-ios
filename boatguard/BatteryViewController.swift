@@ -26,7 +26,7 @@ class BatteryViewController: UIViewController {
         let gl = CAGradientLayer()
         gl.colors = [settings.gradientTop, settings.gradientBottom]
         gl.locations = [0.0, 1.0]
-        var idiom = UIDevice.currentDevice().userInterfaceIdiom
+        let idiom = UIDevice.currentDevice().userInterfaceIdiom
         if idiom == UIUserInterfaceIdiom.Phone {
             gl.frame = CGRectMake(0,0,viewBattery.layer.frame.width,10)
         }
@@ -48,8 +48,8 @@ class BatteryViewController: UIViewController {
     //Events
     @IBAction func btnBack_click(sender: UIButton) {
         self.dismissViewControllerAnimated(false, completion: nil)
-        states.setObuSetting(32, value: txtCapacity.text.stringByReplacingOccurrencesOfString("Ah", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil))
-        Comm.HTTPPostJSON(settings.obusettingsSetUri, jsonObj: states.getObusettings().toString(pretty: false))
+        states.setObuSetting(32, value: txtCapacity.text!.stringByReplacingOccurrencesOfString("Ah", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil))
+        Comm.HTTPPostJSON(settings.obusettingsSetUri, jsonObj: states.getObusettings().toString(false))
     }
     
     @IBAction func btnReset_click(sender: UIButton) {
@@ -57,12 +57,12 @@ class BatteryViewController: UIViewController {
     }
     
     @IBAction func slBatteryAlarm_valueChanged(sender: UISlider) {
-        var alarm = Int(sender.value)
+        let alarm = Int(sender.value)
         lblAlarm.text = "\(alarm)%"
     }
     
     @IBAction func slBatteryAlarm_finished(sender: UISlider) {
-        var alarm = Int(sender.value)
+        let alarm = Int(sender.value)
         states.setObuSetting(33, value: String(alarm))
     }
 

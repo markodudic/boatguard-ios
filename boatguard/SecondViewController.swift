@@ -29,7 +29,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let gl_top = CAGradientLayer()
         gl_top.colors = [settings.gradientTop, settings.gradientBottom]
         gl_top.locations = [0.0, 1.0]
-        var idiom = UIDevice.currentDevice().userInterfaceIdiom
+        let idiom = UIDevice.currentDevice().userInterfaceIdiom
         if idiom == UIUserInterfaceIdiom.Phone {
             gl_top.frame = CGRectMake(0,8,viewComponents.layer.frame.width,10)
         }
@@ -70,7 +70,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.refreshControl = UIRefreshControl()
         self.refreshControl.tintColor = settings.refresh
         
-        var refreshing: NSMutableAttributedString = NSMutableAttributedString(string:  "R E F R E S H I N G")
+        let refreshing: NSMutableAttributedString = NSMutableAttributedString(string:  "R E F R E S H I N G")
         refreshing.addAttribute(NSForegroundColorAttributeName, value: settings.refresh, range: NSMakeRange(0, refreshing.length))
         self.refreshControl.attributedTitle = refreshing
         self.refreshControl.addTarget(self, action: "refreshDataManualy:", forControlEvents: UIControlEvents.ValueChanged)
@@ -106,7 +106,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         if (json["error"].isDictionary){
             if (manually == true) {
-                var alert = UIAlertController(title: json["error"]["name"].asString, message: json["error"]["msg"].asString, preferredStyle: UIAlertControllerStyle.Alert)
+                let alert = UIAlertController(title: json["error"]["name"].asString, message: json["error"]["msg"].asString, preferredStyle: UIAlertControllerStyle.Alert)
                 alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
                 self.presentViewController(alert, animated: true, completion: nil)
             }
@@ -165,18 +165,18 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         switch comps[indexPath.row].type {
             case "GEO":
-                let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("GeoFenceView") as! UIViewController
+                let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("GeoFenceView") 
                 self.presentViewController(vc, animated: false, completion: nil)
             case "ANCHOR":
-                let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("AnchorView")as! UIViewController
+                let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("AnchorView")
                 self.presentViewController(vc, animated: false, completion: nil)
             case "ACCU":
-                let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("BatteryView") as! UIViewController
+                let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("BatteryView") 
                 self.presentViewController(vc, animated: false, completion: nil)
             case "PUMP":
-                let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("BilgePumpView") as! UIViewController
+                let vc : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("BilgePumpView") 
                 self.presentViewController(vc, animated: false, completion: nil)
-            default: println()
+            default: print("")
         }
         
         

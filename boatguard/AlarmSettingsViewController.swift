@@ -25,7 +25,7 @@ class AlarmSettingsViewController: UIViewController, UITextFieldDelegate, UITabl
         let gl = CAGradientLayer()
         gl.colors = [settings.gradientTop, settings.gradientBottom]
         gl.locations = [0.0, 1.0]
-        var idiom = UIDevice.currentDevice().userInterfaceIdiom
+        let idiom = UIDevice.currentDevice().userInterfaceIdiom
         if idiom == UIUserInterfaceIdiom.Phone {
             gl.frame = CGRectMake(0,0,viewAlarmSettings.layer.frame.width,10)
         }
@@ -70,7 +70,7 @@ class AlarmSettingsViewController: UIViewController, UITextFieldDelegate, UITabl
         cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell!
     {
         let cell = tableView.dequeueReusableCellWithIdentifier("AlarmCell") as! AlarmCell
-        var alarm = states.alarms[indexPath.row]
+        let alarm = states.alarms[indexPath.row]
         cell.lblAlarmName.text = alarm["message_short"].asString!.uppercaseString
         
         cell.swAlarmOn.on = alarm["active"].asInt! == 1
