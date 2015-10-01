@@ -31,10 +31,10 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         gl_top.locations = [0.0, 1.0]
         let idiom = UIDevice.currentDevice().userInterfaceIdiom
         if idiom == UIUserInterfaceIdiom.Phone {
-            gl_top.frame = CGRectMake(0,8,viewComponents.layer.frame.width,10)
+            gl_top.frame = CGRectMake(0,0,viewComponents.layer.frame.width,10)
         }
         else {
-            gl_top.frame = CGRectMake(0,8,viewComponents.layer.frame.width,30)
+            gl_top.frame = CGRectMake(0,0,viewComponents.layer.frame.width,30)
             
         }
         viewComponents.layer.insertSublayer(gl_top, atIndex: 100)
@@ -71,6 +71,11 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.refreshControl.tintColor = settings.refresh
         
         let refreshing: NSMutableAttributedString = NSMutableAttributedString(string:  "R E F R E S H I N G")
+        var font = UIFont(name: "Dosis-Regular", size: 28)
+        if idiom == UIUserInterfaceIdiom.Phone {
+            font = UIFont(name: "Dosis-Regular", size: 14)
+        }
+        refreshing.addAttribute(NSFontAttributeName, value: font!, range: NSMakeRange(0, refreshing.length))
         refreshing.addAttribute(NSForegroundColorAttributeName, value: settings.refresh, range: NSMakeRange(0, refreshing.length))
         self.refreshControl.attributedTitle = refreshing
         self.refreshControl.addTarget(self, action: "refreshDataManualy:", forControlEvents: UIControlEvents.ValueChanged)
@@ -121,7 +126,13 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
             firstTime = false
         }
         
-        self.lblRefresh.text = states.dblSpace("LAST UPDATE: "+states.getObudatadateTime())
+        if UIDevice.currentDevice().userInterfaceIdiom == UIUserInterfaceIdiom.Phone {
+            self.lblRefresh.attributedText = NSAttributedString(string: "LAST UPDATE: "+states.getObudatadateTime(), attributes: [NSKernAttributeName:3])
+        } else {
+            self.lblRefresh.attributedText = NSAttributedString(string: "LAST UPDATE: "+states.getObudatadateTime(), attributes: [NSKernAttributeName:4])
+        }
+        
+        //self.lblRefresh.text = states.dblSpace("LAST UPDATE: "+states.getObudatadateTime())
             
         if (states.isAlarm) {
             imgLogo.image = UIImage(named: "logo_alarm")

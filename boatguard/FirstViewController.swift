@@ -95,27 +95,15 @@ class FirstViewController: UIViewController, UITextFieldDelegate, NSURLConnectio
             states.setPass1(txtPass.text!)
             states.setRemember1(swRemember.on)
             states.setSessionId1(json["sessionId"].asString!)
-            setDevice()
             getobusettings(states.getObuid())
+            setDevice()
         }
     }
 
     func setDevice() {
-        /*println("**************")
-        println(UIDevice.currentDevice().userInterfaceIdiom.rawValue)
-        println(UIDevice.currentDevice().description)
-        println(UIDevice.currentDevice().identifierForVendor.UUIDString)
-        println(UIDevice.currentDevice().localizedModel)
-        println(UIDevice.currentDevice().model)
-        println(UIDevice.currentDevice().name)
-        println(UIDevice.currentDevice().systemName)
-        println(UIDevice.currentDevice().systemVersion)
-        println(NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleShortVersionString") as String)
-    */
-    /*    let customer = states.getCustomer()["uid"]
+        let customer = states.getCustomer()["uid"]
         let appVersion = (NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleShortVersionString") as! String)
         let device = UIDevice.currentDevice()
-        
         var deviceJson = "{\"id_obu\":\""+String(states.obuid)
         deviceJson += "\", \"id_customer\":\""+customer.description
         deviceJson += "\", \"phone_model\":\""+device.localizedModel
@@ -124,7 +112,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate, NSURLConnectio
         deviceJson += "\", \"phone_uuid\":\""+device.identifierForVendor!.UUIDString
         deviceJson += "\", \"app_version\":\""+appVersion+"\"}"
         
-        Comm.HTTPPostJSON(settings.deviceUri, jsonObj: deviceJson)*/
+        Comm.HTTPPostJSON(settings.deviceUri, jsonObj: deviceJson)
     }
 
     func getobusettings(obuid: Int) {
@@ -171,7 +159,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate, NSURLConnectio
         
         //get contacts from phonebook
         // make sure user hadn't previously denied access
-        /*
+        
         let status = ABAddressBookGetAuthorizationStatus()
         if status == .Denied || status == .Restricted {
             let alert = UIAlertController(title: "Phonebook access", message: "Phonebook is not accessable. Enable it in the settings.", preferredStyle: UIAlertControllerStyle.Alert)
@@ -209,30 +197,41 @@ class FirstViewController: UIViewController, UITextFieldDelegate, NSURLConnectio
                     let numberID: NSNumber = NSNumber(int: uid)
                     contact.setUid1(numberID.integerValue)
                 }
-                if let firstName = ABRecordCopyValue(contactRef, kABPersonFirstNameProperty).takeUnretainedValue() as? NSString {
-                    contact.setName1(firstName as String)
-                }
-                if let lastName = ABRecordCopyValue(contactRef, kABPersonLastNameProperty).takeUnretainedValue() as? NSString {
-                    contact.setLastName1(lastName as String)
-                }
-                let phones: ABMultiValueRef = ABRecordCopyValue(contactRef, kABPersonPhoneProperty).takeUnretainedValue() as ABMultiValueRef
                 
-                for var index = 0; index < ABMultiValueGetCount(phones); ++index{
-                    let currentPhoneLabel = ABMultiValueCopyLabelAtIndex(phones, index).takeUnretainedValue() as CFStringRef as CFString
-                    let currentPhoneValue = ABMultiValueCopyValueAtIndex(phones, index).takeUnretainedValue() as! CFStringRef as String
-                    
-                    if currentPhoneLabel == kABPersonPhoneMobileLabel {
-                        contact.setPhoneNum1(currentPhoneValue)
+                if (ABRecordCopyValue(contactRef, kABPersonFirstNameProperty) != nil) {
+                    if let firstName = ABRecordCopyValue(contactRef, kABPersonFirstNameProperty).takeUnretainedValue() as? NSString {
+                        contact.setName1(firstName as String)
                     }
                 }
-                if let email = ABRecordCopyValue(contactRef, kABPersonEmailProperty).takeUnretainedValue() as? NSString {
-                    contact.setEmail1(email as String)
+
+                if (ABRecordCopyValue(contactRef, kABPersonLastNameProperty) != nil) {
+                    if let lastName = ABRecordCopyValue(contactRef, kABPersonLastNameProperty).takeUnretainedValue() as? NSString {
+                        contact.setLastName1(lastName as String)
+                    }
+                }
+                
+                if (ABRecordCopyValue(contactRef, kABPersonPhoneProperty) != nil) {
+                    let phones: ABMultiValueRef = ABRecordCopyValue(contactRef, kABPersonPhoneProperty).takeUnretainedValue() as ABMultiValueRef
+                
+                    for var index = 0; index < ABMultiValueGetCount(phones); ++index{
+                        let currentPhoneLabel = ABMultiValueCopyLabelAtIndex(phones, index).takeUnretainedValue() as CFStringRef as CFString
+                        let currentPhoneValue = ABMultiValueCopyValueAtIndex(phones, index).takeUnretainedValue() as! CFStringRef as String
+                    
+                        if currentPhoneLabel == kABPersonPhoneMobileLabel {
+                            contact.setPhoneNum1(currentPhoneValue)
+                        }
+                    }
+                }
+                
+                if (ABRecordCopyValue(contactRef, kABPersonEmailProperty) != nil) {
+                    if let email = ABRecordCopyValue(contactRef, kABPersonEmailProperty).takeUnretainedValue() as? NSString {
+                        contact.setEmail1(email as String)
+                    }
                 }
                 
                 states.contacts.append(contact)
-                
             }
-        }*/
+        }
 
         //open storyboard
         var storyboard = UIStoryboard(name: "Main_ipad", bundle: nil)

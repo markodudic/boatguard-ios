@@ -60,7 +60,8 @@ class SettingsViewController: UIViewController, UITableViewDelegate {
         cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell!
     {
         let cell = tableView.dequeueReusableCellWithIdentifier("SettingsCell") as! SettingsCell
-        cell.lbl.text = settings.settingsTableData[indexPath.row]
+        cell.lbl.attributedText = NSAttributedString(string: settings.settingsTableData[indexPath.row], attributes: [NSKernAttributeName:4])
+        //cell.lbl.text = settings.settingsTableData[indexPath.row]
         cell.lblState.text = ""
         cell.lblState.textColor = settings.lblGreen
         switch indexPath.row {
