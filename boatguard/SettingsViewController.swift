@@ -104,9 +104,9 @@ class SettingsViewController: UIViewController, UITableViewDelegate {
                 }
                 cell.lblState.text = contacts
             case 5:
-                var playSound = NSUserDefaults.standardUserDefaults().boolForKey("SETTING_PLAY_SOUND")
-                var vibrate = NSUserDefaults.standardUserDefaults().boolForKey("SETTING_VIBRATE")
-                var popUp = NSUserDefaults.standardUserDefaults().boolForKey("SETTING_POP_UP")
+                let playSound = NSUserDefaults.standardUserDefaults().boolForKey("SETTING_PLAY_SOUND")
+                let vibrate = NSUserDefaults.standardUserDefaults().boolForKey("SETTING_VIBRATE")
+                let popUp = NSUserDefaults.standardUserDefaults().boolForKey("SETTING_POP_UP")
                 var settings = ""
                 if playSound {
                     settings += "PLAY SOUND"
@@ -125,8 +125,19 @@ class SettingsViewController: UIViewController, UITableViewDelegate {
                 }
                 cell.lblState.text = settings
             case 6:
-                cell.lblState.text = states.customer["name"].asString! + " " + states.customer["surname"].asString! + " / " +
-                    states.customer["boat_name"].asString!
+                var name = "";
+                if (states.customer["name"].asString != nil) {
+                    name = states.customer["name"].asString!
+                }
+                var surname = "";
+                if (states.customer["surname"].asString != nil) {
+                    surname = states.customer["surname"].asString!
+                }
+                var boat_name = "";
+                if (states.customer["boat_name"].asString != nil) {
+                    boat_name = states.customer["boat_name"].asString!
+                }
+                cell.lblState.text = name + " " + surname + " / " + boat_name
             case 8:
                 cell.lblState.text = states.getObuSettingsByIdState(1)["value"].asString!
             default: print("")
