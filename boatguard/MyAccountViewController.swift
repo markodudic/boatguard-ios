@@ -20,6 +20,7 @@ class MyAccountViewController: UIViewController, UITextFieldDelegate, UIPickerVi
     @IBOutlet var pvCountry: UIPickerView! = UIPickerView()
     @IBOutlet var txtCountry: UITextField! = nil
     @IBOutlet var txtEmail: UITextField!
+    @IBOutlet var txtPhoneNumber: UITextField!
     @IBOutlet var txtBoatName: UITextField!
     @IBOutlet var pvBoatManafacturer: UIPickerView! = UIPickerView()
     @IBOutlet var txtBoatManafacturer: UITextField! = nil
@@ -77,6 +78,9 @@ class MyAccountViewController: UIViewController, UITextFieldDelegate, UIPickerVi
         if states.customer["email"].asString != nil {
             txtEmail.text = states.customer["email"].asString!
         }
+        if states.customer["phone_number"].asString != nil {
+            txtPhoneNumber.text = states.customer["phone_number"].asString!
+        }
         if states.customer["boat_name"].asString != nil {
             txtBoatName.text = states.customer["boat_name"].asString!
         }
@@ -123,10 +127,10 @@ class MyAccountViewController: UIViewController, UITextFieldDelegate, UIPickerVi
         super.viewDidLayoutSubviews()
         let idiom = UIDevice.currentDevice().userInterfaceIdiom
         if idiom == UIUserInterfaceIdiom.Phone {
-            scrollView.contentSize = CGSize(width:100, height:1300)
+            scrollView.contentSize = CGSize(width:100, height:1400)
         }
         else {
-            scrollView.contentSize = CGSize(width:100, height:2400)
+            scrollView.contentSize = CGSize(width:100, height:2600)
         }
     }
     
@@ -149,7 +153,7 @@ class MyAccountViewController: UIViewController, UITextFieldDelegate, UIPickerVi
         }
         else {
             self.dismissViewControllerAnimated(false, completion: nil)
-            states.setCustomerSetting(txtName.text!, surname: txtSurname.text!, password: txtPass.text!, birthYear: txtBirthYear.text!, country: txtCountry.text!, email: txtEmail.text!, boatName: txtBoatName.text!, boatManafacturer: txtBoatManafacturer.text!, boatModel: txtBoatModel.text!, boatCountry: txtBoatCountry.text!)
+            states.setCustomerSetting(txtName.text!, surname: txtSurname.text!, password: txtPass.text!, birthYear: txtBirthYear.text!, country: txtCountry.text!, email: txtEmail.text!, phoneNumber: txtPhoneNumber.text!, boatName: txtBoatName.text!, boatManafacturer: txtBoatManafacturer.text!, boatModel: txtBoatModel.text!, boatCountry: txtBoatCountry.text!)
             Comm.HTTPPostJSON(settings.customerSetUri, jsonObj: states.customer.toString(false))
         }
     }

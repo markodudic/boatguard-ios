@@ -63,8 +63,8 @@ class BilgePumpViewController: UIViewController, UIPickerViewDelegate, UITextFie
     //Events
     @IBAction func btnBack_click(sender: UIButton) {
         self.dismissViewControllerAnimated(false, completion: nil)
-        states.setObuSetting(23, value: String(tfShortPeriod.text))
-        states.setObuSetting(24, value: String(tfLongPeriod.text))
+        states.setObuSetting(23, value: tfShortPeriod.text!)
+        states.setObuSetting(24, value: tfLongPeriod.text!)
         Comm.HTTPPostJSON(settings.obusettingsSetUri, jsonObj: states.getObusettings().toString(false)) 
     }
     

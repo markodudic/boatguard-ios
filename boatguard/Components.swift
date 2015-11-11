@@ -315,15 +315,15 @@ class Components: NSObject {
                 }
                 
                 if (component_data31.length > 0) {
-                    bannerImages.append(states.toDecimal(component_data31["value"].asString!, decimals: 2)+"Ah")
+                    bannerImages.append(states.toDecimal(component_data31["value"].asString!, decimals: 2)+"A")
                 } else {
-                    bannerImages.append(states.dblSpace("NA Ah"))
+                    bannerImages.append(states.dblSpace("NA A"))
                 }
                 
                 if (component_data32.length > 0) {
-                    bannerImages.append(states.toDecimal(component_data32["value"].asString!, decimals: 2)+"A")
+                    bannerImages.append(states.toDecimal(component_data32["value"].asString!, decimals: 2)+"V")
                 } else {
-                    bannerImages.append(states.dblSpace("NA A"))
+                    bannerImages.append(states.dblSpace("NA V"))
                 }
 
             }

@@ -323,7 +323,7 @@ class States: NSObject {
         states.setObusettings(j)
     }
 
-    func setCustomerSetting(name: String, surname: String, password: String, birthYear: String, country: String, email: String, boatName: String, boatManafacturer: String, boatModel: String, boatCountry: String) {
+    func setCustomerSetting(name: String, surname: String, password: String, birthYear: String, country: String, email: String, phoneNumber: String, boatName: String, boatManafacturer: String, boatModel: String, boatCountry: String) {
 
         var by = 0;
         if birthYear != "" {
@@ -341,6 +341,7 @@ class States: NSObject {
             "birth_year" : by,
             "country" : country,
             "email" : email,
+            "phone_number" : phoneNumber,
             "boat_name" : boatName,
             "boat_manafacturer" : boatManafacturer,
             "boat_model" : boatModel,

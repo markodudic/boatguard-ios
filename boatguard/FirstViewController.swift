@@ -159,7 +159,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate, NSURLConnectio
         
         //get contacts from phonebook
         // make sure user hadn't previously denied access
-        
+        /*
         let status = ABAddressBookGetAuthorizationStatus()
         if status == .Denied || status == .Restricted {
             let alert = UIAlertController(title: "Phonebook access", message: "Phonebook is not accessable. Enable it in the settings.", preferredStyle: UIAlertControllerStyle.Alert)
@@ -231,7 +231,8 @@ class FirstViewController: UIViewController, UITextFieldDelegate, NSURLConnectio
                 
                 states.contacts.append(contact)
             }
-        }
+
+        }*/
 
         //open storyboard
         var storyboard = UIStoryboard(name: "Main_ipad", bundle: nil)

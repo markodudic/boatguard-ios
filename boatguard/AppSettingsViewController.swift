@@ -53,7 +53,7 @@ class AppSettingsViewController: UIViewController, UIPickerViewDelegate, UITextF
     //Events
     @IBAction func btnBack_click(sender: UIButton) {
         self.dismissViewControllerAnimated(false, completion: nil)
-        states.setObuSetting(1, value: String(tfTime.text))
+        states.setObuSetting(1, value: tfTime.text!)
         Comm.HTTPPostJSON(settings.obusettingsSetUri, jsonObj: states.getObusettings().toString(false))
     }
 
